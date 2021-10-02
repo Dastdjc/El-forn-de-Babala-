@@ -31,7 +31,7 @@ public class MenuScript : MonoBehaviour
     //En el menú de opciones la tecla back si estamos en la escena 0 irá a StartMenu pero con éste método también lo hará en el juego
     public void SetMenuVisible(int index)
     {
-        foreach (Transform child in canvas.transform)
+        foreach (Transform child in this.transform)
         {
             child.gameObject.SetActive(false);
         }
@@ -40,7 +40,7 @@ public class MenuScript : MonoBehaviour
     //Si le indicamos que no estamos en la escena 0 mediante el bool volveremos al PauseMenu
     public void SetMenuVisible(int index, bool backControl)
     {
-        foreach (Transform child in canvas.transform)
+        foreach (Transform child in this.transform)
         {
             child.gameObject.SetActive(false);
         }
