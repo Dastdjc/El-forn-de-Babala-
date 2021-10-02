@@ -6,6 +6,9 @@ using TMPro;
 public class CustomerController : MonoBehaviour
 {
     public TextMeshPro txt;
+    public RectTransform Mask;
+    public SpriteRenderer image;
+    private float satisfacton = 0;
     enum Recetas
     {
         Mona = 0,
@@ -24,6 +27,7 @@ public class CustomerController : MonoBehaviour
         }
         PrintCommand();
         Talk(false);
+        Mask.localScale = new Vector3(satisfacton, 0.2f, 1);
     }
     public void PrintCommand()
     {
@@ -35,9 +39,13 @@ public class CustomerController : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        satisfacton += 0.001f;
+        if(satisfacton >= 1) { satisfacton = 0; }
+        Mask.localScale = new Vector3(satisfacton, 0.2f, 1);
+        image.color = new Color(satisfacton, 1 - satisfacton, 0);
+        Debug.Log(satisfacton);
     }
     public void OnMouseOver()
     {
