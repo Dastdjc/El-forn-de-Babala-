@@ -13,14 +13,16 @@ public class MenuScript : MonoBehaviour
     {
         Debug.Log("El menú para la escena 0 es para jugar y cargar otra escena, la del juego" +
             "En cualquier escena que no sea la 0 aparecerá el menú de pausa");
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            Time.timeScale = 0;
             SetMenuVisible(0); 
         }
         else
         {
             SetMenuVisible(1);
-            canvas.SetActive(false);
+            //canvas.SetActive(false);
+            Time.timeScale = 0;
         }
         
     }
@@ -50,21 +52,20 @@ public class MenuScript : MonoBehaviour
     public void ChangeScene(int index) {SceneManager.LoadScene(index);}
     public void SetSoundVol(float num) { SoundVol = num; }
     public void ResumeGame() { canvas.SetActive(false); Time.timeScale = 1; }
-    /*public void Update()//Para activar el menu será necesario hacerlo desde el jugador
+    public void Update()//Para activar el menu será necesario hacerlo desde el jugador
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            if (Active)
+            if (canvas.activeSelf)
             {
                 SetMenuVisible(0, true);
                 canvas.SetActive(false);
-                Active = false;
+                Time.timeScale = 1;
             }
             else
             {
                 canvas.SetActive(true);
-                Active = true;
             }
         }
-    }*/
+    }
 }
