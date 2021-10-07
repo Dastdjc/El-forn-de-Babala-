@@ -26,6 +26,8 @@ public class CustomerController : MonoBehaviour
 
     void Start()
     {
+        me.layer = 3;
+        this.transform.position = new Vector3(-12, -3, 0);
         command = new Recetas[Random.Range(1, 4)];
         for(int i = 0; i < command.Length; i++)
         {
@@ -50,7 +52,11 @@ public class CustomerController : MonoBehaviour
             satisfacton += 0.001f;
             Mask.localScale = new Vector3(satisfacton, 0.2f, 1);
             image.color = new Color(satisfacton, 1 - satisfacton, 0);
-            if (satisfacton >= 1) { state++; Talk(false); }
+            if (satisfacton >= 1) {
+                me.layer = 6;
+                state++;
+                Talk(false);
+            }
         }
         else
         {
