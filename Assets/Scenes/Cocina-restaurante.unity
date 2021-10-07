@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 2038984748}
   - component: {fileID: 2038984747}
   - component: {fileID: 2038984749}
+  - component: {fileID: 2038984750}
   m_Layer: 5
   m_Name: Caja de texto
   m_TagString: Untagged
@@ -678,3 +679,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2038984750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038984745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a783d675e729f40a282dade35b4649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoPantalla: {fileID: 243152303}
