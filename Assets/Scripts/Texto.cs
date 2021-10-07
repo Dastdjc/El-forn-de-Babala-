@@ -5,18 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Texto
 {
-    [Text Area(2, 6)]
+    [TextArea (2, 6)]
     public string[] arrayTexto;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
