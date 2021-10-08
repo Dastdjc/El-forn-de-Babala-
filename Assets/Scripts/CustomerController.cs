@@ -6,10 +6,11 @@ using TMPro;
 public class CustomerController : MonoBehaviour
 {
     public GameObject me;
-
+    public int TimeWaiting = 2;
     private RectTransform Mask;
     private SpriteRenderer image;
     private float satisfacton = 0;
+    private float walk = 15;
     private int state;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
@@ -27,7 +28,6 @@ public class CustomerController : MonoBehaviour
     void Start()
     {
         me.layer = 3;
-        this.transform.position = new Vector3(-12, -3, 0);
         command = new Recetas[Random.Range(1, 4)];
         for(int i = 0; i < command.Length; i++)
         {
@@ -38,30 +38,38 @@ public class CustomerController : MonoBehaviour
         Talk(false);
         Mask = me.transform.GetChild(1).gameObject.GetComponent<RectTransform>();
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
-        Mask.localScale = new Vector3(satisfacton, 0.2f, 1);
+        Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
     }
     void FixedUpdate()
     {
         if(state == 0)
         {
             this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
-            if (this.transform.position.x >= 1) { state++; }
+            walk -= 0.1f;
+            if (walk <= 0) { state++; }
         }
         else if(state == 1)
         {
             satisfacton += 0.001f;
-            Mask.localScale = new Vector3(satisfacton, 0.2f, 1);
-            image.color = new Color(satisfacton, 1 - satisfacton, 0);
-            if (satisfacton >= 1) {
+            Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
+            image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
+            if (satisfacton >= TimeWaiting) {
                 me.layer = 6;
                 state++;
                 Talk(false);
+                walk = 15;
             }
         }
         else
         {
             this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            if (this.transform.position.x <= -10) { Destroy(me); }
+            walk -= 0.1f;
+            if (walk <= 0) 
+            {
+                Debug.Log((-(int)me.transform.position.x - 12) / 2);
+                SpawnCustomers.positions[(-(int)me.transform.position.x - 12) / 2] = false;
+                Destroy(me); 
+            }
         }
         
     }

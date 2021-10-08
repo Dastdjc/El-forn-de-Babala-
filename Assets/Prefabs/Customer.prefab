@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004551546410177000}
   - component: {fileID: 1004551546410177001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: I can't get no ...
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1004551546637682714}
   - component: {fileID: 1004551546637682715}
   - component: {fileID: 1004551546637682713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Customer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004551547286603117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SatisfactionBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004551547390710852}
   - component: {fileID: 1004551547390710853}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bocadillo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 1004551547493300817}
   - component: {fileID: 1004551547493300819}
   - component: {fileID: 1004551547493300818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 1004551547742252423}
   - component: {fileID: 1004551547742252473}
   - component: {fileID: 1004551547742252472}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
