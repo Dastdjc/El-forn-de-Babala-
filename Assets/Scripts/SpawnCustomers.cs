@@ -25,7 +25,7 @@ public class SpawnCustomers : MonoBehaviour
         if (Time.timeScale == 1 && CustomersNumber > 0)
         {
             CoolDown += Time.deltaTime;
-            if (CoolDown > 10 && ThereSpace())
+            if (CoolDown > 3 && ThereSpace())
             {
                 CoolDown = 0;
                 int NewC = Random.Range(0, 3);
