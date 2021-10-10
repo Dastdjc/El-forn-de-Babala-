@@ -28,7 +28,7 @@ public class SpawnCustomers : MonoBehaviour
             if (CoolDown > 3 && ThereSpace())
             {
                 CoolDown = 0;
-                int NewC = Random.Range(0, 3);
+                int NewC = Random.Range(1, 2);
                 if (NewC == 1)
                 {
                     CustomersNumber--;

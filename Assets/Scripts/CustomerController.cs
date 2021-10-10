@@ -12,6 +12,7 @@ public class CustomerController : MonoBehaviour
     private float satisfacton = 0;
     private float walk = 15;
     private int state;
+    private bool CommandTaken = false;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -19,7 +20,9 @@ public class CustomerController : MonoBehaviour
     {
         Mona = 0,
         Sandwich  = 1,
-        Rosquilletas = 2
+        Rosquilletas = 2,
+        Fartons = 3,
+        Bunyols = 4
     }
     private Recetas[] command;
 
@@ -84,10 +87,16 @@ public class CustomerController : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        string mensaje = "";
-        for(int i = 0; i < command.Length; i++) { mensaje += command[i].ToString() + '\n'; }
-        Debug.Log(mensaje);
-
+        if (!CommandTaken)
+        {
+            int[] What = new int[5];
+            for (int i = 0; i < command.Length; i++)
+            {
+                What[(int)command[i]] += 1;
+            }
+            FoodBar.WriteCommand(What);
+            CommandTaken = true;
+        }
     }
 
     public void PrintCommand()
