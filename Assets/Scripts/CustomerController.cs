@@ -82,6 +82,13 @@ public class CustomerController : MonoBehaviour
         if (state == 1)
             Talk(false);
     }
+    private void OnMouseDown()
+    {
+        string mensaje = "";
+        for(int i = 0; i < command.Length; i++) { mensaje += command[i].ToString() + '\n'; }
+        Debug.Log(mensaje);
+
+    }
 
     public void PrintCommand()
     {
@@ -99,9 +106,5 @@ public class CustomerController : MonoBehaviour
         {
             child.gameObject.SetActive(appear);
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Colisión");
     }
 }

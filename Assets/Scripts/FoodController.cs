@@ -24,7 +24,7 @@ public class FoodController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (isHeld)
+        if (isHeld && other != null)
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -33,6 +33,6 @@ public class FoodController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(other);
+        Destroy(gameObject);
     }
 }
