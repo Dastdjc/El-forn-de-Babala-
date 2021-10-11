@@ -89,16 +89,13 @@ public class CustomerController : MonoBehaviour
     {
         if (!CommandTaken)
         {
-            int[] What = new int[5];
             for (int i = 0; i < command.Length; i++)
             {
-                What[(int)command[i]] += 1;
+                FoodBar.WriteCommand((int)command[i]);
             }
-            FoodBar.WriteCommand(What);
             CommandTaken = true;
         }
     }
-
     public void PrintCommand()
     {
         TextMeshPro txt = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
