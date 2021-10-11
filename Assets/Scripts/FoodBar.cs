@@ -20,6 +20,7 @@ public class FoodBar : MonoBehaviour
             Bar[i].gameObject.GetComponent<SpriteRenderer>().color = new Color((float)i / Bar.Length, 0, (float)Bar.Length - i / Bar.Length);
             Bar[i].gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().color = new Color((float)Bar.Length - i / Bar.Length, 0.5f, (float)i / Bar.Length);
             Bar[i].gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().text = names[i];
+            Bar[i].gameObject.transform.GetChild(1).gameObject.name = names[i];
             Bar[i].transform.SetParent(gameObject.transform, false);
             
             Bar[i].SetActive(true);
@@ -42,11 +43,11 @@ public class FoodBar : MonoBehaviour
         Text = Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text;
         int num = GetNums(Text);
         num++;
-        Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x0";
-        //num = GetNums(Text, 15);
-        //Bar[i].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text += num.ToString();
+        Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x";
+        num = GetNums(Text, 15);
+        Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text += num.ToString();
     }
-    static private int GetNums(string txt, int index = 0)
+    static public int GetNums(string txt, int index = 0)
     {
         int resul = 0;
         bool isChar = false;
@@ -55,7 +56,7 @@ public class FoodBar : MonoBehaviour
             if ("0123456789".IndexOf(txt[index]) != -1)
             {
                 resul = resul * 10 + int.Parse("" + txt[index]);
-                if ("0123456789".IndexOf(txt[index + 1]) == -1) { isChar = true; }
+                if (index + 1 == txt.Length || "0123456789".IndexOf(txt[index + 1]) == -1) { isChar = true; }
             }
             index++;
         }

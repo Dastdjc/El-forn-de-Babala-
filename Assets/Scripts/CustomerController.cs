@@ -5,7 +5,6 @@ using TMPro;
 
 public class CustomerController : MonoBehaviour
 {
-    //public GameObject me;
     public int TimeWaiting = 2;
     private RectTransform Mask;
     private SpriteRenderer image;
@@ -35,7 +34,7 @@ public class CustomerController : MonoBehaviour
         for(int i = 0; i < command.Length; i++)
         {
             command[i] = new Recetas();
-            command[i] = (Recetas)Random.Range(0, 3);
+            command[i] = (Recetas)Random.Range(0, 5);
         }
         PrintCommand();
         Talk(false);

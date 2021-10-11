@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeWaiting: 2
+  Controller: {fileID: 2607924458080265367, guid: fd1d889e0034f6f4390eed08232882b8, type: 3}
 --- !u!50 &7993145364288361244
 Rigidbody2D:
   serializedVersion: 4
