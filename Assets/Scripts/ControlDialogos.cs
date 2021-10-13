@@ -6,10 +6,11 @@ using TMPro;
 public class ControlDialogos : MonoBehaviour
 {
 
-    private Animator anim;
-    private Queue<string> colaDialogos;
+    public Animator anim;
+    private Queue<string> colaDialogos = new Queue<string>();
     Texto texto;
     [SerializeField] TextMeshProUGUI textoPantalla;
+
     public void ActivarCartel(Texto textoObjeto)
     {
         anim.SetBool("Cartel", true);
