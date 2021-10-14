@@ -5,7 +5,12 @@ using UnityEngine;
 public class ObjetoInteractuable : MonoBehaviour
 {
 
-    public Texto textos;
+    private Texto textos;
+
+    public void Awake()
+    {
+        textos = "hola";
+    }
 
     private void OnMouseDown()
     {
