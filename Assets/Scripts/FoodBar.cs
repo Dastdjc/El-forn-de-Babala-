@@ -13,11 +13,15 @@ public class FoodBar : MonoBehaviour
     {
         Bar = new GameObject[5];
         string[] names = { "Mona", "Sandwich", "Rosquilletas", "Fartons", "Bunyols" };
+        // Crea las comidas
         for (int i = 0; i < Bar.Length; i++)
         {
             Bar[i] = Instantiate(Example);
+            //Posición de la comida, si hay más estarán más apretados
             Bar[i].transform.position = Bar[i].transform.position + new Vector3((i + 1) * 2 / (Bar.Length * 0.15f) + 3, 1.5f, 0);
-            Bar[i].gameObject.GetComponent<SpriteRenderer>().color = new Color((float)i / Bar.Length, 0, (float)Bar.Length - i / Bar.Length);
+            //Configuración del sprite. He puesto que sea de un color distinto pero aquí habrá que poner la imágen que le toque
+            Bar[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color((float)i / Bar.Length, 0, (float)Bar.Length - i / Bar.Length);
+            //Nombre de la comida, en cuanto esté la imágen esto se puede comentar /*
             Bar[i].gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().color = new Color((float)Bar.Length - i / Bar.Length, 0.5f, (float)i / Bar.Length);
             Bar[i].gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().text = names[i];
             Bar[i].gameObject.transform.GetChild(1).gameObject.name = names[i];
@@ -26,27 +30,31 @@ public class FoodBar : MonoBehaviour
             Bar[i].SetActive(true);
         }
     }
+    //Baja o sube la barra dependiendo de la posición
     private void OnMouseDown()
     {
+        
         Controller.SetTrigger("MouseTouch");
         bool dir = Controller.GetBool("Up");
         dir = !dir;
         Controller.SetBool("Up", dir);
     }
-    public void ResetTrigger()
-    {
-        Controller.ResetTrigger("MouseTouch");
-    }
+    //Las animaciones una vez acabadas activan esta función
+    public void ResetTrigger() {Controller.ResetTrigger("MouseTouch");}
+    //Al clicar a un cliente, este envía su pedido si es que no lo ha hecho aún
+    //Se llama a esta función desde OnmouseDown() de customerController.cs
     static public void WriteCommand(int index)
     {
+        //Debug.Log(Bar[index].gameObject.transform.GetChild(0).name);
         string Text;
-        Text = Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text;
+        Text = Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text;
         int num = GetNums(Text);
         num++;
-        Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x";
+        Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x";
         num = GetNums(Text, 15);
-        Bar[index].gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text += num.ToString();
+        Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text += num.ToString();
     }
+    //Un simple método para sacar los números de una cadena
     static public int GetNums(string txt, int index = 0)
     {
         int resul = 0;

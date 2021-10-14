@@ -13,7 +13,7 @@ public class MenuScript : MonoBehaviour
     {
         Debug.Log("El menú para la escena 0 es para jugar y cargar otra escena, la del juego" +
             "En cualquier escena que no sea la 0 aparecerá el menú de pausa");
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             Time.timeScale = 0;
             SetMenuVisible(0); 
@@ -21,8 +21,8 @@ public class MenuScript : MonoBehaviour
         else
         {
             SetMenuVisible(1);
-            //canvas.SetActive(false);
-            Time.timeScale = 0;
+            canvas.SetActive(false);
+            Time.timeScale = 1;
         }
         
     }
@@ -31,16 +31,8 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
     //En el menú de opciones la tecla back si estamos en la escena 0 irá a StartMenu pero con éste método también lo hará en el juego
-    public void SetMenuVisible(int index)
-    {
-        foreach (Transform child in this.transform)
-        {
-            child.gameObject.SetActive(false);
-        }
-        canvas.transform.GetChild(index).gameObject.SetActive(true);
-    }
     //Si le indicamos que no estamos en la escena 0 mediante el bool volveremos al PauseMenu
-    public void SetMenuVisible(int index, bool backControl)
+    public void SetMenuVisible(int index, bool backControl = false)
     {
         foreach (Transform child in this.transform)
         {
@@ -49,7 +41,7 @@ public class MenuScript : MonoBehaviour
         if (backControl && SceneManager.GetActiveScene().buildIndex != 0) { index++; }
         canvas.transform.GetChild(index).gameObject.SetActive(true);
     }
-    public void ChangeScene(int index) {SceneManager.LoadScene(index);}
+    public void ChangeScene(int index) { Time.timeScale = 1; SceneManager.LoadScene(index);}
     public void SetSoundVol(float num) { SoundVol = num; }
     public void ResumeGame() { canvas.SetActive(false); Time.timeScale = 1; }
     public void Update()//Para activar el menu será necesario hacerlo desde el jugador

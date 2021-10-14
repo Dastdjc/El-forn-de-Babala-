@@ -25,8 +25,6 @@ public class CustomerController : MonoBehaviour
     }
     private Recetas[] command;
 
-
-
     void Start()
     {
         gameObject.layer = 3;
