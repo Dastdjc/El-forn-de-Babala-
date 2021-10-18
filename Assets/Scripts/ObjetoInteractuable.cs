@@ -5,11 +5,11 @@ using UnityEngine;
 public class ObjetoInteractuable : MonoBehaviour
 {
 
-    private Texto textos;
+    public Texto textos;
 
     public void Awake()
     {
-        textos = "hola";
+        
     }
 
     private void OnMouseDown()
