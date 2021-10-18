@@ -683,9 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521772cd801472d429e7e469f39a4b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textos:
-    arrayTexto:
-    - Hola, Quie una mona de pascua.
+  textos: 
 --- !u!212 &1483083449
 SpriteRenderer:
   m_ObjectHideFlags: 0

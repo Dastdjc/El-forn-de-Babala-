@@ -8,22 +8,20 @@ public class ControlDialogos : MonoBehaviour
 
     public Animator anim;
     private Queue<string> colaDialogos = new Queue<string>();
-    Texto texto;
+    string texto;
     [SerializeField] TextMeshProUGUI textoPantalla;
 
-    public void ActivarCartel(Texto textoObjeto)
+    public void ActivarCartel(string textoObjeto)
     {
         anim.SetBool("Cartel", true);
         texto = textoObjeto;
+        
     }
 
     public void ActivaTexto()
     {
         colaDialogos.Clear();
-        foreach (string textoGuardado in texto.arrayTexto)
-        {
-            colaDialogos.Enqueue(textoGuardado);
-        }
+        colaDialogos.Enqueue(texto);
         SiguienteFrase();
     }
 
