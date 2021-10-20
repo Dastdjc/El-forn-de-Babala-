@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cd97f50c2af1c43a51b2d3cef8c7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FoodName: 
 --- !u!1001 &382833182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1316,6 +1317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344a4020c9cac994fb61167c096d0eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantity: 1
+  ordered: 0
+  FoodName: 
 --- !u!61 &1796684509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1361,7 +1365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2019003685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344a4020c9cac994fb61167c096d0eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantity: 0
+  ordered: 0
+  FoodName: 
 --- !u!61 &2019003686
 BoxCollider2D:
   m_ObjectHideFlags: 0

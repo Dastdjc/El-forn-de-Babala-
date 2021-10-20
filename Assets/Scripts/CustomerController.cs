@@ -17,6 +17,7 @@ public class CustomerController : MonoBehaviour
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
     enum Recetas
     {
+        Served = -1,
         Mona = 0,
         Sandwich  = 1,
         Rosquilletas = 2,
@@ -65,7 +66,6 @@ public class CustomerController : MonoBehaviour
             walk -= 0.1f;
             if (walk <= 0) 
             {
-                Debug.Log((-(int)gameObject.transform.position.x - 12) / 2);
                 SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
                 Destroy(gameObject); 
             }
@@ -97,11 +97,17 @@ public class CustomerController : MonoBehaviour
     {
         TextMeshPro txt = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         txt.text = "";
+        int j = 0;
         for (int i = 0; i < command.Length; i++)
         {
-            txt.text += command[i].ToString();
-            txt.text += "\n";
+            if(command[i] != Recetas.Served)
+            {
+                txt.text += command[i].ToString();
+                txt.text += "\n";
+            }
+            else { j++; }
         }
+        if( j == command.Length) { satisfacton = TimeWaiting; }
     }
     public void Talk(bool appear)
     {
@@ -109,5 +115,12 @@ public class CustomerController : MonoBehaviour
         {
             child.gameObject.SetActive(appear);
         }
+    }
+    public void DeleteOnCommand(string foodName)
+    {
+        int i = 0;
+        while(i < command.Length && command[i].ToString() != foodName) { i++; }
+        if(i < command.Length) { command[i] = Recetas.Served; }
+        PrintCommand();
     }
 }

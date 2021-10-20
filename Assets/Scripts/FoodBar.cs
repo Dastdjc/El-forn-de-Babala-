@@ -24,7 +24,7 @@ public class FoodBar : MonoBehaviour
             //Nombre de la comida, en cuanto esté la imágen esto se puede comentar /*
             Bar[i].gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().color = new Color((float)Bar.Length - i / Bar.Length, 0.5f, (float)i / Bar.Length);
             Bar[i].gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().text = names[i];
-            Bar[i].gameObject.transform.GetChild(1).gameObject.name = names[i];
+            Bar[i].gameObject.GetComponent<FoodController>().FoodName = names[i];
             Bar[i].transform.SetParent(gameObject.transform, false);
             
             Bar[i].SetActive(true);
@@ -45,29 +45,11 @@ public class FoodBar : MonoBehaviour
     //Se llama a esta función desde OnmouseDown() de customerController.cs
     static public void WriteCommand(int index)
     {
-        //Debug.Log(Bar[index].gameObject.transform.GetChild(0).name);
-        string Text;
-        Text = Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text;
-        int num = GetNums(Text);
+        //Text = Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text;
+        int num = Bar[index].transform.GetComponent<FoodController>().ordered;//GetNums(Text);
         num++;
         Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x";
-        num = GetNums(Text, 15);
+        num = Bar[index].transform.GetComponent<FoodController>().quantity;
         Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text += num.ToString();
-    }
-    //Un simple método para sacar los números de una cadena
-    static public int GetNums(string txt, int index = 0)
-    {
-        int resul = 0;
-        bool isChar = false;
-        while(index < txt.Length && !isChar)
-        {
-            if ("0123456789".IndexOf(txt[index]) != -1)
-            {
-                resul = resul * 10 + int.Parse("" + txt[index]);
-                if (index + 1 == txt.Length || "0123456789".IndexOf(txt[index + 1]) == -1) { isChar = true; }
-            }
-            index++;
-        }
-        return resul;
     }
 }
