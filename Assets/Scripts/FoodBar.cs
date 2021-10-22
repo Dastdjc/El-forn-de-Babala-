@@ -33,11 +33,14 @@ public class FoodBar : MonoBehaviour
     //Baja o sube la barra dependiendo de la posición
     private void OnMouseDown()
     {
+        if(Time.timeScale == 1)
+        {
+            Controller.SetTrigger("MouseTouch");
+            bool dir = Controller.GetBool("Up");
+            dir = !dir;
+            Controller.SetBool("Up", dir);
+        }
         
-        Controller.SetTrigger("MouseTouch");
-        bool dir = Controller.GetBool("Up");
-        dir = !dir;
-        Controller.SetBool("Up", dir);
     }
     //Las animaciones una vez acabadas activan esta función
     public void ResetTrigger() {Controller.ResetTrigger("MouseTouch");}

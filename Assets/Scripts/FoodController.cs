@@ -14,7 +14,7 @@ public class FoodController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(quantity > 0)
+        if(quantity > 0 && Time.timeScale == 1)
         {
             other = Instantiate(gameObject.transform.GetChild(0).gameObject);
             other.GetComponent<IWantToDie>().FoodName = FoodName;

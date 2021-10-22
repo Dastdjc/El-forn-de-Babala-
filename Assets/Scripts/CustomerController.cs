@@ -47,55 +47,58 @@ public class CustomerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        switch (state)
+        if(Time.timeScale == 1)
         {
-            //Anda a su sitio
-            case 0:
-                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
-                walk -= 0.1f;
-                if (walk <= 0) { state++; }
-                break;
-            //Tiene que pedir y hablar
-            case 1:
-                state++;
-                break;
-            //Espera a que le des su comida
-            case 2:
-                satisfacton += 0.001f;
-                Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
-                image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
-                if (satisfacton >= TimeWaiting)
-                {
+            switch (state)
+            {
+                //Anda a su sitio
+                case 0:
+                    this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+                    walk -= 0.1f;
+                    if (walk <= 0) { state++; }
+                    break;
+                //Tiene que pedir y hablar
+                case 1:
                     state++;
-                    Talk(false);
-                    walk = 15;
-                }
-                break;
-            //Se va a su casa
-            case 3:
-                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-                walk -= 0.1f;
-                if (walk <= 0)
-                {
-                    SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
-                    Destroy(gameObject);
-                }
-                break;
+                    break;
+                //Espera a que le des su comida
+                case 2:
+                    satisfacton += 0.001f;
+                    Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
+                    image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
+                    if (satisfacton >= TimeWaiting)
+                    {
+                        state++;
+                        Talk(false);
+                        walk = 15;
+                    }
+                    break;
+                //Se va a su casa
+                case 3:
+                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+                    walk -= 0.1f;
+                    if (walk <= 0)
+                    {
+                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
+                        Destroy(gameObject);
+                    }
+                    break;
+            }
         }
     }
     public void OnMouseOver()
     {
-        if(state == 2)
+        if(state == 2 && Time.timeScale ==1)
             Talk(true);
     }
     public void OnMouseExit()
     {
-        if (state == 2)
+        if (state == 2 && Time.timeScale == 1)
             Talk(false);
     }
     private void OnMouseDown()
     {
-        if (state == 2)
+        if (state == 2 && Time.timeScale == 1)
         {
             for (int i = 0; i < command.Length; i++)
             {
