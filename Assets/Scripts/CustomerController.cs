@@ -11,7 +11,6 @@ public class CustomerController : MonoBehaviour
     private float satisfacton = 0;
     private float walk = 15;
     private int state;
-    private bool CommandTaken = false;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -28,13 +27,18 @@ public class CustomerController : MonoBehaviour
 
     void Start()
     {
+        //Se asigna la layer CustomerIn que no colisionan con CustomerIn
         gameObject.layer = 3;
+
+        //A medida que avanze y se desbloqueen más recetas el juego ,
+        // el segundo número del Range tendrá que ir aumentando
         command = new Recetas[Random.Range(1, 4)];
         for(int i = 0; i < command.Length; i++)
         {
             command[i] = new Recetas();
             command[i] = (Recetas)Random.Range(0, 5);
         }
+        //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
         Mask = gameObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>();
@@ -43,54 +47,60 @@ public class CustomerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(state == 0)
+        switch (state)
         {
-            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
-            walk -= 0.1f;
-            if (walk <= 0) { state++; }
-        }
-        else if(state == 1)
-        {
-            satisfacton += 0.001f;
-            Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
-            image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
-            if (satisfacton >= TimeWaiting) {
+            //Anda a su sitio
+            case 0:
+                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+                walk -= 0.1f;
+                if (walk <= 0) { state++; }
+                break;
+            //Tiene que pedir y hablar
+            case 1:
                 state++;
-                Talk(false);
-                walk = 15;
-            }
+                break;
+            //Espera a que le des su comida
+            case 2:
+                satisfacton += 0.001f;
+                Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
+                image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
+                if (satisfacton >= TimeWaiting)
+                {
+                    state++;
+                    Talk(false);
+                    walk = 15;
+                }
+                break;
+            //Se va a su casa
+            case 3:
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+                walk -= 0.1f;
+                if (walk <= 0)
+                {
+                    SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
+                    Destroy(gameObject);
+                }
+                break;
         }
-        else
-        {
-            this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            walk -= 0.1f;
-            if (walk <= 0) 
-            {
-                SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
-                Destroy(gameObject); 
-            }
-        }
-        
     }
     public void OnMouseOver()
     {
-        if(state == 1)
+        if(state == 2)
             Talk(true);
     }
     public void OnMouseExit()
     {
-        if (state == 1)
+        if (state == 2)
             Talk(false);
     }
     private void OnMouseDown()
     {
-        if (!CommandTaken)
+        if (state == 2)
         {
             for (int i = 0; i < command.Length; i++)
             {
                 FoodBar.WriteCommand((int)command[i]);
             }
-            CommandTaken = true;
         }
     }
     public void PrintCommand()
@@ -116,11 +126,13 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    public void DeleteOnCommand(string foodName)
+    public bool DeleteOnCommand(string foodName)
     {
         int i = 0;
         while(i < command.Length && command[i].ToString() != foodName) { i++; }
         if(i < command.Length) { command[i] = Recetas.Served; }
+        else { return false; }
         PrintCommand();
+        return true;
     }
 }

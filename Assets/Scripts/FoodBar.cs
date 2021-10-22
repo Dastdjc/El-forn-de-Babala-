@@ -45,11 +45,20 @@ public class FoodBar : MonoBehaviour
     //Se llama a esta función desde OnmouseDown() de customerController.cs
     static public void WriteCommand(int index)
     {
-        //Text = Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text;
-        int num = Bar[index].transform.GetComponent<FoodController>().ordered;//GetNums(Text);
+        int num = Bar[index].transform.GetComponent<FoodController>().ordered;
         num++;
         Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x";
+        Bar[index].transform.GetComponent<FoodController>().ordered = num;
         num = Bar[index].transform.GetComponent<FoodController>().quantity;
         Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text += num.ToString();
+    }
+    static public void AddFood(int index)
+    {
+        int num = Bar[index].transform.GetComponent<FoodController>().ordered;
+        Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text = "Pedidos x" + num.ToString() + "\n Tienes x";
+        num = Bar[index].transform.GetComponent<FoodController>().quantity;
+        num++;
+        Bar[index].gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text += num.ToString();
+        Bar[index].transform.GetComponent<FoodController>().quantity = num;
     }
 }

@@ -8,7 +8,13 @@ public class IWantToDie : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 3)
-            collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(FoodName);
+            if (!collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(FoodName))
+            {
+                string[] names = { "Mona", "Sandwich", "Rosquilletas", "Fartons", "Bunyols" };
+                int i = 0;
+                while(i < name.Length && names[i] == FoodName) { i++; }
+                FoodBar.WriteCommand(i);
+            }
         Destroy(gameObject);
     }
 }
