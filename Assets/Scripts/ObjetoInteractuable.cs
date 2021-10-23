@@ -7,16 +7,12 @@ public class ObjetoInteractuable : MonoBehaviour
 
     public string textos;
     private textImporter arrayTextos;
-
-    public void Awake()
-    {
- 
-    }
-
+    private int n = 0;
     private void OnMouseDown()
     {
+        textos = "";
         arrayTextos = FindObjectOfType<textImporter>();
-        int n = arrayTextos.textLines.Length;
+        n = arrayTextos.textLines.Length;
         textos = arrayTextos.textLines[Random.Range(0, n-1)];
         FindObjectOfType<ControlDialogos>().ActivarCartel(textos);
     }

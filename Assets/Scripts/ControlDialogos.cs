@@ -13,11 +13,16 @@ public class ControlDialogos : MonoBehaviour
 
     public void ActivarCartel(string textoObjeto)
     {
+        textoPantalla.text = "";
         anim.SetBool("Cartel", true);
         texto = textoObjeto;
         
     }
 
+    public void Update()
+    {
+        //Debug.Log(colaDialogos.Count);
+    }
     public void ActivaTexto()
     {
         colaDialogos.Clear();
@@ -32,7 +37,7 @@ public class ControlDialogos : MonoBehaviour
             cierraCartel();
             return;
         }
-
+        Debug.Log(colaDialogos.Count);
         string fraseActual = colaDialogos.Dequeue();
         textoPantalla.text = fraseActual;
         StartCoroutine(MostrarCaracteres(fraseActual));
