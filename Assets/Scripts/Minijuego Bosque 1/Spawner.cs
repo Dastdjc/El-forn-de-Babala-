@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
         
         if (Time.time > timeSpawn)
         {
-            rnd = Random.Range(0, 4);
+            rnd = Random.Range(0, 5);
             spawn.x = Random.Range(-10.5f, 11);
             spawn.y = Random.Range(4.5f, 8);
             Instantiate(items[rnd], spawn, Quaternion.identity);

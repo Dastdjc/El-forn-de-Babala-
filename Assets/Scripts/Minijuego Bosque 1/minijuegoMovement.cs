@@ -10,6 +10,12 @@ public class minijuegoMovement : MonoBehaviour
     public float speed = 5;
     public float dashSpeed = 10;
 
+    private bool aturdido = false;
+
+    //Variables globales para los recursos
+    [HideInInspector]
+    public int calabaza, huevos, harina, pan;
+
 
     void Start()
     {
@@ -18,6 +24,7 @@ public class minijuegoMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(harina);
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         // La dirección en sí no la magnitud, para el dash
@@ -34,6 +41,42 @@ public class minijuegoMovement : MonoBehaviour
         {
             Dash(xRaw);
         }
+
+        if (aturdido)
+        {
+            StartCoroutine("Aturdir");
+        }
+        else if (!aturdido)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) //deteccion de los ingredientes
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Huevo":
+                huevos += 1;
+                break;
+            case "Harina":
+                harina += 1;
+                break;
+            case "Pan":
+                pan += 1;
+                break;
+            case "Calabaza":
+                calabaza += 1;
+                break;
+            case "Piedra":
+                aturdido = true;
+                break;
+            default:
+                break;
+        }
+
+        Destroy(collision.gameObject);
+
     }
 
     private void Walk(Vector2 dir)
@@ -71,4 +114,11 @@ public class minijuegoMovement : MonoBehaviour
         Debug.Log("STOP dash");
     }
 
+
+    IEnumerator Aturdir()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        aturdido = false;
+        yield return new WaitForSeconds(1f);
+    }
 }
