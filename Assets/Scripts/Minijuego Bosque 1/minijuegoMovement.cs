@@ -5,6 +5,7 @@ using UnityEngine;
 public class minijuegoMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Collider2D coll;
     private bool isDashing = false;
 
     public float speed = 5;
@@ -19,12 +20,13 @@ public class minijuegoMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); 
+        coll = GetComponent<Collider2D>();
     }
 
     void Update()
     {
-        Debug.Log(harina);
+        Debug.Log(aturdido);
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         // La dirección en sí no la magnitud, para el dash
@@ -45,10 +47,7 @@ public class minijuegoMovement : MonoBehaviour
         if (aturdido)
         {
             StartCoroutine("Aturdir");
-        }
-        else if (!aturdido)
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            
         }
     }
 
@@ -69,6 +68,8 @@ public class minijuegoMovement : MonoBehaviour
                 calabaza += 1;
                 break;
             case "Piedra":
+                rb.bodyType = RigidbodyType2D.Static;
+                coll.enabled = false;
                 aturdido = true;
                 break;
             default:
@@ -117,8 +118,9 @@ public class minijuegoMovement : MonoBehaviour
 
     IEnumerator Aturdir()
     {
-        rb.bodyType = RigidbodyType2D.Static;
+        yield return new WaitForSeconds(2);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        coll.enabled = true;
         aturdido = false;
-        yield return new WaitForSeconds(1f);
     }
 }
