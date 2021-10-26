@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     private float startTime;
+    private bool finished = false;
     void Start()
     {
         startTime = Time.time;
@@ -18,11 +19,25 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float t = Time.time - startTime;
+        while (!finished)
+        {
+            float t = Time.time - startTime;
 
-        string seconds = (t % 60).ToString("f2");
+
+            string seconds = (t % 60).ToString("f2");
+            if (seconds == "5,00")
+            {
+                Finish();
+            }
+
+            timerText.text = seconds;
+        }
        
+    }
 
-        timerText.text =  seconds;
+    void Finish()
+    {
+        finished = true;
+        timerText.color = Color.red;
     }
 }
