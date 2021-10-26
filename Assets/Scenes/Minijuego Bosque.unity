@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 775171544}
   - component: {fileID: 775171543}
   - component: {fileID: 775171542}
+  - component: {fileID: 775171545}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -704,6 +705,19 @@ MonoBehaviour:
   huevos: 0
   harina: 0
   pan: 0
+--- !u!114 &775171545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775171539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f4eb5690c7b347ba40aeb98ffacaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 506807311}
 --- !u!1 &1049239903
 GameObject:
   m_ObjectHideFlags: 0

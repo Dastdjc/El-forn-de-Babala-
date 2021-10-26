@@ -19,20 +19,23 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (!finished)
+        if (!finished)
         {
             float t = Time.time - startTime;
 
 
             string seconds = (t % 60).ToString("f2");
-            if (seconds == "5,00")
+            if (seconds == "30,00")
             {
                 Finish();
             }
 
             timerText.text = seconds;
         }
-       
+        else if (finished)
+        {
+            
+        }
     }
 
     void Finish()
