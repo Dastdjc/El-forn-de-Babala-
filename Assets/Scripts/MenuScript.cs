@@ -31,7 +31,7 @@ public class MenuScript : MonoBehaviour
         }
         canvas.transform.GetChild(index).gameObject.SetActive(true);
     }
-    public void ChangeScene(int index) { SceneManager.LoadScene(index);}
+    public void ChangeScene(int index) { Time.timeScale = 1; SceneManager.LoadScene(index);}
     public void SetSoundVol(float num) { SoundVol = num; }
     public void ResumeGame() { Start(); }
 }
