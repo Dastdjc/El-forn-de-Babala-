@@ -27,14 +27,17 @@ public class minijuegoMovement : MonoBehaviour
 
     void Update()
     {
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        position = Vector2.Lerp(position, mousePosition, speedInterpolate);
 
         if (aturdido)
         {
             StartCoroutine("Aturdir");
-            
+
+        }
+        else {
+            mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            position = Vector2.Lerp(position, mousePosition, speedInterpolate);
         }
     }
 
