@@ -20,20 +20,17 @@ public class SongManager : MonoBehaviour
 
     public string fileLocation;
     public float noteTime;
-    public float noteSpawnY;
-    public float noteTapY;
-    public float noteDespawnY
-    {
-        get
-        {
-            return noteTapY - (noteSpawnY - noteTapY);
-        }
-    }
+    public float noteSpawnScale = 3f;
+    public float noteTapScale = 1f;
+    public float noteDespawnScale = 0f;
+    
+    
 
     public static MidiFile midiFile;
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log( new Vector3(1, 1, 1) * noteDespawnScale);
         Instance = this;
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {

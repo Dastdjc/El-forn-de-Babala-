@@ -31,7 +31,7 @@ public class Lane : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (spawnIndex < timeStamps.Count)
