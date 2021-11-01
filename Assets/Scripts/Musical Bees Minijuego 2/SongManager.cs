@@ -14,6 +14,7 @@ public class SongManager : MonoBehaviour
     public Lane[] lanes;
     public float songDelayInSeconds;
     public double marginOfError; // in seconds
+    public bool playing = false;
 
     public int inputDelayInMilliseconds;
 
@@ -71,17 +72,19 @@ public class SongManager : MonoBehaviour
     }
     public void GetDataFromMidi()
     {
+        midiFile.ReplaceTempoMap(TempoMap.Create(Tempo.FromBeatsPerMinute(92)));
         var notes = midiFile.GetNotes();
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);
 
         foreach (var lane in lanes) lane.SetTimeStamps(array);
 
-        Invoke(nameof(StartSong), songDelayInSeconds);
+        Invoke("StartSong", songDelayInSeconds);
     }
     public void StartSong()
     {
         audioSource.Play();
+        playing = true;
     }
     public static double GetAudioSourceTime()
     {

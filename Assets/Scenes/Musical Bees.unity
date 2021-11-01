@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 26751496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -282,7 +282,7 @@ Transform:
   m_GameObject: {fileID: 234043442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -370,13 +370,14 @@ MonoBehaviour:
   - {fileID: 501668999}
   - {fileID: 1750937531}
   - {fileID: 1634572524}
-  songDelayInSeconds: 0
+  songDelayInSeconds: 2
   marginOfError: 0.2
-  inputDelayInMilliseconds: 0
-  fileLocation: we_made_a_chart_pog.mid
+  playing: 0
+  inputDelayInMilliseconds: 100
+  fileLocation: MusicalBees.mid
   noteTime: 1
-  noteSpawnScale: 3
-  noteTapScale: 1
+  noteSpawnScale: 4
+  noteTapScale: 2
   noteDespawnScale: 0.1
 --- !u!4 &337705425
 Transform:
@@ -643,7 +644,7 @@ Transform:
   m_GameObject: {fileID: 537451948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -805,8 +806,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b873ec6feeca4ba4f8ca103d3ffb0446, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 90a542c1cf83e074fa4ff67d9edc7879, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -982,7 +983,7 @@ Transform:
   m_GameObject: {fileID: 1508354944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
