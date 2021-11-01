@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class IWantToDie : MonoBehaviour
 {
-    public string FoodName;
+    public GameObject Parent;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 3)
-            if (!collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(FoodName))
+        {
+            if (collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(Parent.transform.GetComponent<FoodController>().FoodName))
             {
-                string[] names = { "Mona", "Sandwich", "Rosquilletas", "Fartons", "Bunyols" };
-                int i = 0;
-                while(i < name.Length && names[i] == FoodName) { i++; }
-                FoodBar.WriteCommand(i);
+                Parent.transform.GetComponent<FoodController>().ordered--;
             }
-        Destroy(gameObject);
+            else { Parent.transform.GetComponent<FoodController>().quantity++; }
+            Parent.transform.GetComponent<FoodController>().PrintNumbers();
+            Destroy(gameObject);
+        }
+        
     }
 }

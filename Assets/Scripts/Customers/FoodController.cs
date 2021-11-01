@@ -17,7 +17,7 @@ public class FoodController : MonoBehaviour
         if(quantity > 0 && Time.timeScale == 1)
         {
             other = Instantiate(gameObject.transform.GetChild(0).gameObject);
-            other.GetComponent<IWantToDie>().FoodName = FoodName;
+            other.GetComponent<IWantToDie>().Parent = gameObject;
             isHeld = true;
             quantity--;
             PrintNumbers();
@@ -47,7 +47,7 @@ public class FoodController : MonoBehaviour
             other.transform.localPosition = new Vector3(mousePos.x, mousePos.y, 0);
         }
     }
-    private void PrintNumbers()
+    public void PrintNumbers()
     {
         if(other != null)
             gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text =
