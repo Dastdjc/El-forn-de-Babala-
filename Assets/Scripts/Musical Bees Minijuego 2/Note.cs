@@ -6,6 +6,7 @@ public class Note : MonoBehaviour
 {
     double timeInstantiated;
     public float assignedTime;
+
     void Start()
     {
         //timeInstantiated = SongManager.GetAudioSourceTime();
