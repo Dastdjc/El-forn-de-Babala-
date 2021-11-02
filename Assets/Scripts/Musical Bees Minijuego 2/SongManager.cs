@@ -11,13 +11,14 @@ public class SongManager : MonoBehaviour
 {
     public static SongManager Instance;
     public AudioSource audioSource;
+    public int bpm = 92;
     public Lane[] lanes;
     public float songDelayInSeconds;
+    public int midiDelayInMilliseconds;
     public double marginOfError; // in seconds
     public bool playing = false;
-
+    
     public int inputDelayInMilliseconds;
-
 
     public string fileLocation;
     public float noteTime;
@@ -25,13 +26,11 @@ public class SongManager : MonoBehaviour
     public float noteTapScale = 1f;
     public float noteDespawnScale = 0f;
     
-    
 
     public static MidiFile midiFile;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log( new Vector3(1, 1, 1) * noteDespawnScale);
         Instance = this;
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
@@ -72,7 +71,7 @@ public class SongManager : MonoBehaviour
     }
     public void GetDataFromMidi()
     {
-        midiFile.ReplaceTempoMap(TempoMap.Create(Tempo.FromBeatsPerMinute(92)));
+        midiFile.ReplaceTempoMap(TempoMap.Create(Tempo.FromBeatsPerMinute(bpm)));    // Cambiar el tempoMap por el BPM
         var notes = midiFile.GetNotes();
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);

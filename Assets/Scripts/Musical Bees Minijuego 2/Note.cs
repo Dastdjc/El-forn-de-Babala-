@@ -16,24 +16,20 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SongManager.Instance.playing)
+        double timeSinceInstantiated = SongManager.GetAudioSourceTime() - timeInstantiated;
+
+        float t = (float)(timeSinceInstantiated / (SongManager.Instance.noteTime * 2));
+
+
+        if (t > 1)
         {
-
-            double timeSinceInstantiated = SongManager.GetAudioSourceTime() - timeInstantiated;
-
-            float t = (float)(timeSinceInstantiated / (SongManager.Instance.noteTime * 2));
-
-
-            if (t > 1)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                //transform.localPosition = Vector3.Lerp(Vector3.up * SongManager.Instance.noteSpawnScale, Vector3.up * SongManager.Instance.noteDespawnScale, t);
-                transform.localScale = Vector3.Lerp( new Vector3(1, 1, 0) * SongManager.Instance.noteSpawnScale, new Vector3(1, 1, 0) * SongManager.Instance.noteDespawnScale, t); // unitario * SongManager.Instance.noteSpawnScale, unitario * SongManager.Instance.noteDespawnScale
-                GetComponent<SpriteRenderer>().enabled = true;
-            }
+            Destroy(gameObject);
+        }
+        else
+        {
+            //transform.localPosition = Vector3.Lerp(Vector3.up * SongManager.Instance.noteSpawnScale, Vector3.up * SongManager.Instance.noteDespawnScale, t);
+            transform.localScale = Vector3.Lerp( new Vector3(1, 1, 0) * SongManager.Instance.noteSpawnScale, new Vector3(1, 1, 0) * SongManager.Instance.noteDespawnScale, t); // unitario * SongManager.Instance.noteSpawnScale, unitario * SongManager.Instance.noteDespawnScale
+            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }
