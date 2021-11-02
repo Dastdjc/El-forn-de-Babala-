@@ -379,10 +379,10 @@ MonoBehaviour:
   playing: 0
   inputDelayInMilliseconds: 0
   fileLocation: MusicalBees.mid
-  noteTime: 1
-  noteSpawnScale: 4
+  noteTime: 1.1
+  noteSpawnScale: 5
   noteTapScale: 2
-  noteDespawnScale: 0.1
+  noteDespawnScale: 0.9
 --- !u!4 &337705425
 Transform:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f9214d9acee665343babaf88bc6329e0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1320,7 +1320,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f88eee48810c99243b039275f2791494, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
