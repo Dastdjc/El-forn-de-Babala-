@@ -6,14 +6,16 @@ using TMPro;
 public class FoodController : MonoBehaviour
 {
     private Vector3 mousePos;
-    private bool isHeld;
+    private bool isHeld = false;
     private GameObject other;
     public int quantity = 0;
-    public int ordered = 0;
+    private int ordered = 0;
+    public bool LargeLabel;
     public string FoodName = "";
 
     private void OnMouseDown()
     {
+        Debug.Log("Hola");
         if(quantity > 0 && Time.timeScale == 1)
         {
             other = Instantiate(gameObject.transform.GetChild(0).gameObject);
@@ -32,11 +34,15 @@ public class FoodController : MonoBehaviour
             quantity++;
             PrintNumbers();
         }
+        else { isHeld = false; }
     }
-    private void Start(){
-        //if(gameObject.transform.childCount > 1)
-            gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text =
-            "Pedido x" + ordered.ToString() + "\nTienes x" + quantity.ToString();
+    public void SumQuantity(int q) { this.quantity += q; }
+    public void SumOrder(int q) { this.ordered += q; }
+    public void Iniciate()
+    {
+        PrintNumbers();
+        if (!PrintVisual(null))
+            PrintName();
     }
     private void FixedUpdate()
     {
@@ -49,8 +55,39 @@ public class FoodController : MonoBehaviour
     }
     public void PrintNumbers()
     {
-        if(other != null)
+        if (other != null)
+        {
             gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text =
-            "Pedido x" + ordered.ToString() + "\nTienes x" + quantity.ToString();
+                "Tienes x" + quantity.ToString();
+            if (LargeLabel)
+                gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text +=
+                "\nPedido x" + ordered.ToString();
+        }
+    }
+    public void PrintName()
+    {
+        Debug.Log("Food name");
+        if (other != null)
+        {
+            gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().text =
+            FoodName;
+            gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().color = 
+                new Color(0.2f, transform.position.x / 10, transform.position.x / 5);
+        }
+            
+
+    }
+    public bool PrintVisual(Sprite Visual)
+    {
+        if (Visual == null)
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = 
+                new Color(transform.position.x /10, transform.position.x / 5, 0.2f);
+            return false;
+        }
+        if (other != null)
+            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Visual;
+
+        return true;
     }
 }

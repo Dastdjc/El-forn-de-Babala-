@@ -11,9 +11,9 @@ public class IWantToDie : MonoBehaviour
         {
             if (collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(Parent.transform.GetComponent<FoodController>().FoodName))
             {
-                Parent.transform.GetComponent<FoodController>().ordered--;
+                Parent.transform.GetComponent<FoodController>().SumOrder(-1);
             }
-            else { Parent.transform.GetComponent<FoodController>().quantity++; }
+            else { Parent.transform.GetComponent<FoodController>().SumQuantity(1); }
             Parent.transform.GetComponent<FoodController>().PrintNumbers();
             Destroy(gameObject);
         }
