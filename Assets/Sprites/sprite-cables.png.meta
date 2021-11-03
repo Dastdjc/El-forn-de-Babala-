@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4612780052235628664
-    second: lucecita
+    second: sprite-cables_0
   - first:
       213: 6337646991719243360
-    second: cable
+    second: sprite-cables_1
   - first:
       213: -5451783303251534561
-    second: final cable
+    second: sprite-cables_2
   - first:
       213: 3506576436694382158
-    second: conector
+    second: sprite-cables_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lucecita
+      name: sprite-cables_0
       rect:
         serializedVersion: 2
         x: 22
@@ -123,7 +123,7 @@ TextureImporter:
         width: 65
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,7 +136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cable
+      name: sprite-cables_1
       rect:
         serializedVersion: 2
         x: 114
@@ -144,7 +144,7 @@ TextureImporter:
         width: 117
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: final cable
+      name: sprite-cables_2
       rect:
         serializedVersion: 2
         x: 240
@@ -166,7 +166,7 @@ TextureImporter:
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 15, y: 0, z: 21, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: conector
+      name: sprite-cables_3
       rect:
         serializedVersion: 2
         x: 302
@@ -186,7 +186,7 @@ TextureImporter:
         width: 40
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
