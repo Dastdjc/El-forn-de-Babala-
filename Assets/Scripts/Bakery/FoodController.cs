@@ -8,14 +8,13 @@ public class FoodController : MonoBehaviour
     private Vector3 mousePos;
     private bool isHeld = false;
     private GameObject other;
-    public int quantity = 0;
     private int ordered = 0;
+    public int quantity = 0;
     public bool LargeLabel;
-    public string FoodName = "";
+    public string FoodName;
 
     private void OnMouseDown()
     {
-        Debug.Log("Hola");
         if(quantity > 0 && Time.timeScale == 1)
         {
             other = Instantiate(gameObject.transform.GetChild(0).gameObject);
@@ -41,8 +40,8 @@ public class FoodController : MonoBehaviour
     public void Iniciate()
     {
         PrintNumbers();
-        if (!PrintVisual(null))
-            PrintName();
+        PrintVisual(null);
+        PrintName();
     }
     private void FixedUpdate()
     {
@@ -55,39 +54,26 @@ public class FoodController : MonoBehaviour
     }
     public void PrintNumbers()
     {
-        if (other != null)
-        {
-            gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text =
-                "Tienes x" + quantity.ToString();
-            if (LargeLabel)
-                gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text +=
-                "\nPedido x" + ordered.ToString();
-        }
+        gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text =
+            "Tienes x" + quantity.ToString();
+        if (LargeLabel)
+            gameObject.transform.GetChild(2).GetComponent<TextMeshPro>().text +=
+            "\nPedido x" + ordered.ToString();
     }
     public void PrintName()
     {
-        Debug.Log("Food name");
-        if (other != null)
-        {
-            gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().text =
-            FoodName;
-            gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().color = 
-                new Color(0.2f, transform.position.x / 10, transform.position.x / 5);
-        }
-            
-
+        gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().text =
+        FoodName;
+        gameObject.transform.GetChild(1).GetComponent<TextMeshPro>().color =
+            new Color(1, 0, 0);
     }
-    public bool PrintVisual(Sprite Visual)
+    public void PrintVisual(Sprite Visual)
     {
         if (Visual == null)
         {
-            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = 
-                new Color(transform.position.x /10, transform.position.x / 5, 0.2f);
-            return false;
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color =
+                new Color(transform.position.x / 10, transform.position.x / 5, 0.2f);
         }
-        if (other != null)
-            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Visual;
-
-        return true;
+        else { gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Visual; }
     }
 }

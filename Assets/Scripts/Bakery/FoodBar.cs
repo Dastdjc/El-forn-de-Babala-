@@ -11,7 +11,7 @@ public class FoodBar : MonoBehaviour
     public GameObject Example;
     public bool LargeLabel;
     public string[] names = { "Mona", "Sandwich", "Rosquilletas", "Fartons", "Bunyols" };
-    static private GameObject[] Bar;
+    private GameObject[] Bar;
     private void Start()
     {
         // Hay hasta 9 comidas
@@ -21,12 +21,11 @@ public class FoodBar : MonoBehaviour
         {
             Bar[i] = Instantiate(Example);
             //Posición de la comida, si hay más estarán más apretados
-            Bar[i].transform.position = 
-                Bar[i].transform.position + new Vector3((i + 1) * 2 / (Bar.Length * 0.15f) + 3, 1.5f, 0);
+            Bar[i].transform.position =
+                Bar[i].transform.position + new Vector3(2 + (i + 1) * 2 / (Bar.Length * 0.15f) + 3, 1.5f, 0);
             Bar[i].gameObject.GetComponent<FoodController>().FoodName = names[i];
-            Bar[i].gameObject.GetComponent<FoodController>().PrintName();
             Bar[i].gameObject.GetComponent<FoodController>().LargeLabel = LargeLabel;
-            Bar[i].gameObject.GetComponent<FoodController>().PrintNumbers();
+            Bar[i].gameObject.GetComponent<FoodController>().Iniciate();
             Bar[i].transform.SetParent(gameObject.transform, false);
             Bar[i].SetActive(true);
         }
@@ -50,12 +49,12 @@ public class FoodBar : MonoBehaviour
     }
     //Al clicar a un cliente, este envía su pedido si es que no lo ha hecho aún
     //Se llama a esta función desde OnmouseDown() de customerController.cs
-    static public void WriteCommand(int index)
+    public void WriteCommand(int index)
     {
         Bar[index].transform.GetComponent<FoodController>().SumOrder(1);
         Bar[index].transform.GetComponent<FoodController>().PrintNumbers();
     }
-    static public void AddFood(int index)
+    public void AddFood(int index)
     {
         Bar[index].transform.GetComponent<FoodController>().SumQuantity(1);
         Bar[index].transform.GetComponent<FoodController>().PrintNumbers();
