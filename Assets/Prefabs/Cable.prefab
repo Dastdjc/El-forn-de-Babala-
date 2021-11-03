@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7072832287906288324
 Transform:
   m_ObjectHideFlags: 0
@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalCable: {fileID: 6578052729194893845}
+  luz: {fileID: 3785822956181733686}
 --- !u!61 &2818489099533495988
 BoxCollider2D:
   m_ObjectHideFlags: 0

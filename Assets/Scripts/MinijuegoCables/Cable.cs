@@ -6,6 +6,7 @@ public class Cable : MonoBehaviour
 {
 
     public SpriteRenderer finalCable;
+    public GameObject luz;
 
     private Vector2 posicionOriginal;
     private Vector2 tamañoOriginal;
@@ -29,6 +30,7 @@ public class Cable : MonoBehaviour
     private void OnMouseDrag()
     {
         ActualizarPosicion();
+        Conexiones();
         ActualizarRotacion();
         ActualizarTamaño();
     }
@@ -66,6 +68,37 @@ public class Cable : MonoBehaviour
         transform.position = posicionOriginal;
         transform.rotation = Quaternion.identity;
         finalCable.size = new Vector2(tamañoOriginal.x, tamañoOriginal.y);
+    }
+
+    private void Conexiones()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.2f);
+
+        foreach (Collider2D col in colliders)
+        {
+            //Para que no nos salga el mismo cable en el que estamos
+
+            if (col.gameObject != gameObject)
+            {
+                transform.position = col.transform.position;
+                Cable otroCable = col.gameObject.GetComponent<Cable>();
+
+                if (finalCable.color == otroCable.finalCable.color)
+                {
+                    //conexion correcta
+                    Conectar();
+                    otroCable.Conectar();
+                }
+
+            }
+        }
+            
+    }
+
+    public void Conectar()
+    {
+        luz.SetActive(true);
+        Destroy(this);
     }
        
 }
