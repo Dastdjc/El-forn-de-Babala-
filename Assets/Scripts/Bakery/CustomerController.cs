@@ -60,6 +60,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Tiene que pedir y hablar
                 case 1:
+                    //Aquí van los diálogos del cliente
                     state++;
                     break;
                 //Espera a que le des su comida

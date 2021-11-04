@@ -15,9 +15,12 @@ public class IWantToDie : MonoBehaviour
             }
             else { Parent.transform.GetComponent<FoodController>().SumQuantity(1); }
             Parent.transform.GetComponent<FoodController>().PrintNumbers();
-            Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == 0) { Destroy(gameObject); }
-        
+        else if (collision.gameObject.layer == 9)
+        {
+            collision.gameObject.transform.GetComponent<BowlController>().MoveContent(
+                Parent.transform.GetComponent<FoodController>().FoodName);
+        }
+        Destroy(gameObject);
     }
 }

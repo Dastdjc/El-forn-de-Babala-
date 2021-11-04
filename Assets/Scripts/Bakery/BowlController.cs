@@ -10,18 +10,11 @@ public class BowlController : MonoBehaviour
     void Start()
     {
         Content = transform.GetChild(0);
+        ingredients = new List<string>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void MoveContent(string name)
     {
-        
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Hola");
-        ingredients.Add(collision.transform.GetComponent<FoodController>().FoodName);
+        ingredients.Add(name);
         Content.position = Content.position + new Vector3(0, 0.1f, 0);
-        Debug.Log(ingredients[-1]);
     }
 }

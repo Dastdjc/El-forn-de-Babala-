@@ -37,6 +37,7 @@ public class FoodController : MonoBehaviour
     }
     public void SumQuantity(int q) { this.quantity += q; }
     public void SumOrder(int q) { this.ordered += q; }
+    private void Start(){ Iniciate(); }
     public void Iniciate()
     {
         PrintNumbers();
