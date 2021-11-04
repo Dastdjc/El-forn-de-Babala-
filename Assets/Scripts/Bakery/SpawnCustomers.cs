@@ -6,6 +6,7 @@ public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject NormalCustomer;
+    public GameObject TargetBar;
     static public bool[] positions { get; set; }
     private int CustomersNumber;
     
@@ -32,7 +33,9 @@ public class SpawnCustomers : MonoBehaviour
                 if (NewC == 1)
                 {
                     CustomersNumber--;
-                    Instantiate(NormalCustomer, new Vector3(-(firstPlace * 2 + 12), -3, 0), Quaternion.identity);
+                    GameObject Cus = Instantiate(NormalCustomer, new Vector3(-(firstPlace * 2 + 12), -3, 0), Quaternion.identity);
+                    Cus.transform.GetComponent<CustomerController>().TargetBar = TargetBar;
+                    Cus = null;
                     positions[firstPlace] = true;
                 }
             }
