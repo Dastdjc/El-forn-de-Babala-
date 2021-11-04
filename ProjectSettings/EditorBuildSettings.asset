@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 5f25ae1038afa84498a5de736a967bf1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Bakery.unity
     guid: 50a41ce48b942994694b1d8f17b9e0ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MarcParallax.unity
     guid: bc48c61efc8cffe46be29bcc6e68e4fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Falling Fruits.unity
     guid: bde4a99d9a6e7414bb826997cd070219
   - enabled: 1
     path: Assets/Scenes/Musical Bees.unity
     guid: cdc40a0e177e26242a840f45c1148ceb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cables-minijuego.unity
     guid: 2a910d6d9a1667d4f995bdaff83757b7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Pueblo.unity
     guid: 1295e7ea38f67634f8a83b47d58dc5d9
   m_configObjects: {}
