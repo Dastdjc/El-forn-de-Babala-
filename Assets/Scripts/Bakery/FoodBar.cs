@@ -10,6 +10,7 @@ public class FoodBar : MonoBehaviour
     public Animator Controller;
     public GameObject Example;
     public bool LargeLabel;
+    public int Offset;
     public string[] names = { "Mona", "Sandwich", "Rosquilletas", "Fartons", "Bunyols" };
     private GameObject[] Bar;
     private void Start()
@@ -22,7 +23,7 @@ public class FoodBar : MonoBehaviour
             Bar[i] = Instantiate(Example);
             //Posición de la comida, si hay más estarán más apretados
             Bar[i].transform.position =
-                Bar[i].transform.position + new Vector3(2 + (i + 1) * 2 / (Bar.Length * 0.15f) + 3, 1.5f, 0);
+                Bar[i].transform.position + new Vector3(Offset + 2 + (i + 1) * 2 / (Bar.Length * 0.15f), 1.5f, 0);
             Bar[i].gameObject.GetComponent<FoodController>().FoodName = names[i];
             Bar[i].gameObject.GetComponent<FoodController>().LargeLabel = LargeLabel;
             Bar[i].gameObject.GetComponent<FoodController>().Iniciate();

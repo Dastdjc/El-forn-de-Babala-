@@ -17,6 +17,7 @@ public class IWantToDie : MonoBehaviour
             Parent.transform.GetComponent<FoodController>().PrintNumbers();
             Destroy(gameObject);
         }
+        else if (collision.gameObject.layer == 0) { Destroy(gameObject); }
         
     }
 }
