@@ -6,6 +6,7 @@ using TMPro;
 public class CustomerController : MonoBehaviour
 {
     public int TimeWaiting = 2;
+    public GameObject TargetBar;
     private RectTransform Mask;
     private SpriteRenderer image;
     private float satisfacton = 0;
@@ -102,7 +103,7 @@ public class CustomerController : MonoBehaviour
         {
             for (int i = 0; i < command.Length; i++)
             {
-                FoodBar.WriteCommand((int)command[i]);
+                TargetBar.transform.GetComponent<FoodBar>().WriteCommand((int)command[i]);
             }
         }
     }
