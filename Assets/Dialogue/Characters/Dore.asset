@@ -12,5 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0062abba4afa940a94fb10ede38ff4, type: 3}
   m_Name: Dore
   m_EditorClassIdentifier: 
-  fullName: 
-  portrait: {fileID: 0}
+  fullName: Dore
+  mood:
+  - emotion: 2
+    graphic: {fileID: 21300000, guid: 2c02fd95fe0b6ad48b32dcb4f08e95e9, type: 3}
+  - emotion: 0
+    graphic: {fileID: 21300000, guid: 0de9deb30dc957b4081b32f74b382fff, type: 3}
+  - emotion: 1
+    graphic: {fileID: 21300000, guid: 22c3d0fee844c8d408394f43d6bed46b, type: 3}
+  - emotion: 3
+    graphic: {fileID: 21300000, guid: 36ea1e7cb1ca7674ab0ca75a7686f9ac, type: 3}
+  - emotion: 4
+    graphic: {fileID: 21300000, guid: a64850a5bc0be4a4fb6c38934460e45f, type: 3}
+  - emotion: 5
+    graphic: {fileID: 21300000, guid: 5b932fb1c71cbbe46910843f2b1aea94, type: 3}
+  - emotion: 6
+    graphic: {fileID: 21300000, guid: a4306c22d73fadd4f854d43c5372fb6c, type: 3}

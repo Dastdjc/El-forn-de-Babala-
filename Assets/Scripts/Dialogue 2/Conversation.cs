@@ -14,7 +14,8 @@ public struct Line {
         Sorprpendido,
         Vergonzoso,
         Dudoso,
-        Enfadado
+        Enfadado,
+        Triste
     };
     public Mood Emotion;
 }
