@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isDashing = false;
+    
 
     public float speed = 5;
     public float dashSpeed = 10;
-
+    public DialogueManager dm;
  
     void Start()
     {
@@ -20,21 +21,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        // La dirección en sí no la magnitud, para el dash
-        float xRaw = Input.GetAxisRaw("Horizontal");
-        Vector2 dir = new Vector2(x, y);
-
-        // Lógica del movimiento
-        if (!isDashing)
+        if (!dm.inConversation) 
         {
-            Walk(dir);
-        }
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
+            // La dirección en sí no la magnitud, para el dash
+            float xRaw = Input.GetAxisRaw("Horizontal");
+            Vector2 dir = new Vector2(x, y);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0) 
-        {
-            Dash(xRaw);
+            // Lógica del movimiento
+            if (!isDashing)
+            {
+                Walk(dir);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0)
+            {
+                Dash(xRaw);
+            }
         }
     }
 
@@ -53,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = 14;
         rb.gravityScale = 0;
 
-        Debug.Log("dash");
         StartCoroutine("DashWait"); // Parecido a un timer
     }
 
@@ -68,7 +71,5 @@ public class PlayerMovement : MonoBehaviour
 
         rb.gravityScale = 1;
         rb.drag = 0;
-
-        Debug.Log("STOP dash");
     }
 }

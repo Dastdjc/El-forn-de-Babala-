@@ -13,29 +13,29 @@ MonoBehaviour:
   m_Name: PrimeraCinematica
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-  speakerRight: {fileID: 0}
+  speakerRight: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Hola soy... \xA1MIFA!"
+    text: "Hola soy<speed=5>... <speed=50> <size= 50> \xA1MIFA!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    text: <speed=50><size= 50><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
     Emotion: 2
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Tranquila, tranquila, soy otra bruja como t\xFA, estaba viendote a trav\xE9s
       de mi bola de cristal."
     Emotion: 1
-  - character: {fileID: 0}
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Parec\xEDa que necesitabas ayuda."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: 'Ho-Hola, yo soy Dore... '
+    text: '<size= 20>Ah vale. Ho-Hola, yo soy Dore... '
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "\xBFC\xF3mo? No te escucho bien"
+    text: "\xBFC\xF3mo? No te escucho bien."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Qu-Que me llamo Dore.... Encan-Encantada.
+    text: Qu-Que me llamo Dore <speed=5>.... <speed=40>Encan-<pause=1>Encantada.
     Emotion: 3
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Espera un momento, \xBFme estabas espiando?"
@@ -55,33 +55,8 @@ MonoBehaviour:
     text: "Eso es porque no lo est\xE1s viendo de la forma adecuada."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFComo que de la forma adecuada? Ya he probado todas las soluciones
-      posibles y nada ha funcionado."
+    text: "\xBFComo que de la forma adecuada?"
     Emotion: 6
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Pero no has probado con...  \xA1MAGIA! "
+    text: "No has probado con<speed=5>...  <speed=40>\xBF\xA1MAGIA!?"
     Emotion: 1
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0
-  - character: {fileID: 0}
-    text: 
-    Emotion: 0

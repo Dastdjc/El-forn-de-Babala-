@@ -1,22 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 public class DialogueManager : MonoBehaviour
 {
     public Image portrait;
-    public Text fullName;
     public Conversation conversation;
-    public TextMeshProUGUI TextPro;
+    public Transform NPC;
+    public TMP_Animated TextPro;
     public Animator boxAnimation;
     public GameObject dialogueBox;
     public bool inConversation = false;
+    public Cinemachine.CinemachineVirtualCamera dialogueCamera;
+    public Cinemachine.CinemachineTargetGroup TargetGroup;
 
     private int conversationIndex = 0;
-    private bool startedConversation = false;
+    private bool conversationStarted = false;
+    private bool nextDialogue = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        TextPro.text = conversation.lines[0].text;
+        //TextPro.text = conversation.lines[0].text;
+        TextPro.onDialogueFinish.AddListener(canSkip);
     }
 
     // Update is called once per frame
@@ -24,22 +30,46 @@ public class DialogueManager : MonoBehaviour
     {
         if (inConversation)
         {
-            startedConversation = true;
-            if (startedConversation) 
+            if (conversationIndex >= conversation.lines.Length)
             {
-                boxAnimation.SetBool("Cartel", true);
-                dialogueBox.SetActive(true);
-                startedConversation = false;
+                boxAnimation.SetBool("Cartel", false);
+                inConversation = false;
+                conversationStarted = false;
+                dialogueCamera.Priority = 1;
             }
-            
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            else
             {
-                conversationIndex++;
-                ChangeTMPText();
+                if (!conversationStarted)
+                    setUpConversation();
+                conversationStarted = true;
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
+                {
+                    conversationIndex++;
+                    if (conversationIndex < conversation.lines.Length)
+                    {
+                        showDialogue();
+                    }
+                    nextDialogue = false;
+                }
             }
         }
     }
+    void setUpConversation() 
+    {
+        TargetGroup.m_Targets[1].target = NPC;
+        dialogueCamera.Priority = 11;
+        dialogueBox.SetActive(true);
+        boxAnimation.SetBool("Cartel", true);
 
+        Invoke("showDialogue", 0.1f);
+        
+       
+    }
+
+    void showDialogue() {
+        ChangeTMPText();
+        TextPro.ReadText(TextPro.text);
+    }
     void ChangeTMPText() 
     {
         TextPro.text = conversation.lines[conversationIndex].text;
@@ -48,18 +78,19 @@ public class DialogueManager : MonoBehaviour
         portrait.sprite = GetCharacterPortrait(lineMood, character);
     }
 
-    Sprite GetCharacterPortrait(Line.Mood lineMood, Character ch) {
-        Debug.Log(ch.name);
+    Sprite GetCharacterPortrait(Line.Mood lineMood, Character ch) 
+    {
         for (int i = 0; i < ch.mood.Length; i++) {
-            Debug.Log(ch.mood[i].ToString());
-            Debug.Log(lineMood.ToString());
+
             if (ch.mood[i].emotion.ToString() == lineMood.ToString())
             {
-                Debug.Log(ch.mood[i].ToString());
-                Debug.Log(lineMood.ToString());
                 return ch.mood[i].graphic;
             }
         }
         return ch.mood[0].graphic;
+    }
+
+    void canSkip() {
+        nextDialogue = true;
     }
 }
