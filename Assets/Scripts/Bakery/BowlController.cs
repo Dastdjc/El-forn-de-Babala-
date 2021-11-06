@@ -9,7 +9,7 @@ public class BowlController : MonoBehaviour
     private bool isHeld = false;
     private Vector3 mousePos;
     private Vector3 initialPos;
-    public float Upmov;
+    static private float Upmov;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +34,14 @@ public class BowlController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 9)
+        if(collision.gameObject.layer == 9 && isHeld)
         {
-            for(int i = 0; i < ingredients.Count; i++)
+            for (int i = 0; i < ingredients.Count; i++)
             {
                 collision.transform.GetComponent<BowlController>().MoveContent(ingredients[i]);
                 Content.position = Content.position + new Vector3(0, -Upmov, 0);
             }
+            ingredients = new List<string>();
         }
     }
     private void OnMouseDown()
