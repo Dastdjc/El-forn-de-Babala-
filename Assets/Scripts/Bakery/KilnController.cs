@@ -72,8 +72,9 @@ public class KilnController : MonoBehaviour
             if (i < objectEntering.Length)
             {
                 objectEntering[i] = Instantiate(me);
-                Destroy(objectEntering[i].GetComponent<IWantToDie>());
-                Destroy(objectEntering[i].GetComponent<FoodController>());
+                objectEntering[i].gameObject.layer = 7;
+                //Destroy(objectEntering[i].GetComponent<IWantToDie>());
+                //objectEntering[i].AddComponent<KilnController>();
                 objectEntering[i].transform.localScale = new Vector3(0.5f, 0.5f, 1);
                 if (i > 2)
                     objectEntering[i].transform.position = new Vector3(i - 3 * 1 + 29, -2.5f, 0);
