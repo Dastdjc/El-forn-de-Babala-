@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  dashSpeed: 40
+  dashSpeed: 100
   animator: {fileID: 850540271}
 --- !u!50 &850540275
 Rigidbody2D:
