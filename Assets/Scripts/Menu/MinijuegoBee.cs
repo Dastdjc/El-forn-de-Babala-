@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FallingFruits : MonoBehaviour
+public class MinijuegoBee : MonoBehaviour
 {
 
     public GameObject Texto;
@@ -20,7 +20,7 @@ public class FallingFruits : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && DONDESEA == true)
         {
-            SceneManager.LoadScene("Falling Fruits", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Musical Bees", LoadSceneMode.Additive);
             rb.bodyType = RigidbodyType2D.Static;
 
 
