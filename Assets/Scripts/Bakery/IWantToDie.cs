@@ -7,16 +7,36 @@ public class IWantToDie : MonoBehaviour
     public GameObject Parent;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if(gameObject.layer != 7)
         {
-            if (collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(Parent.transform.GetComponent<FoodController>().FoodName))
+            if (collision.gameObject.layer == 3)
             {
-                Parent.transform.GetComponent<FoodController>().SumOrder(-1);
+                if (collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(Parent.transform.GetComponent<FoodController>().FoodName))
+                {
+                    Parent.transform.GetComponent<FoodController>().SumOrder(-1);
+                }
+                else { Parent.transform.GetComponent<FoodController>().SumQuantity(1); }
             }
-            else { Parent.transform.GetComponent<FoodController>().SumQuantity(1); }
+            else if (collision.gameObject.layer == 9)
+            {
+                collision.gameObject.transform.GetComponent<BowlController>().MoveContent(
+                    Parent.transform.GetComponent<FoodController>().FoodName);
+            }
+            /*else if (collision.gameObject.layer == 10)
+            {
+                if (!collision.transform.GetComponent<KilnController>().GetToCook(gameObject))
+                    Parent.transform.GetComponent<FoodController>().SumQuantity(1);
+            }*/
+            else
+            {
+                Parent.transform.GetComponent<FoodController>().SumQuantity(1);
+            }
             Parent.transform.GetComponent<FoodController>().PrintNumbers();
             Destroy(gameObject);
         }
-        
+    }
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
     }
 }
