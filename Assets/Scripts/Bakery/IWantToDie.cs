@@ -22,11 +22,11 @@ public class IWantToDie : MonoBehaviour
                 collision.gameObject.transform.GetComponent<BowlController>().MoveContent(
                     Parent.transform.GetComponent<FoodController>().FoodName);
             }
-            else if (collision.gameObject.layer == 10)
+            /*else if (collision.gameObject.layer == 10)
             {
                 if (!collision.transform.GetComponent<KilnController>().GetToCook(gameObject))
                     Parent.transform.GetComponent<FoodController>().SumQuantity(1);
-            }
+            }*/
             else
             {
                 Parent.transform.GetComponent<FoodController>().SumQuantity(1);

@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpoonController : MonoBehaviour
+public class MouseTracker : MonoBehaviour
 {
     private Vector3 mousePos;
     private Vector3 initialPos;
-    private bool isHeld = false;
+    public bool isHeld { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
         initialPos = transform.position;
+        isHeld = false;
     }
 
     // Update is called once per frame
