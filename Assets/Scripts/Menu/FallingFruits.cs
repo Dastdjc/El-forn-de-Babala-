@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CambioFallingFruits : MonoBehaviour
+public class FallingFruits : MonoBehaviour
 {
 
     public GameObject Texto;
