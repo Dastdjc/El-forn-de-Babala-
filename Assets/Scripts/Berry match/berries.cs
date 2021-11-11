@@ -1,26 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class berries : MonoBehaviour
+public class berries : MonoBehaviour, IPointerDownHandler/*, IBeginDragHandler, IEndDragHandler, IDragHandler*/
 {
-    private Vector2 mOffset;
-
-
-    void OnMouseDown()
+    /*public void OnBeginDrag(PointerEventData pointerEventData)
     {
-        mOffset = gameObject.transform.position - GetMouseWorldPos();
+        Debug.Log("Begin drag");
     }
 
-    void OnMouseDrag()
+    public void OnEndDrag(PointerEventData pointerEventData)
     {
-        transform.position = mousePosWorld + posOff
+        Debug.Log("End drag");
     }
-
-    private Vector2 GetMouseWorldPos()
+    public void OnDrag(PointerEventData pointerEventData)
     {
-        Vector2 mousePoint = Input.mousePosition;
-        
+        Debug.Log("On drag");
+    }*/
+    public void OnPointerDown(PointerEventData pointerEventData)
+    {
+        Debug.Log("Down");
     }
-  
 }
