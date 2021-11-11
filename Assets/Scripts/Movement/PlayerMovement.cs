@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 5;
     public float dashSpeed = 10;
-    public DialogueManager dm;
+    //public DialogueManager dm;
  
     void Start()
     {
@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!dm.inConversation) 
-        {
+        //if (!dm.inConversation) 
+        //{
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
             // La dirección en sí no la magnitud, para el dash
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Dash(xRaw);
             }
-        }
+        //}
     }
 
     private void Walk(Vector2 dir) 
