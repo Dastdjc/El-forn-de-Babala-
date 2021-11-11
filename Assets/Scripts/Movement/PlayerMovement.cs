@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 5;
     public float dashSpeed = 10;
-
+    public Animator animator;
  
     void Start()
     {
@@ -25,6 +25,15 @@ public class PlayerMovement : MonoBehaviour
         // La dirección en sí no la magnitud, para el dash
         float xRaw = Input.GetAxisRaw("Horizontal");
         Vector2 dir = new Vector2(x, y);
+
+        animator.SetFloat("speed", Mathf.Abs(dir.x));
+        if (dir.x < 0) {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if(dir.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
         // Lógica del movimiento
         if (!isDashing)
