@@ -3,23 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class berries : MonoBehaviour, IPointerDownHandler/*, IBeginDragHandler, IEndDragHandler, IDragHandler*/
+public class berries : MonoBehaviour
 {
-    /*public void OnBeginDrag(PointerEventData pointerEventData)
+    private Vector3 dragOffset;
+    private Camera cam;
+
+    private void Awake()
     {
-        Debug.Log("Begin drag");
+        cam = Camera.main
     }
 
-    public void OnEndDrag(PointerEventData pointerEventData)
+    private void OnMouseDown()
     {
-        Debug.Log("End drag");
+        dragOffset = transform.position - getPosMouse();   
     }
-    public void OnDrag(PointerEventData pointerEventData)
+
+    private void OnMouseDrag()
     {
-        Debug.Log("On drag");
-    }*/
-    public void OnPointerDown(PointerEventData pointerEventData)
+        transform.position = getPosMouse() + dragOffset;
+    }
+
+    private Vector3 getPosMouse()
     {
-        Debug.Log("Down");
+        var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        mousePos.z = 0;
+
+        return mousePos;
     }
 }
