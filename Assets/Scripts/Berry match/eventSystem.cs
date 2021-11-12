@@ -14,6 +14,11 @@ public class eventSystem : MonoBehaviour
 
     void Update()
     {
+        if (puntuacion < 0)
+        {
+            puntuacion = 0;
+        }
+
         textPuntuacion.text = "Puntuacion: " + puntuacion.ToString();
     }
 }

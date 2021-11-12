@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class triggerCesta : MonoBehaviour
+public class triggerCestaVerde : MonoBehaviour
 {
     private eventSystem cosa;
     private spawnerBerries spawn;
@@ -19,17 +19,17 @@ public class triggerCesta : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Azul")
+        if (collision.gameObject.tag == "Verde")
         {
             Destroy(collision.gameObject);
+            spawn.cantGO -= 1;
             cosa.puntuacion += 30;
-            spawn.cantGO -= 1;
         }
-        else if (collision.gameObject.tag != "Azul")
+        else if (collision.gameObject.tag != "Verde")
         {
             Destroy(collision.gameObject);
-            cosa.puntuacion -= 20;
             spawn.cantGO -= 1;
+            cosa.puntuacion -= 20;
         }
     }
 }
