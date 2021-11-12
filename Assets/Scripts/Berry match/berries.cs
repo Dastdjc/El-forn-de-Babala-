@@ -7,10 +7,11 @@ public class berries : MonoBehaviour
 {
     private Vector3 dragOffset;
     private Camera cam;
+    [SerializeField] private float speed = 10;
 
     private void Awake()
     {
-        cam = Camera.main
+        cam = Camera.main;
     }
 
     private void OnMouseDown()
@@ -20,7 +21,7 @@ public class berries : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position = getPosMouse() + dragOffset;
+        transform.position = Vector3.MoveTowards(transform.position, getPosMouse() + dragOffset, speed * Time.deltaTime);
     }
 
     private Vector3 getPosMouse()
