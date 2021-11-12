@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isDashing = false;
+    private GameObject dashParticles;
 
     public float speed = 5;
     public float dashSpeed = 10;
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        dashParticles = GameObject.Find("Dore_player/DashParticles");
+        dashParticles.SetActive(false);
     }
 
     void Update()
@@ -43,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0) 
         {
+            animator.SetBool("isDashing", true);
+            dashParticles.SetActive(true);
             Dash(xRaw);
         }
     }
@@ -79,5 +84,8 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = 0;
 
         Debug.Log("STOP dash");
+        // Deactivate Dash
+        animator.SetBool("isDashing", false);
+        dashParticles.SetActive(false);
     }
 }
