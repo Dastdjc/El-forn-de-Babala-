@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDashing = false;
     private GameObject dashParticles;
+    private SpriteRenderer sr;
 
     public float speed = 5;
     public float dashSpeed = 10;
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         dashParticles = GameObject.Find("Dore_player/DashParticles");
         dashParticles.SetActive(false);
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -30,12 +33,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 dir = new Vector2(x, y);
 
         animator.SetFloat("speed", Mathf.Abs(dir.x));
-        if (dir.x < 0) {
+       if (dir.x < 0) {
             transform.localScale = new Vector3(-1, 1, 1);
+            sr.flipX = true;
         }
         else if(dir.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            sr.flipX = false;
         }
 
         // Lógica del movimiento
