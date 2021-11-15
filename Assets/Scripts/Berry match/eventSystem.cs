@@ -10,6 +10,7 @@ public class eventSystem : MonoBehaviour
     public TextMeshProUGUI textoGanar;
     [HideInInspector] public int puntuacion = 0;
     public GameObject spawner;
+    public Button botonSalir;
 
     private bool finish = false;
 
@@ -48,12 +49,14 @@ public class eventSystem : MonoBehaviour
     private void Acabar()
     {
         textPuntuacion.gameObject.SetActive(false);
-        textoGanar.gameObject.SetActive(true);
         spawner.SetActive(false);
         Destroy(GameObject.FindWithTag("Azul"));
         Destroy(GameObject.FindWithTag("Negra"));
         Destroy(GameObject.FindWithTag("Verde"));
         Destroy(GameObject.FindWithTag("Rojo"));
+        
+        textoGanar.gameObject.SetActive(true);
+        botonSalir.gameObject.SetActive(true);
         textoGanar.text = "Tu puntuación final es: " + puntuacion.ToString();
     }
 }
