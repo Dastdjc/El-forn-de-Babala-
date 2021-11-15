@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3758040809468662826}
   - component: {fileID: 8327329002025103256}
   - component: {fileID: 8671937829671522023}
-  - component: {fileID: 7808366830447982911}
   - component: {fileID: 4278583325576517024}
+  - component: {fileID: 2081399677785516127}
   - component: {fileID: 5309711968211152183}
   m_Layer: 0
   m_Name: Negra
@@ -102,19 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7808366830447982911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173513771119274328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61dd3d77005913e4291c0a4374ad9a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 500
 --- !u!50 &4278583325576517024
 Rigidbody2D:
   serializedVersion: 4
@@ -136,6 +123,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2081399677785516127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3173513771119274328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af86bd6babea474886a2a5c6c72d6be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5309711968211152183
 Animator:
   serializedVersion: 3

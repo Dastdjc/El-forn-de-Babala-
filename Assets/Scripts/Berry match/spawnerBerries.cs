@@ -22,6 +22,7 @@ public class spawnerBerries : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(cantGO);
         if (cantGO < 8)
         {
             if (Time.time > timeSpawn)

@@ -1,33 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class berries : MonoBehaviour
+public class berrieNegra : MonoBehaviour
 {
     private Vector3 dragOffset;
     private Camera cam;
     [SerializeField] private float speed = 10;
 
-    private float startTime;
-
-    private spawnerBerries spawn;
 
     private void Awake()
     {
         cam = Camera.main;
     }
 
-    private void Start()
-    {
-        startTime = Time.time;
-        GameObject spawner = GameObject.Find("Spawner");
-        spawn = spawner.GetComponent<spawnerBerries>();
-    }
-
     private void OnMouseDown()
     {
-        dragOffset = transform.position - getPosMouse();   
+        dragOffset = transform.position - getPosMouse();
     }
 
     private void OnMouseDrag()
@@ -42,17 +31,5 @@ public class berries : MonoBehaviour
         mousePos.z = 0;
 
         return mousePos;
-    }
-
-    private void Update()
-    {
-        float t = Time.time - startTime;
-        
-        if (t > 3)
-        {
-            Destroy(gameObject);
-            t = 0;
-            spawn.cantGO -= 1;
-        }
     }
 }
