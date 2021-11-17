@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MinijuegoBee : MonoBehaviour
 {
-
+    public GameObject task;
     public GameObject Texto;
+
+    private GameObject currentTask;
     private bool DONDESEA;
     public GameObject Player;
     private Rigidbody2D rb;
@@ -20,8 +22,17 @@ public class MinijuegoBee : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && DONDESEA == true)
         {
-            SceneManager.LoadScene("Musical Bees", LoadSceneMode.Additive);
-            rb.bodyType = RigidbodyType2D.Static;
+            if(currentTask == null)
+            {
+                currentTask = Instantiate(task, Player.transform);
+                rb.bodyType = RigidbodyType2D.Static;
+            }
+            //SceneManager.LoadScene("Musical Bees", LoadSceneMode.Additive);
+            
+            else
+            {
+                Destroy(currentTask);
+            }
 
 
         }
