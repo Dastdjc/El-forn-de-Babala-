@@ -12,6 +12,7 @@ public class FoodController : MonoBehaviour
     public int quantity = 0;
     public bool LargeLabel;
     public string FoodName;
+    public int index = 0;
 
     private void OnMouseDown()
     {

@@ -7,6 +7,7 @@ public class MouseTracker : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 initialPos;
     public bool isHeld { get; private set; }
+    public bool fromDown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class MouseTracker : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             transform.localPosition = new Vector3(mousePos.x, mousePos.y, 0);
+            if (fromDown) { transform.localPosition += new Vector3(0, 0.5f, 0); }
         }
     }
     private void OnMouseDown()
