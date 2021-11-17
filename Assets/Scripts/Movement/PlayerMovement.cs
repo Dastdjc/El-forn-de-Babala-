@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isDashing = false;
+    private GameObject dashParticles;
+    private SpriteRenderer sr;
 
     public float speed = 5;
     public float dashSpeed = 10;
@@ -16,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        dashParticles = GameObject.Find("Dore_player/DashParticles");
+        dashParticles.SetActive(false);
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -27,12 +33,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 dir = new Vector2(x, y);
 
         animator.SetFloat("speed", Mathf.Abs(dir.x));
-        if (dir.x < 0) {
+       if (dir.x < 0) {
             transform.localScale = new Vector3(-1, 1, 1);
+            sr.flipX = true;
         }
         else if(dir.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            sr.flipX = false;
         }
 
         // Lógica del movimiento
@@ -43,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0) 
         {
+            animator.SetBool("isDashing", true);
+            dashParticles.SetActive(true);
             Dash(xRaw);
         }
     }
@@ -79,5 +89,8 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = 0;
 
         Debug.Log("STOP dash");
+        // Deactivate Dash
+        animator.SetBool("isDashing", false);
+        dashParticles.SetActive(false);
     }
 }
