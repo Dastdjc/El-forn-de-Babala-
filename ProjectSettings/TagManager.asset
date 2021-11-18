@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pan
+  - Piedra
+  - Harina
+  - Calabaza
+  - Huevo
   layers:
   - Default
   - TransparentFX
@@ -38,6 +43,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 721931635
+    locked: 0
+  - name: MG
+    uniqueID: 113071613
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3684788151
     locked: 0
