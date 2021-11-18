@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
  
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
         dashParticles = GameObject.Find("Dore_player/DashParticles");
         dashParticles.SetActive(false);
 
-        sr = GetComponent<SpriteRenderer>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
