@@ -29,7 +29,7 @@ public class KilnController : MonoBehaviour
         {
             if (objectEntering[i] != null)
             {
-                //objectEntering[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+                objectEntering[i].GetComponent<SpriteRenderer>().color += new Color(0.01f, 0.01f, 0.01f);
                 timeInside[i] += 1;
             }
         }
@@ -53,20 +53,13 @@ public class KilnController : MonoBehaviour
         }
         return -1;
     }
-    public void CookSprite(string[] steps)
+    public void CookSprite(int foodindex)
     {
         int i = GetToCook();
         if(i != -1)
         {
-            int foodindex = RecipeControl(steps);
-            objectEntering[i].GetComponent<SpriteRenderer>().sprite = FoodVisuals[foodindex];
+            //objectEntering[i].GetComponent<SpriteRenderer>().sprite = FoodVisuals[foodindex];
         }
-    }
-    public int RecipeControl(string[] steps)
-    {
-        //int puntuation;
-        int foodindex = 0;
-        return foodindex;
     }
     public bool ImOpen() { return open; }
 }

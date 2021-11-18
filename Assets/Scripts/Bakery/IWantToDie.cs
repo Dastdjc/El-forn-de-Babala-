@@ -19,8 +19,8 @@ public class IWantToDie : MonoBehaviour
             }
             else if (collision.gameObject.layer == 9)
             {
-                collision.gameObject.transform.GetComponent<BowlController>().MoveContent(
-                    Parent.transform.GetComponent<FoodController>().FoodName);
+                collision.gameObject.transform.GetComponent<BowlController>().MoveContent(1,
+                    Parent.transform.GetComponent<FoodController>().index);
             }
             /*else if (collision.gameObject.layer == 10)
             {
