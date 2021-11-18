@@ -3,30 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Harina
-  - Huevo
-  - Piedra
-  - Pan
-  - Calabaza
-  - Azul
-  - Rojo
-  - Verde
-  - Negra
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - CustomerIn
+  - 
   - Water
   - UI
   - 
-  - Floor
-  - Confiner
-  - Bowl
-  - Kiln
-  - Spoon
-  - peuba
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -47,21 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BG
-    uniqueID: 294098521
-    locked: 0
-  - name: MG
-    uniqueID: 628452395
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: ForeGround
-    uniqueID: 2113469185
-    locked: 0
-  - name: Tarea
-    uniqueID: 1634987861
-    locked: 0
-  - name: aros
-    uniqueID: 1643002369
     locked: 0
