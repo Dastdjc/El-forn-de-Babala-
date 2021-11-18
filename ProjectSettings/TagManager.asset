@@ -9,7 +9,10 @@ TagManager:
   - Piedra
   - Pan
   - Calabaza
-  - Inventory
+  - Azul
+  - Rojo
+  - Verde
+  - Negra
   layers:
   - Default
   - TransparentFX
@@ -23,7 +26,7 @@ TagManager:
   - Bowl
   - Kiln
   - Spoon
-  - 
+  - peuba
   - 
   - 
   - 
@@ -55,4 +58,10 @@ TagManager:
     locked: 0
   - name: ForeGround
     uniqueID: 2113469185
+    locked: 0
+  - name: Tarea
+    uniqueID: 1634987861
+    locked: 0
+  - name: aros
+    uniqueID: 1643002369
     locked: 0
