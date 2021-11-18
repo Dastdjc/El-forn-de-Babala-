@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5942109592194781174}
   - component: {fileID: 5942109592194781173}
   - component: {fileID: 5942109592194781172}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Golem
   m_TagString: Pan
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1634987861
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1606d5cfded70c547aa9fefadfa4b1cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
