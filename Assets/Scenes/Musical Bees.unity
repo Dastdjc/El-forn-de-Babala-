@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731505443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -246,57 +246,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 600350522533866472, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058965866041912717, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1446541730617359847, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3009682032664549438, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3009682032664549438, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3009682032664549438, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1634987861
-      objectReference: {fileID: 0}
-    - target: {fileID: 4252055809116228132, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12901574
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1387032
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.44601953
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -329,30 +293,6 @@ PrefabInstance:
     - target: {fileID: 6176931649293704243, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_Name
       value: Musical Bees
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023686630220614694, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023686630220614694, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023686630220614694, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023686630220614694, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023686630220614694, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023686630220614694, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1634987861
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
