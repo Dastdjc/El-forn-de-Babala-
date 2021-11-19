@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Tombatossals_intro
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "\xA1Buenos y forzudos dias!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Buenos dias! Mifa, este cliente parece diferente a los demas..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "As\xED es Dore, creo que este cliente tiene potencial para venirse a vivir
+      aqu\xED."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFEn serio? \xBFNo es un poco... especial para venirse a vivir a Babal\xE0?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "S\xED, es bastante especial tu lo has dicho. Ser\xEDa perfecto para que
+      abriera un taller en este pueblo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Asi tendriamos m\xE1s gente podria quedarse al poder tener y reparar su
+      coche aqu\xED sin tenerse que ir a la ciudad."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Vale, lo entiendo. Entoces vas t\xFA y le convences para que se quede,
+      \xBFno?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Jaja, que va. Me gustar\xEDa pero lo vas a hacer t\xFA."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1\xBFQ-Qu\xE9?! \xA1\xBFEst\xE1s loca?! \xA1No puedo hacerlo, me da
+      mucha verg\xFCenza!"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Pero Dore, \xA1tienes que hacerlo! Si te lo arreglara yo todo no solucionariamos
+      nada."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Ya lo s\xE9, pero..."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dore, \xA1yo creo en t\xED! \xA1Cre\xED en t\xED desde la primera vez
+      que te v\xED! \xA1Tu puedes hacerlo!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=5>...<speed=30>
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Vale, lo har\xE9..<pause=1> Espero no trabarme mucho."
+    Emotion: 3
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "<size=50>\xA1Hola buenas! .<pause=1>\xBF\xA1Alguien va a tomame el pedido!?<pause=1>
+      \xA1Tengo mucha hambre!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S-Si.<pause=1> A-aqu\xED estoy..."
+    Emotion: 3
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: Ah, menos mal. Por fin viene alguien.
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFQ-Quer\xEDa tomar algo se\xF1or?"
+    Emotion: 3

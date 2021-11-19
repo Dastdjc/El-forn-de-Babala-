@@ -36,6 +36,7 @@ public class DialogueManager : MonoBehaviour
                 inConversation = false;
                 conversationStarted = false;
                 dialogueCamera.Priority = 1;
+                conversationIndex = 0;
             }
             else
             {
