@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: JaumeI_entra
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Buenos d\xEDas, \xBFc\xF3mo estan vuesas mercedes?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFC-c\xF3mo?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xBFAcaso no me hab\xE9is escuchado se\xF1orita?"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "MIFA, AYUDA, CREO QUE ESTE SE\xD1OR NO HABLA ESPA\xD1OL"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Estos jovenes de hoy en d\xEDa no os enter\xE1is de nada."
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xBFQu\xE9 pasa Dore?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Este se\xF1or habla muy raro \xA1No entiendo nada!"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Creo que simplemente habla de forma muy pedante. Que no te asuste su lenguaje,
+      en el fondo ser\xE1 igual de tonto que t\xFA."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Ah vale entonces estoy m\xE1s tranquila.<pause=1> Pero, \xA1espera! \xA1Eso
+      significa que yo soy tonta!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: No, hombre. Era broma :).
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xA1Pero por la santa trinidad, podr\xEDa alguna de vuesas mercedes atenderme
+      de una soberana vez!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "S\xED, disculpe honorable caballero, mi compa\xF1era se encargar\xE1 de
+      ello."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Eso es, una damisela como yo le atender\xE1 ahora mismo."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xBFQu\xE9?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "N-no s\xE9, si \xE9l es un caballero pues yo ser\xE9 una damisela."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Si, desde luego eres una princesa
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: ...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Bueno, me dejan pedir de una vez por el amor del reino de Valencia.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S-S\xED, ya voy disculpe."
+    Emotion: 6
