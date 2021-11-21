@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Dragon_postPedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Perfecto.<pause=0,5> Pues entonces marchando.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Oye noia, me acabo de fijar que tene\xEDs un taller en el pueblo,<pause=0,5>
+      \xBFpero nada mas?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: No, la verdad...<pause=0,3> Se fueron todos hace un tiempo.
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: 'Vaya, hombre<speed=5>...<speed=40><pause=0,5> He visto los alrededores
+      y es todo muy bonito. '
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Sobretodo las monta\xF1as, los bosques que hay ah\xED son preciosos."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S\xED, a mi me encantaba explorar los bosques de peque\xF1a.<pause=0,5>
+      Era lo mejor."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: Ya veo.<pause=0,5> Asi de espabilada has salido jaja.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: <speed=10>N-no se crea usted,<speed=40> soy muy normal.
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: <size=40>Pero bueno, que no soy tan mayor.<pause=0,5> No hace falta que
+      me trates de usted.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "L-<pause=0,3>Lo siento. Ahora le traer\xE9 su pedido."
+    Emotion: 3

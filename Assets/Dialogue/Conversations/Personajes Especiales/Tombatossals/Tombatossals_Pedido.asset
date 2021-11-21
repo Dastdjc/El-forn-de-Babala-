@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Tombatossals_Pedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Creo que me decidir\xE9 por la mona. Desde peque\xF1o que no tomo una
+      mona."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Despu\xE9s del entrene hay que hidratarse. Dame unos fartons y asi los
+      mojar\xE9 en la horchata."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: Habia escuchado de la farinada pero nunca la he probado. Ponme una por
+      favor
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Un bu\xF1uelo de calabaza, por favor. Luego lo quemar\xE9 levantando rocas."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: Las pilotes de frare me ayudaran con sus calorias a definir musculo.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Despu\xE9s de reparar un coche nada como comerte un buen flaon."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: Quiero algo ligerito. Una coca de llanda me viene bien.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Un pastel de boniato por favor. Me ayudar\xE1 para luego en el trabajo
+      no quedarme sin energias."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "\xBFNo tendr\xE1s una mocaor\xE1? Me encantan las almendras."
+    Emotion: 0

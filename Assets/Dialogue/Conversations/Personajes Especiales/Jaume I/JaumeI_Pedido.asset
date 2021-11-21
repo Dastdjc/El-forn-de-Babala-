@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: JaumeI_Pedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "S\xE9 que es algo del pueblo llano, pero me apetece ser un poco desafiante
+      y me pedir\xE9 una mona por favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Los fartons son tan vulgares. Pero con horchata supongo que pueden estar
+      buenos.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: El relleno de la farinada es algo delicado, algo apropiado para mi paladar.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "En mi tierra los bu\xF1uelos son algo de temer. Espero que estos sean
+      igual."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Hoy estoy atrevido. Me apetece algo tan vulgar como unas pilotes de frare.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "La simpleza de los flaons compensa su vulgaridad. Creo que es una fusi\xF3n
+      peculiar."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Si la coca de llanda no tiene la textura apropiada me enfadar\xE9."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "El boniato es la version refinada de la patata. As\xED quiero unos pasteles
+      de boniato por favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: La almendra es un alimento de la alta nobleza. Es curioso como los villanos
+      hacen recetas con estas.
+    Emotion: 0

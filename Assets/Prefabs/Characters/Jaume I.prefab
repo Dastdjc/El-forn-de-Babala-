@@ -97,5 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   conversation: {fileID: 11400000, guid: 660497fa3ec20ea468ba5028b9ba0c9a, type: 2}
-  detectionRange: 10
+  detectionRange: 5
   dm: {fileID: 0}

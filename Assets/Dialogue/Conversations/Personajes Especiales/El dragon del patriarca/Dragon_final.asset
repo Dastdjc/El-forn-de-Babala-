@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Dragon_final
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Me alegro que le haya gustado tanto.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "\xA1S\xED! No esperaba que me gustase tanto la verdad. Estos sitios siempre
+      dicen que es lo mejor y luego te llevas un chasco."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Pues ya ve que no. Somos muy buenas en esto.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: Ya lo veo, ya. Bueno yo me voy a ir ya. Me espera una tienda que dirigir.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Vale, que te vaya bien.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "<shake=0,3><size=50>\xA1Dore! <pause=0,5>\xA1S\xE9 que te da corte pero
+      no puedes dejarle escapar!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Pero es que...
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Venga, mujer. La \xFAltima vez funcion\xF3."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <size=20>D-<pause=0,2>Disculpe...
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "\xBFHas dicho algo noia?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: S-si.<pause=0,3> Es que<speed=5>... <speed=15>A ver<speed=5>... <speed=40>No
+      se como decirlo...
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: Venga noia que tu pots. Dime que quieres.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: E-<pause=0,5>estaba pensando en decirte si quieres venirte a vivir al pueblo.
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Necesitamos una tienda aqu\xED y creo que estar\xEDas muy bien en Babal\xE0."
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: Aahhh, eso es lo que querias decirme. Es un poco repentino pero...
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "\xBFqu\xE9 te hace pensar que quiera vivir aqu\xED o que encaje aqu\xED?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: P-Pues creo por tu mirada que estas muy cansada.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Seguro que muchos de los problemas son derivados de la ciudad.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Bueno, si tienes raz\xF3n en eso. Apenas pego ojo porque tengo que estar
+      hasta tarde en la tienda.."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Adem\xE1s luego cuando me pongo a dormir no paran de hacer ruido por mi
+      barrio"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues aqu\xED no tendr\xEDas que estar hasta las tantas."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "La gente aqu\xED es muy comprensiva y sabe que todos necesitamos descansos."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Yo misma no estoy hasta mas de lo que me toque y la gente lo entiende.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: La verdad es que eso me interesa. Estoy cansado de estar tan cansado.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Ademas aqu\xED har\xE1s muy feliz a los ni\xF1os que podr\xE1n comprar
+      chuches de todo tipo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Y piensa que podr\xE1s todos los findes a esas monta\xF1as que tanto le
+      han gustado."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Vale, pues no se hable mas. Voy a mudarme ya mismo. Estoy cansada de la
+      ciudad.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xBFVes Dore? \xBFVes como tu pod\xEDas?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S-S\xED. Creo que voy pillandole el truco a esto de socializar."
+    Emotion: 0

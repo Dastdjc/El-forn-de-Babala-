@@ -19,13 +19,14 @@ MonoBehaviour:
     text: Vale pues me pongo a ello.
     Emotion: 0
   - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
-    text: "Oye se\xF1orita, una duda que me ha surgido al visitar este pueblo."
+    text: "Escuche, se\xF1orita<speed=5>...<speed=40> Una duda que me ha surgido
+      al visitar este pueblo."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFS\xED, digame?"
+    text: "\xBFS\xED,<pause=0,5> digame?"
     Emotion: 6
   - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
-    text: "He notado que aqu\xED los modales son un poco deficientes \xBFTen\xE9is
+    text: "He notado que aqu\xED los modales son un poco deficientes<pause=0,5> \xBFTenienen
       vuesas mercedes un colegio?"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
@@ -39,10 +40,12 @@ MonoBehaviour:
     text: "Pues no s\xE9, nadie se ha prestado a hacer de profesor."
     Emotion: 0
   - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
-    text: "Esto es inaceptable \xA1A un pueblo comoe ste no le puede faltar escuela
+    text: "Esto es inaceptable \xA1A un pueblo como este no le puede faltar escuela
       o profesor!"
     Emotion: 5
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Pues a ver si alguien se presta a realizar ese cometido. De todas formas
-      voy a hacer su pedido.
+    text: Pues a ver si alguien se presta a realizar ese cometido.
     Emotion: 2
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: De todas formas,<pause=1> voy a hacer su pedido.
+    Emotion: 1
