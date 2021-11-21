@@ -16,7 +16,7 @@ MonoBehaviour:
   speakerRight: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
   lines:
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: "\xA1Buenos y forzudos dias!"
+    text: "<speed=20>\xA1Buenos y forzudos dias! <speed=40>"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xA1Buenos dias! Mifa, este cliente parece diferente a los demas..."
@@ -26,7 +26,8 @@ MonoBehaviour:
       aqu\xED."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFEn serio? \xBFNo es un poco... especial para venirse a vivir a Babal\xE0?"
+    text: "\xBFEn serio?<pause=0,5> \xBFNo es un poco<speed=5>... <speed=40>especial
+      para venirse a vivir a Babal\xE0?"
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "S\xED, es bastante especial tu lo has dicho. Ser\xEDa perfecto para que
@@ -37,15 +38,15 @@ MonoBehaviour:
       coche aqu\xED sin tenerse que ir a la ciudad."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Vale, lo entiendo. Entoces vas t\xFA y le convences para que se quede,
-      \xBFno?"
+    text: "Vale, lo entiendo.<pause=1> Entoces vas t\xFA y le convences para que
+      se quede, \xBFno?"
     Emotion: 0
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Jaja, que va. Me gustar\xEDa pero lo vas a hacer t\xFA."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xA1\xBFQ-Qu\xE9?! \xA1\xBFEst\xE1s loca?! \xA1No puedo hacerlo, me da
-      mucha verg\xFCenza!"
+    text: "<size=50>\xA1\xBFQ-Qu\xE9?!<pause=0,5><shake=0,2> \xA1\xBFEst\xE1s loca?!<pause=0,5>
+      \xA1No puedo hacerlo, me da mucha verg\xFCenza!"
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Pero Dore, \xA1tienes que hacerlo! Si te lo arreglara yo todo no solucionariamos
@@ -65,14 +66,14 @@ MonoBehaviour:
     text: "Vale, lo har\xE9..<pause=1> Espero no trabarme mucho."
     Emotion: 3
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: "<size=50>\xA1Hola buenas! .<pause=1>\xBF\xA1Alguien va a tomame el pedido!?<pause=1>
-      \xA1Tengo mucha hambre!"
+    text: "<size=50><speed=20><shake=0,2>\xA1Hola buenas! .<pause=1><shake=0,2>\xBF\xA1Alguien
+      va a tomame el pedido!?<pause=1><shake=0,2> \xA1Tengo mucha hambre!<speed=40>"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "S-Si.<pause=1> A-aqu\xED estoy..."
     Emotion: 3
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: Ah, menos mal. Por fin viene alguien.
+    text: <speed=20>Ah, menos mal. Por fin viene alguien.<speed=40>
     Emotion: 3
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xBFQ-Quer\xEDa tomar algo se\xF1or?"

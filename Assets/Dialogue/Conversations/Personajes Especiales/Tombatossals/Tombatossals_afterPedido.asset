@@ -16,20 +16,20 @@ MonoBehaviour:
   speakerRight: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
   lines:
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: <speed=20>V-Vale, marchando.<speed=40>
+    text: V-Vale, marchando.<speed=40>
     Emotion: 0
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: Espero que este bueno.
+    text: <speed=20>Espero que este bueno.<speed=40>
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "<size=20>No se preocupe, todo esta buen\xEDsimo.<size=36>"
     Emotion: 3
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: "\xBFDisculpa has dicho algo?"
+    text: "<speed=20>\xBFDisculpa, has dicho algo?"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "<speed=50>\xA1Eh, no! \xA1No he dicho nada! \xA1Enseguida llega su pedido!<speed=40>"
-    Emotion: 0
+    Emotion: 2
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Eso \xFAltimo se lo deberias haber dicho en voz alta."
     Emotion: 0
