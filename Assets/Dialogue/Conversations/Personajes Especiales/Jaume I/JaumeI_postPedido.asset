@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: JaumeI_postPedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Vale pues me pongo a ello.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Oye se\xF1orita, una duda que me ha surgido al visitar este pueblo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFS\xED, digame?"
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "He notado que aqu\xED los modales son un poco deficientes \xBFTen\xE9is
+      vuesas mercedes un colegio?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "No, el profesor que teniamos se fue de aqu\xED hace un tiempo y ahora
+      la gente aprende por su cuenta."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Anonadado me hall\xF3 \xA1Como es posible esto!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues no s\xE9, nadie se ha prestado a hacer de profesor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Esto es inaceptable \xA1A un pueblo comoe ste no le puede faltar escuela
+      o profesor!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Pues a ver si alguien se presta a realizar ese cometido. De todas formas
+      voy a hacer su pedido.
+    Emotion: 2
