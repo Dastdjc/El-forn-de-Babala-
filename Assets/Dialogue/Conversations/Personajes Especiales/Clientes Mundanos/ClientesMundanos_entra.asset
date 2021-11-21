@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: ClientesMundanos_entra
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Hola, buenos d\xEDas \xBFMe podr\xEDas poner una mona, por favor?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Dame una mona por favor. Quiero estamparle el huevo a algun amigo.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: La verdad es que hoy me apetece una buena farinada.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "\xBFFarinada? Es la primera vez que escucho esto. Ahora necesito probarlo...
+      Ponme una caja entera, por favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "\xBFPuedes ponerme unos bu\xF1uelos de calabaza? Dicen que aqu\xED lo
+      haceis estupendos."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Todo el mundo sabe que los bu\xF1uelos de calabaza son mejores que los
+      churros. Asi que ponme uno venga."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Llevo un dia horrible, solo quiero que me pongas una coca de llanda, por
+      favor.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: La coca de llanda son algo sagrado. Espero que la vuestra este a la altura.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Con el calor que hace solo necesito una horchata, pero no tengo fartons
+      \xBFPuedes ponerme unos cuantos, por favor?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "No tengo horchata pero da igual. Ponme unos fartons y ya lo mojar\xE9
+      en leche."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Buenos dias, \xBFpod\xE9is ponerme unas pilotes de frare? Quiero ponerlo
+      como postre para la cena de hoy"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Dame las bombas caloricas que llam\xE1is pilotas de frare, por favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Necesito una merienda simple para esta tarde \xBFTienes unos flaons?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Un buen flaon es lo que necesito ahora \xBFTienes alguno?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Tengo un mono de boniato. Chiquilla, dame un pastel de boniato, por favor.
+      Y que tenga mucho boniato
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Como soy un moniato pongame un pastel de boniato, jeje... Lo siento por
+      el chiste
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "No es epoca a\xFAn de mocaor\xE0 pero que demonios, ponme una para darme
+      un capricho, que me lo merezco."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Que ser\xEDa de mi dia si no lo acabara comiendo una buena mocaor\xE0."
+    Emotion: 0
