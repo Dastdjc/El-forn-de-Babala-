@@ -16,10 +16,10 @@ MonoBehaviour:
   speakerRight: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Hola soy<speed=5>... <speed=50> <size= 50> \xA1MIFA!"
+    text: "Hola soy<speed=5>... <speed=50> <size= 50><shake=0,2> \xA1MIFA!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: <speed=50><size= 50><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
+    text: <speed=30><size= 50><shake=0.2><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
     Emotion: 2
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Tranquila, tranquila, soy otra bruja como t\xFA, estaba viendote a trav\xE9s
@@ -58,5 +58,5 @@ MonoBehaviour:
     text: "\xBFComo que de la forma adecuada?"
     Emotion: 6
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "No has probado con<speed=5>...  <speed=40>\xA1MAGIA!"
+    text: "No has probado con<speed=5>...  <speed=40><shake=0,3>\xA1MAGIA!"
     Emotion: 1

@@ -36,7 +36,7 @@ namespace TMPro
             // check to see if a tag is our own
             bool isCustomTag(string tag)
             {
-                return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("action");
+                return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("shake=");
             }
 
             // send that string to textmeshpro and hide all of it, then start reading
@@ -81,6 +81,10 @@ namespace TMPro
                         else if (tag.StartsWith("pause="))
                         {
                             return new WaitForSeconds(float.Parse(tag.Split('=')[1]));
+                        }
+                        else if (tag.StartsWith("shake=")) 
+                        {
+                            CameraShake.Instance.ShakeCamera(10f, float.Parse(tag.Split('=')[1]));
                         }
                     }
                     return null;

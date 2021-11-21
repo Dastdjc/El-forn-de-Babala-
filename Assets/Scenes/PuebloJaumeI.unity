@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 584841262}
   - component: {fileID: 584841261}
   - component: {fileID: 584841260}
+  - component: {fileID: 584841263}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -623,6 +624,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &584841263
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584841258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &596914281
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +817,7 @@ GameObject:
   - component: {fileID: 784099781}
   - component: {fileID: 784099780}
   - component: {fileID: 784099779}
+  - component: {fileID: 784099782}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -893,6 +912,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &784099782
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784099777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 5
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &803116378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809945592}
   - component: {fileID: 809945593}
+  - component: {fileID: 809945594}
   m_Layer: 0
   m_Name: DialogueCamera
   m_TagString: Untagged
@@ -1057,6 +1094,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 784099778}
+--- !u!114 &809945594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d634155c46f54b45928b87c8d72cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891348844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2561,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 721931635
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 87f088b8d24f5a74d88c4b329108bfd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2798,6 +2847,7 @@ GameObject:
   - component: {fileID: 1993488043}
   - component: {fileID: 1993488042}
   - component: {fileID: 1993488044}
+  - component: {fileID: 1993488045}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2872,6 +2922,18 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 734761945}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &1993488045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993488041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d634155c46f54b45928b87c8d72cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076266771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,7 +3005,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 721931635
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 87f088b8d24f5a74d88c4b329108bfd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3025,7 +3087,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 721931635
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 87f088b8d24f5a74d88c4b329108bfd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
