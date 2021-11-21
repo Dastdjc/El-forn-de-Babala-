@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Dragon_intro
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "\xA1Buenos dias! Tengo un hambre voraz. Mi boca esta pidiendo comida."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Buenos dias...
+    Emotion: 2
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Mifa, creo que ha entrado otro de esos clientes especiales.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Si, eso parece.  Habr\xE1 que convencerlo para que se qued\xE9."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFY seguro que no puedes tu hacerlo? De verdad que se me da fatal esto..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Pero si a Tombatossals le convenciste maravillosamente!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<speed=20>Ya, pero no s\xE9 ni como lo hice. Fue pura suerte... "
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Bueno pues a ver si la suerte te acompa\xF1a otra vez.<pause=1> Estoy
+      segura que si."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "No s\xE9 Mifa..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Yo solo te digo que si me hubieras hablado como le hablastes a Tombatossals
+      me hubiera quedado ipsofacto a vivir aqu\xED."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<size=40>\xA1\xBFQ-<pause=0,5>Qu\xE9?!"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: <size=36>Lo que escuchas
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: ...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno, si tu lo dices... <pause=1><shake=0,2>\xA1Lo hare otra vez!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno, si tu lo dices... <pause=1><shake=0,2>\xA1Lo hare otra vez!"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Eso es! <pause=0,5> \xA1Venga, a por \xE9l que tu puedes!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Buenos dias otra vez! <size=50><shake=0,2>\xA1\xBFDesea algo!?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Madre mia que entusiasmo. As\xED si que da gusto pedir. Pues a ver quiero..."
+    Emotion: 1
