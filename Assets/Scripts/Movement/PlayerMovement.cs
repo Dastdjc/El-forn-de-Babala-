@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = 14;
         rb.gravityScale = 0;
 
-        CameraShake.Instance.ShakeCamera(5f, 0.5f);
+        CameraShake.Instance.ShakeCamera(5f, 0.1f);
 
         //Debug.Log("dash");
         StartCoroutine("DashWait"); // Parecido a un timer
