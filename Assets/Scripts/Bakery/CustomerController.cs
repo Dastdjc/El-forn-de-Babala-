@@ -9,6 +9,8 @@ public class CustomerController : MonoBehaviour
     public GameObject TargetBar;
     private RectTransform Mask;
     private SpriteRenderer image;
+    public Conversation conversation;
+    public DialogueManagerCM dmcm;
     private float satisfacton = 0;
     private float walk = 15;
     private int state;
@@ -19,8 +21,8 @@ public class CustomerController : MonoBehaviour
     {
         Served = -1,
         Mona = 0,
-        Sandwich  = 1,
-        Rosquilletas = 2,
+        Flaons  = 1,
+        Farinada = 2,
         Fartons = 3,
         Bunyols = 4
     }
@@ -60,7 +62,29 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Tiene que pedir y hablar
                 case 1:
-                    //Aquí van los diálogos del cliente
+                    switch (command[0])
+                    {
+                        case Recetas.Mona:
+                            dmcm.index = Random.Range(0,2);
+                            dmcm.NPC = transform;
+                            dmcm.conversation = conversation;
+                            dmcm.inConversation = true;
+                            break;
+                        case Recetas.Flaons:
+
+                            break;
+                        case Recetas.Farinada:
+
+                            break;
+                        case Recetas.Fartons:
+
+                            break;
+                        case Recetas.Bunyols:
+
+                            break;
+                        default:
+                            break;
+                    }
                     state++;
                     break;
                 //Espera a que le des su comida
