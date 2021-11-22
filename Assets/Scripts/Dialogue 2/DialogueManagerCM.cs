@@ -26,14 +26,15 @@ public class DialogueManagerCM : MonoBehaviour
     {
         //TextPro.text = conversation.lines[0].text;
         TextPro.onDialogueFinish.AddListener(canSkip);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (inConversation)
         {
-
             if (conversationIndex >= 1)
             {
                 boxAnimation.SetBool("Cartel", false);
@@ -52,13 +53,7 @@ public class DialogueManagerCM : MonoBehaviour
                 conversationStarted = true;
                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
                 {
-                    Debug.Log(index);
                     conversationIndex++;
-                    if (conversationIndex < 2)
-                    {
-                        Debug.Log(index);
-                        showDialogue(index);
-                    }
                     nextDialogue = false;
                 }
             }

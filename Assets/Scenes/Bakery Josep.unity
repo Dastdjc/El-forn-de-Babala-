@@ -1051,10 +1051,10 @@ MonoBehaviour:
   m_Targets:
   - target: {fileID: 0}
     weight: 1
-    radius: 10
+    radius: 7.63
   - target: {fileID: 0}
     weight: 1
-    radius: 10
+    radius: 5.16
 --- !u!1 &435125818
 GameObject:
   m_ObjectHideFlags: 0
