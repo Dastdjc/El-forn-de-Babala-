@@ -10,6 +10,7 @@ public class CustomerController : MonoBehaviour
     private RectTransform Mask;
     private SpriteRenderer image;
     public Conversation conversation;
+    public Conversation enfadado;
     public DialogueManagerCM dmcm;
     private float satisfacton = 0;
     private float walk = 15;
@@ -117,6 +118,7 @@ public class CustomerController : MonoBehaviour
                     image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
                     if (satisfacton >= TimeWaiting)
                     {
+                        
                         state++;
                         Talk(false);
                         walk = 15;
@@ -124,6 +126,10 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Se va a su casa
                 case 3:
+                    dmcm.index = Random.Range(0, 7);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = enfadado;
+                    dmcm.inConversation = true;
                     this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
                     walk -= 0.1f;
                     if (walk <= 0)
