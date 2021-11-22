@@ -14,7 +14,7 @@ public class DialogueManagerCM : MonoBehaviour
     public bool inConversation = false;
     public Cinemachine.CinemachineVirtualCamera dialogueCamera;
     public Cinemachine.CinemachineTargetGroup TargetGroup;
-    public int index;
+    [HideInInspector] public int index;
 
     private int conversationIndex = 0;
     private bool conversationStarted = false;

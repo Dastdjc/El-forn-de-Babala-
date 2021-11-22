@@ -14,6 +14,7 @@ public class CustomerController : MonoBehaviour
     private float satisfacton = 0;
     private float walk = 15;
     private int state;
+    private GameObject gmo;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -28,11 +29,21 @@ public class CustomerController : MonoBehaviour
     }
     private Recetas[] command;
 
+    private void Awake()
+    {
+        gmo = GameObject.FindGameObjectWithTag("dialogo");
+
+        if (gmo != null)
+        {
+            dmcm = gmo.GetComponent<DialogueManagerCM>();
+        }
+    }
     void Start()
     {
         //Se asigna la layer CustomerIn que no colisionan con CustomerIn
         gameObject.layer = 3;
 
+        
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
         command = new Recetas[Random.Range(1, 4)];
@@ -71,16 +82,28 @@ public class CustomerController : MonoBehaviour
                             dmcm.inConversation = true;
                             break;
                         case Recetas.Flaons:
-
+                            dmcm.index = Random.Range(0, 2);
+                            dmcm.NPC = transform;
+                            dmcm.conversation = conversation;
+                            dmcm.inConversation = true;
                             break;
                         case Recetas.Farinada:
-
+                            dmcm.index = Random.Range(0, 2);
+                            dmcm.NPC = transform;
+                            dmcm.conversation = conversation;
+                            dmcm.inConversation = true;
                             break;
                         case Recetas.Fartons:
-
+                            dmcm.index = Random.Range(0, 2);
+                            dmcm.NPC = transform;
+                            dmcm.conversation = conversation;
+                            dmcm.inConversation = true;
                             break;
                         case Recetas.Bunyols:
-
+                            dmcm.index = Random.Range(0, 2);
+                            dmcm.NPC = transform;
+                            dmcm.conversation = conversation;
+                            dmcm.inConversation = true;
                             break;
                         default:
                             break;
