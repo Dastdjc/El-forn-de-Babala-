@@ -33,6 +33,7 @@ public class DialogueManagerCM : MonoBehaviour
     {
         if (inConversation)
         {
+
             if (conversationIndex >= 1)
             {
                 boxAnimation.SetBool("Cartel", false);
@@ -44,13 +45,18 @@ public class DialogueManagerCM : MonoBehaviour
             else
             {
                 if (!conversationStarted)
+                {
                     setUpConversation();
+                    showDialogue(index);
+                }
                 conversationStarted = true;
                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
                 {
+                    Debug.Log(index);
                     conversationIndex++;
                     if (conversationIndex < 2)
                     {
+                        Debug.Log(index);
                         showDialogue(index);
                     }
                     nextDialogue = false;
@@ -65,7 +71,7 @@ public class DialogueManagerCM : MonoBehaviour
         dialogueBox.SetActive(true);
         boxAnimation.SetBool("Cartel", true);
 
-        Invoke("showDialogue", 0.1f);
+        //Invoke("showDialogue", 0.1f);
 
 
     }
