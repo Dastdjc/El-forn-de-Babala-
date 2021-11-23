@@ -14,4 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 0}
   speakerRight: {fileID: 0}
-  lines: []
+  lines:
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "Tardar\xEDa menos en volver a recorrer el mundo que en comer lo que he
+      pedido."
+    Emotion: 5
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: En uno de mis viajes tuve que comer gusanos para poder subsistir. Estaban
+      mejor que esto.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "Muy bueno s\xED, bastante mejor que las comidas artesanales que com\xED
+      a lo largo del mundo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "\xA1Dios m\xEDo! \xA1He viajado por cantidad de pa\xEDses y en mi vida
+      he probado algo tan bueno!"
+    Emotion: 1

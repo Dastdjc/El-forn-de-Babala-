@@ -12,6 +12,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
   m_Name: Gulliver_intro
   m_EditorClassIdentifier: 
-  speakerLeft: {fileID: 0}
-  speakerRight: {fileID: 0}
-  lines: []
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: A-al fin. Una tierra amiga...
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFC-C\xF3mo?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: Llevo viajando tanto tiempo... Y apenas he visto a nadie que pueda llamar
+      amigo.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "Creo que aqu\xED encontrar\xE9 caras amistosas. Adem\xE1s tengo mucha
+      hambre."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Mifa... \xBFEs normal que todos los clientes especiales siempre sean tan
+      raros?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Mifa... \xBFEs normal que todos los clientes especiales siempre sean tan
+      raros?"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Claro! \xA1Las personas raras son las mejores! \xA1M\xEDranos a nosotras
+      dos!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Si t\xFA lo dices..."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Por cierto Dore, este ser\xE1 tu \xFAltimo cliente especial."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFQu\xE9?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "S\xED. Aunque no lo parezca este cliente ser\xE1 muy buen alcalde. Ha
+      visto mucho mundo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "En cuanto tengamos un alcalde este pueblo volver\xE1 a ser lo que era.
+      Estar\xE1 completo por decirlo de alguna manera."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFEntonces significar\xE1 que te ir\xE1s de aqu\xED?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "S\xED... Al haberte ayudado me tendr\xE9 que volver para poder ayudar
+      a otras brujas."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "P-Pero... te podr\xEDas quedar aqu\xED, \xBFno?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "No lo s\xE9 Dore \xBFHay algo aqu\xED que me retenga?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: ...
+    Emotion: 6
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Supongo que no.
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Bueno, no hablemos sobre esto, a\xFAn tenemos que convencer al cliente."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Tienes raz\xF3n... Disculpe, \xBFqu\xE9 es lo que quer\xEDa pedir?"
+    Emotion: 6
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: Pues creo que al ver la carta ya lo tengo decidido. Quiero...
+    Emotion: 6
