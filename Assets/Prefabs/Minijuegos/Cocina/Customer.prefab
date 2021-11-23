@@ -239,6 +239,9 @@ MonoBehaviour:
   TargetBar: {fileID: 0}
   conversation: {fileID: 11400000, guid: 9074345b8f6c9234eb900a8744253a7a, type: 2}
   enfadado: {fileID: 11400000, guid: b7a3eefb45512d941bd7c50923f71385, type: 2}
+  bueno: {fileID: 11400000, guid: c755730ebb013f443802e5667e5c3e61, type: 2}
+  medio: {fileID: 11400000, guid: eb3bac78da1ad014c8899465659342ac, type: 2}
+  malo: {fileID: 11400000, guid: 3e213db815e93bb44b6735e1a927a746, type: 2}
   dmcm: {fileID: 0}
 --- !u!1 &1004551547286603116
 GameObject:
