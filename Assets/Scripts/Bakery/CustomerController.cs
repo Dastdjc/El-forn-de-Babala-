@@ -114,11 +114,12 @@ public class CustomerController : MonoBehaviour
                 //Espera a que le des su comida
                 case 2:
                     satisfacton += 0.001f;
+                    
                     Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
                     image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
                     if (satisfacton >= TimeWaiting)
                     {
-                        
+                        Debug.Log(satisfacton);
                         state = 3;
                         Talk(false);
                         walk = 15;
