@@ -119,12 +119,12 @@ public class CustomerController : MonoBehaviour
                     if (satisfacton >= TimeWaiting)
                     {
                         
-                        state++;
+                        state = 3;
                         Talk(false);
                         walk = 15;
                     }
                     break;
-                //Se va a su casa
+                //Se va a su casa enfadado
                 case 3:
                     dmcm.index = Random.Range(0, 7);
                     dmcm.NPC = transform;
@@ -137,6 +137,18 @@ public class CustomerController : MonoBehaviour
                         SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
                         Destroy(gameObject);
                     }
+                    break;
+                //pedido bueno
+                case 4:
+
+                    break;
+                //pedido medio
+                case 5:
+
+                    break;
+                //pedido malo
+                case 6:
+
                     break;
             }
         }

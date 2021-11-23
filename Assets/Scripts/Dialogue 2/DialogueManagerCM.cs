@@ -19,7 +19,10 @@ public class DialogueManagerCM : MonoBehaviour
     private int conversationIndex = 0;
     private bool conversationStarted = false;
     private bool nextDialogue = false;
-   
+
+    private float startTime;
+    private float t;
+    private bool timer = true;
 
     // Start is called before the first frame update
     void Start()
@@ -45,17 +48,17 @@ public class DialogueManagerCM : MonoBehaviour
             }
             else
             {
-                if (!conversationStarted)
-                {
-                    setUpConversation();
-                    showDialogue(index);
-                }
-                conversationStarted = true;
-                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
-                {
-                    conversationIndex++;
-                    nextDialogue = false;
-                }
+                 if (!conversationStarted)
+                 {
+                     setUpConversation();
+                     showDialogue(index);
+                 }
+                 conversationStarted = true;
+                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue || t > 3)
+                 {
+                     conversationIndex++;
+                     nextDialogue = false;
+                 }
             }
         }
     }
