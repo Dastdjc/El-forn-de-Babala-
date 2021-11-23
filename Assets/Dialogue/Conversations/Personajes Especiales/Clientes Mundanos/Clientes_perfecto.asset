@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Clientes_perfecto
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Muchas gracias por el dulce \xA1Me ha sentado de maravilla!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "No me esperaba que estuviera tan bueno \xA1De seguro que volver\xE9!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "\xA1Mis papilas gustativas est\xE1n alcanzando el nirvana! \xA1Esto esta
+      buen\xEDsimo!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "\xBFPor qu\xE9 no se est\xE1 hablando apenas de esta panader\xEDa? \xA1Es
+      lo mejor que he probado en mucho tiempo!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Casi lloro al probarlo, que delicia.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Nada comparado a los dulces industriales de la ciudad, esto esta mil veces
+      mejor.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Ahora veo que los pueblos pueden ser mejor que la ciudad en ciertos aspectos.
+      Esto est\xE1 de muerte"
+    Emotion: 1

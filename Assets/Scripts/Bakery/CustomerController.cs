@@ -11,6 +11,9 @@ public class CustomerController : MonoBehaviour
     private SpriteRenderer image;
     public Conversation conversation;
     public Conversation enfadado;
+    public Conversation bueno;
+    public Conversation medio;
+    public Conversation malo;
     public DialogueManagerCM dmcm;
     private float satisfacton = 0;
     private float walk = 15;
@@ -146,15 +149,58 @@ public class CustomerController : MonoBehaviour
                     break;
                 //pedido bueno
                 case 4:
-
+                    if (conversando)
+                    {
+                        dmcm.index = Random.Range(0, 7);
+                        dmcm.NPC = transform;
+                        dmcm.conversation = bueno;
+                        dmcm.inConversation = true;
+                        conversando = false;
+                    }
+                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+                    walk -= 0.1f;
+                    if (walk <= 0)
+                    {
+                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
+                        Destroy(gameObject);
+                    }
                     break;
                 //pedido medio
                 case 5:
-
+                    if (conversando)
+                    {
+                        dmcm.index = Random.Range(0, 5);
+                        dmcm.NPC = transform;
+                        dmcm.conversation = medio;
+                        dmcm.inConversation = true;
+                        conversando = false;
+                    }
+                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+                    walk -= 0.1f;
+                    if (walk <= 0)
+                    {
+                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
+                        Destroy(gameObject);
+                    }
+                    
                     break;
                 //pedido malo
                 case 6:
-
+                    if (conversando)
+                    {
+                        dmcm.index = Random.Range(0, 5);
+                        dmcm.NPC = transform;
+                        dmcm.conversation = malo;
+                        dmcm.inConversation = true;
+                        conversando = false;
+                    }
+                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+                    walk -= 0.1f;
+                    if (walk <= 0)
+                    {
+                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
+                        Destroy(gameObject);
+                    }
                     break;
             }
         }
