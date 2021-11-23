@@ -16,6 +16,7 @@ public class CustomerController : MonoBehaviour
     private float walk = 15;
     private int state;
     private GameObject gmo;
+    private bool conversando;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -119,18 +120,22 @@ public class CustomerController : MonoBehaviour
                     image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
                     if (satisfacton >= TimeWaiting)
                     {
-                        Debug.Log(satisfacton);
                         state = 3;
                         Talk(false);
                         walk = 15;
+                        conversando = true;
                     }
                     break;
                 //Se va a su casa enfadado
                 case 3:
-                    dmcm.index = Random.Range(0, 7);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = enfadado;
-                    dmcm.inConversation = true;
+                    if (conversando)
+                    {
+                        dmcm.index = Random.Range(0, 6);
+                        dmcm.NPC = transform;
+                        dmcm.conversation = enfadado;
+                        dmcm.inConversation = true;
+                        conversando = false;
+                    }
                     this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
                     walk -= 0.1f;
                     if (walk <= 0)

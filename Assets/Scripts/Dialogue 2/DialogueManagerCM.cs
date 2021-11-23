@@ -54,11 +54,20 @@ public class DialogueManagerCM : MonoBehaviour
                      showDialogue(index);
                  }
                  conversationStarted = true;
-                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue || t > 3)
-                 {
-                     conversationIndex++;
-                     nextDialogue = false;
-                 }
+                if (timer)
+                {
+                    startTime = Time.time;
+                    timer = false;
+                }
+                t = Time.time - startTime;
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue || t > 2.5f)
+                {
+                    conversationIndex++;
+                    nextDialogue = false;
+                    t = 0;
+                    startTime = 0;
+                    timer = true;
+                }
             }
         }
     }
