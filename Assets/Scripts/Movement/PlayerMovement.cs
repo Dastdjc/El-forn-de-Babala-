@@ -72,7 +72,9 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = 14;
         rb.gravityScale = 0;
 
-        Debug.Log("dash");
+        CameraShake.Instance.ShakeCamera(5f, 0.1f);
+
+        //Debug.Log("dash");
         StartCoroutine("DashWait"); // Parecido a un timer
     }
 
@@ -88,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 1;
         rb.drag = 0;
 
-        Debug.Log("STOP dash");
+        //Debug.Log("STOP dash");
         // Deactivate Dash
         animator.SetBool("isDashing", false);
         dashParticles.SetActive(false);

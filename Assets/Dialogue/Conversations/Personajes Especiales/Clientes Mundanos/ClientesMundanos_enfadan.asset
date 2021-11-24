@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: ClientesMundanos_enfadan
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Lo siento, pero mi tiempo vale mucho m\xE1s que estar aqu\xED esperando."
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Como siga esperando as\xED mis hijos se har\xE1n abuelos. Me voy."
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: No me creo que se tarde tanto en hacer un simple dulce.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Al ritmo que vais casi que me lo preparo yo y acabo antes.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Esto es inadmisible \xA1Preparar un dulce no deber\xEDa llevar tanto tiempo!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "\xBFTanto cuesta preparar lo que os he dicho? \xA1Por dios!"
+    Emotion: 5

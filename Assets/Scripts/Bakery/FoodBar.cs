@@ -11,7 +11,7 @@ public class FoodBar : MonoBehaviour
     public GameObject Example;
     public bool LargeLabel;
     public int Offset;
-    public string[] names = { "Mona", "Sandwich", "Rosquilletas", "Fartons", "Bunyols" };
+    public string[] names = { "Mona", "Flaons", "Farinada", "Fartons", "Bunyols" };
     private GameObject[] Bar;
     private void Start()
     {

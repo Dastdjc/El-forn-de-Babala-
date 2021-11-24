@@ -9,6 +9,7 @@ TagManager:
   - Harina
   - Calabaza
   - Huevo
+  - dialogo
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: ForeGround
     uniqueID: 3684788151
+    locked: 0
+  - name: MiniGame
+    uniqueID: 1109610835
     locked: 0

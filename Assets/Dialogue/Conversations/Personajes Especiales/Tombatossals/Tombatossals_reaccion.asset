@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Tombatossals_reaccion
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: Bueno, tengo que regresar al trabajo, no puedo esperar tanto tiempo en
+      un simple dulce.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: De verdad para comer esto me hubiera comido una barrita energetica. Madre
+      mia que cosa mas mala.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Bueno, no esta nada mal. A\xFAn as\xED creo que podria estar mas fuerte,
+      como yo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Dios, \xA1esto est\xE1 m\xE1s fuerte que yo! \xA1Nunca habia probado algo
+      as\xED!"
+    Emotion: 1

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: ClientesMundanos_malo
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "\xBFEstar\xE1s de broma no? \xBFDe verdad quieres que me coma esto?"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "No soy cr\xEDtico de comida pero hasta yo s\xE9 que as\xED no es como
+      es un buen dulce."
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: He comido mucha basura en mi vida, pero creo que esta se lleva la palma
+      a la peor comida que he probado.
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "No, si el dulce estar\xEDa bueno si no fuera por un peque\xF1o, min\xFAsculo
+      detalle \xA1Est\xE1 completamente quemado!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "De verdad que lo \xFAltimo que me esperaba en esta panader\xEDa es esta...
+      cosa."
+    Emotion: 5

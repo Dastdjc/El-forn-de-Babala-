@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: JaumeI_reaccion
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Creo que debo marcharme, mi caballo est\xE1 cansado de esperar bajo el
+      sol fuera"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xBFPero qu\xE9 tremenda afrenta es esta? \xA1Est\xE1is tratando de envenenarme!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Mmmm tiene un sabor estupendo no le voy a mentir.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Por todos los santos, esto est\xE1 mejor que mil batallas ganadas, ha
+      sido un placer parar a probar las delicias de vuesas mercedes."
+    Emotion: 1

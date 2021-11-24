@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: ClientesMundanos_medio
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "No est\xE1 mal este dulce, pero los he probado mejores"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Bueno, menos da una piedra supongo
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "Podr\xEDa estar mejor la verdad. Lo he notado un poco seco."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: Para quitar el hambre esta bien, pero tampoco entiendo tanto revuelo.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 740be20e90662cb4183eaf72611b1d9e, type: 2}
+    text: "He probado cosas peores, pero tampoco es que este est\xE9 muy all\xE1."
+    Emotion: 0

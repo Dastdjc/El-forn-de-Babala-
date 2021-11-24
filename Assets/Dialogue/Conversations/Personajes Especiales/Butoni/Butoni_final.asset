@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Butoni_final
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Me alegro mucho que te haya gustado.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "\xA1Si la verdad! \xA1Estaba muy bueno!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dore, no hace falta que te lo diga, \xBFno?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S\xED, s\xED. De hecho ya tengo planeado como convencerla."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Oye hablando del cine \xBFpor qu\xE9 no te vienes a vivir aqu\xED?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "\xBFC\xF3mo? \xBFYo aqu\xED?"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Si, claro. Si tanto te gusta el cine, \xBFpor qu\xE9 no montas aqu\xED
+      un cine?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "P-pero es que no s\xE9 nada de llevar un negocio..."
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Yo tampoco sab\xEDa y m\xEDrame ahora. Te ayudar\xE9 a todo lo que necesitas."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "B-Bueno no s\xE9 \xBFY si decepciono a todos con las pel\xEDculas que
+      escojo?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Lo dudo bastante. Ya he visto que te encanta el cine. Seguro que lo haces
+      bien.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Adem\xE1s aqu\xED conseguir\xE1s m\xE1s amigos. En Babal\xE0 todos nos
+      entendemos."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "La verdad es que ahora mismo no estoy haciendo nada y me gustar\xEDa hacer
+      algo relacionado con cine."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Pues entonces venga. No hay mejor oportunidad que esta.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "Si, \xA1lo he decidido! Ma\xF1ana vendr\xE9 aqu\xED y comenzar\xE9 con
+      el cine!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Perfecto! Te ayudar\xE9 a buscar un sitio. "
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Y, oye...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFS\xED?"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "\xBFT-Te gustar\xEDa ser amigas?"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1P-Pues claro que s\xED! \xA1Me encantar\xEDa que fu\xE9ramos amigas!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "\xA1Ahora si que quiero mudarme aqu\xED! \xA1Soy la Butoni, por cierto!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Desde luego sois tal para cual...
+    Emotion: 0

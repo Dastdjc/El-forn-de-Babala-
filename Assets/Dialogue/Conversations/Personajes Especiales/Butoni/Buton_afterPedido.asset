@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Buton_afterPedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Vale, lo tengo. <pause=0,5>Enseguida te lo traigo.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: <speed=25>O<pause=0,5>-oye, una cosa...<speed=40>
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Dime,<pause=0,2> \xBFqu\xE9 pasa?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "<speed=25>N-Nada, que he visto el pueblo y me parece muy bonito. Seguro
+      que vivir aqu\xED tiene que ser muy guay.<speed=40>"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "La verdad es que s\xED,<pause=0,5> \xA1Y gracias por decir que mi pueblo
+      es bonito!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "<speed=25>\xBFOye y aqu\xED no ten\xE9is algo para entreteneros? Como
+      un cine por ejemplo.<speed=40>"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues la verdad es que no tenemos un cine...<pause=0,2> Nos entretenemos
+      a nuestra manera<pause=0,2> \xBFEs que te gusta el cine?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: <speed=25>Me encanta el cine.<pause=0,5> Me parece uno de los mejores medios
+      para contar historias.<pause=0,3><size=30><speed=50> Muchos creen que solo
+      sirve para contar historias simples pero como demuestran pelis como Eraserhead
+      se puede contar historias muy complejas.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "<size=25><speed=75>A\xFAn as\xED no quiero parecer muy pedante, tambi\xE9n
+      me gustan las pelis mas simples y entretenidas, de hecho en muchas pelis asi
+      se pueden mas mensajes que en obras complejas y todo esto va acompa\xF1do por..."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: <speed=20>...
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=40>...
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "<speed=25>L-<pause=0,2>lo siento, con el cine me emociono de m\xE1s. No
+      puedo evitarlo.<speed=40>"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: No, no. Tranquila.<pause=0,3> Veo que no siempre eres vergonzosa. Solo
+      necesitas que hablen de lo que te gusta.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: U-un poco la verdad.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno, ahora ya s\xE9 ver que te gusta el cine.<pause=0,2> Aqu\xED en
+      el pueblo no nos vendria mal uno...<pause=0,2>"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Pero bueno, voy a preparar tu pedido.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: <speed=20>Vale, g-<pause=0,2>gracias.
+    Emotion: 0

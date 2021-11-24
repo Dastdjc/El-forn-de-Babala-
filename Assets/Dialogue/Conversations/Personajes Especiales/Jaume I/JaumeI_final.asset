@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: JaumeI_final
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Entonces... <pause=1>\xBFha sido de agrado para el caballero?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "<size=50>\xA1Por supuesto! <size=36>Hac\xEDa much\xEDsimo tiempo que no
+      probaba una delicia como esta."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xA1Por supuesto! Hac\xEDa much\xEDsimo tiempo que no probaba una delicia
+      como esta."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Me alegro mucho!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Bueno, ha sido una grata sorpresa parar por aqu\xED pero tengo que marchar
+      a otras tierras"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dore... ya sabes qu\xE9 tienes que hacer."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<speed=20>S-S\xED.<speed=40>"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Disculpe honorable caballero. Acerca de lo de tener un profesor en el pueblo<speed=10>...<speed=40>
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xBFS\xED, en qu\xE9 est\xE1 pensando se\xF1orita?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues creo que un caballero como usted nos vendria como anillo al dedo
+      para educar a todos los alumnos del pueblo de Babal\xE1."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xBFYo?<pause=1> \xBFPor qu\xE9 piensa eso de mi persona?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Porque veo que usted es la persona m\xE1s culta que he conocido en mi
+      vida <pause=1><size=50><speed=46>\xA1Y que porte!<size=36><speed=40>"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Me sonroja lo que dice vuestra merced, \xBFde verdad cree que har\xEDa
+      un  buen trabajo?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Completamente! \xA1S\xF3lo imaginese de profesor! \xA1Todo el mundo
+      le admirar\xE1!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xA1Decidido! Tiene toda la raz\xF3n, los pobres infantes necesitan de
+      mi capacidad caballeresca para que su educaci\xF3n sea excelente."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Voy a mudarme ahora mismo, pero necesitar\xE9 un poste para mi fiel corcel.
+      Por mi nombre, Jaume I, que volver\xE9 ma\xF1ana."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Perfecto, \xA1otro que se muda al pueblo!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Parece que has disfrutado convenciendo a este caballero!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1S\xED! Aunque a\xFAn no s\xE9 a que se refiere vuesa merced ni los
+      asuntos de los que me declara culpable."
+    Emotion: 1

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Dragon_Pedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Quiero la mona. Aunque me lo comer\xE9 de un bocado, con huevo y todo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Uffff cuanto tiempo sin tomar fartons. De peque\xF1a los com\xEDa a mi
+      pueblo a todas horas."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Una farinada es lo que m\xE1s me apetece."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Necesito algo energetico para regresar a los pantanos. Un bue\xF1elo de
+      calabaza ser\xE1 lo mejor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Ya que estoy aqu\xED me apetece algo del pueblo. Unas pilotes del frare,
+      por favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Un flaon creo que ser\xE1. Deberia ponerlos en mi tienda ahora que lo
+      pienso"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "Ahhhh, teneis coca de llanda. Muy t\xEDpco de mi tierra natal."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "El boniato no me sienta bien, pero aun as\xED no me puedo resistir a un
+      buen pastel de boniato."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "\xBFQue hac\xE9is haciendo la mocaora en esta \xE9poca? A\xFAn as\xED,
+      ponme una ya que est\xE1s."
+    Emotion: 0

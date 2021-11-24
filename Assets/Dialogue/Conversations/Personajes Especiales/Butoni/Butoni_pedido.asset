@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Butoni_pedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Una mona por favor. Aunque no tengo un amigo para esclafarle el huevo...
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "Soy la \xFAnica rara que le gustan los fartons solos."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Tengo curiosidad por la farinada. Nunca la he probado.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "Los bue\xF1oles son un poco grasientos pero me apetece hoy uno."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Las pilotes de frare me encantan, quiero esos.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Unos flaons es lo que quiero ahora mismo.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "La coca de llanda de llim\xF3 es de mis postres favoritos. Ponme uno por
+      favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: Los pasteles de boniato no son muy populares pero a mi me gustan mucho.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "La almendra con el azucar es una combinaci\xF3n ganadora. Por eso quiero
+      una mocaor\xE1."
+    Emotion: 0

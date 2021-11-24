@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Cinemachine;
+
 public class DialogueManager : MonoBehaviour
 {
     public Image portrait;
@@ -30,12 +31,13 @@ public class DialogueManager : MonoBehaviour
     {
         if (inConversation)
         {
-            if (conversationIndex >= conversation.lines.Length)
+            if (conversationIndex >= conversation.lines.Count)
             {
                 boxAnimation.SetBool("Cartel", false);
                 inConversation = false;
                 conversationStarted = false;
                 dialogueCamera.Priority = 1;
+                conversationIndex = 0;
             }
             else
             {
@@ -45,7 +47,7 @@ public class DialogueManager : MonoBehaviour
                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
                 {
                     conversationIndex++;
-                    if (conversationIndex < conversation.lines.Length)
+                    if (conversationIndex < conversation.lines.Count)
                     {
                         showDialogue();
                     }
@@ -62,8 +64,6 @@ public class DialogueManager : MonoBehaviour
         boxAnimation.SetBool("Cartel", true);
 
         Invoke("showDialogue", 0.1f);
-        
-       
     }
 
     void showDialogue() {

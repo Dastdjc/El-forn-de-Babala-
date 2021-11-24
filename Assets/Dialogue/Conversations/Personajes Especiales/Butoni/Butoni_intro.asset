@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Butoni_intro
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "<size=40><speed=25>H-<pause=0,2>Hola, \xBFest\xE1is abiertos?<speed=40>"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Si, claro. Pasa, pasa.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: G-Gracias...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFBueno, qu\xE9 te pongo?"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "<speed=25>P-<pause=0,2>Pues no lo s\xE9. D-<pause=0,2>dejame pensarlo.
+      No suelo pedir cosas cara a cara, me da demasiada verg\xFCenza...<speed=40>"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Vale, tranquila. <pause=0,2>Tomate el tiempo que necesites.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Me recuerda bastante a alguien.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFSi? <pause=0,2>\xBFA qui\xE9n?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Pues a quien va a ser,<pause=0,2><size=45> \xA1a t\xED!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFA m\xED?"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "La primera vez que nos conocimos s\xED.<pause=0,2> Eras igual de vergonzosa."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pero,<pause=0,2> \xBFno tanto no?"
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Tartamudeabas mas que esa cliente. Eras muy divertida.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Oye, \xA1no te metas conmigo!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "No me meto, no me meto. De verdad que me parec\xEDas mon\xEDsima."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: ...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<size=15><speed=50>T\xFA tambi\xE9n me parecistes mona."
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Ay Dore, \xA1muchisimas gracias!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno,<pause=0,5> \xBFya ha elegido lo que quiere?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "Si, creo que pedir\xE9..."
+    Emotion: 0

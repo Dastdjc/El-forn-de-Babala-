@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 [System.Serializable]
 public struct Line {
@@ -25,6 +26,6 @@ public class Conversation : ScriptableObject
 {
     public Character speakerLeft;
     public Character speakerRight;
-    public Line[] lines;
+    public List<Line> lines = new List<Line>();
 
 }

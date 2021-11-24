@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MinijuegoBee : MonoBehaviour
 {
+    public GameObject camara;
     public GameObject task;
     public GameObject Texto;
 
@@ -12,10 +13,12 @@ public class MinijuegoBee : MonoBehaviour
     private bool DONDESEA;
     public GameObject Player;
     private Rigidbody2D rb;
+    private AudioSource BGmusic;
 
     private void Start()
     {
         rb = Player.GetComponent<Rigidbody2D>();
+        BGmusic = GameObject.Find("Music").GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -24,7 +27,8 @@ public class MinijuegoBee : MonoBehaviour
         {
             if(currentTask == null)
             {
-                currentTask = Instantiate(task, Player.transform);
+                BGmusic.mute = true ;
+                currentTask = Instantiate(task, camara.transform);
                 rb.bodyType = RigidbodyType2D.Static;
             }
             //SceneManager.LoadScene("Musical Bees", LoadSceneMode.Additive);
@@ -32,9 +36,9 @@ public class MinijuegoBee : MonoBehaviour
             else
             {
                 Destroy(currentTask);
+                BGmusic.mute = false; 
+                rb.bodyType = RigidbodyType2D.Dynamic;
             }
-
-
         }
     }
 
