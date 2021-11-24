@@ -89,6 +89,6 @@ public class BowlController : MonoBehaviour
             if (ingredients[i] < q[i]) isOnbowl = false;
             i++;
         }
-        return isOnbowl && ingredients[13] != 0; 
+        return isOnbowl; 
     }
 }

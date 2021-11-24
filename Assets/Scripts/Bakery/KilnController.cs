@@ -55,7 +55,8 @@ public class KilnController : MonoBehaviour
     }
     public void CookSprite(int foodindex)
     {
-        int i = GetToCook();
+        int i = -1;
+        if (foodindex != -1) {i = GetToCook(); }
         if(i != -1)
         {
             //objectEntering[i].GetComponent<SpriteRenderer>().sprite = FoodVisuals[foodindex];
