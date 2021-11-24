@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Gulliver_final
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Bueno parece que le ha gustado mi dulce.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "S\xED, estaba muy bueno."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "\xBFY qu\xE9 me quer\xEDas decir?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues mira, ahora mismo has visto que este pueblo est\xE1 lleno de vida."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "S\xED, me ha sorprendido lo bonito que es."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues a\xFAn con todo, no podemos ser un pueblo del todo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "\xBFC\xF3mo es eso posible?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Hace meses muchos se fueron del pueblo. Lo hemos conseguido repoblar pero
+      a\xFAn nos falta alcalde."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Y sin alcalde ni ayuntamiento no seremos un pueblo con todas las de la
+      ley.
+    Emotion: 6
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "Vaya hombre, que mala pata \xBFY qu\xE9 tiene que ver conmigo?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFNo lo ves? \xA1S\xE9 nuestro alcalde!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "\xA1\xBFYo?! \xA1Pero si no soy de aqu\xED!"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFY qu\xE9? Lo importante es que quieres ayudar a las personas, \xBFno?
+      Pues empieza por aqu\xED"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "A\xFAn se puede mejorar m\xE1s el pueblo y estoy segura que tus viajes
+      ser\xE1n de gran ayuda."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "Bueno... Si lo pones as\xED."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Podr\xEDas conseguir que Babal\xE0 sea un pueblo hecho y derecho!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "\xA1A ver, si tengo que ayudar se ayuda! \xA1Ma\xF1ana mismo me instalo
+      y concretamos todo!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Esta noche pensar\xE9 en ideas para el pueblo \xA1Ya tengo visionada una
+      que seguro que te encanta!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Muy bien hecho Dore! \xA1Al fin conseguiste un ayuntamiento para Babal\xE0!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S\xED... Bien por m\xED..."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xBFTe pasa algo?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "No, nada. Ma\xF1ana tendremos que inaugurar el ayuntamiento, tengo que
+      estar preparada."
+    Emotion: 6

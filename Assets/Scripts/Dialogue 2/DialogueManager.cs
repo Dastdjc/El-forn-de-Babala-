@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Animated TextPro;
     public Animator boxAnimation;
     public GameObject dialogueBox;
+    public GameObject nextIndicator;
     public bool inConversation = false;
     public Cinemachine.CinemachineVirtualCamera dialogueCamera;
     public Cinemachine.CinemachineTargetGroup TargetGroup;
@@ -24,6 +25,7 @@ public class DialogueManager : MonoBehaviour
     {
         //TextPro.text = conversation.lines[0].text;
         TextPro.onDialogueFinish.AddListener(canSkip);
+        dialogueBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,12 +63,14 @@ public class DialogueManager : MonoBehaviour
         TargetGroup.m_Targets[1].target = NPC;
         dialogueCamera.Priority = 11;
         dialogueBox.SetActive(true);
+        nextIndicator.SetActive(false);
         boxAnimation.SetBool("Cartel", true);
 
         Invoke("showDialogue", 0.1f);
     }
 
     void showDialogue() {
+        nextIndicator.SetActive(false);
         ChangeTMPText();
         TextPro.ReadText(TextPro.text);
     }
@@ -91,6 +95,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     void canSkip() {
+        nextIndicator.SetActive(true);
         nextDialogue = true;
     }
 }

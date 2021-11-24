@@ -294,5 +294,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Musical Bees
       objectReference: {fileID: 0}
+    - target: {fileID: 8674704561438161942, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674704561438161942, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}

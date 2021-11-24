@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: Gulliver_pedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Aunque no lo creas en varios de mis viajes vi cosas parecidas a una mona.
+      Ponme una.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: Como he echado de menos a los fartons.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: He visitado mil ciudades, pero creo que nunca he visto algo parecido a
+      una farinada.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Aun con todo lo que he viajado nada supera a un buen bu\xF1uelo de calabaza."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Al c\xF3mo les pilotes de frare no se encuentran en muchos sitios."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: A unos buenos flaons no le puedo decir que no.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Lo cl\xE1sico siempre es lo mejor. Una coca de llanda, por favor."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "\xBFSab\xEDas que el boniato es muy popular fuera de aqu\xED? Deber\xEDamos
+      tomar m\xE1s. Un pastel de boniato por favor"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Una mocaor\xE1 por favor. Me apetece almendras."
+    Emotion: 0
