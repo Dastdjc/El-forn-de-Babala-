@@ -15,7 +15,8 @@ public class CustomerController : MonoBehaviour
     public Conversation medio;
     public Conversation malo;
     public DialogueManagerCM dmcm;
-    private float satisfacton = 0;
+    private float timer = 0;
+    private int satisfaction = 0;
     private float walk = 15;
     private int state;
     private GameObject gmo;
@@ -32,7 +33,7 @@ public class CustomerController : MonoBehaviour
         Fartons = 3,
         Bunyols = 4
     }
-    private Recetas[] command;
+    private Recetas command;
 
     private void Awake()
     {
@@ -51,18 +52,13 @@ public class CustomerController : MonoBehaviour
         
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
-        command = new Recetas[Random.Range(1, 4)];
-        for(int i = 0; i < command.Length; i++)
-        {
-            command[i] = new Recetas();
-            command[i] = (Recetas)Random.Range(0, 5);
-        }
+        command = (Recetas)Random.Range(0, 5);
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
         Mask = gameObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>();
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
-        Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
+        Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
     }
     void FixedUpdate()
     {
@@ -78,7 +74,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Tiene que pedir y hablar
                 case 1:
-                    switch (command[0])
+                    switch (command)
                     {
                         case Recetas.Mona:
                             dmcm.index = Random.Range(0,2);
@@ -117,13 +113,13 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Espera a que le des su comida
                 case 2:
-                    satisfacton += 0.001f;
+                    timer += 0.001f;
                     
-                    Mask.localScale = new Vector3(satisfacton / TimeWaiting, 0.2f, 1);
-                    image.color = new Color(satisfacton / TimeWaiting, 1 - satisfacton / TimeWaiting, 0);
-                    if (satisfacton >= TimeWaiting)
+                    Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
+                    image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
+                    if (timer >= TimeWaiting)
                     {
-                        state = 3;
+                        state++;
                         Talk(false);
                         walk = 15;
                         conversando = true;
@@ -131,6 +127,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Se va a su casa enfadado
                 case 3:
+                    satisfaction = -1;
                     if (conversando)
                     {
                         dmcm.index = Random.Range(0, 6);
@@ -149,6 +146,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 //pedido bueno
                 case 4:
+                    satisfaction = 2;
                     if (conversando)
                     {
                         dmcm.index = Random.Range(0, 7);
@@ -167,6 +165,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 //pedido medio
                 case 5:
+                    satisfaction = 1;
                     if (conversando)
                     {
                         dmcm.index = Random.Range(0, 5);
@@ -215,31 +214,9 @@ public class CustomerController : MonoBehaviour
         if (state == 2 && Time.timeScale == 1)
             Talk(false);
     }
-    private void OnMouseDown()
-    {
-        if (state == 2 && Time.timeScale == 1)
-        {
-            for (int i = 0; i < command.Length; i++)
-            {
-                TargetBar.transform.GetComponent<FoodBar>().WriteCommand((int)command[i]);
-            }
-        }
-    }
     public void PrintCommand()
     {
-        TextMeshPro txt = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
-        txt.text = "";
-        int j = 0;
-        for (int i = 0; i < command.Length; i++)
-        {
-            if(command[i] != Recetas.Served)
-            {
-                txt.text += command[i].ToString();
-                txt.text += "\n";
-            }
-            else { j++; }
-        }
-        if( j == command.Length) { satisfacton = TimeWaiting; }
+        gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = command.ToString();
     }
     public void Talk(bool appear)
     {
@@ -248,13 +225,8 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    public bool DeleteOnCommand(string foodName)
+    public bool DeleteOnCommand(int food)
     {
-        int i = 0;
-        while(i < command.Length && command[i].ToString() != foodName) { i++; }
-        if(i < command.Length) { command[i] = Recetas.Served; }
-        else { return false; }
-        PrintCommand();
-        return true;
+        return food == (int)command;
     }
 }

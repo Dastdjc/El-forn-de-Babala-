@@ -9,15 +9,7 @@ public class IWantToDie : MonoBehaviour
     {
         if(gameObject.layer != 7)
         {
-            if (collision.gameObject.layer == 3)
-            {
-                if (collision.gameObject.transform.GetComponent<CustomerController>().DeleteOnCommand(Parent.transform.GetComponent<FoodController>().FoodName))
-                {
-                    Parent.transform.GetComponent<FoodController>().SumOrder(-1);
-                }
-                else { Parent.transform.GetComponent<FoodController>().SumQuantity(1); }
-            }
-            else if (collision.gameObject.layer == 9)
+            if (collision.gameObject.layer == 9)
             {
                 collision.gameObject.transform.GetComponent<BowlController>().MoveContent(1,
                     Parent.transform.GetComponent<FoodController>().index);
