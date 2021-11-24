@@ -78,7 +78,7 @@ public class DialogueManagerCM : MonoBehaviour
         dialogueBox.SetActive(true);
         boxAnimation.SetBool("Cartel", true);
 
-        //Invoke("showDialogue", 0.1f);
+        
 
 
     }
