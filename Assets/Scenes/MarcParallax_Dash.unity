@@ -1883,6 +1883,7 @@ MonoBehaviour:
   Texto: {fileID: 2065944151}
   currentTask: {fileID: 0}
   Player: {fileID: 1834536980}
+  hitbox: {fileID: 578362534}
   rb: {fileID: 0}
   BGmusic: {fileID: 0}
 --- !u!61 &1031288068
@@ -2607,6 +2608,7 @@ MonoBehaviour:
   Texto: {fileID: 2065944151}
   currentTask: {fileID: 0}
   Player: {fileID: 1834536980}
+  hitbox: {fileID: 578362534}
   rb: {fileID: 0}
   BGmusic: {fileID: 0}
 --- !u!61 &1401271590
@@ -14000,7 +14002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2065944152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14047,7 +14049,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 150
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

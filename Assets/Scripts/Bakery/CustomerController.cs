@@ -74,42 +74,45 @@ public class CustomerController : MonoBehaviour
                     break;
                 //Tiene que pedir y hablar
                 case 1:
-                    switch (command)
+                    if(Input.GetMouseButtonDown(0))
                     {
-                        case Recetas.Mona:
-                            dmcm.index = Random.Range(0,2);
-                            dmcm.NPC = transform;
-                            dmcm.conversation = conversation;
-                            dmcm.inConversation = true;
-                            break;
-                        case Recetas.Flaons:
-                            dmcm.index = Random.Range(12, 14);
-                            dmcm.NPC = transform;
-                            dmcm.conversation = conversation;
-                            dmcm.inConversation = true;
-                            break;
-                        case Recetas.Farinada:
-                            dmcm.index = Random.Range(2, 4);
-                            dmcm.NPC = transform;
-                            dmcm.conversation = conversation;
-                            dmcm.inConversation = true;
-                            break;
-                        case Recetas.Fartons:
-                            dmcm.index = Random.Range(8, 10);
-                            dmcm.NPC = transform;
-                            dmcm.conversation = conversation;
-                            dmcm.inConversation = true;
-                            break;
-                        case Recetas.Bunyols:
-                            dmcm.index = Random.Range(4, 6);
-                            dmcm.NPC = transform;
-                            dmcm.conversation = conversation;
-                            dmcm.inConversation = true;
-                            break;
-                        default:
-                            break;
+                        switch (command)
+                        {
+                            case Recetas.Mona:
+                                dmcm.index = Random.Range(0, 2);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = conversation;
+                                dmcm.inConversation = true;
+                                break;
+                            case Recetas.Flaons:
+                                dmcm.index = Random.Range(12, 14);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = conversation;
+                                dmcm.inConversation = true;
+                                break;
+                            case Recetas.Farinada:
+                                dmcm.index = Random.Range(2, 4);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = conversation;
+                                dmcm.inConversation = true;
+                                break;
+                            case Recetas.Fartons:
+                                dmcm.index = Random.Range(8, 10);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = conversation;
+                                dmcm.inConversation = true;
+                                break;
+                            case Recetas.Bunyols:
+                                dmcm.index = Random.Range(4, 6);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = conversation;
+                                dmcm.inConversation = true;
+                                break;
+                            default:
+                                break;
+                        }
+                        state++;
                     }
-                    state++;
                     break;
                 //Espera a que le des su comida
                 case 2:
