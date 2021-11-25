@@ -10,6 +10,16 @@ public class Timer : MonoBehaviour
 
     private float startTime;
     private bool finished = false;
+
+    public GameObject spawner;
+
+    public GameObject player;
+
+    public GameObject final;
+
+    public GameObject minijuego;
+
+    public TextMeshProUGUI textoFinal;
     void Start()
     {
         startTime = Time.time;
@@ -34,7 +44,9 @@ public class Timer : MonoBehaviour
         }
         else if (finished)
         {
-            
+            spawner.SetActive(false);
+            player.SetActive(false);
+            final.SetActive(true);
         }
     }
 
@@ -42,5 +54,10 @@ public class Timer : MonoBehaviour
     {
         finished = true;
         timerText.color = Color.red;
+    }
+
+    public void Salir()
+    {
+        Destroy(minijuego);
     }
 }

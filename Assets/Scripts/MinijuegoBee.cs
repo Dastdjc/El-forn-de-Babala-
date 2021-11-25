@@ -46,7 +46,6 @@ public class MinijuegoBee : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Hola");
             Texto.SetActive(true);
             DONDESEA = true;
         }
