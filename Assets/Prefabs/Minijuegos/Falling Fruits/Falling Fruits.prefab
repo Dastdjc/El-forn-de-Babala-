@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 5518893824222079265}
+  minijuego2: {fileID: 5867448030344408195}
   spawner: {fileID: 5518893824025664000}
   player: {fileID: 5518893824490586365}
   final: {fileID: 359405943814839745}
-  minijuego: {fileID: 5867448030344408195}
   textoFinal: {fileID: 3589425883160006477}
 --- !u!1 &359405943814839745
 GameObject:
@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3489089402427506477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359405943814839745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -43.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7427446720667542986}
@@ -255,8 +255,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -9.028708, y: 30.082382}
+  m_SizeDelta: {x: 384.2674, y: 428.4021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8154914629770817344
 CanvasRenderer:
@@ -737,7 +737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -11}
+  m_AnchoredPosition: {x: 0, y: -49}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &5518893824222079294
@@ -1242,8 +1242,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7638599839072039667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4019, y: -0.3747, z: 4}
-  m_LocalScale: {x: 3.4458146, y: 1.7734427, z: 0.2}
+  m_LocalPosition: {x: -0.4019, y: -0.2731, z: 4}
+  m_LocalScale: {x: 3.4458146, y: 1.976693, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4888997339630982013}
   m_RootOrder: 9

@@ -11,19 +11,22 @@ public class Timer : MonoBehaviour
     private float startTime;
     private bool finished = false;
 
+    //private MinijuegoBee minijuego;
+
+    private MinijuegoBee minijuego;
+
+    public GameObject minijuego2;
     public GameObject spawner;
 
     public GameObject player;
 
     public GameObject final;
 
-    public GameObject minijuego;
-
     public TextMeshProUGUI textoFinal;
     void Start()
     {
         startTime = Time.time;
-
+        minijuego = FindObjectOfType<MinijuegoBee>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class Timer : MonoBehaviour
             spawner.SetActive(false);
             player.SetActive(false);
             final.SetActive(true);
+            textoFinal.text = "Conseguiste:\n Huevos:" + "\nCalabaza:" + "\nHarina:";
         }
     }
 
@@ -58,6 +62,10 @@ public class Timer : MonoBehaviour
 
     public void Salir()
     {
-        Destroy(minijuego);
+        Destroy(minijuego.currentTask);
+        Destroy(minijuego2);
+        minijuego.hitbox.SetActive(true);
+        minijuego.rb.bodyType = RigidbodyType2D.Dynamic;
+        minijuego.BGmusic.mute = false;
     }
 }

@@ -9,11 +9,12 @@ public class MinijuegoBee : MonoBehaviour
     public GameObject task;
     public GameObject Texto;
 
-    private GameObject currentTask;
+    [HideInInspector]public GameObject currentTask;
     private bool DONDESEA;
     public GameObject Player;
-    private Rigidbody2D rb;
-    private AudioSource BGmusic;
+    public GameObject hitbox;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public AudioSource BGmusic;
 
     private void Start()
     {
@@ -23,23 +24,18 @@ public class MinijuegoBee : MonoBehaviour
 
     public void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.E) && DONDESEA == true)
         {
             if(currentTask == null)
             {
-                BGmusic.mute = true ;
+                hitbox.SetActive(false);
+                BGmusic.mute = true;
                 currentTask = Instantiate(task, camara.transform);
                 rb.bodyType = RigidbodyType2D.Static;
             }
-            //SceneManager.LoadScene("Musical Bees", LoadSceneMode.Additive);
-            
-            else
-            {
-                Destroy(currentTask);
-                BGmusic.mute = false; 
-                rb.bodyType = RigidbodyType2D.Dynamic;
-            }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
