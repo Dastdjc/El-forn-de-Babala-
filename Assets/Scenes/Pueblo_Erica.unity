@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0cf1f3d2461984a8bdb33cfee80dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToJump: 1
+  SceneToJump: 2
   JustClick: 1
 --- !u!61 &1067008667
 BoxCollider2D:
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0cf1f3d2461984a8bdb33cfee80dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToJump: 2
+  SceneToJump: 5
   JustClick: 0
 --- !u!61 &1091848337
 BoxCollider2D:
