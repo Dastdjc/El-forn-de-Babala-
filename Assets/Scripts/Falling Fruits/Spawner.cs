@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
 
     public float spawnRate;
 
+    private GameObject prefab;
+    public GameObject padre;
     private float timeSpawn = 0.0f;
 
     private int rnd;
@@ -24,7 +26,8 @@ public class Spawner : MonoBehaviour
             rnd = Random.Range(0, 5);
             spawn.x = Random.Range(xMin, xMax);
             spawn.y = Random.Range(4.5f, 8);
-            Instantiate(items[rnd], spawn, Quaternion.identity);
+            prefab = Instantiate(items[rnd], spawn, Quaternion.identity);
+            prefab.transform.parent = padre.transform;
             timeSpawn = Time.time + spawnRate;
         }
 
