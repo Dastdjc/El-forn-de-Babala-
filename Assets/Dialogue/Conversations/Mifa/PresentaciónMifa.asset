@@ -16,7 +16,7 @@ MonoBehaviour:
   speakerRight: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Hola soy<speed=5>... <speed=50> <size= 50><shake=0,2> \xA1MIFA!"
+    text: "Hola soy<speed=5>... <speed=50> <size= 50><shake=0,2><color=#FF805D> \xA1MIFA!</color>"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: <speed=30><size= 50><shake=0.2><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
@@ -29,13 +29,13 @@ MonoBehaviour:
     text: "Parec\xEDa que necesitabas ayuda."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: '<size= 20>Ah vale. Ho-Hola, yo soy Dore... '
+    text: '<size= 20>Ah vale. Ho-<pause=0,3>Hola, yo soy <color=#FE77A2>Dore</color>... '
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "\xBFC\xF3mo? No te escucho bien."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Qu-Que me llamo Dore <speed=5>.... <speed=40>Encan-<pause=1>Encantada.
+    text: Qu-Que me llamo <color=#FE77A2>Dore</color> <speed=5>.... <speed=40>Encan-<pause=1>Encantada.
     Emotion: 3
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Espera un momento, \xBFme estabas espiando?"
@@ -48,15 +48,41 @@ MonoBehaviour:
     text: "As\xED que, \xA1he decidido venir a ayudar!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFAyudar? Para que, \xBFno ves como esta el pueblo? San Babal\xE0 es
-      imposible de salvar."
+    text: "\xBFAyudar? Para que, \xBFno ves como esta el pueblo? <color=#8d6cd9>Babal\xE0</color>
+      es imposible de salvar."
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Eso es porque no lo est\xE1s viendo de la forma adecuada."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFComo que de la forma adecuada?"
+    text: "\xBFC\xF3mo que de la forma adecuada?"
     Emotion: 6
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "No has probado con<speed=5>...  <speed=40><shake=0,3>\xA1MAGIA!"
+    text: "No has probado con<speed=5>...  <speed=40><shake=0,3><size=45>\xA1MAGIA!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFC\xF3mo que con magia?<pause=0,5> \xBFA qu\xE9 te refieres?"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dime,<pause=0,5> \xBFqu\xE9 se te da bien a ti?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFA m\xED?<pause=0,5> Pues no lo s\xE9. Nunca se me ha dado bien nada..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Venga mujer, algo se te tiene que dar bien.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno, est\xE1<speed=10>...<speed=40> Eso<speed=10>... <speed=40>Pero,<pause=0,3>
+      no, es una tonteria..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "<size=40>\xA1Venga, dilo!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Bueno, supongo que cocinar, sobretodo dulces...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Asi que dulces, \xBFeh?<pause=0,7> Pues entonces preparate para la<speed=10>...<speed=40><size=50><shake=0,1>
+      \xA1MAGIA!"
     Emotion: 1

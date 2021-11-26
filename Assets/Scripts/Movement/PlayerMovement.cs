@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing = false;
     private GameObject dashParticles;
     private SpriteRenderer sr;
+    private DialogueManager dm;
 
     public float speed = 5;
     public float dashSpeed = 10;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
  
     void Start()
     {
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         dashParticles = GameObject.Find("Dore_player/DashParticles");
         dashParticles.SetActive(false);
@@ -26,34 +28,37 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        // La dirección en sí no la magnitud, para el dash
-        float xRaw = Input.GetAxisRaw("Horizontal");
-        Vector2 dir = new Vector2(x, y);
-
-        animator.SetFloat("speed", Mathf.Abs(dir.x));
-       if (dir.x < 0) {
-            transform.localScale = new Vector3(-1, 1, 1);
-            sr.flipX = true;
-        }
-        else if(dir.x > 0)
+        if (!dm.inConversation) 
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            sr.flipX = false;
-        }
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
+            // La dirección en sí no la magnitud, para el dash
+            float xRaw = Input.GetAxisRaw("Horizontal");
+            Vector2 dir = new Vector2(x, y);
 
-        // Lógica del movimiento
-        if (!isDashing)
-        {
-            Walk(dir);
-        }
+            animator.SetFloat("speed", Mathf.Abs(dir.x));
+            if (dir.x < 0) {
+                transform.localScale = new Vector3(-1, 1, 1);
+                sr.flipX = true;
+            }
+            else if (dir.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                sr.flipX = false;
+            }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0) 
-        {
-            animator.SetBool("isDashing", true);
-            dashParticles.SetActive(true);
-            Dash(xRaw);
+            // Lógica del movimiento
+            if (!isDashing)
+            {
+                Walk(dir);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0)
+            {
+                animator.SetBool("isDashing", true);
+                dashParticles.SetActive(true);
+                Dash(xRaw);
+            }
         }
     }
 

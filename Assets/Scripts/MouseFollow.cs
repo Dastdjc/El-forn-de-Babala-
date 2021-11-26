@@ -12,7 +12,7 @@ public class MouseFollow : MonoBehaviour
     }
     void Update()
     {
-        Ray r = cam.ScreenPointToRay(Input.mousePosition);
+        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 pos = r.GetPoint(Distance);
         transform.position = pos;
     }
