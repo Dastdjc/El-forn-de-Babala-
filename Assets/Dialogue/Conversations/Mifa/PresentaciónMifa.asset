@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: "Presentaci\xF3nMifa"
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Hola soy<speed=5>... <speed=50> <size= 50><shake=0,2> \xA1MIFA!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=30><size= 50><shake=0.2><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Tranquila, tranquila, soy otra bruja como t\xFA, estaba viendote a trav\xE9s
+      de mi bola de cristal."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Parec\xEDa que necesitabas ayuda."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: '<size= 20>Ah vale. Ho-Hola, yo soy Dore... '
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xBFC\xF3mo? No te escucho bien."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Qu-Que me llamo Dore <speed=5>.... <speed=40>Encan-<pause=1>Encantada.
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Espera un momento, \xBFme estabas espiando?"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "S\xED, he notado que necesitabas ayuda y te he escuchado hablar de los
+      problemas en el pueblo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "As\xED que, \xA1he decidido venir a ayudar!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFAyudar? Para que, \xBFno ves como esta el pueblo? San Babal\xE0 es
+      imposible de salvar."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Eso es porque no lo est\xE1s viendo de la forma adecuada."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFComo que de la forma adecuada?"
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "No has probado con<speed=5>...  <speed=40><shake=0,3>\xA1MAGIA!"
+    Emotion: 1

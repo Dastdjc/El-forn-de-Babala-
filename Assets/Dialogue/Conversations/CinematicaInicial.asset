@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: CinematicaInicial
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 0}
+    text: "<speed=20> \xC9rase una vez,"
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "un pueblo llamado Babal\xE0"
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "en el que un d\xEDa, apareci\xF3 una peque\xF1a brujita con el nombre
+      de Dore."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Desde que era peque\xF1a, la gente del pueblo la apreciaba mucho."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Jugaban con ella, le ense\xF1aban todo tipo de manualidades y eso a Dore
+      le encantaba."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Especialmente, le gustaba la panader\xEDa, d\xF3nde se pasaba horas ayudando
+      a crear dulces."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "\xA1Dore, qu\xE9 buen postre has creado! Cuando seas mayor tendr\xE1s
+      mucho \xE9xito aqu\xED, \xBFeh?"
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "No obstante, cada vez se desped\xEDan de m\xE1s vecinos, y por ello m\xE1s
+      servicios cerraban."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Hasta que la pander\xEDa tuvo que cerrar."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Dore se encerr\xF3 en su casa, sin ganas de hacer nada por haber perdido
+      aquello que tanto le gusta."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: Los vecinos fueron migrando poco a poco a la ciudad y pocos quedaban paseando
+      por las calles una vez llenas de vida.
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Ahora Dore, completamente sola en el esqueleto de Babal\xE0, necesita
+      de tu ayuda..."
+    Emotion: 0
+  - character: {fileID: 0}
+    text: Mifa, Dore te llama.
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "\xA1De acuerdo\xED, vamos a ayudar a una brujita en apuros!"
+    Emotion: 0
+  - character: {fileID: 0}
+    text: "Bola de cristal, \xA1ll\xE9vame a Babal\xE0!"
+    Emotion: 0
