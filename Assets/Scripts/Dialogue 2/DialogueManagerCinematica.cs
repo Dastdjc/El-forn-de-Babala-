@@ -26,7 +26,7 @@ public class DialogueManagerCinematica: MonoBehaviour
     {
             if (conversationIndex >= conversation.lines.Count)
             {
-                conversationStarted = false;
+                //conversationStarted = false;
                 conversationIndex = 0;
                 endCutscene();
             }

@@ -16,20 +16,20 @@ MonoBehaviour:
   speakerRight: {fileID: 0}
   lines:
   - character: {fileID: 0}
-    text: "<speed=20> \xC9rase una vez,"
+    text: "<speed=20> \xC9rase una vez..."
     Emotion: 0
   - character: {fileID: 0}
-    text: "un pueblo llamado Babal\xE0"
+    text: "Un pueblo llamado <color=#8d6cd9>Babal\xE0</color>"
     Emotion: 0
   - character: {fileID: 0}
     text: "en el que un d\xEDa, apareci\xF3 una peque\xF1a brujita con el nombre
-      de Dore."
+      de <color=#FE77A2> Dore</color>."
     Emotion: 0
   - character: {fileID: 0}
     text: "Desde que era peque\xF1a, la gente del pueblo la apreciaba mucho."
     Emotion: 0
   - character: {fileID: 0}
-    text: "Jugaban con ella, le ense\xF1aban todo tipo de manualidades y eso a Dore
+    text: "Jugaban con ella, le ense\xF1aban todo tipo de manualidades y eso a <color=#FE77A2>Dore<color=white>
       le encantaba."
     Emotion: 0
   - character: {fileID: 0}
@@ -37,34 +37,31 @@ MonoBehaviour:
       a crear dulces."
     Emotion: 0
   - character: {fileID: 0}
-    text: "\xA1Dore, qu\xE9 buen postre has creado! Cuando seas mayor tendr\xE1s
-      mucho \xE9xito aqu\xED, \xBFeh?"
+    text: "\xA1<color=#FE77A2>Dore</color>, qu\xE9 buen postre has creado! Cuando
+      seas mayor tendr\xE1s mucho \xE9xito aqu\xED, \xBFeh?"
     Emotion: 0
   - character: {fileID: 0}
-    text: "No obstante, cada vez se desped\xEDan de m\xE1s vecinos, y por ello m\xE1s
-      servicios cerraban."
+    text: "No obstante, cada vez m\xE1s vecinos migraban a la ciudad, y por ello
+      m\xE1s servicios cerraban."
     Emotion: 0
   - character: {fileID: 0}
     text: "Hasta que la pander\xEDa tuvo que cerrar."
     Emotion: 0
   - character: {fileID: 0}
-    text: "Dore se encerr\xF3 en su casa, sin ganas de hacer nada por haber perdido
-      aquello que tanto le gusta."
+    text: "<color=#FE77A2>Dore</color> se encerr\xF3 en su casa, sin ganas de hacer
+      nada por haber perdido aquello que tanto le gusta."
     Emotion: 0
   - character: {fileID: 0}
     text: Los vecinos fueron migrando poco a poco a la ciudad y pocos quedaban paseando
       por las calles una vez llenas de vida.
     Emotion: 0
   - character: {fileID: 0}
-    text: "Ahora Dore, completamente sola en el esqueleto de Babal\xE0, necesita
-      de tu ayuda..."
+    text: "Ahora <color=#FE77A2>Dore</color>, completamente sola en el esqueleto
+      de <color=#8d6cd9>Babal\xE0</color>, necesita de tu ayuda..."
     Emotion: 0
   - character: {fileID: 0}
-    text: Mifa, Dore te llama.
+    text: <color=#FF805D>Mifa</color>, <color=#FE77A2>Dore</color> te llama.
     Emotion: 0
   - character: {fileID: 0}
-    text: "\xA1De acuerdo\xED, vamos a ayudar a una brujita en apuros!"
-    Emotion: 0
-  - character: {fileID: 0}
-    text: "Bola de cristal, \xA1ll\xE9vame a Babal\xE0!"
+    text: "\xA1De acuerdo! Vamos a ayudar a una brujita en apuros!"
     Emotion: 0
