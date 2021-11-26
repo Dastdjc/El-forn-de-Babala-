@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     static public float SoundVol;
+    public Animator transition;
+    public float transitionTime = 1f;
     public GameObject canvas;
     
     // Start is called before the first frame update
@@ -31,7 +33,22 @@ public class MenuScript : MonoBehaviour
         }
         canvas.transform.GetChild(index).gameObject.SetActive(true);
     }
-    public void ChangeScene(int index) { Time.timeScale = 1; SceneManager.LoadScene(index);}
+    public void ChangeScene(int index) 
+    { 
+
+        Time.timeScale = 1; 
+        StartCoroutine(LoadLevel(index));
+
+    }
+
+    IEnumerator LoadLevel(int levelIndex) 
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+    }
     public void SetSoundVol(float num) { SoundVol = num; }
     public void ResumeGame() { Start(); }
 }
