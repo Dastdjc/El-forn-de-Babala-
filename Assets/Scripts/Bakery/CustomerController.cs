@@ -6,7 +6,6 @@ using TMPro;
 public class CustomerController : MonoBehaviour
 {
     public int TimeWaiting = 2;
-    public GameObject TargetBar;
     private RectTransform Mask;
     private SpriteRenderer image;
     public Conversation conversation;
@@ -17,8 +16,8 @@ public class CustomerController : MonoBehaviour
     public DialogueManagerCM dmcm;
     private float timer = 0;
     private int satisfaction = 0;
-    private float walk = 15;
     private int state;
+    private float walk = 15;
     private GameObject gmo;
     private bool conversando;
     //State == 0 cuando entra a la panadería
@@ -26,7 +25,6 @@ public class CustomerController : MonoBehaviour
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
     enum Recetas
     {
-        Served = -1,
         Mona = 0,
         Flaons  = 1,
         Farinada = 2,
@@ -68,52 +66,11 @@ public class CustomerController : MonoBehaviour
             {
                 //Anda a su sitio
                 case 0:
-                    this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
-                    walk -= 0.1f;
-                    if (walk <= 0) { state++; }
+                    if (walk > 0) { transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { state++; }
                     break;
                 //Tiene que pedir y hablar
-                case 1:
-                    if(Input.GetMouseButtonDown(0))
-                    {
-                        switch (command)
-                        {
-                            case Recetas.Mona:
-                                dmcm.index = Random.Range(0, 2);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = conversation;
-                                dmcm.inConversation = true;
-                                break;
-                            case Recetas.Flaons:
-                                dmcm.index = Random.Range(12, 14);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = conversation;
-                                dmcm.inConversation = true;
-                                break;
-                            case Recetas.Farinada:
-                                dmcm.index = Random.Range(2, 4);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = conversation;
-                                dmcm.inConversation = true;
-                                break;
-                            case Recetas.Fartons:
-                                dmcm.index = Random.Range(8, 10);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = conversation;
-                                dmcm.inConversation = true;
-                                break;
-                            case Recetas.Bunyols:
-                                dmcm.index = Random.Range(4, 6);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = conversation;
-                                dmcm.inConversation = true;
-                                break;
-                            default:
-                                break;
-                        }
-                        state++;
-                    }
-                    break;
+                //Está en el método OnMouseDown
                 //Espera a que le des su comida
                 case 2:
                     timer += 0.001f;
@@ -123,86 +80,70 @@ public class CustomerController : MonoBehaviour
                     if (timer >= TimeWaiting)
                     {
                         state++;
+                        satisfaction = -1;
                         Talk(false);
-                        walk = 15;
                         conversando = true;
                     }
                     break;
-                //Se va a su casa enfadado
+                
                 case 3:
-                    satisfaction = -1;
-                    if (conversando)
+                    switch (satisfaction)
                     {
-                        dmcm.index = Random.Range(0, 6);
-                        dmcm.NPC = transform;
-                        dmcm.conversation = enfadado;
-                        dmcm.inConversation = true;
-                        conversando = false;
+                        case -1:
+                            //Se va a su casa enfadado
+                            //se va por tiempo
+                            if (conversando)
+                            {
+                                dmcm.index = Random.Range(0, 6);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = enfadado;
+                                dmcm.inConversation = true;
+                                conversando = false;
+                            }
+                            break;
+                        case 0:
+                            //pedido malo
+                            //te has equivocado de ingredientes o es otro plato
+                            if (conversando)
+                            {
+                                dmcm.index = Random.Range(0, 5);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = malo;
+                                dmcm.inConversation = true;
+                                conversando = false;
+                            }
+                            break;
+                        case 1:
+                            //pedido medio
+                            //el plato correcto pero no está en el punto del horno
+                            if (conversando)
+                            {
+                                dmcm.index = Random.Range(0, 5);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = medio;
+                                dmcm.inConversation = true;
+                                conversando = false;
+                            }
+                            break;
+                        case 2:
+                            //pedido bueno
+                            //todo perfecto
+                            if (conversando)
+                            {
+                                dmcm.index = Random.Range(0, 7);
+                                dmcm.NPC = transform;
+                                dmcm.conversation = bueno;
+                                dmcm.inConversation = true;
+                                conversando = false;
+                            }
+                            break;
                     }
-                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-                    walk -= 0.1f;
-                    if (walk <= 0)
-                    {
-                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
-                        Destroy(gameObject);
-                    }
+                    walk = 15;
+                    state++;
                     break;
-                //pedido bueno
                 case 4:
-                    satisfaction = 2;
-                    if (conversando)
-                    {
-                        dmcm.index = Random.Range(0, 7);
-                        dmcm.NPC = transform;
-                        dmcm.conversation = bueno;
-                        dmcm.inConversation = true;
-                        conversando = false;
-                    }
-                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-                    walk -= 0.1f;
-                    if (walk <= 0)
-                    {
-                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
-                        Destroy(gameObject);
-                    }
-                    break;
-                //pedido medio
-                case 5:
-                    satisfaction = 1;
-                    if (conversando)
-                    {
-                        dmcm.index = Random.Range(0, 5);
-                        dmcm.NPC = transform;
-                        dmcm.conversation = medio;
-                        dmcm.inConversation = true;
-                        conversando = false;
-                    }
-                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-                    walk -= 0.1f;
-                    if (walk <= 0)
-                    {
-                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
-                        Destroy(gameObject);
-                    }
-                    
-                    break;
-                //pedido malo
-                case 6:
-                    if (conversando)
-                    {
-                        dmcm.index = Random.Range(0, 5);
-                        dmcm.NPC = transform;
-                        dmcm.conversation = malo;
-                        dmcm.inConversation = true;
-                        conversando = false;
-                    }
-                    this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-                    walk -= 0.1f;
-                    if (walk <= 0)
-                    {
-                        SpawnCustomers.positions[(-(int)gameObject.transform.position.x - 12) / 2] = false;
-                        Destroy(gameObject);
-                    }
+                    if(walk > 0) { transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { Destroy(gameObject); }
                     break;
             }
         }
@@ -228,8 +169,54 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    public bool DeleteOnCommand(int food)
+    private void OnMouseDown()
     {
-        return food == (int)command;
+        if(state == 1)
+        {
+            switch (command)
+            {
+                case Recetas.Mona:
+                    dmcm.index = Random.Range(0, 2);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Flaons:
+                    dmcm.index = Random.Range(12, 14);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Farinada:
+                    dmcm.index = Random.Range(2, 4);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Fartons:
+                    dmcm.index = Random.Range(8, 10);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Bunyols:
+                    dmcm.index = Random.Range(4, 6);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                default:
+                    break;
+            }
+            state++;
+        }
+    }
+    //El horno o el inventario invocarán este método que determinará la satisfacción del cliente
+    public void SetSatisfaction(int[] options)
+    {
+        if(options[0] != (int)command) { satisfaction = 0; }
+        else if(options[1] != 1) { satisfaction = 1; }
+        else { satisfaction = 2; }
+        state++;
     }
 }
