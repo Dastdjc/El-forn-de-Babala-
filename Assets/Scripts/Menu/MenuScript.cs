@@ -9,7 +9,9 @@ public class MenuScript : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     public GameObject canvas;
-    
+
+    private AudioSource BG_music;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,8 @@ public class MenuScript : MonoBehaviour
             SetMenuVisible(1);
             canvas.SetActive(false);
         }
-        
+
+        BG_music = FindObjectOfType<AudioSource>();
     }
     public void Quit(){Application.Quit();}
     public void SetMenuVisible(int index)
@@ -34,8 +37,8 @@ public class MenuScript : MonoBehaviour
         canvas.transform.GetChild(index).gameObject.SetActive(true);
     }
     public void ChangeScene(int index) 
-    { 
-
+    {
+        StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         Time.timeScale = 1; 
         StartCoroutine(LoadLevel(index));
 

@@ -14,17 +14,19 @@ public class DialogueManagerCinematica: MonoBehaviour
     private int conversationIndex = 0;
     private bool conversationStarted = false;
     private bool nextDialogue = false;
+    private AudioSource BG_music;
 
     // Start is called before the first frame update
     void Start()
     {
         TextPro.onDialogueFinish.AddListener(skip);
+        BG_music = FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-            if (conversationIndex >= conversation.lines.Count)
+            if (conversationIndex >= conversation.lines.Count)  // Conversation END
             {
                 //conversationStarted = false;
                 conversationIndex = 0;
@@ -81,14 +83,13 @@ public class DialogueManagerCinematica: MonoBehaviour
     }
 
     void endCutscene() {
+        StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         ChangeScene(10);
     }
     public void ChangeScene(int index)
     {
-
         Time.timeScale = 1;
         StartCoroutine(LoadLevel(index));
-
     }
     IEnumerator LoadLevel(int levelIndex)
     {

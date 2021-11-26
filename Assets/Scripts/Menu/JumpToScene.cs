@@ -9,6 +9,12 @@ public class JumpToScene : MonoBehaviour
     public bool JustClick;
     public Animator transition;
     public float transitionTime = 1f;
+    private AudioSource BG_music;
+
+    private void Start()
+    {
+        BG_music = FindObjectOfType<AudioSource>();
+    }
     private void OnMouseDown()
     {
         if (JustClick) ChangeScene(SceneToJump);
@@ -20,7 +26,7 @@ public class JumpToScene : MonoBehaviour
 
     public void ChangeScene(int index)
     {
-
+        StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         Time.timeScale = 1;
         StartCoroutine(LoadLevel(index));
 
