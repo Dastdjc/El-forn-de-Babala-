@@ -30,24 +30,7 @@ public class BowlController : MonoBehaviour
         Content.transform.position += new Vector3(0, Upmov, 0);
         Mixture = 0;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 9 && gameObject.GetComponent<MouseTracker>().isHeld)
-        {
-            for (int i = 0; i < ingredients.Length; i++)
-            {
-                collision.transform.GetComponent<BowlController>().MoveContent(ingredients[i],i);
-            }
-            Start();
-        }
-        else if (collision.gameObject.layer == 10 && collision.transform.GetComponent<KilnController>().ImOpen())
-        {
-            collision.gameObject.GetComponent<KilnController>().CookSprite(DeterminateFood());
-            Start();
-        }
-        else if (collision.gameObject.layer == 11) { Mixture += 1; }
-    }
-    private int DeterminateFood()
+    public int DeterminateFood()
     {
         /*
          * 1)Mona
@@ -91,4 +74,5 @@ public class BowlController : MonoBehaviour
         }
         return isOnbowl; 
     }
+    public void Resset() { Start(); }
 }

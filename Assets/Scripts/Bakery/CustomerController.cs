@@ -70,7 +70,7 @@ public class CustomerController : MonoBehaviour
                     else { state++; }
                     break;
                 //Tiene que pedir y hablar
-                //Está en el método OnMouseDown
+                //Está en el método OnMouseDown//
                 //Espera a que le des su comida
                 case 2:
                     timer += 0.001f;
@@ -80,7 +80,7 @@ public class CustomerController : MonoBehaviour
                     if (timer >= TimeWaiting)
                     {
                         state++;
-                        satisfaction = -1;
+                        satisfaction = -2;
                         Talk(false);
                         conversando = true;
                     }
@@ -89,7 +89,7 @@ public class CustomerController : MonoBehaviour
                 case 3:
                     switch (satisfaction)
                     {
-                        case -1:
+                        case -2:
                             //Se va a su casa enfadado
                             //se va por tiempo
                             if (conversando)
@@ -101,7 +101,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 0:
+                        case -1:
                             //pedido malo
                             //te has equivocado de ingredientes o es otro plato
                             if (conversando)
@@ -113,7 +113,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 1:
+                        case 0:
                             //pedido medio
                             //el plato correcto pero no está en el punto del horno
                             if (conversando)
@@ -125,7 +125,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 2:
+                        case 1:
                             //pedido bueno
                             //todo perfecto
                             if (conversando)
@@ -212,11 +212,12 @@ public class CustomerController : MonoBehaviour
         }
     }
     //El horno o el inventario invocarán este método que determinará la satisfacción del cliente
+    //El array consta de options[0] que es el índice de la comida y options[1] que es como de cocinada está
     public void SetSatisfaction(int[] options)
     {
-        if(options[0] != (int)command) { satisfaction = 0; }
-        else if(options[1] != 1) { satisfaction = 1; }
-        else { satisfaction = 2; }
+        if(options[0] != (int)command) { satisfaction = -1; }
+        else if(options[1] != 1) { satisfaction = 0; }
+        else { satisfaction = 1; }
         state++;
     }
 }

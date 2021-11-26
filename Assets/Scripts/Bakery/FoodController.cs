@@ -5,7 +5,7 @@ using TMPro;
 
 public class FoodController : MonoBehaviour
 {
-    private Vector3 mousePos;
+    /*private Vector3 mousePos;
     private bool isHeld = false;
     private GameObject other;
     private int ordered = 0;
@@ -14,12 +14,12 @@ public class FoodController : MonoBehaviour
     public string FoodName;
     public int index = 0;
 
-    private void OnMouseDown()
+    private void /OnMouseDown()
     {
         if(quantity > 0 && Time.timeScale == 1)
         {
             other = Instantiate(gameObject.transform.GetChild(0).gameObject);
-            other.GetComponent<IWantToDie>().Parent = gameObject;
+            //other.GetComponent<IWantToDie>().Parent = gameObject;
             isHeld = true;
             quantity--;
             PrintNumbers();
@@ -76,5 +76,5 @@ public class FoodController : MonoBehaviour
                 new Color(transform.position.x / 10, transform.position.x / 5, 0.2f);
         }
         else { gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Visual; }
-    }
+    }*/
 }

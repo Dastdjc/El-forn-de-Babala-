@@ -6,6 +6,7 @@ using TMPro;
 
 public class FoodBar : MonoBehaviour
 {
+    /*
     //Hay que pasar los ingredientes por cada barra? Por código o algún fichero?
     public Animator Controller;
     public GameObject Example;
@@ -32,7 +33,7 @@ public class FoodBar : MonoBehaviour
         }
     }
     //Baja o sube la barra dependiendo de la posición
-    private void OnMouseDown()
+    private void /OnMouseDown()
     {
         if(Time.timeScale == 1 && Controller != null)
         {
@@ -59,5 +60,5 @@ public class FoodBar : MonoBehaviour
     {
         Bar[index].transform.GetComponent<FoodController>().SumQuantity(1);
         Bar[index].transform.GetComponent<FoodController>().PrintNumbers();
-    }
+    }*/
 }
