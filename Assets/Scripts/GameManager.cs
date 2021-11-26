@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     {
         mifa.enabled = true;
         panaderia_cam.Priority = 0;
+        GameObject.Find("BG_Music").GetComponent<AudioSource>().Play();
     }
     private enum Edificios 
     { 
