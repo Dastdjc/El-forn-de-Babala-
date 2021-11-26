@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 using Cinemachine;
 
 public class DialogueManager : MonoBehaviour
@@ -16,9 +17,13 @@ public class DialogueManager : MonoBehaviour
     public Cinemachine.CinemachineVirtualCamera dialogueCamera;
     public Cinemachine.CinemachineTargetGroup TargetGroup;
 
+    [System.Serializable] public class ConversationFinishEvent : UnityEvent { }
+    public ConversationFinishEvent onConversationFinish;
+
     private int conversationIndex = 0;
     private bool conversationStarted = false;
     private bool nextDialogue = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +45,13 @@ public class DialogueManager : MonoBehaviour
                 conversationStarted = false;
                 dialogueCamera.Priority = 1;
                 conversationIndex = 0;
+                onConversationFinish.Invoke();
             }
             else
             {
                 if (!conversationStarted)
                     setUpConversation();
+
                 conversationStarted = true;
                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
                 {
@@ -66,7 +73,7 @@ public class DialogueManager : MonoBehaviour
         nextIndicator.SetActive(false);
         boxAnimation.SetBool("Cartel", true);
 
-        Invoke("showDialogue", 0.1f);
+        Invoke("showDialogue", 0.5f);
     }
 
     void showDialogue() {

@@ -60,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
                 Dash(xRaw);
             }
         }
+        else
+        {
+            rb.velocity = new Vector2(0f, 0f);
+            animator.SetFloat("speed", 0);
+        }
     }
 
     private void Walk(Vector2 dir) 
