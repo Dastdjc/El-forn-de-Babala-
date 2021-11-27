@@ -9,14 +9,18 @@ public class ScoreManager : MonoBehaviour
     public AudioSource missSFX;
     public TMPro.TextMeshPro scoreText;
     static public int comboScore;
+    static public int maxCombo;
     void Start()
     {
         Instance = this;
         comboScore = 0;
+        maxCombo = 0;
     }
     public static void Hit()
     {
         comboScore += 1;
+        if (comboScore > maxCombo)
+            maxCombo = comboScore;
         Instance.hitSFX.Play();
     }
     public static void Miss()

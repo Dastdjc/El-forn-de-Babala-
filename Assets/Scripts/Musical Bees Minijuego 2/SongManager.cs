@@ -25,10 +25,13 @@ public class SongManager : MonoBehaviour
     public float noteSpawnScale = 3f;
     public float noteTapScale = 1f;
     public float noteDespawnScale = 0f;
-    
+
+    public float score;
 
     public static MidiFile midiFile;
-    // Start is called before the first frame update
+
+    private bool finished;
+
     void Start()
     {
         Instance = this;
@@ -39,6 +42,17 @@ public class SongManager : MonoBehaviour
         else
         {
             ReadFromFile();
+        }
+        finished = false;
+    }
+
+    private void Update()
+    {
+        if (!audioSource.isPlaying && !finished) 
+        {
+            score = ScoreManager.maxCombo;
+            finished = true;
+            // Mostrar lo conseguido
         }
     }
 
