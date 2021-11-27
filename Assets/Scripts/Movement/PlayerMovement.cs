@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
         dashParticles.SetActive(false);
 
         sr = gameObject.GetComponent<SpriteRenderer>();
+
+        if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque)
+            transform.localPosition = GameManager.Instance.playerSpawnPosition;
     }
 
     void Update()
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 dir = new Vector2(x, y);
 
             animator.SetFloat("speed", Mathf.Abs(dir.x));
+            // Flip del sprite de Dore
             if (dir.x < 0) {
                 transform.localScale = new Vector3(-1, 1, 1);
                 sr.flipX = true;

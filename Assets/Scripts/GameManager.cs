@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     //  Inicio
     public Vector3 playerSpawnPositionBosque { get; set; }
+    public Vector3 playerSpawnPosition;
     private GameObject player;
     private AudioSource BG_music;
     private MifaCharacterDialogueManager mifa;
@@ -44,11 +45,13 @@ public class GameManager : MonoBehaviour
         // scenes
         SceneManager.sceneLoaded += OnSceneLoaded;
 
+        // Crear un singleton de todos los edifcios, de forma que al cambiar de escena no se destruyan
         servicios = GameObject.Find("SERVICIOS");
         DontDestroyOnLoad(servicios);
 
+        // referencia al jugador y sus spawns
         player = GameObject.Find("Dore_player");
-        playerSpawnPositionBosque = new Vector3(-290, -128, 0);       
+        playerSpawnPositionBosque = new Vector3(-290, -128, 0);
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -156,20 +159,23 @@ public class GameManager : MonoBehaviour
                 Destroy(newServicios);
         }
     }
-    void Pueblo() 
+    void Pueblo() // Función que se ejecuta al vovler al pueblo nada después de AWAKE y antes de START
     {
+        // Activar edificios y dejar la panadería
         servicios.SetActive(true);
         Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
         panaderia_anim.SetTrigger("panaderia2");
 
+        // Play BG music
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         BG_music.Play();
-
-        player = GameObject.Find("Dore_player");
-        //player.transform.position = playerSpawnPositionBosque;
+        
+        // Update Spawn position
+        playerSpawnPosition = playerSpawnPositionBosque;
+        //player.transform.position = playerSpawnPositionBosque; HAD TO USE LOCAL POSITION BECAUSE IT WAS A CHILD 
     }
 
-    void Bosque() 
+    void Bosque() // Función que se ejecuta llegar al bosque
     {
         servicios.SetActive(false);
     }
