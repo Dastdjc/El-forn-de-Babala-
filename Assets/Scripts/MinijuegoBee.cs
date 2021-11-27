@@ -19,7 +19,7 @@ public class MinijuegoBee : MonoBehaviour
     private void Start()
     {
         rb = Player.GetComponent<Rigidbody2D>();
-        BGmusic = GameObject.Find("BG_music").GetComponent<AudioSource>();
+        BGmusic = GameObject.Find("BG_Music").GetComponent<AudioSource>();
     }
 
     public void Update()

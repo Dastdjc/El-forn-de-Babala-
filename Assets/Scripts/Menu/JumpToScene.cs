@@ -13,7 +13,7 @@ public class JumpToScene : MonoBehaviour
 
     private void Start()
     {
-        BG_music = FindObjectOfType<AudioSource>();
+        BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
     }
     private void OnMouseDown()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class GameManager : MonoBehaviour
@@ -41,7 +42,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        //UpdateGameState(GameState.InicioJuego);
+        // scenes
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         player = GameObject.Find("Dore_player");
         playerSpawnPositionBosque = new Vector3(-290, -128, 0);
@@ -101,10 +103,10 @@ public class GameManager : MonoBehaviour
             case GameState.Tutorial:
                 break;
             case GameState.Bosque:
-                Bosque();
+                //Bosque();
                 break;
             case GameState.Pueblo:
-                Pueblo();
+                //Pueblo();
                 break;
         }
 
@@ -140,9 +142,21 @@ public class GameManager : MonoBehaviour
         mifa.conversationIndex = 1;
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    {
+        if (scene.name == "Pueblo_Final")
+        {
+            Pueblo();
+        }
+        else if (scene.name == "MarcParallax_Dash") 
+        {
+            Bosque();
+        }
+    }
     void Pueblo() 
     {
         servicios.SetActive(true);
+        BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         BG_music.Play();
         player = GameObject.Find("Dore_player");
         player.transform.position = playerSpawnPositionBosque;
