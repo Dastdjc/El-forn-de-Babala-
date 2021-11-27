@@ -7,6 +7,7 @@ public class Cable : MonoBehaviour
 
     public SpriteRenderer finalCable;
     public GameObject luz;
+    static private int cables = 8;
 
     private Vector2 posicionOriginal;
     private Vector2 tamañoOriginal;
@@ -98,6 +99,8 @@ public class Cable : MonoBehaviour
     public void Conectar()
     {
         luz.SetActive(true);
+        cables--;
+        if(cables == 0) { KilnController.ReturnElec(); }
         Destroy(this);
     }
        

@@ -12,7 +12,14 @@ public class KilnController : MonoBehaviour
     private SpriteRenderer[] ColorBar = new SpriteRenderer[6];
     private Transform[] Mask = new Transform[6];
     static public int electricity = 2;
+    private float timer;
     static public int[] isCoock = new int[6];
+    static private Color secondColor = new Color(1, 0.3f, 0);
+    private void Start() 
+    {
+        if(open) gameObject.GetComponent<SpriteRenderer>().color = secondColor;
+        else gameObject.GetComponent<SpriteRenderer>().color = new Color(0.25f, 0, 1);
+    }
     private void OnMouseDown()
     {
         if (open)
@@ -22,27 +29,41 @@ public class KilnController : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.3f, 0);
+            gameObject.GetComponent<SpriteRenderer>().color = secondColor;
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
         }
         open = !open;
     }
     private void Update()
     {
-        for (int i = 0; i < objectEntering.Length; i++)
+        if(Time.timeScale == 1 && electricity > 0)
         {
-            if (objectEntering[i] != null && Mask[i] != null)
+            for (int i = 0; i < objectEntering.Length; i++)
             {
-                float position = Mask[i].transform.localPosition.x;
-                if (position > 0.30f && position < 0.70f) { ColorBar[i].color += new Color(0, 0.0002f, -0.0001f); isCoock[i] = 1; }
-                else if (position > 0.70f) { ColorBar[i].color += new Color(0.0001f, -0.0004f, 0); isCoock[i] = 2; }
-                Mask[i].transform.position += new Vector3(0.00002f * electricity, 0, 0);
-                if (position > 1) { Destroy(Mask[i].gameObject); }
+                if (objectEntering[i] != null && Mask[i] != null)
+                {
+                    float position = Mask[i].transform.localPosition.x;
+                    if (position > 0.30f && position < 0.70f) { ColorBar[i].color += new Color(0, 0.0002f, -0.0001f); isCoock[i] = 1; }
+                    else if (position > 0.70f) { ColorBar[i].color += new Color(0.0001f, -0.0004f, 0); isCoock[i] = 2; }
+                    Mask[i].transform.position += new Vector3(0.00002f * electricity, 0, 0);
+                    if (position > 1) { Destroy(Mask[i].gameObject); }
+                }
+                else if (objectEntering[i] == null)
+                {
+                    //send isCoock[i] to inventory
+                    //send foodIndex[i] to inventory
+                }
             }
-            else if (objectEntering[i] == null)
+            if (electricity >= 2)
             {
-                //send isCoock[i] to inventory
-                //send foodIndex[i] to inventory
+                timer += 0.01f;
+                if (timer > 3 && Random.Range(0, 100) == 1)
+                {
+                    electricity = 0;
+                    secondColor = new Color(0.35f, 0.26f, 0.16f);
+                    if(open)gameObject.GetComponent<SpriteRenderer>().color = secondColor;
+                    timer = 0;
+                }
             }
         }
     }
@@ -68,8 +89,14 @@ public class KilnController : MonoBehaviour
             ColorBar[i] = objectEntering[i].transform.GetChild(1).GetComponent<SpriteRenderer>();
             Mask[i] = objectEntering[i].transform.GetChild(0);
             isCoock[i] = 0;
-            ColorBar[i].color = new Color(0, 0, 0.6f);
+            secondColor = new Color(1, 0.3f, 0);
+            ColorBar[i].color = secondColor;
         }
     }
     public bool ImOpen() { return open; }
+    static public void ReturnElec()
+    {
+        electricity = 2;
+        secondColor = new Color(1, 0.3f, 0);
+    }
 }
