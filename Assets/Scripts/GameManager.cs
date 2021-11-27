@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameState state = GameState.InicioJuego;
     public GameObject[] edificios;
-    private GameObject servicios;
-    private GameObject newServicios;
+    static private GameObject servicios;
 
     public static event System.Action<GameState> OnGameStateChanged;
 
@@ -45,18 +44,11 @@ public class GameManager : MonoBehaviour
         // scenes
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        player = GameObject.Find("Dore_player");
-        playerSpawnPositionBosque = new Vector3(-290, -128, 0);
+        servicios = GameObject.Find("SERVICIOS");
+        DontDestroyOnLoad(servicios);
 
-        // Los gameobjects de los edificios
-        newServicios = GameObject.Find("SERVICIOS");
-        if (servicios == null)
-        {
-            servicios = newServicios;
-            DontDestroyOnLoad(servicios);
-        }
-        else if (newServicios != servicios)
-            Destroy(newServicios);
+        player = GameObject.Find("Dore_player");
+        playerSpawnPositionBosque = new Vector3(-290, -128, 0);       
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -152,14 +144,29 @@ public class GameManager : MonoBehaviour
         {
             Bosque();
         }
+        // Los gameobjects de los edificios
+        foreach (GameObject newServicios in GameObject.FindGameObjectsWithTag("Servicios"))
+        {
+            if (newServicios == null)
+            {
+                servicios = newServicios;
+                DontDestroyOnLoad(servicios);
+            }
+            else if (newServicios != servicios)
+                Destroy(newServicios);
+        }
     }
     void Pueblo() 
     {
         servicios.SetActive(true);
+        Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
+        panaderia_anim.SetTrigger("panaderia2");
+
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         BG_music.Play();
+
         player = GameObject.Find("Dore_player");
-        player.transform.position = playerSpawnPositionBosque;
+        //player.transform.position = playerSpawnPositionBosque;
     }
 
     void Bosque() 
