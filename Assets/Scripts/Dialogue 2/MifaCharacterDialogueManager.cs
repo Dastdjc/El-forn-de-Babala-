@@ -52,8 +52,8 @@ public class MifaCharacterDialogueManager : MonoBehaviour
 
     void nextConversation() 
     {
-        conversationIndex++;
-        if (conversationIndex == 1)
+        if (conversationIndex == 0)
             GameManager.Instance.UpdateGameState(GameManager.GameState.AnimacionPanaderia);
+        conversationIndex++;
     }
 }

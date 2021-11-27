@@ -28,8 +28,11 @@ public class JumpToScene : MonoBehaviour
     {
         StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         Time.timeScale = 1;
+        if (index == 5)  // Si va al bosque, actualizar gameState
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Bosque);
+        else if(index == 10)
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Pueblo);
         StartCoroutine(LoadLevel(index));
-
     }
 
     IEnumerator LoadLevel(int levelIndex)
