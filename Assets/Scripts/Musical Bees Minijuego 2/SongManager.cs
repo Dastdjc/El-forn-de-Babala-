@@ -6,6 +6,7 @@ using Melanchall.DryWetMidi.Interaction;
 using System.IO;
 using UnityEngine.Networking;
 using System;
+using TMPro;
 
 public class SongManager : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class SongManager : MonoBehaviour
     public static MidiFile midiFile;
 
     private bool finished;
+    private int mantequilla;
+    private int leche;
+    private int requeson;
+    private int huevos;
 
     void Start()
     {
@@ -53,16 +58,37 @@ public class SongManager : MonoBehaviour
         if (!audioSource.isPlaying && !finished) 
         {
             score = ScoreManager.maxCombo;
+            CalcularRecompensa();
             finished = true;
             // Mostrar lo conseguido
-            Debug.Log("Finished");
             MostrarPantallaFinal();
         }
     }
-
+    void CalcularRecompensa() 
+    {
+        Debug.Log(score);
+        float multiplicador = score / 96;
+        mantequilla = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.5f, 1f));
+        Debug.Log(mantequilla);
+        leche = (int)(multiplicador * 10 * UnityEngine.Random.Range(0.5f, 1f));
+        requeson = (int)(multiplicador * 5 * UnityEngine.Random.Range(0.5f, 1f));
+        huevos = (int)(multiplicador * 20 * UnityEngine.Random.Range(0.5f, 1f));
+    }
     void MostrarPantallaFinal() 
     {
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
+        // Poner los datos de los alimentos
+        TextMeshProUGUI cant_mantequilla = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_mantequilla").GetComponent<TextMeshProUGUI>();
+        Debug.Log(cant_mantequilla);
+        TextMeshProUGUI cant_leche = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_leche").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_requeson = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_requeson").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_huevos = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_huevos").GetComponent<TextMeshProUGUI>();
+
+        cant_mantequilla.text = mantequilla.ToString();
+        cant_leche.text = leche.ToString();
+        cant_requeson.text = requeson.ToString();
+        cant_huevos.text = huevos.ToString();
+
         pantallaFinal.SetActive(true);
         anim_pantallaFinal.SetTrigger("aparicion");
     }
