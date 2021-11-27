@@ -68,11 +68,11 @@ public class SongManager : MonoBehaviour
     {
         Debug.Log(score);
         float multiplicador = score / 96;
-        mantequilla = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.5f, 1f));
+        mantequilla = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.5f, 1f));
         Debug.Log(mantequilla);
-        leche = (int)(multiplicador * 10 * UnityEngine.Random.Range(0.5f, 1f));
-        requeson = (int)(multiplicador * 5 * UnityEngine.Random.Range(0.5f, 1f));
-        huevos = (int)(multiplicador * 20 * UnityEngine.Random.Range(0.5f, 1f));
+        leche = (int)(multiplicador * 8 * UnityEngine.Random.Range(0.5f, 1f));
+        requeson = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.5f, 1f));
+        huevos = (int)(multiplicador * 15 * UnityEngine.Random.Range(0.5f, 1f));
     }
     void MostrarPantallaFinal() 
     {
@@ -83,11 +83,15 @@ public class SongManager : MonoBehaviour
         TextMeshProUGUI cant_leche = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_leche").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI cant_requeson = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_requeson").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI cant_huevos = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_huevos").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI combo = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/Combo").GetComponent<TextMeshProUGUI>();
 
         cant_mantequilla.text = mantequilla.ToString();
         cant_leche.text = leche.ToString();
         cant_requeson.text = requeson.ToString();
         cant_huevos.text = huevos.ToString();
+        if (score >= 96)
+           combo.text = "PERFECT SCORE: " + score.ToString();
+        combo.text = "Max combo: " + score.ToString();
 
         pantallaFinal.SetActive(true);
         anim_pantallaFinal.SetTrigger("aparicion");
