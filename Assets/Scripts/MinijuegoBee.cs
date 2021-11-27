@@ -29,8 +29,9 @@ public class MinijuegoBee : MonoBehaviour
         {
             if(currentTask == null)
             {
+                Player.GetComponent<PlayerMovement>().enabled = false;
                 hitbox.SetActive(false);
-                BGmusic.mute = true;
+                AudioFadeOut.FadeOut(BGmusic, 1f);
                 currentTask = Instantiate(task, camara.transform);
                 rb.bodyType = RigidbodyType2D.Static;
             }

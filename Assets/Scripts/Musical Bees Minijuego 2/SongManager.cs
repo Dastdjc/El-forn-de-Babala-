@@ -26,6 +26,8 @@ public class SongManager : MonoBehaviour
     public float noteTapScale = 1f;
     public float noteDespawnScale = 0f;
 
+    public GameObject pantallaFinal;
+
     public float score;
 
     public static MidiFile midiFile;
@@ -43,7 +45,7 @@ public class SongManager : MonoBehaviour
         {
             ReadFromFile();
         }
-        finished = false;
+        finished = true;
     }
 
     private void Update()
@@ -53,7 +55,16 @@ public class SongManager : MonoBehaviour
             score = ScoreManager.maxCombo;
             finished = true;
             // Mostrar lo conseguido
+            Debug.Log("Finished");
+            MostrarPantallaFinal();
         }
+    }
+
+    void MostrarPantallaFinal() 
+    {
+        Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
+        pantallaFinal.SetActive(true);
+        anim_pantallaFinal.SetTrigger("aparicion");
     }
 
     private IEnumerator ReadFromWebsite()
@@ -98,6 +109,7 @@ public class SongManager : MonoBehaviour
     {
         audioSource.Play();
         playing = true;
+        finished = false;
     }
     public static double GetAudioSourceTime()
     {
