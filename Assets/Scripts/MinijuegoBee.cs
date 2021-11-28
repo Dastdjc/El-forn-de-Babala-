@@ -15,11 +15,14 @@ public class MinijuegoBee : MonoBehaviour
     public GameObject hitbox;
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public AudioSource BGmusic;
+    public SpriteRenderer identidicadorRenderer;
+    private Material mat;
 
     private void Start()
     {
         rb = Player.GetComponent<Rigidbody2D>();
-        BGmusic = GameObject.Find("Music").GetComponent<AudioSource>();
+        BGmusic = GameObject.Find("BG_Music").GetComponent<AudioSource>();
+        mat = identidicadorRenderer.material;
     }
 
     public void Update()
@@ -29,8 +32,9 @@ public class MinijuegoBee : MonoBehaviour
         {
             if(currentTask == null)
             {
+                Player.GetComponent<PlayerMovement>().enabled = false;
                 hitbox.SetActive(false);
-                BGmusic.mute = true;
+                StartCoroutine(AudioFadeOut.FadeOut(BGmusic, 1f));
                 currentTask = Instantiate(task, camara.transform);
                 rb.bodyType = RigidbodyType2D.Static;
             }
@@ -42,6 +46,7 @@ public class MinijuegoBee : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            mat.SetFloat("Thickness", 0.03f);
             Texto.SetActive(true);
             DONDESEA = true;
         }
@@ -51,6 +56,7 @@ public class MinijuegoBee : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            mat.SetFloat("Thickness", 0f);
             Texto.SetActive(false);
             DONDESEA = false;
         }

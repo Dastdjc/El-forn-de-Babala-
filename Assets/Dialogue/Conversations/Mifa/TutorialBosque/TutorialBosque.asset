@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: TutorialBosque
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "\xBFHola, hola?<pause=1> \xBFFunciona esto?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<size=50><speed=50><shake=1>\xA1AAAAA, SOCORRO UN FANTASMA!<speed=40>"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "No, Dore, soy yo<pause=0,5> \xA1Mifa!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Jolines Mifa, menudo susto!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Jejeje, qu\xE9 graciosa eres."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Ten\xEDa que contactar contigo para explicarte qu\xE9 tienes que hacer."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Ah, de acuerdo.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "En el bosque hay tres fuentes de ingredientes, las abejas, las copas de
+      los \xE1rboles y los arbustos."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=5>...<speed=40>
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "\xBFQu\xE9 pasa?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFS\xF3lo podemos sacar ingredientes de eso?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "\xA1S\xED! T\xFA conf\xEDa en mi, son las mejores fuentes m\xE1gicas de
+      un bosque."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "De acuerdo, confiar\xE9 en t\xED."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "Para conseguir ingredientees de las abejas, debes atraerlas tocando la
+      flauta y te dejar\xE1n muchas cosas."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "De las copas de los \xE1rboles caen muchas cosas distintas, pero <pause=0,5>\xA1Ten
+      cuidado con las rocas!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "Y en los arbustos deber\xE1s recolectar bayas m\xE1gicas que se convierten
+      en todo tipo de ingredientes."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<speed=5>Hmmm... <speed=40>No lo entiendo muy bien...<pause=0,5> Pero
+      de acuerdo, voy ver qu\xE9 puedo hacer."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "\xA1As\xED me gusta! <pause=0,5> <size=45>\xA1Acercate a alguno de los
+      elementos que brillan y ponte a recolectar cosas!"
+    Emotion: 1

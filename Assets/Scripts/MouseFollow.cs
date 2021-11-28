@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class MouseFollow : MonoBehaviour
 {
+    private Camera cam;
     public float Distance = 10;
-
+    private void Start()
+    {
+        cam = FindObjectOfType<Camera>();
+    }
     void Update()
     {
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);

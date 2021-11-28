@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: PresentacionMifa2
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1\xBFQu\xE9 acaba de pasar?!"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Para ser una bruja te sorprendes facilmente.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Perdona, llevo tanto tiempo sola, que apenas he practicado con la varita.
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno vale pero<speed=5>...<speed=40><pause=0,5> \xBFC\xF3mo se supone
+      que esto va a ayudarme?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Veo que a\xFAn no lo entiendes...<pause=1> \xA1Para conseguir clientes
+      y hacer que el pueblo vuelva a crecer!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Tiene sentido, pero<speed=5>...<speed=40><pause=0,5><shake=0,5> \xA1Yo
+      no tengo ni idea de llevar una <color=#E1AC82>panader\xEDa</color>!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Pero bueno chica, tampoco esperes que te consiga yo todo!"
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Estar\xE9 aqu\xED para ayudarte, pero debes ser t\xFA la que saque este
+      pueblo adelante"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: De verdad, espero que esto funcione...
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "<size=50>\xA1Claro que s\xED! \xA1Vamos, manos a la obra!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dirigete al <color=#30d979>bosque</color> <pause=0,5> \xA1Vas a recolectar
+      unos cuantos ingredientes!"
+    Emotion: 1

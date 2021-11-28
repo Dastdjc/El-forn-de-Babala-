@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
 
     public GameObject player;
 
-    public GameObject final;
+    public GameObject pantallaFinal;
 
     public TextMeshProUGUI textoFinal;
     void Start()
@@ -47,11 +47,19 @@ public class Timer : MonoBehaviour
         }
         else if (finished)
         {
+            MostrarPantallaFinal();
             spawner.SetActive(false);
             player.SetActive(false);
-            final.SetActive(true);
-            textoFinal.text = "Conseguiste:\n Huevos:" + "\nCalabaza:" + "\nHarina:";
+            //final.SetActive(true);
+            //textoFinal.text = "Conseguiste:\n Huevos:" + "\nCalabaza:" + "\nHarina:";
         }
+    }
+
+    void MostrarPantallaFinal()
+    {
+        Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
+        pantallaFinal.SetActive(true);
+        anim_pantallaFinal.SetTrigger("aparicion");
     }
 
     void Finish()

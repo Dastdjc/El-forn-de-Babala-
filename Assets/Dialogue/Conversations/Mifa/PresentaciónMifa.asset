@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: "Presentaci\xF3nMifa"
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+  speakerRight: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Hola soy<speed=5>... <speed=50> <size= 50><shake=0,2><color=#FF805D> \xA1MIFA!</color>"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=30><size= 50><shake=0.2><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Tranquila, tranquila, soy otra bruja como t\xFA, estaba viendote a trav\xE9s
+      de mi bola de cristal."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Parec\xEDa que necesitabas ayuda."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: '<size= 20>Ah vale. Ho-<pause=0,3>Hola, yo soy <color=#FE77A2>Dore</color>... '
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xBFC\xF3mo? No te escucho bien."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Qu-Que me llamo <color=#FE77A2>Dore</color> <speed=5>.... <speed=40>Encan-<pause=1>Encantada.
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Espera un momento, \xBFme estabas espiando?"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "S\xED, he notado que necesitabas ayuda y te he escuchado hablar de los
+      problemas en el pueblo."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "As\xED que, \xA1he decidido venir a ayudar!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFAyudar? Para qu\xE9, \xBFno ves como esta el pueblo? <color=#8d6cd9>Babal\xE0</color>
+      es imposible de salvar."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Eso es porque no lo est\xE1s viendo de la forma adecuada."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFC\xF3mo que de la forma adecuada?"
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "No has probado con<speed=5>...  <speed=40><shake=0,3><size=45>\xA1MAGIA!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFC\xF3mo que con magia?<pause=0,5> \xBFA qu\xE9 te refieres?"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dime,<pause=0,5> \xBFqu\xE9 se te da bien a ti?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFA m\xED?<pause=0,5> Pues no lo s\xE9. Nunca se me ha dado bien nada..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: Venga mujer, algo se te tiene que dar bien.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno, est\xE1<speed=10>...<speed=40> Eso<speed=10>... <speed=40>Pero,<pause=0,3>
+      no, es una tonteria..."
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "<size=40>\xA1Venga, dilo!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Bueno, supongo que cocinar, sobretodo <color=#e388ce>dulces</color>...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Asi que <color=#e388ce>dulces</color>, \xBFeh?<pause=0,7> Pues entonces
+      preparate para la<speed=10>...<speed=40><size=50><shake=0,1> \xA1MAGIA!"
+    Emotion: 1
