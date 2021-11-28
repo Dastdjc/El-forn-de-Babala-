@@ -9,6 +9,15 @@ public class JumpToScene : MonoBehaviour
     public bool JustClick;
     private void OnMouseDown()
     {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Bakery":
+                SpawnCustomers.PauseScene(true);
+                break;
+            case "Cables-minijuego":
+                SpawnCustomers.PauseScene(false);
+                break;
+        }
         if (JustClick) SceneManager.LoadScene(SceneToJump);
     }
     private void OnCollisionEnter2D(Collision2D collision)

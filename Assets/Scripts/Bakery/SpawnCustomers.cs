@@ -6,22 +6,22 @@ public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject NormalCustomer;
-    static GameObject[] Customers;
-    private int CustomersNumber;
+    static private GameObject[] Customers = new GameObject[4];
+    private int CustomersNumber = -1;
+    static private bool ScenePaused;
     
     private int firstPlace = -1;
     private float CoolDown = 0;
 
     void Start()
     {
-        CustomersNumber = Random.Range(6, 20);
-        Customers = new GameObject[4];
+        if(CustomersNumber == -1)CustomersNumber = Random.Range(6, 20);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 1 && CustomersNumber > 0)
+        if (!ScenePaused && Time.timeScale == 1 && CustomersNumber > 0)
         {
             CoolDown += Time.deltaTime;
             if (CoolDown > 0.1f && ThereSpace())
@@ -32,6 +32,7 @@ public class SpawnCustomers : MonoBehaviour
                 {
                     CustomersNumber--;
                     Customers[firstPlace] = Instantiate(NormalCustomer, new Vector3(-12 - firstPlace * 4, -1.55f, 0), Quaternion.identity);
+                    DontDestroyOnLoad(Customers[firstPlace]);
                 }
             }
         }
@@ -43,5 +44,13 @@ public class SpawnCustomers : MonoBehaviour
         while (i < Customers.Length) { if (Customers[i] == null) { firstPlace = i; return true; } i++; }
         firstPlace = -1;
         return false;
+    }
+    static public void PauseScene(bool isPaused)
+    {
+        ScenePaused = isPaused; 
+        for(int i = 0; i < Customers.Length; i++)
+        {
+            Customers[i].SetActive(!ScenePaused);
+        }
     }
 }

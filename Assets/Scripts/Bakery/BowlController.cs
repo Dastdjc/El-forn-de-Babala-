@@ -5,12 +5,12 @@ using UnityEngine;
 public class BowlController : MonoBehaviour
 {
     static private Transform Content;
-    static private int[] ingredients;
+    static private int[] ingredients = new int[13];
     static private float Upmov = 0.05f;
     void Start()
     {
         if(Content == null)Content = transform.GetChild(0);
-        if(ingredients != null)
+        if(Content.position.y > -0.85f)
         {
             for(int i = 0; i < 14; i++)
             {
