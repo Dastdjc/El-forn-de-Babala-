@@ -28,11 +28,18 @@ public class MifaCharacterDialogueManager : MonoBehaviour
 
         if (closeEnough)
         {
-            material.SetFloat("Thickness",0.02f);
+            // Outline
+            if (!dm.inConversation)
+                material.SetFloat("Thickness",0.02f);
+            else 
+                material.SetFloat("Thickness", 0f);
+
+            // character Orientation
             if (player.position.x > this.transform.position.x)
                 sr.flipX = true;
             else sr.flipX = false;
 
+            // interactivity
             if (Input.GetKeyDown(KeyCode.Space) && !dm.inConversation && !spokenTo)
             {
                 dm.NPC = transform;
