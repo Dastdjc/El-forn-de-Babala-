@@ -25,14 +25,16 @@ MonoBehaviour:
     text: Perdona, llevo tanto tiempo sola, que apenas he practicado con la varita.
     Emotion: 4
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Bueno vale pero... \xBFC\xF3mo se supone que esto va a ayudarme?"
+    text: "Bueno vale pero<speed=5>...<speed=40><pause=0,5> \xBFC\xF3mo se supone
+      que esto va a ayudarme?"
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Veo que a\xFAn no lo entiendes...<pause=1> \xA1Para conseguir clientes
       y hacer que el pueblo vuelva a crecer!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Tiene sentido, pero... \xA1Yo no tengo ni idea de llevar una panader\xEDa!"
+    text: "Tiene sentido, pero<speed=5>...<speed=40><pause=0,5><shake=0,5> \xA1Yo
+      no tengo ni idea de llevar una panader\xEDa!"
     Emotion: 5
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "\xA1Pero bueno chica, tampoco esperes que te consiga yo todo!"
@@ -46,4 +48,7 @@ MonoBehaviour:
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "<size=50>\xA1Claro que s\xED! \xA1Vamos, manos a la obra!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Dirigete al bosque <pause=0,5> \xA1Vas a recolectar unos cuantos ingredientes!"
     Emotion: 1

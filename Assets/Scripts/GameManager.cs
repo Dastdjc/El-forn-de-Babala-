@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
                 ConversacionMifa();
                 break;
             case GameState.Tutorial:
+                Tutorial();
                 break;
             case GameState.Bosque:
                 //Bosque();
@@ -117,7 +118,8 @@ public class GameManager : MonoBehaviour
         
         panaderia_cam.Priority = 11;
         CameraShake.Instance.ShakeCamera(15f,5f);
-        Invoke("FinAnimPanaderia", 3f);
+        GameObject.Find("PanaderiaSound").GetComponent<AudioSource>().Play();
+        Invoke("FinAnimPanaderia", 4f);
     }
 
     void FinAnimPanaderia()
@@ -137,6 +139,10 @@ public class GameManager : MonoBehaviour
         mifa.conversationIndex = 1;
     }
 
+    void Tutorial() 
+    {
+        GameObject.Find("InitialCollider").SetActive(false);
+    }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
         if (scene.name == "Pueblo_Final")
@@ -165,6 +171,9 @@ public class GameManager : MonoBehaviour
         servicios.SetActive(true);
         Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
         panaderia_anim.SetTrigger("panaderia2");
+
+        // Desactivar el hitbox que note deja pasar al bosque
+        GameObject.Find("InitialCollider").SetActive(false);
 
         // Play BG music
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();

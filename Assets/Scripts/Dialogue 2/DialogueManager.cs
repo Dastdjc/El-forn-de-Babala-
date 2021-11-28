@@ -73,7 +73,7 @@ public class DialogueManager : MonoBehaviour
         nextIndicator.SetActive(false);
         boxAnimation.SetBool("Cartel", true);
 
-        Invoke("showDialogue", 0.5f);
+        Invoke("showDialogue", 0.1f);
     }
 
     void showDialogue() {
