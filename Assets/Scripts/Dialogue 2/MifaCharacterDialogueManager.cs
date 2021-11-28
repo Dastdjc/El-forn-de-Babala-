@@ -13,12 +13,14 @@ public class MifaCharacterDialogueManager : MonoBehaviour
     private bool closeEnough = false;
     private bool spokenTo = false;
     private SpriteRenderer sr;
+    private Material material;
     public int conversationIndex { get; set; }
 
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         dm.onConversationFinish.AddListener(nextConversation);
+        material = sr.material;
     }
     // Update is called once per frame
     void Update()
@@ -26,7 +28,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
 
         if (closeEnough)
         {
-            transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            material.SetFloat("Thickness",0.02f);
             if (player.position.x > this.transform.position.x)
                 sr.flipX = true;
             else sr.flipX = false;
@@ -40,7 +42,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            material.SetFloat("Thickness", 0f);
         }
 
         if (Vector2.Distance(player.position, transform.position) <= detectionRange)
