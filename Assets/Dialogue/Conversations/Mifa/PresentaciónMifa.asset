@@ -48,7 +48,7 @@ MonoBehaviour:
     text: "As\xED que, \xA1he decidido venir a ayudar!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFAyudar? Para que, \xBFno ves como esta el pueblo? <color=#8d6cd9>Babal\xE0</color>
+    text: "\xBFAyudar? Para qu\xE9, \xBFno ves como esta el pueblo? <color=#8d6cd9>Babal\xE0</color>
       es imposible de salvar."
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
@@ -80,9 +80,9 @@ MonoBehaviour:
     text: "<size=40>\xA1Venga, dilo!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Bueno, supongo que cocinar, sobretodo dulces...
+    text: Bueno, supongo que cocinar, sobretodo <color=#e388ce>dulces</color>...
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Asi que dulces, \xBFeh?<pause=0,7> Pues entonces preparate para la<speed=10>...<speed=40><size=50><shake=0,1>
-      \xA1MAGIA!"
+    text: "Asi que <color=#e388ce>dulces</color>, \xBFeh?<pause=0,7> Pues entonces
+      preparate para la<speed=10>...<speed=40><size=50><shake=0,1> \xA1MAGIA!"
     Emotion: 1

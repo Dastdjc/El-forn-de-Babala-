@@ -25,8 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
         sr = gameObject.GetComponent<SpriteRenderer>();
 
+        // inital position in the scene
         if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque)
             transform.localPosition = GameManager.Instance.playerSpawnPosition;
+            //transform.position = GameManager.Instance.playerSpawnPosition;
     }
 
     void Update()

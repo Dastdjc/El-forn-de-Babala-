@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     //  Inicio
     public Vector3 playerSpawnPositionBosque { get; set; }
+    public Vector3 playerSpawnPositionInicioJuego;
     public Vector3 playerSpawnPosition;
     private GameObject player;
     private AudioSource BG_music;
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     // Anim panaderia
     private bool panaderia;
+
+    // tutorial bosque
+    private bool tutorialBosque;
 
     // Siguientes estados
 
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
 
         // referencia al jugador y sus spawns
         player = GameObject.Find("Dore_player");
+        playerSpawnPositionInicioJuego = new Vector3(-380, -128, 0);
         playerSpawnPositionBosque = new Vector3(-290, -128, 0);
 
         // Musica de fondo
@@ -141,6 +146,11 @@ public class GameManager : MonoBehaviour
 
     void Tutorial() 
     {
+        if (!panaderia)
+        {
+            AnimacionPanaderia();
+        }
+        mifa.conversationIndex = 2;
         GameObject.Find("InitialCollider").SetActive(false);
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
@@ -180,13 +190,23 @@ public class GameManager : MonoBehaviour
         BG_music.Play();
         
         // Update Spawn position
-        playerSpawnPosition = playerSpawnPositionBosque;
+        if (state == GameState.InicioJuego)
+            playerSpawnPosition = playerSpawnPositionInicioJuego;
+        else
+            playerSpawnPosition = playerSpawnPositionBosque;
         //player.transform.position = playerSpawnPositionBosque; HAD TO USE LOCAL POSITION BECAUSE IT WAS A CHILD 
     }
 
     void Bosque() // Función que se ejecuta llegar al bosque
     {
         servicios.SetActive(false);
+
+        if (!tutorialBosque) 
+        {
+            Debug.Log("Tutorial");
+            GameObject.Find("TutorialBosque").GetComponent<TutorialCharacterDialogueManager>().tutorialActivated = true;
+            tutorialBosque = true;
+        }
     }
     private enum Edificios 
     { 

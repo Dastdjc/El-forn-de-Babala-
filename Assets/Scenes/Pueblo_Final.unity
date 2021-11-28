@@ -1072,6 +1072,7 @@ MonoBehaviour:
   conversation:
   - {fileID: 11400000, guid: c1e4ccc6fbf5c044cb5db7144eb4bc07, type: 2}
   - {fileID: 11400000, guid: 16112aa1a2a0cc648a5ca284c3d04604, type: 2}
+  - {fileID: 11400000, guid: 7c55bef34859e2a4caf9e84b1cb622fc, type: 2}
   detectionRange: 5
   dm: {fileID: 1383090384}
 --- !u!212 &596914284
@@ -1752,6 +1753,7 @@ MonoBehaviour:
   - {fileID: 475601790}
   - {fileID: 1514460359}
   - {fileID: 1293410059}
+  playerSpawnPositionInicioJuego: {x: 0, y: 0, z: 0}
   playerSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1097157030
 GameObject:
