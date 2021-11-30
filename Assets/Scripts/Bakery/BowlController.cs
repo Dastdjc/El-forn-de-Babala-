@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class BowlController : MonoBehaviour
 {
-    private Transform Content;
-    private int[] ingredients;
+    static private Transform Content;
+    static private int[] ingredients = new int[13];
     static private float Upmov = 0.05f;
-    private int Mixture = 0;
     void Start()
     {
         if(Content == null)Content = transform.GetChild(0);
-        if(ingredients != null)
+        if(Content.position.y > -0.85f)
         {
             for(int i = 0; i < 14; i++)
             {
@@ -21,14 +20,12 @@ public class BowlController : MonoBehaviour
                 }
             }
         }
-        ingredients = new int[14];
+        ingredients = new int[13];
     }
-    public void MoveContent(int q, int index)
+    static public void MoveContent(int q, int index)
     {
-        if (Mixture != 0 && Mixture > 5) { ingredients[13] += 1;}
         ingredients[index] += q;
         Content.transform.position += new Vector3(0, Upmov, 0);
-        Mixture = 0;
     }
     public int DeterminateFood()
     {

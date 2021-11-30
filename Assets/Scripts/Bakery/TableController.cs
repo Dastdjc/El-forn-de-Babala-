@@ -27,6 +27,10 @@ public class TableController : MonoBehaviour
                 bowl.GetComponent<BowlController>().Resset();
                 Kiln.GetComponent<KilnController>().GetToCook(i);
             }
+            /*
+             * Si está tocando la mesa y ha selecionado algo en el inventario
+             * BowlController.MoveContent(int cantidad, int indice)
+             */
         }
     }
 }
