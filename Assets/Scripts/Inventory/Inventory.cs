@@ -419,53 +419,53 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //mover selector por el recetario
+    //FALTAN LOS LÍMITES DEL SELECTOR
     private void MoveInRecetario()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
             recetID += 3;
 
-            /*if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
+            if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
             }
 
-            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();*/
+            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             recetID -= 3;
 
-            /*if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
+            if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
             }
 
-            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();*/
+            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
             recetID--;
 
-            /*
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
             }
 
-            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();*/
+            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             recetID++;
 
-            /*
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
             }
 
-            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();*/
+            inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
 
         
@@ -476,21 +476,8 @@ public class Inventory : MonoBehaviour
         //colocamos el selector en la casilla correcta
         selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recetID).transform.position;
 
-        /*
-        //mostramos las estrellas al lado del nombre si el ingrediente es especial
-        for (int i = 0; i < specialIngredientsList.Count; i++)
-        {
-            if (itemBySlotList[ingrID].type == specialIngredientsList[i])
-            {
-                inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
-                break;
-            }
-            else
-            {
-                inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
-            }
-        }
-        */
+        //mostramos los ingredientes necesarios para hacer la receta
+        IngredientsPerRecipe();
     }
 
     //Añadir objetos al inventario
@@ -723,6 +710,22 @@ public class Inventory : MonoBehaviour
         item = itemBySlotList[ingrID];
 
         return item;
+    }
+
+    private void IngredientsPerRecipe()
+    {
+        List<Items> ingredientsPerSlotList = recipeBySlotList[recetID].ingredintsList;
+        int i = 0;
+        Debug.Log(ingredientsPerSlotList[0]);
+
+        /*
+        foreach (Items ingredient in ingredientsPerSlotList)
+        {
+            //inventory.transform.GetChild(0).transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = 
+            inventory.transform.GetChild(0).transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = ingredient.itemImage;
+            i++;
+        }
+        */
     }
 
 }
