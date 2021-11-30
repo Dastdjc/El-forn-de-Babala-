@@ -59,7 +59,7 @@ public class BowlController : MonoBehaviour
         if (IsEnough(recipe)) { return 6; }
         recipe = new int[] { 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 4 };
         if (IsEnough(recipe)) { return 7; }
-        recipe = new int[] { 0, 0, 0, 0, 6, 1, 0, 2, 1, 6 };
+        recipe = new int[] { 0, 0, 0, 0, 6, 1, 0, 2, 1, 6, 6 };
         if (IsEnough(recipe)) { return 8; }
         return -1;
     }

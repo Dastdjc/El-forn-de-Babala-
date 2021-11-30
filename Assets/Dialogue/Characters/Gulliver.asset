@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0062abba4afa940a94fb10ede38ff4, type: 3}
   m_Name: Gulliver
   m_EditorClassIdentifier: 
-  fullName: 
-  mood: []
+  fullName: Gulliver
+  mood:
+  - emotion: 0
+    graphic: {fileID: 21300000, guid: cf0574d1035db69448e251eaa69eebfd, type: 3}
+  - emotion: 1
+    graphic: {fileID: 21300000, guid: c148f1b4f6212944eb7fef5c98816dbf, type: 3}
+  - emotion: 4
+    graphic: {fileID: 21300000, guid: 4fc59f417e0e6cf4bbb97d52b281f9c2, type: 3}
+  - emotion: 5
+    graphic: {fileID: 21300000, guid: 405f0528d745b254988aa085a637d0d7, type: 3}
+  - emotion: 6
+    graphic: {fileID: 21300000, guid: 362a72ef4d89e7b468a95710ddace572, type: 3}
