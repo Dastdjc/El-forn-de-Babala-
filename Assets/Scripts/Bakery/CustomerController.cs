@@ -36,8 +36,7 @@ public class CustomerController : MonoBehaviour
     private void Awake()
     {
         gmo = GameObject.FindGameObjectWithTag("dialogo");
-
-        if (gmo != null)
+        if (gmo != null && dmcm == null)
         {
             dmcm = gmo.GetComponent<DialogueManagerCM>();
         }

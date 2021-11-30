@@ -12,10 +12,10 @@ public class JumpToScene : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "Bakery":
-                SpawnCustomers.PauseScene(true);
+                SpawnCustomers.PauseScene();
                 break;
             case "Cables-minijuego":
-                SpawnCustomers.PauseScene(false);
+                SpawnCustomers.PauseScene();
                 break;
         }
         if (JustClick) SceneManager.LoadScene(SceneToJump);
