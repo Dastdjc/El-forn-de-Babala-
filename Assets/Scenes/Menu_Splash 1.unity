@@ -10213,7 +10213,7 @@ RectTransform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1811528207}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10463,7 +10463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10499,7 +10499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11835,6 +11835,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 328133038, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1752928512, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
@@ -11842,6 +11846,10 @@ PrefabInstance:
     - target: {fileID: 1752928512, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 542
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215496246019813490, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1215496246019813490, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument

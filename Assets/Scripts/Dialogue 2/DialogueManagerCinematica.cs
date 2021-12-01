@@ -89,6 +89,7 @@ public class DialogueManagerCinematica: MonoBehaviour
     }
     public void ChangeScene(int index)
     {
+        Debug.Log("Change");
         Time.timeScale = 1;
         StartCoroutine(LoadLevel(index));
     }

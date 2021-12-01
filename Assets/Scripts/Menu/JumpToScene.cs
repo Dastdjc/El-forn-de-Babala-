@@ -39,10 +39,12 @@ public class JumpToScene : MonoBehaviour
     }*/
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!JustClick) SceneManager.LoadScene(SceneToJump);
+        if (!JustClick) ChangeScene(SceneToJump);
     }
     public void ChangeScene(int index)
     {
+        // Changing Scene... 
+        Debug.Log("Changing scene...");
         StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         Time.timeScale = 1;
         if (index == 5)  // Si va al bosque, actualizar gameState

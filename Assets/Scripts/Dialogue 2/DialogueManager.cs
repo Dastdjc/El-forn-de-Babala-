@@ -40,12 +40,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (conversationIndex >= conversation.lines.Count)
             {
-                boxAnimation.SetBool("Cartel", false);
-                inConversation = false;
-                conversationStarted = false;
-                dialogueCamera.Priority = 1;
-                conversationIndex = 0;
-                onConversationFinish.Invoke();
+                SetDownConversation();
             }
             else
             {
@@ -75,7 +70,15 @@ public class DialogueManager : MonoBehaviour
 
         Invoke("showDialogue", 0.1f);
     }
-
+    public void SetDownConversation() 
+    {
+        boxAnimation.SetBool("Cartel", false);
+        inConversation = false;
+        conversationStarted = false;
+        dialogueCamera.Priority = 1;
+        conversationIndex = 0;
+        onConversationFinish.Invoke();
+    }
     void showDialogue() {
         nextIndicator.SetActive(false);
         ChangeTMPText();
