@@ -3,35 +3,28 @@ using Cinemachine;
 using UnityEngine;
 public class MouseZoom : MonoBehaviour
 {
-    float minOrthScale;
-    float maxOrthScale;
+    float minOrthScale = 16;
+    float maxOrthScale = 23;
 
     float orthScale = 18;
 
     public float sensitivity = 10f;
-    public CinemachineVirtualCamera cam;
+    public CinemachineVirtualCamera camZoomed;
 
 
     // Update is called once per frame
     void Update()
     {
-        orthScale = cam.m_Lens.OrthographicSize;
-        orthScale += Input.GetAxis("Mouse ScrollWheel") * sensitivity;
-        orthScale = Mathf.Clamp(orthScale, minOrthScale, maxOrthScale);
-        cam.m_Lens.OrthographicSize = orthScale;
-    }
-
-    IEnumerator SmoothScale(float start, float end, float duration)
-    {
-        float elapsed = 0.0f;
-
-        while (elapsed < duration)
+        if (Input.mouseScrollDelta.y > 0)
         {
-            orthScale = Mathf.Lerp(start, end, elapsed / duration);
-            yield return null;
+            camZoomed.Priority = 6;
         }
-        orthScale = end;
+        else if (Input.mouseScrollDelta.y < 0)
+        {
+            camZoomed.Priority = 11;
+        }
     }
 
+    
 }
 

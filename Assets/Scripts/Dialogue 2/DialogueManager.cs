@@ -63,8 +63,9 @@ public class DialogueManager : MonoBehaviour
     void setUpConversation() 
     {
         TargetGroup.m_Targets[1].target = NPC;
-        dialogueCamera.Priority = 11;
+        dialogueCamera.Priority = 12;
         dialogueBox.SetActive(true);
+        nextDialogue = false;
         nextIndicator.SetActive(false);
         boxAnimation.SetBool("Cartel", true);
 
@@ -75,6 +76,7 @@ public class DialogueManager : MonoBehaviour
         boxAnimation.SetBool("Cartel", false);
         inConversation = false;
         conversationStarted = false;
+        nextDialogue = false;
         dialogueCamera.Priority = 1;
         conversationIndex = 0;
         onConversationFinish.Invoke();
