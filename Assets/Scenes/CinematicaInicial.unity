@@ -380,6 +380,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &957184069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957184070}
+  m_Layer: 0
+  m_Name: "CAMBIAR ESCENA AQU\xCD"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957184070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957184069}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -109.59247, y: -179.52222, z: -2297.8994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2855647469327658318}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027549921
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,7 +5476,7 @@ Transform:
   m_Children:
   - {fileID: 2855647469859482515}
   m_Father: {fileID: 2855647469327658318}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2855647468053952008
 MonoBehaviour:
@@ -5464,6 +5494,7 @@ MonoBehaviour:
   conversation: {fileID: 11400000, guid: 6e274cbfa005f6049a72c1d201a7528d, type: 2}
   TextPro: {fileID: 2855647468213364083}
   transition: {fileID: 313805375}
+  sceneIndex: 9
 --- !u!1 &2855647468213364081
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,6 +5727,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 957184070}
   - {fileID: 2855647468053952007}
   - {fileID: 313805374}
   m_Father: {fileID: 0}
@@ -5799,7 +5831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
       propertyPath: m_AnchorMax.x
