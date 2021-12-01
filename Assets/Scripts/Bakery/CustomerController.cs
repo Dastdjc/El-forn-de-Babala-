@@ -36,7 +36,7 @@ public class CustomerController : MonoBehaviour
     private void Awake()
     {
         gmo = GameObject.FindGameObjectWithTag("dialogo");
-        if (gmo != null && dmcm == null)
+        if (gmo != null)
         {
             dmcm = gmo.GetComponent<DialogueManagerCM>();
         }
@@ -172,7 +172,7 @@ public class CustomerController : MonoBehaviour
     {
         if(state == 1)
         {
-            switch (command)
+            /*switch (command)
             {
                 case Recetas.Mona:
                     dmcm.index = Random.Range(0, 2);
@@ -206,7 +206,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 default:
                     break;
-            }
+            }*/
             state++;
         }
     }

@@ -23,7 +23,7 @@ public class SpawnCustomers : MonoBehaviour
         if (Time.timeScale == 1 && CustomersNumber > 0)
         {
             CoolDown += Time.deltaTime;
-            if (CoolDown > 0.1f && ThereSpace())
+            if (CoolDown > 2 && ThereSpace())
             {
                 CoolDown = 0;
                 int NewC = Random.Range(1, 5);
@@ -31,7 +31,7 @@ public class SpawnCustomers : MonoBehaviour
                 {
                     CustomersNumber--;
                     Customers[firstPlace] = Instantiate(NormalCustomer, new Vector3(-12 - firstPlace * 4, -1.55f, 0), Quaternion.identity);
-                    DontDestroyOnLoad(Customers[firstPlace]);
+                    //DontDestroyOnLoad(Customers[firstPlace]);
                 }
             }
         }
