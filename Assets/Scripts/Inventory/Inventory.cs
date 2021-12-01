@@ -86,6 +86,7 @@ public class Inventory : MonoBehaviour
             recipeBySlotList.Add(null);
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -714,10 +715,6 @@ public class Inventory : MonoBehaviour
 
     private void IngredientsPerRecipe()
     {
-        List<Items> ingredientsPerSlotList = recipeBySlotList[recetID].ingredintsList;
-        int i = 0;
-        Debug.Log(ingredientsPerSlotList[0]);
-
         /*
         foreach (Items ingredient in ingredientsPerSlotList)
         {
@@ -727,5 +724,4 @@ public class Inventory : MonoBehaviour
         }
         */
     }
-
 }

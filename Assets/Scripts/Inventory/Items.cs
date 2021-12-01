@@ -7,15 +7,6 @@ using UnityEngine.UI;
 [CreateAssetMenu (fileName = "Item", menuName = "Item ingredient")]
 public class Items : ScriptableObject
 {
-    public List<string> itemType = new List<string>()
-    {
-
-        "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua",
-        "Limón", "Requesón", "Almendra", "Boniato", "Calabaza", "Masigolem", "Huevos celestes", 
-        "Leche de dragona", "Azúcar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio"
-
-    };
-
     public string type;
     public int amount;
     public Sprite itemImage;
