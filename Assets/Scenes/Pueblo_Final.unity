@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 990527389}
   - component: {fileID: 990527388}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Invetory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1704,8 +1704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneToJump: 4
   JustClick: 0
-  transition: {fileID: 1206738071}
-  transitionTime: 1
 --- !u!61 &1097157033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2014,11 +2012,6 @@ SpriteRenderer:
 --- !u!224 &1206738070 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7992895997547287233, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
-  m_PrefabInstance: {fileID: 622925457}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1206738071 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7992895997547287232, guid: 6cd829ee5ce9ce942aa289e92f168134, type: 3}
   m_PrefabInstance: {fileID: 622925457}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232678910
@@ -6279,6 +6272,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6351592195784565181, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366606474461706261, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
+      propertyPath: touchingTable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6366606474461706261, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
