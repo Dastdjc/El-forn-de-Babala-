@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
 
     //objeto que tomamos del inventario para usarlo en la cocina
     private Items givenItem;
+    private Recipe givenRecipe;
 
     //selector de slot
     public GameObject selector;
@@ -27,7 +28,7 @@ public class Inventory : MonoBehaviour
 
     //ID se usará para saber en que slot del inventario estamos y posicionar el selector encima de éste
     private int ingrID;
-    private int recetID;
+    private int recipeID;
 
     //esta lista, dada en el Unity, solo se usa para "robar" la imagen del objeto correcto
     public List<Items> ingrImagesList;
@@ -95,7 +96,7 @@ public class Inventory : MonoBehaviour
         inventoryType = 0;
         touchingTable = false;
         ingrID = 0;
-        recetID = 0;
+        recipeID = 0;
 
         //pruebas de aumentar inventario
         //-------------------------------------------------------------------------------------------
@@ -192,7 +193,7 @@ public class Inventory : MonoBehaviour
                 MoveInIngredentario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F) && touchingTable)
+                if (Input.GetKeyDown(KeyCode.F) && touchingTable && inventoryType == 0)
                 {
                     givenItem = TakeItemBySelector();
                     SubstractIngrItem(givenItem, 1);
@@ -204,19 +205,20 @@ public class Inventory : MonoBehaviour
                 MoveInRecetario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F))
+                //PONER CONDICIÓN DE ESTAR TOCANDO A UN MUNDANO
+                if (Input.GetKeyDown(KeyCode.F) && inventoryType == 1)
                 {
-                    //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
+                    givenRecipe = TakeRecipeBySelector();
+                    SubstractRecipeItem(givenRecipe, 1);
                 }
             }
 
-
             //si el inventario está abierto puedes cambiar entre pestañas
             ChangeInventory();
-
         }
     }
 
+    //cambiar del ingredentario al recetario y viceversa
     private void ChangeInventory()
     {
         if (inventoryType == 0 && Input.GetKeyDown(KeyCode.E))
@@ -240,7 +242,7 @@ public class Inventory : MonoBehaviour
             else
             {
                 //activamos el selector, el nombre de la receta y los ingredientes por receta si conocemos alguna receta
-                selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recetID).transform.position;
+                selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recipeID).transform.position;
                 inventory.transform.GetChild(2).gameObject.SetActive(true);
                 inventory.transform.GetChild(4).gameObject.SetActive(true);
                 inventory.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
@@ -426,7 +428,7 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            recetID += 3;
+            recipeID += 3;
 
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
@@ -437,7 +439,7 @@ public class Inventory : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            recetID -= 3;
+            recipeID -= 3;
 
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
@@ -448,7 +450,7 @@ public class Inventory : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            recetID--;
+            recipeID--;
 
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
@@ -459,7 +461,7 @@ public class Inventory : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            recetID++;
+            recipeID++;
 
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
@@ -471,11 +473,11 @@ public class Inventory : MonoBehaviour
 
         
         //mostramos de la receta en el que está el selector
-        inventory.transform.GetChild(4).transform.GetChild(0).GetComponent<TMP_Text>().text = recipeBySlotList[recetID].type;
+        inventory.transform.GetChild(4).transform.GetChild(0).GetComponent<TMP_Text>().text = recipeBySlotList[recipeID].type;
         
 
         //colocamos el selector en la casilla correcta
-        selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recetID).transform.position;
+        selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recipeID).transform.position;
 
         //mostramos los ingredientes necesarios para hacer la receta
         IngredientsPerRecipe();
@@ -536,6 +538,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Añadir receta al inventario
     public void AddRecipe(Recipe recipe)
     {
         if (recipeList.Count > 0)
@@ -586,6 +589,7 @@ public class Inventory : MonoBehaviour
 
     }
 
+    //tomar ingrediente del ingredentario sobre donde está el selector
     public void SubstractIngrItem(Items item, int cuantity)
     {
         for (int i = 0; i < ingrList.Count; i++)
@@ -662,6 +666,56 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //tomar una receta del recetario sobre donde está el selector
+    public void SubstractRecipeItem(Recipe recipe, int cuantity)
+    {
+        for (int i = 0; i < recipeList.Count; i++)
+        {
+            /*
+            //reproducimos el sonido si hay almenos una receta del tipo en el que está encima el selector
+            if (!inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(1).GetComponent<AudioSource>().Play();
+            */
+
+            //buscamos el tipo
+            if (recipeList[i].type == recipe.type)
+            {
+                recipeList[i].amount -= cuantity;
+
+                //si aún quedan ingredientes del tipo dado
+                if (recipeList[i].amount > 0)
+                {
+                    for (int p = 0; p < recipeBySlotList.Count; p++)
+                    {
+                        //actualizamos el texto (amount) del slot adecuado
+                        if (recipeBySlotList[p].type == recipe.type)
+                        {
+                            inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
+                            return;
+                        }
+                    }
+                }
+                //si no quedan recetas del tipo dado
+                else
+                {
+                    for (int p = 0; p < recipeBySlotList.Count; p++)
+                    {
+                        if (recipeBySlotList[p].type == recipe.type)
+                        {
+                            inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().enabled = false;
+                            inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(0).GetComponent<Image>().color = Color.grey;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     //Recolocamos los slots y las posiciones de la lista asociada, este método es necesario debido
     //a la forma en la que se muestra la información, mediante el selector
     private void ReorganizeInventory()
@@ -704,6 +758,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //tomar UN item sobre el tipo de ingrediente en el que está el selector
     private Items TakeItemBySelector()
     {
         Items item;
@@ -713,6 +768,17 @@ public class Inventory : MonoBehaviour
         return item;
     }
 
+    //tomar UNA receta sobre el tipo de receta en el que está el selector
+    private Recipe TakeRecipeBySelector()
+    {
+        Recipe recipe;
+
+        recipe = recipeBySlotList[recipeID];
+
+        return recipe;
+    }
+
+    //en el cuadro negro del recetario se mostrarán los ingredientes que requiere la receta sobre la que está situado el selector
     private void IngredientsPerRecipe()
     {
         /*
