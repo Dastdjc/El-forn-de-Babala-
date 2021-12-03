@@ -7,7 +7,7 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
     //para poder quitar objetos del inventario
-    public bool touchingTable;
+    //Usa la variable estatica TableController.isOnColision
 
     //para poder abrir y cerrar el inventario
     public GameObject inventory;
@@ -53,6 +53,10 @@ public class Inventory : MonoBehaviour
     //------------------------------------------------------------
     //pruebas de ingredientes
     private Items harina;
+    private Items levadura;
+    private Items leche;
+    private Items mantequilla;
+    private Items azucar;
     private Items masigolem;
     private Items huevos;
     private Items calabaza;
@@ -93,7 +97,6 @@ public class Inventory : MonoBehaviour
 
         inventoryOpened = false;
         inventoryType = 0;
-        touchingTable = true;
         ingrID = 0;
         recetID = 0;
 
@@ -106,17 +109,32 @@ public class Inventory : MonoBehaviour
         harina.type = "Harina";
         AddIngrItem(harina);
 
-        masigolem = ScriptableObject.CreateInstance<Items>();
-        masigolem.amount = 2;
-        masigolem.type = "Masigolem";
-        AddIngrItem(masigolem);
-
         huevos = ScriptableObject.CreateInstance<Items>();
         huevos.amount = 4;
         huevos.type = "Huevos";
         AddIngrItem(huevos);
 
-        requeson = ScriptableObject.CreateInstance<Items>();
+        levadura = ScriptableObject.CreateInstance<Items>();
+        levadura.amount = 4;
+        levadura.type = "Levadura";
+        AddIngrItem(levadura);
+
+        leche = ScriptableObject.CreateInstance<Items>();
+        leche.amount = 4;
+        leche.type = "Leche";
+        AddIngrItem(leche);
+
+        mantequilla = ScriptableObject.CreateInstance<Items>();
+        mantequilla.amount = 4;
+        mantequilla.type = "Mantequilla";
+        AddIngrItem(mantequilla);
+
+        azucar = ScriptableObject.CreateInstance<Items>();
+        azucar.amount = 4;
+        azucar.type = "Azúcar";
+        AddIngrItem(azucar);
+
+        /*requeson = ScriptableObject.CreateInstance<Items>();
         requeson.amount = 5;
         requeson.type = "Requesón";
         AddIngrItem(requeson);
@@ -124,7 +142,12 @@ public class Inventory : MonoBehaviour
         limoncio = ScriptableObject.CreateInstance<Items>();
         limoncio.amount = 3;
         limoncio.type = "Limoncio";
-        AddIngrItem(limoncio);
+        AddIngrItem(limoncio);*/
+
+        /*masigolem = ScriptableObject.CreateInstance<Items>();
+        masigolem.amount = 2;
+        masigolem.type = "Masigolem";
+        AddIngrItem(masigolem);*/
 
 
         //SubstractIngrItem(masigolem, 2);
@@ -134,10 +157,10 @@ public class Inventory : MonoBehaviour
         aceite.type = "Aceite";
         AddIngrItem(aceite);
 
-        huevosCelestes = ScriptableObject.CreateInstance<Items>();
+        /*huevosCelestes = ScriptableObject.CreateInstance<Items>();
         huevosCelestes.amount = 1;
         huevosCelestes.type = "Huevos celestes";
-        AddIngrItem(huevosCelestes);
+        AddIngrItem(huevosCelestes);*/
 
         agua = ScriptableObject.CreateInstance<Items>();
         agua.amount = 8;
@@ -192,9 +215,10 @@ public class Inventory : MonoBehaviour
                 MoveInIngredentario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F) && touchingTable)
+                if (Input.GetKeyDown(KeyCode.F) && TableController.isOnColision)
                 {
                     givenItem = TakeItemBySelector();
+                    TableController.PutIngredient(givenItem.type);
                     SubstractIngrItem(givenItem, 1);
                 }
             }
@@ -289,6 +313,7 @@ public class Inventory : MonoBehaviour
     {
         if (!inventoryOpened)
         {
+            Time.timeScale = 0;
             inventoryOpened = true;
 
             //último inventario abierto el de ingredientes
@@ -323,6 +348,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
+            Time.timeScale = 1;
             inventoryOpened = false;
             inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = false;
