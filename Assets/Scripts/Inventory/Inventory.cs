@@ -6,6 +6,9 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
+    //icono cambiante de dore dependiendo del tipo de objeto que seleccione el selector
+    public List<Sprite> doreIconsList;
+
     //para poder quitar objetos del inventario
     public bool touchingTable;
 
@@ -23,8 +26,10 @@ public class Inventory : MonoBehaviour
     //selector de slot
     public GameObject selector;
 
-    //variable usada para saber cuántos slots ocupados hay, slots != null
+    //variable usada para saber cuántos slots ocupados hay en el ingredentario, slots != null
     private int c = 0;
+    //variable para saber cuántos slots ocupados hay en el recetario
+    private int r = 0;
 
     //ID se usará para saber en que slot del inventario estamos y posicionar el selector encima de éste
     private int ingrID;
@@ -63,7 +68,7 @@ public class Inventory : MonoBehaviour
     private Items limoncio;
     private Items requeson;
 
-    private Recipe mocadora;
+    private Recipe mona;
     private Recipe fartons;
     private Recipe coca;
     private Recipe farinada;
@@ -147,26 +152,37 @@ public class Inventory : MonoBehaviour
 
         //creación de recetas de prueba
 
-        mocadora = ScriptableObject.CreateInstance<Recipe>();
-        mocadora.amount = 4;
-        mocadora.type = "Mocadorà";
-        AddRecipe(mocadora);
+        mona = ScriptableObject.CreateInstance<Recipe>();
+        mona.amount = 0;
+        mona.type = "Mona de Pascua";
+        AddRecipe(mona);
 
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 1;
+        fartons.amount = 0;
         fartons.type = "Fartons";
         AddRecipe(fartons);
 
         coca = ScriptableObject.CreateInstance<Recipe>();
-        coca.amount = 6;
+        coca.amount = 0;
         coca.type = "Coca de llanda";
         AddRecipe(coca);
 
         farinada = ScriptableObject.CreateInstance<Recipe>();
-        farinada.amount = 9;
+        farinada.amount = 0;
         farinada.type = "Farinada";
         AddRecipe(farinada);
 
+        farinada = ScriptableObject.CreateInstance<Recipe>();
+        farinada.amount = 1;
+        farinada.type = "Farinada";
+        AddRecipe(farinada);
+
+        mona = ScriptableObject.CreateInstance<Recipe>();
+        mona.amount = 6;
+        mona.type = "Mona de Pascua";
+        AddRecipe(mona);
+
+        Debug.Log(recipeImagesList.Count);
         //-------------------------------------------------------------------
     }
 
@@ -232,6 +248,7 @@ public class Inventory : MonoBehaviour
             inventory.transform.GetChild(5).gameObject.SetActive(false);
             inventory.transform.GetChild(6).gameObject.SetActive(true);
             inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            inventory.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().sprite = doreIconsList[0];
 
             if (recipeList.Count == 0)
             {
@@ -407,16 +424,18 @@ public class Inventory : MonoBehaviour
         //colocamos el selector en la casilla correcta
         selector.transform.position = inventory.transform.GetChild(1).transform.GetChild(ingrID).transform.position;
 
-        //mostramos las estrellas al lado del nombre si el ingrediente es especial
+        //mostramos las estrellas al lado del nombre si el ingrediente es especial y cambiamos la cara de Dore
         for (int i = 0; i < specialIngredientsList.Count; i++)
         {
             if (itemBySlotList[ingrID].type == specialIngredientsList[i])
             {
+                inventory.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().sprite = doreIconsList[1];
                 inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
                 break;
             }
             else
             {
+                inventory.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().sprite = doreIconsList[0];
                 inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             }
         }
@@ -426,7 +445,9 @@ public class Inventory : MonoBehaviour
     //FALTAN LOS LÍMITES DEL SELECTOR
     private void MoveInRecetario()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+            Debug.Log(recipeID);
+            Debug.Log(r);
+        if (Input.GetKeyDown(KeyCode.D) && recipeID + 3 < r)
         {
             recipeID += 3;
 
@@ -437,7 +458,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && recipeID - 3 >= 0)
         {
             recipeID -= 3;
 
@@ -448,7 +469,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) && recipeID > 0)
         {
             recipeID--;
 
@@ -459,7 +480,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && recipeID + 1 < r)
         {
             recipeID++;
 
@@ -555,6 +576,16 @@ public class Inventory : MonoBehaviour
                     {
                         if (recipeBySlotList[p].type == recipe.type)
                         {
+                            //también reestablecemos el color base de la receta
+                            //por si antes de añadirla teniamos cero (la imagen estará gris)
+                            //y volvemos a activar el texto para que se muestre la cantidad que poseemos de dicha receta
+
+                            if (inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(0).GetComponent<Image>().color == Color.grey)
+                            {
+                                inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().enabled = true;
+                                inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(0).GetComponent<Image>().color = Color.white;
+                            }
+
                             inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
                             return;
                         }
@@ -563,7 +594,11 @@ public class Inventory : MonoBehaviour
             }
         }
 
+        //si aún no poseemos dicha receta se añadirá a las recetas disponibles
         recipeList.Add(recipe);
+
+        //aumentamos en uno la cantidad de slots ocupados por las recetas
+        r++;
 
         for (int i = 0; i < recipeBySlotList.Count; i++)
         {
@@ -579,8 +614,15 @@ public class Inventory : MonoBehaviour
                     {
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
+
+                        /*
                         //activamos su cantidad, texto
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[recipeList.Count - 1].amount.ToString();
+                        */
+
+                        inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().enabled = false;
+                        inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().color = Color.grey;
+
                         return;
                     }
                 }

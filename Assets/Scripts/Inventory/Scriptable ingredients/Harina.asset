@@ -12,28 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44162a5f1129f5549901afe46aa718b0, type: 3}
   m_Name: Harina
   m_EditorClassIdentifier: 
-  itemType:
-  - Harina
-  - Levadura
-  - Leche
-  - Mantequilla
-  - "Az\xFAcar"
-  - Huevos
-  - Aceite
-  - Agua
-  - "Lim\xF3n"
-  - "Reques\xF3n"
-  - Almendra
-  - Boniato
-  - Calabaza
-  - Masigolem
-  - Huevos celestes
-  - Leche de dragona
-  - "Az\xFAcar estelar"
-  - Queso lunar
-  - Mantemimo
-  - O'Lantern
-  - Limoncio
   type: Harina
   amount: 1
-  itemImage: {fileID: 21300000, guid: 5355b5d139530b3488ea8801890ffd1f, type: 3}
+  itemImage: {fileID: 21300000, guid: 1088ad5a753c4bb48906e5bd39df30bd, type: 3}
