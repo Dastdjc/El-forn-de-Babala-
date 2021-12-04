@@ -66,10 +66,10 @@ public class Inventory : MonoBehaviour
     private Items limoncio;
     private Items requeson;
 
-    private Recipe mocadora;
+    /*private Recipe mocadora;
     private Recipe fartons;
     private Recipe coca;
-    private Recipe farinada;
+    private Recipe farinada;*/
 
     //----------------------------------------------------------
 
@@ -103,7 +103,7 @@ public class Inventory : MonoBehaviour
         //pruebas de aumentar inventario
         //-------------------------------------------------------------------------------------------
         //la creación del objeto hay que hacerla así porque un Items es un scriptable object
-
+        
         harina = ScriptableObject.CreateInstance<Items>();
         harina.amount = 5;
         harina.type = "Harina";
@@ -147,7 +147,7 @@ public class Inventory : MonoBehaviour
         /*masigolem = ScriptableObject.CreateInstance<Items>();
         masigolem.amount = 2;
         masigolem.type = "Masigolem";
-        AddIngrItem(masigolem);*/
+        AddIngrItem(masigolem);
 
 
         //SubstractIngrItem(masigolem, 2);
@@ -160,7 +160,7 @@ public class Inventory : MonoBehaviour
         /*huevosCelestes = ScriptableObject.CreateInstance<Items>();
         huevosCelestes.amount = 1;
         huevosCelestes.type = "Huevos celestes";
-        AddIngrItem(huevosCelestes);*/
+        AddIngrItem(huevosCelestes);
 
         agua = ScriptableObject.CreateInstance<Items>();
         agua.amount = 8;
@@ -187,7 +187,7 @@ public class Inventory : MonoBehaviour
         farinada = ScriptableObject.CreateInstance<Recipe>();
         farinada.amount = 9;
         farinada.type = "Farinada";
-        AddRecipe(farinada);
+        AddRecipe(farinada);*/
 
         //-------------------------------------------------------------------
     }

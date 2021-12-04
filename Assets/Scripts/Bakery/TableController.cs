@@ -31,10 +31,6 @@ public class TableController : MonoBehaviour
                     Debug.Log(names[i]);
                 Kiln.GetComponent<KilnController>().GetToCook(i);
             }
-            /*
-             * Si está tocando la mesa y ha selecionado algo en el inventario
-             * BowlController.MoveContent(int cantidad, int indice)
-             */
         }
     }
     static public void PutIngredient(string name)
