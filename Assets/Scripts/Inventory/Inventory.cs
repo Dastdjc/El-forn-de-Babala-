@@ -35,6 +35,8 @@ public class Inventory : MonoBehaviour
     //esta lista, dada en el Unity, solo se usa para "robar" la imagen de la receta correcta
     public List<Recipe> recipeImagesList;
 
+    public GameObject Spawner;
+
     //esta se usa para determinar si ya poseemos un item del tipo que vamos a añadir
     private List<Items> ingrList = new List<Items>();
 
@@ -228,9 +230,11 @@ public class Inventory : MonoBehaviour
                 MoveInRecetario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F))
+                int i = SpawnCustomers.WhichToching();
+                if (Input.GetKeyDown(KeyCode.F) && i < 5)
                 {
                     //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
+                    SpawnCustomers.Customers[i].GetComponent<CustomerController>().SetSatisfaction(null);
                 }
             }
 
