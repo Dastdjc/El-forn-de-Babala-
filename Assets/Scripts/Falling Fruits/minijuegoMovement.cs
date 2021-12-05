@@ -16,13 +16,18 @@ public class minijuegoMovement : MonoBehaviour
 
     //Variables globales para los recursos
     [HideInInspector]
-    public int calabaza, huevos, harina, pan;
-
+    public int calabaza, almendra, limon, boniato;
+    [HideInInspector]
+    public Items Calabaza, Almendra, Limon, Boniato;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<Collider2D>();
+        calabaza = 0;
+        almendra = 0;
+        limon = 0;
+        boniato = 0;
     }
 
     void Update()
@@ -50,14 +55,14 @@ public class minijuegoMovement : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "Huevo":
-                huevos += 1;
+            case "Almendra":
+                almendra += 1;
                 break;
-            case "Harina":
-                harina += 1;
+            case "Limon":
+                limon += 1;
                 break;
-            case "Pan":
-                pan += 1;
+            case "Boniato":
+                boniato += 1;
                 break;
             case "Calabaza":
                 calabaza += 1;
