@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     public List<Recipe> recipeImagesList;
 
     //esta se usa para determinar si ya poseemos un item del tipo que vamos a añadir
-    private List<Items> ingrList = new List<Items>();
+    public List<Items> ingrList = new List<Items>();
 
     //ésta para que se sepa que tipo de item está en cada slot
     private List<Items> itemBySlotList = new List<Items>();

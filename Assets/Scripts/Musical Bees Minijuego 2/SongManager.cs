@@ -59,6 +59,7 @@ public class SongManager : MonoBehaviour
         {
             score = ScoreManager.maxCombo;
             CalcularRecompensa();
+            RecompensaAInventario();
             finished = true;
             // Mostrar lo conseguido
             MostrarPantallaFinal();
@@ -67,12 +68,36 @@ public class SongManager : MonoBehaviour
     void CalcularRecompensa() 
     {
         Debug.Log(score);
-        float multiplicador = score / 96;
-        mantequilla = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.5f, 1f));
-        Debug.Log(mantequilla);
-        leche = (int)(multiplicador * 8 * UnityEngine.Random.Range(0.5f, 1f));
-        requeson = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.5f, 1f));
-        huevos = (int)(multiplicador * 15 * UnityEngine.Random.Range(0.5f, 1f));
+        float multiplicador = score / 50;
+        mantequilla = (int)(multiplicador * 1 * UnityEngine.Random.Range(0.8f, 1f));
+        leche = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
+        requeson = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
+        huevos = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.8f, 1f));
+    }
+
+    void RecompensaAInventario() 
+    {
+        Inventory inventario = GameObject.Find("INVENTORY/Inventory").GetComponent<Inventory>();
+
+        Items itemMantequilla = ScriptableObject.CreateInstance<Items>();
+        itemMantequilla.amount = mantequilla;
+        itemMantequilla.type = "Mantequilla";
+        inventario.AddIngrItem(itemMantequilla);
+
+        Items itemLeche = ScriptableObject.CreateInstance<Items>();
+        itemLeche.amount = leche;
+        itemLeche.type = "Leche";
+        inventario.AddIngrItem(itemLeche);
+
+        Items itemRequeson = ScriptableObject.CreateInstance<Items>();
+        itemRequeson.amount = requeson;
+        itemRequeson.type = "Requesón";
+        inventario.AddIngrItem(itemRequeson);
+
+        Items itemHuevos = ScriptableObject.CreateInstance<Items>();
+        itemHuevos.amount = huevos;
+        itemHuevos.type = "Huevos";
+        inventario.AddIngrItem(itemHuevos);
     }
     void MostrarPantallaFinal() 
     {
