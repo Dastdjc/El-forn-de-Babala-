@@ -15,10 +15,11 @@ public class Lane : MonoBehaviour
     int spawnIndex = 0;
     int inputIndex = 0;
 
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = this.transform.parent.gameObject.GetComponent<Animator>();
     }
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
     {
@@ -55,8 +56,10 @@ public class Lane : MonoBehaviour
 
                 if (Input.GetKeyDown(input))
                 {
+                    PlayPressedAnimation();
                     if (Math.Abs(audioTime - timeStamp) < marginOfError)
                     {
+                        
                         Hit();
                         print($"Hit on {inputIndex} note");
                         Destroy(notes[inputIndex].gameObject);
@@ -67,6 +70,8 @@ public class Lane : MonoBehaviour
                         print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
                     }
                 }
+                else if (Input.GetKeyUp(input))
+                    PlayReleasedAnimation();
                 if (timeStamp + marginOfError <= audioTime)
                 {
                     Miss();
@@ -75,6 +80,14 @@ public class Lane : MonoBehaviour
                 }
             }
         }
+    }
+    private void PlayPressedAnimation() 
+    {
+        anim.SetTrigger("pressed");
+    }
+    private void PlayReleasedAnimation() 
+    {
+        anim.SetTrigger("released");
     }
     private void Hit()
     {
