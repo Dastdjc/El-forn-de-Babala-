@@ -34,7 +34,7 @@ public class SongManager : MonoBehaviour
     public static MidiFile midiFile;
 
     private bool finished;
-    private int mantequilla;
+    private int agua;
     private int leche;
     private int requeson;
     private int huevos;
@@ -69,7 +69,7 @@ public class SongManager : MonoBehaviour
     {
         Debug.Log(score);
         float multiplicador = score / 50;
-        mantequilla = (int)(multiplicador * 1 * UnityEngine.Random.Range(0.8f, 1f));
+        agua = (int)(multiplicador * 1 * UnityEngine.Random.Range(0.8f, 1f));
         leche = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
         requeson = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
         huevos = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.8f, 1f));
@@ -79,10 +79,10 @@ public class SongManager : MonoBehaviour
     {
         Inventory inventario = GameObject.Find("INVENTORY/Inventory").GetComponent<Inventory>();
 
-        Items itemMantequilla = ScriptableObject.CreateInstance<Items>();
-        itemMantequilla.amount = mantequilla;
-        itemMantequilla.type = "Mantequilla";
-        inventario.AddIngrItem(itemMantequilla);
+        Items itemAgua = ScriptableObject.CreateInstance<Items>();
+        itemAgua.amount = agua;
+        itemAgua.type = "Agua";
+        inventario.AddIngrItem(itemAgua);
 
         Items itemLeche = ScriptableObject.CreateInstance<Items>();
         itemLeche.amount = leche;
@@ -103,14 +103,13 @@ public class SongManager : MonoBehaviour
     {
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
         // Poner los datos de los alimentos
-        TextMeshProUGUI cant_mantequilla = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_mantequilla").GetComponent<TextMeshProUGUI>();
-        Debug.Log(cant_mantequilla);
-        TextMeshProUGUI cant_leche = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_leche").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI cant_requeson = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_requeson").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI cant_huevos = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/cant_huevos").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI combo = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuego/Combo").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_agua = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuegoMB/cant_agua").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_leche = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuegoMB/cant_leche").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_requeson = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuegoMB/cant_requeson").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_huevos = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuegoMB/cant_huevos").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI combo = GameObject.Find("CM vcam1/Musical Bees(Clone)/Canvas/PantallaFinalMinijuegoMB/Combo").GetComponent<TextMeshProUGUI>();
 
-        cant_mantequilla.text = mantequilla.ToString();
+        cant_agua.text = agua.ToString();
         cant_leche.text = leche.ToString();
         cant_requeson.text = requeson.ToString();
         cant_huevos.text = huevos.ToString();
