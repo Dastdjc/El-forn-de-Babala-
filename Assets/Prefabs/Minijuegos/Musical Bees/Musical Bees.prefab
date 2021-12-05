@@ -7484,6 +7484,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878945819117011474, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -187
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366925555636332740, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -605
+      objectReference: {fileID: 0}
     - target: {fileID: 4019861339173065357, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
       propertyPath: m_Name
       value: PantallaFinalMinijuegoMB
@@ -7491,6 +7499,10 @@ PrefabInstance:
     - target: {fileID: 4019861339173065357, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228524320178185977, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 97
       objectReference: {fileID: 0}
     - target: {fileID: 4654973271166552378, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7500,9 +7512,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DestroyMusicalBees
       objectReference: {fileID: 0}
+    - target: {fileID: 5118340441944109181, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029370525229110883, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -188
+      objectReference: {fileID: 0}
     - target: {fileID: 6557444329379800714, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927075135279415539, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194329518475542048, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870419802579826232, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -605
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bbf8e2352eebd8469980b2b56140a82, type: 3}
