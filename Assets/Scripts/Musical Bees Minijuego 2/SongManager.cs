@@ -28,6 +28,7 @@ public class SongManager : MonoBehaviour
     public float noteDespawnScale = 0f;
 
     public GameObject pantallaFinal;
+    public GameObject pantallaTutorial;
 
     public float score;
 
@@ -42,6 +43,7 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        MostrarTutorial();
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
             StartCoroutine(ReadFromWebsite());
@@ -98,6 +100,20 @@ public class SongManager : MonoBehaviour
         itemHuevos.amount = huevos;
         itemHuevos.type = "Huevos";
         inventario.AddIngrItem(itemHuevos);
+    }
+    void MostrarTutorial() 
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        pantallaTutorial.SetActive(true);
+        anim_pantallaTutorial.SetTrigger("aparicion");
+
+    }
+    public void EsconderTutorial() 
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        anim_pantallaTutorial.SetTrigger("desaparicion");
+        Invoke("StartSong", songDelayInSeconds);
+
     }
     void MostrarPantallaFinal() 
     {
@@ -157,10 +173,11 @@ public class SongManager : MonoBehaviour
 
         foreach (var lane in lanes) lane.SetTimeStamps(array);
 
-        Invoke("StartSong", songDelayInSeconds);
+        //Invoke("StartSong", songDelayInSeconds);
     }
     public void StartSong()
     {
+        pantallaTutorial.SetActive(false);
         audioSource.Play();
         playing = true;
         finished = false;

@@ -13,6 +13,7 @@ public class MinijuegoDestroyer : MonoBehaviour
             if (minijueg.name == "Musical Bees")
                 minijuego = minijueg.GetComponent<MinijuegoBee>();
         } //FindGameObjectsWithTag("Minijuego");
+        Debug.Log("Destruyendo Musical bees");
         GameObject pantallaFinal = GameObject.Find("PantallaFinalMinijuegoMB");
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
         anim_pantallaFinal.SetTrigger("desaparicion");
@@ -26,7 +27,7 @@ public class MinijuegoDestroyer : MonoBehaviour
             if (minijueg.name == "Falling Fruits")
                 minijuego = minijueg.GetComponent<MinijuegoBee>();
         } //FindGameObjectsWithTag("Minijuego");
-        GameObject pantallaFinal = GameObject.Find("PantallaFinalMinijuego");
+        GameObject pantallaFinal = GameObject.Find("PantallaFinalMinijuegoFF");
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
         anim_pantallaFinal.SetTrigger("desaparicion");
         Invoke("Salir", 1f);
