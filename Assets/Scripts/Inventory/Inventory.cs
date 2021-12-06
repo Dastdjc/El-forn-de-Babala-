@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
 
         inventoryOpened = false;
         inventoryType = 0;
-        touchingTable = false;
+        touchingTable = true;
         ingrID = 0;
         recipeID = 0;
 

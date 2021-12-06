@@ -54,17 +54,17 @@ public class KilnController : MonoBehaviour
                     //send foodIndex[i] to inventory
                 }
             }
-            if (electricity >= 2)
+            /*if (electricity >= 2)
             {
                 timer += 0.01f;
-                if (timer > 3 && Random.Range(0, 100) == 1)
+                if (timer > 100 && Random.Range(0, 1000) == 1)
                 {
                     electricity = 0;
                     secondColor = new Color(0.35f, 0.26f, 0.16f);
                     if(open)gameObject.GetComponent<SpriteRenderer>().color = secondColor;
                     timer = 0;
                 }
-            }
+            }*/
         }
     }
     public void GetToCook(int selectSprite)

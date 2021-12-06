@@ -6,15 +6,14 @@ public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject NormalCustomer;
-    static GameObject[] Customers;
-    private int CustomersNumber;
-    
+    static private GameObject[] Customers;
+    private int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
 
     void Start()
     {
-        CustomersNumber = Random.Range(6, 20);
+        if(CustomersNumber == -1)CustomersNumber = Random.Range(6, 20);
         Customers = new GameObject[4];
     }
 
@@ -24,7 +23,7 @@ public class SpawnCustomers : MonoBehaviour
         if (Time.timeScale == 1 && CustomersNumber > 0)
         {
             CoolDown += Time.deltaTime;
-            if (CoolDown > 0.1f && ThereSpace())
+            if (CoolDown > 2 && ThereSpace())
             {
                 CoolDown = 0;
                 int NewC = Random.Range(1, 5);
@@ -32,6 +31,7 @@ public class SpawnCustomers : MonoBehaviour
                 {
                     CustomersNumber--;
                     Customers[firstPlace] = Instantiate(NormalCustomer, new Vector3(-12 - firstPlace * 4, -1.55f, 0), Quaternion.identity);
+                    //DontDestroyOnLoad(Customers[firstPlace]);
                 }
             }
         }
@@ -43,5 +43,14 @@ public class SpawnCustomers : MonoBehaviour
         while (i < Customers.Length) { if (Customers[i] == null) { firstPlace = i; return true; } i++; }
         firstPlace = -1;
         return false;
+    }
+    static public void PauseScene()
+    {
+        if (Time.timeScale == 1) Time.timeScale = 0;
+        else Time.timeScale = 1;
+        for(int i = 0; i < Customers.Length; i++)
+        {
+            Customers[i].SetActive(Time.timeScale == 1);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
  
     void Start()
     {
-        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        dm = GameObject.Find("/Dialogue/DialogueManager").GetComponent<DialogueManager>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         dashParticles = GameObject.Find("Dore_player/DashParticles");
         dashParticles.SetActive(false);

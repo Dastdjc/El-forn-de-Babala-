@@ -7,6 +7,7 @@ public class JumpToScene : MonoBehaviour
 {
     public int SceneToJump;
     public bool JustClick;
+
     public Animator transition;
     public float transitionTime = 1f;
     private AudioSource BG_music;
@@ -19,22 +20,39 @@ public class JumpToScene : MonoBehaviour
     {
         if (JustClick) ChangeScene(SceneToJump);
     }
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!JustClick) ChangeScene(SceneToJump);
+    }
+    private void OnMouseDown()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Bakery":
+                SpawnCustomers.PauseScene();
+                break;
+            case "Cables-minijuego":
+                SpawnCustomers.PauseScene();
+                break;
+        }
+        if (JustClick) SceneManager.LoadScene(SceneToJump);
+    }*/
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!JustClick) ChangeScene(SceneToJump);
     }
-
     public void ChangeScene(int index)
     {
+        // Changing Scene... 
+        Debug.Log("Changing scene...");
         StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         Time.timeScale = 1;
         if (index == 5)  // Si va al bosque, actualizar gameState
             GameManager.Instance.UpdateGameState(GameManager.GameState.Bosque);
-        else if(index == 10)
+        else if (index == 10)
             GameManager.Instance.UpdateGameState(GameManager.GameState.Pueblo);
         StartCoroutine(LoadLevel(index));
     }
-
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
@@ -44,3 +62,5 @@ public class JumpToScene : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 }
+
+

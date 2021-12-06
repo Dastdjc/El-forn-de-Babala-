@@ -10,6 +10,7 @@ public class DialogueManagerCinematica: MonoBehaviour
     public Conversation conversation;
     public TMP_Animated TextPro;
     public Animator transition;
+    public int sceneIndex = 9;
 
     private int conversationIndex = 0;
     private bool conversationStarted = false;
@@ -84,10 +85,11 @@ public class DialogueManagerCinematica: MonoBehaviour
 
     void endCutscene() {
         StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
-        ChangeScene(10);
+        ChangeScene(sceneIndex);
     }
     public void ChangeScene(int index)
     {
+        Debug.Log("Change");
         Time.timeScale = 1;
         StartCoroutine(LoadLevel(index));
     }
