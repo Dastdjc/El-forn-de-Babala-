@@ -30,7 +30,8 @@ public class spawnerBerries : MonoBehaviour
                 rnd = Random.Range(0, 4);
                 spawn.x = Random.Range(xMin, xMax);
                 spawn.y = Random.Range(yMin, yMax);
-                Instantiate(items[rnd], spawn, Quaternion.identity);
+                GameObject clone = Instantiate(items[rnd], spawn, Quaternion.identity, this.transform);
+                clone.transform.localScale = new Vector3(3, 3, 1);
                 cantGO += 1;
                 timeSpawn = Time.time + spawnRate;
             }
