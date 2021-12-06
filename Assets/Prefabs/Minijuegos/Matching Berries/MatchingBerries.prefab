@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPuntuacion: {fileID: 7416745231021272269}
-  textoGanar: {fileID: 7416745230713536201}
+  pantallaFinal: {fileID: 5332506866234715209}
   puntuacion: 0
   spawner: {fileID: 7416745230387721113}
   botonSalir: {fileID: 7416745229462410052}
@@ -1914,12 +1914,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1980125556824466209, guid: f05208adf4391f14b8e32668633fb4c5, type: 3}
+      propertyPath: m_text
+      value: "Puntuaci\xF3n:"
+      objectReference: {fileID: 0}
     - target: {fileID: 4019861339173065357, guid: f05208adf4391f14b8e32668633fb4c5, type: 3}
       propertyPath: m_Name
       value: PantallaFinalMinijuegoMatchingBerries
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05208adf4391f14b8e32668633fb4c5, type: 3}
+--- !u!1 &5332506866234715209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4019861339173065357, guid: f05208adf4391f14b8e32668633fb4c5, type: 3}
+  m_PrefabInstance: {fileID: 9063973822037556932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8916333525275623639 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 465166204068773395, guid: f05208adf4391f14b8e32668633fb4c5, type: 3}

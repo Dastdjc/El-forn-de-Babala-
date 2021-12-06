@@ -33,6 +33,20 @@ public class MinijuegoDestroyer : MonoBehaviour
         Invoke("Salir", 1f);
 
     }
+
+    public void DestroyMatchingBerries()
+    {
+        foreach (GameObject minijueg in GameObject.FindGameObjectsWithTag("Minijuego"))
+        {
+            if (minijueg.name == "Matching Berries")
+                minijuego = minijueg.GetComponent<MinijuegoBee>();
+        } //FindGameObjectsWithTag("Minijuego");
+        GameObject pantallaFinal = GameObject.Find("PantallaFinalMinijuegoMatchingBerries");
+        Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
+        anim_pantallaFinal.SetTrigger("desaparicion");
+        Invoke("Salir", 1f);
+
+    }
     void Salir()
     {
         Destroy(minijuego.currentTask);

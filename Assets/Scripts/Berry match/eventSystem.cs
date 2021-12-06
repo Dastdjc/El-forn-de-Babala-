@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class eventSystem : MonoBehaviour
 {
     public TextMeshProUGUI textPuntuacion;
-    public TextMeshProUGUI textoGanar;
+    public GameObject pantallaFinal;
     [HideInInspector] public int puntuacion = 0;
     public GameObject spawner;
     public Button botonSalir;
@@ -54,9 +54,10 @@ public class eventSystem : MonoBehaviour
         Destroy(GameObject.FindWithTag("Negra"));
         Destroy(GameObject.FindWithTag("Verde"));
         Destroy(GameObject.FindWithTag("Rojo"));
-        
-        textoGanar.gameObject.SetActive(true);
+
+        pantallaFinal.SetActive(true);
+        pantallaFinal.GetComponent<Animator>().SetTrigger("aparicion");
         botonSalir.gameObject.SetActive(true);
-        textoGanar.text = "Tu puntuación final es: " + puntuacion.ToString();
+        GameObject.Find("MatchingBerries/Canvas/PantallaFinalDeJuegoMatchingBerries/Puntuación").GetComponent<TextMeshProUGUI>().text = "Puntuación: " + puntuacion.ToString();
     }
 }
