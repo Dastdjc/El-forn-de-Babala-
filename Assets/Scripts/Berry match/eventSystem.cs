@@ -80,11 +80,27 @@ public class eventSystem : MonoBehaviour
 
         RewardsToInventory();
 
+        MostrarPantallaFinal();
+    }
+    private void MostrarPantallaFinal()
+    { 
+        GameObject.Find("MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/Puntuación").GetComponent<TextMeshProUGUI>().text = "Puntuación: " + puntuacion.ToString();
+
+        TextMeshProUGUI cant_harina = GameObject.Find("CM vcam1/MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/cant_harina").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_levadura = GameObject.Find("CM vcam1/MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/cant_levadura").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_aceite = GameObject.Find("CM vcam1/MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/cant_aceite").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_mantequilla = GameObject.Find("CM vcam1/MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/cant_mantequilla").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI cant_azucar = GameObject.Find("CM vcam1/MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/cant_azucar").GetComponent<TextMeshProUGUI>();
+
+        cant_harina.text = harina.ToString();
+        cant_levadura.text = levadura.ToString();
+        cant_aceite.text = aceite.ToString();
+        cant_mantequilla.text = mantequilla.ToString();
+        cant_azucar.text = azucar.ToString();
+
         pantallaFinal.SetActive(true);
         pantallaFinal.GetComponent<Animator>().SetTrigger("aparicion");
-        GameObject.Find("MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/Puntuación").GetComponent<TextMeshProUGUI>().text = "Puntuación: " + puntuacion.ToString();
     }
-
     private void RewardsToInventory() 
     {
         // Calcular recompensa
