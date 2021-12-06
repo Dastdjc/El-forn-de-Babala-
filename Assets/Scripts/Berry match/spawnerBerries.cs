@@ -16,14 +16,20 @@ public class spawnerBerries : MonoBehaviour
 
     private int rnd;
 
+    private eventSystem manager;
+
     [HideInInspector] public int cantGO;
 
     private Vector2 spawn;
+    private void Start()
+    {
+        manager = GameObject.Find("EventHandler").GetComponent<eventSystem>();
+    }
 
     void Update()
     {
         Debug.Log(cantGO);
-        if (cantGO < 8)
+        if (cantGO < 8 && manager.playing)
         {
             if (Time.time > timeSpawn)
             {

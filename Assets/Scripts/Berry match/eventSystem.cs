@@ -10,8 +10,9 @@ public class eventSystem : MonoBehaviour
     public GameObject pantallaFinal;
     [HideInInspector] public int puntuacion = 0;
     public GameObject spawner;
-    public Button botonSalir;
+    public GameObject pantallaTutorial;
 
+    public bool playing = false;
     private bool finish = false;
 
     private float startTime;
@@ -19,12 +20,13 @@ public class eventSystem : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        MostrarTutorial();
     }
 
     void Update()
     {
 
-        if (!finish)
+        if (!finish && playing)
         {
             float t = Time.time - startTime;
             
@@ -37,15 +39,29 @@ public class eventSystem : MonoBehaviour
             if (t > 30.00)
             {
                 finish = true;
+                playing = false;
             }
         }
-        else
+        else if (finish)
         {
             Acabar();
+            finish = false;
         }
         
     }
+    void MostrarTutorial()
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        pantallaTutorial.SetActive(true);
+        anim_pantallaTutorial.SetTrigger("aparicion");
 
+    }
+    public void EsconderTutorial() 
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        anim_pantallaTutorial.SetTrigger("desaparicion");
+        playing = true;
+    }
     private void Acabar()
     {
         textPuntuacion.gameObject.SetActive(false);
@@ -57,7 +73,6 @@ public class eventSystem : MonoBehaviour
 
         pantallaFinal.SetActive(true);
         pantallaFinal.GetComponent<Animator>().SetTrigger("aparicion");
-        botonSalir.gameObject.SetActive(true);
-        GameObject.Find("MatchingBerries/Canvas/PantallaFinalDeJuegoMatchingBerries/Puntuación").GetComponent<TextMeshProUGUI>().text = "Puntuación: " + puntuacion.ToString();
+        GameObject.Find("MatchingBerries(Clone)/Canvas/PantallaFinalMinijuegoMatchingBerries/Puntuación").GetComponent<TextMeshProUGUI>().text = "Puntuación: " + puntuacion.ToString();
     }
 }
