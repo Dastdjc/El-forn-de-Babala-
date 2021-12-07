@@ -6,7 +6,7 @@ public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject NormalCustomer;
-    static private GameObject[] Customers;
+    static public GameObject[] Customers;
     private int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
@@ -35,7 +35,7 @@ public class SpawnCustomers : MonoBehaviour
                 }
             }
         }
-        else if(CustomersNumber == 0) { Debug.Log("Se ha acabado el día"); Destroy(this); }
+        else if(CustomersNumber == 0) { Debug.Log("Se ha acabado el día"); }
     }
     private bool ThereSpace()
     {
@@ -52,5 +52,11 @@ public class SpawnCustomers : MonoBehaviour
         {
             Customers[i].SetActive(Time.timeScale == 1);
         }
+    }
+    static public int WhichToching()
+    {
+        int i = 0;
+        while(!Customers[i].GetComponent<CustomerController>().tochingPlayer && i < Customers.Length) { i++; }
+        return i;
     }
 }

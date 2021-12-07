@@ -20,6 +20,7 @@ public class CustomerController : MonoBehaviour
     private float walk = 15;
     private GameObject gmo;
     private bool conversando;
+    public bool tochingPlayer = false;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -212,11 +213,19 @@ public class CustomerController : MonoBehaviour
     }
     //El horno o el inventario invocarán este método que determinará la satisfacción del cliente
     //El array consta de options[0] que es el índice de la comida y options[1] que es como de cocinada está
-    public void SetSatisfaction(int[] options)
+    public void SetSatisfaction(Recipe food)
     {
-        if(options[0] != (int)command) { satisfaction = -1; }
-        else if(options[1] != 1) { satisfaction = 0; }
+        if(food.type != command.ToString()) { satisfaction = -1; }
+        //else if(options[1] != 1) { satisfaction = 0; }
         else { satisfaction = 1; }
         state++;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        tochingPlayer = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        tochingPlayer = false;
     }
 }

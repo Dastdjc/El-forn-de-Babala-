@@ -8,16 +8,4 @@ public class Recipe : ScriptableObject
     public string type;
     public int amount;
     public Sprite recipeImage;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -15,6 +15,7 @@ public class KilnController : MonoBehaviour
     private float timer;
     static public int[] isCoock = new int[6];
     static private Color secondColor = new Color(1, 0.3f, 0);
+    public GameObject Inventory;
     private void Start() 
     {
         if(open) gameObject.GetComponent<SpriteRenderer>().color = secondColor;
@@ -54,7 +55,7 @@ public class KilnController : MonoBehaviour
                     //send foodIndex[i] to inventory
                 }
             }
-            /*if (electricity >= 2)
+            if (electricity >= 2)
             {
                 timer += 0.01f;
                 if (timer > 100 && Random.Range(0, 1000) == 1)
@@ -64,7 +65,7 @@ public class KilnController : MonoBehaviour
                     if(open)gameObject.GetComponent<SpriteRenderer>().color = secondColor;
                     timer = 0;
                 }
-            }*/
+            }
         }
     }
     public void GetToCook(int selectSprite)
@@ -91,6 +92,12 @@ public class KilnController : MonoBehaviour
             isCoock[i] = 0;
             secondColor = new Color(1, 0.3f, 0);
             ColorBar[i].color = secondColor;
+            string[] names = { "Mona", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
+            Recipe aux = ScriptableObject.CreateInstance<Recipe>();
+            aux.amount = 1;
+            aux.type = names[selectSprite];
+            objectEntering[i].GetComponent<IWantToDie>().my = aux;
+            objectEntering[i].GetComponent<IWantToDie>().Inventory = Inventory;
         }
     }
     public bool ImOpen() { return open; }
