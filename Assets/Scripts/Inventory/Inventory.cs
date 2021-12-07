@@ -212,6 +212,7 @@ public class Inventory : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F) && touchingTable && inventoryType == 0)
                 {
                     givenItem = TakeItemBySelector();
+                    TableController.PutIngredient(givenItem.type);
                     SubstractIngrItem(givenItem, 1);
                 }
             }
@@ -225,6 +226,7 @@ public class Inventory : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F) && inventoryType == 1)
                 {
                     givenRecipe = TakeRecipeBySelector();
+                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].GetComponent<CustomerController>().SetSatisfaction(givenRecipe);
                     SubstractRecipeItem(givenRecipe, 1);
                 }
             }
