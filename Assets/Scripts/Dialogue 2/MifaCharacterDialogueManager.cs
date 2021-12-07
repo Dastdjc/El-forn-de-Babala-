@@ -40,7 +40,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             else sr.flipX = false;
 
             // interactivity
-            if (Input.GetKeyDown(KeyCode.Space) && !dm.inConversation && !spokenTo)
+            if (Input.GetKeyDown(KeyCode.E) && !dm.inConversation && !spokenTo)
             {
                 dm.NPC = transform;
                 dm.conversation = conversation[conversationIndex];

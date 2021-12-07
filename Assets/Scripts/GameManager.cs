@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     //  Inicio
     public Vector3 playerSpawnPositionBosque { get; set; }
+    public Vector3 playerSpawnPositionPanadería;
     public Vector3 playerSpawnPositionInicioJuego;
     public Vector3 playerSpawnPosition;
     private GameObject player;
@@ -24,11 +25,18 @@ public class GameManager : MonoBehaviour
     private CinemachineVirtualCamera panaderia_cam;
 
 
+    // Booleanos para aparicion desde otra escena
+    private bool fromBosque;
+    private bool fromPanadería;
+
     // Anim panaderia
     private bool panaderia;
 
     // tutorial bosque
     private bool tutorialBosque;
+
+    // tutorial cocina
+    private bool tutorialCocina;
 
     // Siguientes estados
 
@@ -57,6 +65,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Dore_player");
         playerSpawnPositionInicioJuego = new Vector3(-380, -128, 0);
         playerSpawnPositionBosque = new Vector3(-290, -128, 0);
+        playerSpawnPositionPanadería = new Vector3(-345, -128, 0);
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -64,24 +73,18 @@ public class GameManager : MonoBehaviour
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
         panaderia_cam = GameObject.Find("Anim_panadería").GetComponent<CinemachineVirtualCamera>();
 
-        // Panaderia
+        // Booleanos
+        // animación Panaderia
         panaderia = false;
+
+        tutorialBosque = false;
+        tutorialCocina = false;
 
         UpdateGameState(state);
     }
 
     void Update()
     {
-        /*if (state == GameState.InicioJuego)
-        {
-            if (mifa.conversationIndex == 1)
-            {
-                UpdateGameState(GameState.AnimacionPanaderia);
-            }
-        }*/
-        //else if (state == GameState.AnimacionPanaderia) { 
-
-        //}
     }
 
     public void UpdateGameState(GameState newState)
@@ -91,7 +94,7 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.InicioJuego:
-                // Desactivar hitboxes para cambio de escena
+                // No se permite pasar al jugador hacia el bosque
                 break;
             case GameState.AnimacionPanaderia:
                 // Activar animación panadería y hitboxes de cambio de escena
@@ -100,9 +103,13 @@ public class GameManager : MonoBehaviour
             case GameState.ConversacionMifa:
                 ConversacionMifa();
                 break;
-            case GameState.Tutorial:
+            case GameState.Tutorial: // Tutorial en el bosque
                 Tutorial();
                 break;
+            case GameState.TutorialCocina:
+                tutorialCocina = true;
+                break;
+
             case GameState.Bosque:
                 //Bosque();
                 break;
@@ -144,7 +151,7 @@ public class GameManager : MonoBehaviour
         mifa.conversationIndex = 1;
     }
 
-    void Tutorial() 
+    void Tutorial() // Tutorial del bosque
     {
         if (!panaderia)
         {
@@ -153,6 +160,8 @@ public class GameManager : MonoBehaviour
         mifa.conversationIndex = 2;
         GameObject.Find("InitialCollider").SetActive(false);
     }
+
+    // Cuando se cargan las escenas, vigilar las cosas que haga falta
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
         if (scene.name == "Pueblo_Final")
@@ -163,7 +172,11 @@ public class GameManager : MonoBehaviour
         {
             Bosque();
         }
-        // Los gameobjects de los edificios
+        else if (scene.name == "Bakery") 
+        {
+            Panadería();
+        }
+        // Los gameobjects de los edificios. Hacer que sea un singleton
         foreach (GameObject newServicios in GameObject.FindGameObjectsWithTag("Servicios"))
         {
             if (newServicios == null)
@@ -175,9 +188,11 @@ public class GameManager : MonoBehaviour
                 Destroy(newServicios);
         }
     }
-    void Pueblo() // Función que se ejecuta al vovler al pueblo nada después de AWAKE y antes de START
+    void Pueblo() // Función que se ejecuta al volver al pueblo nada después de AWAKE y antes de START
     {
-        // Activar edificios y dejar la panadería
+        if (tutorialCocina)
+            GameObject.Find("WallToPanadería").SetActive(true);
+        // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
         Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
         panaderia_anim.SetTrigger("panaderia2");
@@ -188,25 +203,41 @@ public class GameManager : MonoBehaviour
         // Play BG music
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         BG_music.Play();
-        
+
         // Update Spawn position
         if (state == GameState.InicioJuego)
-            playerSpawnPosition = playerSpawnPositionInicioJuego;
-        else
+            playerSpawnPosition = playerSpawnPositionInicioJuego; //player.transform.position = playerSpawnPositionBosque; HAD TO USE LOCAL POSITION BECAUSE IT WAS A CHILD 
+        else if (fromBosque)
+        {
             playerSpawnPosition = playerSpawnPositionBosque;
-        //player.transform.position = playerSpawnPositionBosque; HAD TO USE LOCAL POSITION BECAUSE IT WAS A CHILD 
+            fromBosque = false;
+        }
+        else if (fromPanadería)
+        {
+            playerSpawnPosition = playerSpawnPositionPanadería;
+            fromPanadería = false;
+        }
+
     }
 
     void Bosque() // Función que se ejecuta llegar al bosque
     {
-        servicios.SetActive(false);
+        if (!tutorialCocina)    // First time in the bosque
+            GameObject.Find("WallToTown").SetActive(false);
 
+        servicios.SetActive(false);
+        playerSpawnPosition = new Vector3(-95, -12);
         if (!tutorialBosque) 
         {
             Debug.Log("Tutorial");
             GameObject.Find("TutorialBosque").GetComponent<TutorialCharacterDialogueManager>().tutorialActivated = true;
             tutorialBosque = true;
         }
+        fromBosque = true;
+    }
+    void Panadería() 
+    {
+        servicios.SetActive(false);
     }
     private enum Edificios 
     { 
@@ -224,6 +255,7 @@ public class GameManager : MonoBehaviour
         AnimacionPanaderia,
         ConversacionMifa,
         Tutorial,
+        TutorialCocina,
         Bosque,
         Pueblo
     }

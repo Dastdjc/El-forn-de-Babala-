@@ -12,9 +12,17 @@ public class JumpToScene : MonoBehaviour
     public float transitionTime = 1f;
     private AudioSource BG_music;
 
+    private bool trigger = false;
     private void Start()
     {
-        BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
+        BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>(); 
+    }
+    private void Update()
+    {
+        if (trigger && Input.GetKeyDown(KeyCode.E)) 
+        {
+            ChangeScene(SceneToJump);
+        }
     }
     private void OnMouseDown()
     {
@@ -40,6 +48,19 @@ public class JumpToScene : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!JustClick) ChangeScene(SceneToJump);
+        //else if (!JustClick && panadería && Input.GetKeyDown(KeyCode.E)) ChangeScene(SceneToJump);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger");
+        if (!JustClick) trigger = true;
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!JustClick) trigger = false;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
     public void ChangeScene(int index)
     {

@@ -44,7 +44,7 @@ public class CharacterDialogueManager : MonoBehaviour
                 sr.flipX = true;
             else sr.flipX = false;
 
-            if (Input.GetKeyDown(KeyCode.Space) && !dm.inConversation && !spokenTo)
+            if (Input.GetKeyDown(KeyCode.E) && !dm.inConversation && !spokenTo)
             {
                 dm.NPC = transform;
                 dm.conversation = conversationInstace;

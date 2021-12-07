@@ -28,7 +28,7 @@ public class MinijuegoBee : MonoBehaviour
     public void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.E) && DONDESEA == true)
+        if (DONDESEA == true && Input.GetKeyDown(KeyCode.E))
         {
             if(currentTask == null)
             {
@@ -46,6 +46,7 @@ public class MinijuegoBee : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.TutorialCocina);
             mat.SetFloat("Thickness", 0.03f);
             Texto.SetActive(true);
             DONDESEA = true;

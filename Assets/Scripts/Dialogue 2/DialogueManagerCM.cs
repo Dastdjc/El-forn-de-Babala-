@@ -60,7 +60,7 @@ public class DialogueManagerCM : MonoBehaviour
                     timer = false;
                 }
                 t = Time.time - startTime;
-                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue || t > 3.5f)
+                if (nextDialogue && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) || t > 6.5f)
                 {
                     conversationIndex++;
                     nextDialogue = false;

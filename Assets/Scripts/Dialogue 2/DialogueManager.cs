@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
                     setUpConversation();
 
                 conversationStarted = true;
-                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && nextDialogue)
+                if (nextDialogue && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)))
                 {
                     conversationIndex++;
                     if (conversationIndex < conversation.lines.Count)
