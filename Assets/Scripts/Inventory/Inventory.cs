@@ -309,6 +309,7 @@ public class Inventory : MonoBehaviour
         if (!inventoryOpened)
         {
             inventoryOpened = true;
+            Time.timeScale = 0;
 
             //último inventario abierto el de ingredientes
             if (inventoryType == 0)
@@ -343,6 +344,7 @@ public class Inventory : MonoBehaviour
         else
         {
             inventoryOpened = false;
+            Time.timeScale = 1;
             inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = false;
