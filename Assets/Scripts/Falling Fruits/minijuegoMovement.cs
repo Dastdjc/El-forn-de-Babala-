@@ -18,31 +18,18 @@ public class minijuegoMovement : MonoBehaviour
     [HideInInspector]
     public int calabaza, almendra, limon, boniato;
     [HideInInspector]
-    public Items Calabaza, Almendra, Limon, Boniato;
-    public Inventory Inventario;
+    //public Items Calabaza, Almendra, Limon, Boniato;
+    //public Inventory Inventario;
 
     void Start()
     {
-        Inventario = FindObjectOfType<Inventory>();
+        //Inventario = FindObjectOfType<Inventory>();
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<Collider2D>();
         calabaza = 0;
         almendra = 0;
         limon = 0;
         boniato = 0;
-
-        Calabaza = ScriptableObject.CreateInstance<Items>();
-        Calabaza.type = "Calabaza";
-        Inventario.AddIngrItem(Calabaza);
-        Almendra = ScriptableObject.CreateInstance<Items>();
-        Almendra.type = "Almendra";
-        Inventario.AddIngrItem(Almendra);
-        Limon = ScriptableObject.CreateInstance<Items>();
-        Limon.type = "Limón";
-        Inventario.AddIngrItem(Limon);
-        Boniato = ScriptableObject.CreateInstance<Items>();
-        Boniato.type = "Boniato";
-        Inventario.AddIngrItem(Boniato);
     }
 
     void Update()
@@ -72,19 +59,19 @@ public class minijuegoMovement : MonoBehaviour
         {
             case "Almendra":
                 almendra += 1;
-                Almendra.amount += 1;
+                //Almendra.amount += 1;
                 break;
             case "Limon":
                 limon += 1;
-                Limon.amount += 1;
+                //Limon.amount += 1;
                 break;
             case "Boniato":
                 boniato += 1;
-                Boniato.amount += 1;
+                //Boniato.amount += 1;
                 break;
             case "Calabaza":
                 calabaza += 1;
-                Calabaza.amount += 1;
+                //Calabaza.amount += 1;
                 break;
             case "Piedra":
                 rb.bodyType = RigidbodyType2D.Static;

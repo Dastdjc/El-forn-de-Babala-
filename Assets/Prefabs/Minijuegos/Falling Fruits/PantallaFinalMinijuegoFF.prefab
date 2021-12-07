@@ -335,7 +335,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3938814735780162121}
         m_TargetAssemblyTypeName: MinijuegoDestroyer, Assembly-CSharp
-        m_MethodName: DestroyMinijuego
+        m_MethodName: DestroyFallingFruits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3506576436694382158, guid: 97102b2f88ab0eb48bee4867adb8a80d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6839392d3a4d1ff47bd6d8e141631216, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
