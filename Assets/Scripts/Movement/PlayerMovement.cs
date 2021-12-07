@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
         // inital position in the scene
         if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque)
+        {
+            Debug.Log(GameManager.Instance.playerSpawnPosition);
             transform.localPosition = GameManager.Instance.playerSpawnPosition;
+        }
             //transform.position = GameManager.Instance.playerSpawnPosition;
     }
 

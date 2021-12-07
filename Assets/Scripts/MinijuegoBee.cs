@@ -16,6 +16,7 @@ public class MinijuegoBee : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public AudioSource BGmusic;
     public SpriteRenderer identidicadorRenderer;
+
     private Material mat;
 
     private void Start()
@@ -23,6 +24,7 @@ public class MinijuegoBee : MonoBehaviour
         rb = Player.GetComponent<Rigidbody2D>();
         BGmusic = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         mat = identidicadorRenderer.material;
+        
     }
 
     public void Update()
@@ -32,6 +34,10 @@ public class MinijuegoBee : MonoBehaviour
         {
             if(currentTask == null)
             {
+                // Permitir volver al pueblo una vez juguemos un minijuego
+                if (GameManager.Instance.state == GameManager.GameState.Tutorial) {
+                    GameManager.Instance.UpdateGameState(GameManager.GameState.TutorialCocina);
+                }
                 Player.GetComponent<PlayerMovement>().enabled = false;
                 hitbox.SetActive(false);
                 StartCoroutine(AudioFadeOut.FadeOut(BGmusic, 1f));
@@ -46,7 +52,6 @@ public class MinijuegoBee : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.TutorialCocina);
             mat.SetFloat("Thickness", 0.03f);
             Texto.SetActive(true);
             DONDESEA = true;

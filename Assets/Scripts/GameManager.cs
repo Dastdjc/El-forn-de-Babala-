@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
 
     // tutorial cocina
     private bool tutorialCocina;
-
+    private GameObject wallToPanadería;
+    private GameObject wallToTown;
     // Siguientes estados
 
     private void Awake()
@@ -51,6 +52,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playerSpawnPositionInicioJuego = new Vector3(-380, -128, 0);
+        playerSpawnPosition = playerSpawnPositionInicioJuego;
     }
     void Start()
     {
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
         // referencia al jugador y sus spawns
         player = GameObject.Find("Dore_player");
         playerSpawnPositionInicioJuego = new Vector3(-380, -128, 0);
+        playerSpawnPosition = playerSpawnPositionInicioJuego;
         playerSpawnPositionBosque = new Vector3(-290, -128, 0);
         playerSpawnPositionPanadería = new Vector3(-345, -128, 0);
 
@@ -71,11 +75,16 @@ public class GameManager : MonoBehaviour
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         // Mifa
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+
         panaderia_cam = GameObject.Find("Anim_panadería").GetComponent<CinemachineVirtualCamera>();
 
+        wallToPanadería = GameObject.Find("WallToPanadería");
+        wallToPanadería.SetActive(false);
+
+        // wallToTown is gotten in the Bosque function (when it loads)
+
         // Booleanos
-        // animación Panaderia
-        panaderia = false;
+        panaderia = false; // animación Panaderia
 
         tutorialBosque = false;
         tutorialCocina = false;
@@ -106,8 +115,10 @@ public class GameManager : MonoBehaviour
             case GameState.Tutorial: // Tutorial en el bosque
                 Tutorial();
                 break;
-            case GameState.TutorialCocina:
+            case GameState.TutorialCocina:  // Después de jugar a un minijuego en el bosque
                 tutorialCocina = true;
+                //GameObject wallToTown = GameObject.Find("WallToTown");
+                wallToTown.SetActive(true);
                 break;
 
             case GameState.Bosque:
@@ -190,15 +201,19 @@ public class GameManager : MonoBehaviour
     }
     void Pueblo() // Función que se ejecuta al volver al pueblo nada después de AWAKE y antes de START
     {
+        // Volviendo a pueblo...
+        Debug.Log("Volviendo a pueblo...");
         if (tutorialCocina)
-            GameObject.Find("WallToPanadería").SetActive(true);
+        {
+            //wallToPanadería.SetActive(true);
+        }
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
         Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
         panaderia_anim.SetTrigger("panaderia2");
 
         // Desactivar el hitbox que note deja pasar al bosque
-        GameObject.Find("InitialCollider").SetActive(false);
+         GameObject.Find("InitialCollider").SetActive(false);
 
         // Play BG music
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -209,11 +224,13 @@ public class GameManager : MonoBehaviour
             playerSpawnPosition = playerSpawnPositionInicioJuego; //player.transform.position = playerSpawnPositionBosque; HAD TO USE LOCAL POSITION BECAUSE IT WAS A CHILD 
         else if (fromBosque)
         {
+            Debug.Log("Viniendo del bosque...");
             playerSpawnPosition = playerSpawnPositionBosque;
             fromBosque = false;
         }
         else if (fromPanadería)
         {
+            Debug.Log("Viniendo de panadería...");
             playerSpawnPosition = playerSpawnPositionPanadería;
             fromPanadería = false;
         }
@@ -222,9 +239,11 @@ public class GameManager : MonoBehaviour
 
     void Bosque() // Función que se ejecuta llegar al bosque
     {
-        if (!tutorialCocina)    // First time in the bosque
-            GameObject.Find("WallToTown").SetActive(false);
-
+        if (!tutorialCocina) // Si no se ha jugado a un minijuego, no se puede volver
+        {
+            wallToTown = GameObject.Find("WallToTown");
+            wallToTown.SetActive(false);
+        }
         servicios.SetActive(false);
         playerSpawnPosition = new Vector3(-95, -12);
         if (!tutorialBosque) 
@@ -234,10 +253,13 @@ public class GameManager : MonoBehaviour
             tutorialBosque = true;
         }
         fromBosque = true;
+
     }
     void Panadería() 
     {
         servicios.SetActive(false);
+        playerSpawnPosition = new Vector3(-10, -2, 0);
+        fromPanadería = true;
     }
     private enum Edificios 
     { 
