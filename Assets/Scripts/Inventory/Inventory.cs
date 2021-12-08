@@ -217,10 +217,10 @@ public class Inventory : MonoBehaviour
                 MoveInIngredentario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F) && TableController.isOnColision)
+                if (Input.GetKeyDown(KeyCode.F))
                 {
                     givenItem = TakeItemBySelector();
-                    TableController.PutIngredient(givenItem.type);
+                    GameObject.FindGameObjectWithTag("Bol").GetComponent<BowlController>().PutIngredient(givenItem);
                     SubstractIngrItem(givenItem, 1);
                 }
             }

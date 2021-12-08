@@ -16,7 +16,6 @@ public class KilnController : MonoBehaviour
     static private Color secondColor = new Color(1, 0.3f, 0);
     static public GameObject Inventory;
     private KilnController Instance;
-    private Recipe food;
 
     private void Awake()
     {
@@ -101,6 +100,7 @@ public class KilnController : MonoBehaviour
 
 
             objectEntering.GetComponent<SpriteRenderer>().sortingOrder = 3;
+            objectEntering.GetComponent<SpriteRenderer>().color = new Color(0.88f, 0.58f, 0.27f);
             ColorBar = objectEntering.transform.GetChild(1).GetComponent<SpriteRenderer>();
             Mask = objectEntering.transform.GetChild(0);
             secondColor = new Color(1, 0.3f, 0);

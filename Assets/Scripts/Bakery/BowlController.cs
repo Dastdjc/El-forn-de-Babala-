@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class BowlController : MonoBehaviour
 {
-    static private Transform Content;
-    static private int[] ingredients = new int[13];
+    private Transform Content;
+    private int[] ingredients = new int[13];
     static private float Upmov = 0.05f;
+    //public KilnController Kiln;
     void Start()
     {
-        if(Content == null)Content = transform.GetChild(0);
-        if(Content.position.y > -0.85f)
-        {
-            for(int i = 0; i < 14; i++)
-            {
-                for(int j = 0; j < ingredients[i]; j++)
-                {
-                    Content.position -= new Vector3(0, Upmov, 0);
-                }
-            }
-        }
+        Content = transform.GetChild(0);
+        Content.localPosition = new Vector3(0, -0.9f, 0);
         ingredients = new int[13];
     }
-    static public void MoveContent(int q, int index)
+    /*private void Update()
     {
-        ingredients[index] += q;
-        Content.transform.position += new Vector3(0, Upmov, 0);
-    }
-    public int DeterminateFood()
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Kiln.GetToCook(DeterminateFood());
+        }
+    }*/
+    private int DeterminateFood()
     {
         /*
          * 1)Mona
@@ -71,5 +65,40 @@ public class BowlController : MonoBehaviour
         }
         return isOnbowl; 
     }
-    public void Resset() { Start(); }
+    private void Resset() 
+    {
+        Content.localPosition = new Vector3(0, -0.9f, 0);
+        ingredients = new int[13];
+    }
+    public void BackIgredients()
+    {
+        string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
+        Inventory aux = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        for (int i = 0; i < 13; i++)
+        {
+            if(ingredients[i] > 0)
+            {
+                Items aux2 = ScriptableObject.CreateInstance<Items>();
+                aux2.amount = ingredients[i];
+                aux2.type = names[i];
+                aux.AddIngrItem(aux2);
+                for (int j = 0; j < ingredients[i]; j++)
+                {
+                    Content.position -= new Vector3(0, Upmov, 0);
+                }
+            }
+        }
+        Resset();
+    }
+    public void PutIngredient(Items ingr)
+    {
+        int index = 0;
+        Debug.Log(ingr.type);
+        string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
+        while (names[index] != ingr.type) { index++; }
+        ingredients[index] += 1;
+        Content.transform.position += new Vector3(0, Upmov, 0);
+        //if(ingredients[0] > 2)BackIgredients();
+        FoodBar.AddItemToBar(ingr.itemImage, index, ingredients[index]);
+    }
 }

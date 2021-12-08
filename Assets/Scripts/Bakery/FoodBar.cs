@@ -1,4 +1,4 @@
-//using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +6,34 @@ using TMPro;
 
 public class FoodBar : MonoBehaviour
 {
+    static private GameObject Example;
+    static private GameObject[] Bar = new GameObject[13];
+    private void Start()
+    {
+        Example = gameObject.transform.GetChild(2).gameObject;
+        for(int i = 0; i < Bar.Length; i++) { Bar[i] = Instantiate(Example); Bar[i].SetActive(false); }
+        Destroy(Example);
+    }
+
+    static public void AddItemToBar(Sprite sp, int index, int q)
+    {
+        Bar[index].GetComponent<SpriteRenderer>().sprite = sp;
+        Bar[index].SetActive(true);
+        int diferentfromNone = 0;
+        for(int i = 0; i < Bar.Length; i++)
+        {
+            if (Bar[index].GetComponent<SpriteRenderer>().sprite != null) diferentfromNone++;
+        }
+        float offset = -0.5f * diferentfromNone;
+        offset -= 0.5f;
+        for(int i = 0; i < Bar.Length; i++)
+        {
+            Bar[i].transform.position = new Vector3(offset, 2, 0);
+            Bar[index].transform.GetChild(0).GetComponent<TextMeshPro>().text = q.ToString();
+            offset += 0.5f;
+        }
+    }
+
     /*
     //Hay que pasar los ingredientes por cada barra? Por código o algún fichero?
     public Animator Controller;
