@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
     public List<Recipe> recipeImagesList;
 
     //esta se usa para determinar si ya poseemos un item del tipo que vamos a añadir
-    public List<Items> ingrList = new List<Items>();
+    private List<Items> ingrList = new List<Items>();
 
     //ésta para que se sepa que tipo de item está en cada slot
     private List<Items> itemBySlotList = new List<Items>();
@@ -54,18 +54,21 @@ public class Inventory : MonoBehaviour
     private List<Recipe> recipeList = new List<Recipe>();
 
     //lista que recoge los distintos ingredientes especiales
-    private List<string> specialIngredientsList = new List<string> { "Masigolem", "Huevos celestes", "Leche de dragona", "Azucar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio" };
+    //private List<string> specialIngredientsList = new List<string> { "Masigolem", "Huevos celestes", "Leche de dragona", "Azucar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio" };
+
+    //que cada receta tenga asociada una lista de items que recoja el tipo de ingrediente necesario y la cantidad de este
 
     //------------------------------------------------------------
     //pruebas de ingredientes
+  
     private Items harina;
-    private Items masigolem;
+    //private Items masigolem;
     private Items huevos;
     private Items calabaza;
     private Items aceite;
-    private Items huevosCelestes;
+    //private Items huevosCelestes;
     private Items agua;
-    private Items limoncio;
+    //private Items limoncio;
     private Items requeson;
 
     private Recipe mona;
@@ -77,7 +80,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        //para que el inventario se mantenga entre escenas NO FUNCIONA
+        //para que el inventario se mantenga entre escenas
         DontDestroyOnLoad(this.gameObject);
 
         for (int i = 0; i < 21; i++)
@@ -99,23 +102,24 @@ public class Inventory : MonoBehaviour
 
         inventoryOpened = false;
         inventoryType = 0;
-        touchingTable = true;
+        touchingTable = false;
         ingrID = 0;
         recipeID = 0;
 
         //pruebas de aumentar inventario
-        //-------------------------------------------------------------------------------------------
-        //la creación del objeto hay que hacerla así porque un Items es un scriptable object
-
+        //------------------------------------------------------------------------------------------
+        
         harina = ScriptableObject.CreateInstance<Items>();
         harina.amount = 5;
         harina.type = "Harina";
         AddIngrItem(harina);
 
+        /*
         masigolem = ScriptableObject.CreateInstance<Items>();
         masigolem.amount = 2;
         masigolem.type = "Masigolem";
         AddIngrItem(masigolem);
+        */
 
         huevos = ScriptableObject.CreateInstance<Items>();
         huevos.amount = 4;
@@ -127,35 +131,35 @@ public class Inventory : MonoBehaviour
         requeson.type = "Requesón";
         AddIngrItem(requeson);
 
+        /*
         limoncio = ScriptableObject.CreateInstance<Items>();
         limoncio.amount = 3;
         limoncio.type = "Limoncio";
         AddIngrItem(limoncio);
-
-
+        */
+        
         //SubstractIngrItem(masigolem, 2);
 
+        
         aceite = ScriptableObject.CreateInstance<Items>();
         aceite.amount = 2;
         aceite.type = "Aceite";
         AddIngrItem(aceite);
 
+        /*
         huevosCelestes = ScriptableObject.CreateInstance<Items>();
         huevosCelestes.amount = 1;
         huevosCelestes.type = "Huevos celestes";
         AddIngrItem(huevosCelestes);
+        */
 
         agua = ScriptableObject.CreateInstance<Items>();
         agua.amount = 8;
         agua.type = "Agua";
         AddIngrItem(agua);
+        
 
         //creación de recetas de prueba
-
-        mona = ScriptableObject.CreateInstance<Recipe>();
-        mona.amount = 0;
-        mona.type = "Mona de Pascua";
-        AddRecipe(mona);
 
         fartons = ScriptableObject.CreateInstance<Recipe>();
         fartons.amount = 0;
@@ -172,17 +176,21 @@ public class Inventory : MonoBehaviour
         farinada.type = "Farinada";
         AddRecipe(farinada);
 
+        mona = ScriptableObject.CreateInstance<Recipe>();
+        mona.amount = 0;
+        mona.type = "Mona de Pascua";
+        AddRecipe(mona);
+
         farinada = ScriptableObject.CreateInstance<Recipe>();
-        farinada.amount = 1;
+        farinada.amount = 3;
         farinada.type = "Farinada";
         AddRecipe(farinada);
 
         mona = ScriptableObject.CreateInstance<Recipe>();
-        mona.amount = 6;
+        mona.amount = 1;
         mona.type = "Mona de Pascua";
         AddRecipe(mona);
 
-        Debug.Log(recipeImagesList.Count);
         //-------------------------------------------------------------------
     }
 
@@ -208,11 +216,10 @@ public class Inventory : MonoBehaviour
             {
                 MoveInIngredentario();
 
-                //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
+                //puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
                 if (Input.GetKeyDown(KeyCode.F) && touchingTable && inventoryType == 0)
                 {
                     givenItem = TakeItemBySelector();
-                    TableController.PutIngredient(givenItem.type);
                     SubstractIngrItem(givenItem, 1);
                 }
             }
@@ -225,9 +232,12 @@ public class Inventory : MonoBehaviour
                 //PONER CONDICIÓN DE ESTAR TOCANDO A UN MUNDANO
                 if (Input.GetKeyDown(KeyCode.F) && inventoryType == 1)
                 {
-                    givenRecipe = TakeRecipeBySelector();
-                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].GetComponent<CustomerController>().SetSatisfaction(givenRecipe);
-                    SubstractRecipeItem(givenRecipe, 1);
+                    //aunque pulsemos F, solo se podrá quitar un plato de la receta si poseemos alguno, imagen color blanco = tenemos mínimo un plato ya preparado
+                    if (inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recipeID).transform.GetChild(0).transform.GetComponent<Image>().color == Color.white)
+                    {
+                        givenRecipe = TakeRecipeBySelector();
+                        SubstractRecipeItem(givenRecipe, 1);
+                    }
                 }
             }
 
@@ -250,7 +260,7 @@ public class Inventory : MonoBehaviour
             inventory.transform.GetChild(5).gameObject.SetActive(false);
             inventory.transform.GetChild(6).gameObject.SetActive(true);
             inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
-            inventory.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().sprite = doreIconsList[0];
+            //inventory.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().sprite = doreIconsList[0];
 
             if (recipeList.Count == 0)
             {
@@ -267,7 +277,7 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
             }
 
-            //sonido del cambio de página
+            //sonido cambio de página
             if (!inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = true;
@@ -295,7 +305,7 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(4).gameObject.SetActive(true);
             }
 
-            //sonido cambio página
+            //sonido cambio de página
             if (!inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = true;
@@ -311,7 +321,6 @@ public class Inventory : MonoBehaviour
         if (!inventoryOpened)
         {
             inventoryOpened = true;
-            Time.timeScale = 0;
 
             //último inventario abierto el de ingredientes
             if (inventoryType == 0)
@@ -346,7 +355,6 @@ public class Inventory : MonoBehaviour
         else
         {
             inventoryOpened = false;
-            Time.timeScale = 1;
             inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = false;
@@ -381,6 +389,7 @@ public class Inventory : MonoBehaviour
         {
             ingrID++;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -392,6 +401,7 @@ public class Inventory : MonoBehaviour
         {
             ingrID--;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -403,6 +413,7 @@ public class Inventory : MonoBehaviour
         {
             ingrID -= 7;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -414,6 +425,7 @@ public class Inventory : MonoBehaviour
         {
             ingrID += 7;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -429,6 +441,7 @@ public class Inventory : MonoBehaviour
         selector.transform.position = inventory.transform.GetChild(1).transform.GetChild(ingrID).transform.position;
 
         //mostramos las estrellas al lado del nombre si el ingrediente es especial y cambiamos la cara de Dore
+        /*
         for (int i = 0; i < specialIngredientsList.Count; i++)
         {
             if (itemBySlotList[ingrID].type == specialIngredientsList[i])
@@ -443,18 +456,17 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             }
         }
+        */
     }
 
     //mover selector por el recetario
-    //FALTAN LOS LÍMITES DEL SELECTOR
     private void MoveInRecetario()
     {
-            Debug.Log(recipeID);
-            Debug.Log(r);
         if (Input.GetKeyDown(KeyCode.D) && recipeID + 3 < r)
         {
             recipeID += 3;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -466,6 +478,7 @@ public class Inventory : MonoBehaviour
         {
             recipeID -= 3;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -477,6 +490,7 @@ public class Inventory : MonoBehaviour
         {
             recipeID--;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -488,6 +502,7 @@ public class Inventory : MonoBehaviour
         {
             recipeID++;
 
+            //si movemos el selector y es la primera vez desde que abrimos el inventario o cambiamos de página, volvemos a activar el sonido asociado y lo reproducimos
             if (!inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled)
             {
                 inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = true;
@@ -497,15 +512,14 @@ public class Inventory : MonoBehaviour
         }
 
         
-        //mostramos de la receta en el que está el selector
+        //mostramos el nombre de la receta en la que está el selector
         inventory.transform.GetChild(4).transform.GetChild(0).GetComponent<TMP_Text>().text = recipeBySlotList[recipeID].type;
-        
 
         //colocamos el selector en la casilla correcta
         selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recipeID).transform.position;
 
         //mostramos los ingredientes necesarios para hacer la receta
-        IngredientsPerRecipe();
+        //IngredientsPerRecipe();
     }
 
     //Añadir objetos al inventario
@@ -717,15 +731,15 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < recipeList.Count; i++)
         {
-            /*
+            
             //reproducimos el sonido si hay almenos una receta del tipo en el que está encima el selector
-            if (!inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled)
+            if (!inventory.transform.GetChild(0).GetComponent<AudioSource>().enabled)
             {
-                inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = true;
+                inventory.transform.GetChild(0).GetComponent<AudioSource>().enabled = true;
             }
 
-            inventory.transform.GetChild(1).GetComponent<AudioSource>().Play();
-            */
+            inventory.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            
 
             //buscamos el tipo
             if (recipeList[i].type == recipe.type)
