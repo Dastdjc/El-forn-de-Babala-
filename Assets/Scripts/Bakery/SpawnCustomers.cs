@@ -10,6 +10,20 @@ public class SpawnCustomers : MonoBehaviour
     private int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
+    static private SpawnCustomers Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {

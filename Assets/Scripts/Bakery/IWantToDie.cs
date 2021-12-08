@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class IWantToDie : MonoBehaviour
 {
-    public GameObject Inventory;
-    public Recipe my;
     /*public GameObject Parent;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,7 +27,7 @@ public class IWantToDie : MonoBehaviour
     }*/
     private void OnMouseDown()
     {
-        Inventory.GetComponent<Inventory>().AddRecipe(my);
+
         Destroy(gameObject);
     }
 }

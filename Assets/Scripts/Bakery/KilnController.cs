@@ -5,17 +5,32 @@ using UnityEngine;
 public class KilnController : MonoBehaviour
 {
     private bool open = false;
-    private GameObject[] objectEntering = new GameObject[6];
-    public GameObject FoodToCook;
+    private GameObject objectEntering;
+    public GameObject FoodToCook;//Es un objeto con sprite renderer y lo uso para instanciarlo y un hijo con un sprite rectangular y otro hijo mascara
     public Sprite[] FoodVisuals;
-    public int[] foodIndex = new int[6];
-    private SpriteRenderer[] ColorBar = new SpriteRenderer[6];
-    private Transform[] Mask = new Transform[6];
+    static private int foodIndex;
+    private SpriteRenderer ColorBar;
+    private Transform Mask;
     static public int electricity = 2;
     private float timer;
-    static public int[] isCoock = new int[6];
     static private Color secondColor = new Color(1, 0.3f, 0);
-    public GameObject Inventory;
+    static public GameObject Inventory;
+    private KilnController Instance;
+    private Recipe food;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start() 
     {
         if(open) gameObject.GetComponent<SpriteRenderer>().color = secondColor;
@@ -39,20 +54,24 @@ public class KilnController : MonoBehaviour
     {
         if(Time.timeScale == 1 && electricity > 0)
         {
-            for (int i = 0; i < objectEntering.Length; i++)
+            if(objectEntering != null && Mask != null)
             {
-                if (objectEntering[i] != null && Mask[i] != null)
+                float position = Mask.transform.localPosition.x;
+                if (position > 0.30f && position < 0.70f) //En el punto
                 {
-                    float position = Mask[i].transform.localPosition.x;
-                    if (position > 0.30f && position < 0.70f) { ColorBar[i].color += new Color(0, 0.0002f, -0.0001f); isCoock[i] = 1; }
-                    else if (position > 0.70f) { ColorBar[i].color += new Color(0.0001f, -0.0004f, 0); isCoock[i] = 2; }
-                    Mask[i].transform.position += new Vector3(0.00002f * electricity, 0, 0);
-                    if (position > 1) { Destroy(Mask[i].gameObject); }
+                    ColorBar.color += new Color(0, 0.0002f, -0.0001f);
                 }
-                else if (objectEntering[i] == null)
+                else if (position > 0.70f) //Pasado, quemado, se convierte en basura
+                { 
+                    ColorBar.color += new Color(0.0001f, -0.0004f, 0);
+                    Recipe aux = ScriptableObject.CreateInstance<Recipe>();
+                    aux.amount = 1;
+                    aux.type = "Basura";
+                }
+                Mask.transform.position += new Vector3(0.00002f * electricity, 0, 0);
+                if (position > 1)
                 {
-                    //send isCoock[i] to inventory
-                    //send foodIndex[i] to inventory
+                    Destroy(Mask.gameObject);
                 }
             }
             if (electricity >= 2)
@@ -70,34 +89,22 @@ public class KilnController : MonoBehaviour
     }
     public void GetToCook(int selectSprite)
     {
-        int i = 0;
-        while (i < objectEntering.Length && objectEntering[i] != null) { i++; }
-        if (i < objectEntering.Length)
+        if (objectEntering == null)
         {
-            objectEntering[i] = Instantiate(FoodToCook);
-            foodIndex[i] = selectSprite;
-            objectEntering[i].gameObject.layer = 7;
-            objectEntering[i].transform.localScale = new Vector3(0.5f, 0.5f, 1);
-            if(selectSprite != -1)objectEntering[i].GetComponent<SpriteRenderer>().sprite = FoodVisuals[selectSprite];
+            objectEntering = Instantiate(FoodToCook);
+            foodIndex = selectSprite;
+            objectEntering.gameObject.layer = 7;
+            objectEntering.transform.localScale = new Vector3(1, 1, 1);
+            if(selectSprite != -1)objectEntering.GetComponent<SpriteRenderer>().sprite = FoodVisuals[selectSprite];
 
-            if (i > 2)
-                objectEntering[i].transform.position = new Vector3(i - 3 * 1 + 28.125f, -2.2f, 0);
-            else
-                objectEntering[i].transform.position = new Vector3(i * 1 + 28.125f, -1.2f, 0);
+            objectEntering.transform.position = new Vector3(29.3f, -1.6f, 0);
 
 
-            objectEntering[i].GetComponent<SpriteRenderer>().sortingOrder = 3;
-            ColorBar[i] = objectEntering[i].transform.GetChild(1).GetComponent<SpriteRenderer>();
-            Mask[i] = objectEntering[i].transform.GetChild(0);
-            isCoock[i] = 0;
+            objectEntering.GetComponent<SpriteRenderer>().sortingOrder = 3;
+            ColorBar = objectEntering.transform.GetChild(1).GetComponent<SpriteRenderer>();
+            Mask = objectEntering.transform.GetChild(0);
             secondColor = new Color(1, 0.3f, 0);
-            ColorBar[i].color = secondColor;
-            string[] names = { "Mona", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
-            Recipe aux = ScriptableObject.CreateInstance<Recipe>();
-            aux.amount = 1;
-            aux.type = names[selectSprite];
-            objectEntering[i].GetComponent<IWantToDie>().my = aux;
-            objectEntering[i].GetComponent<IWantToDie>().Inventory = Inventory;
+            ColorBar.color = new Color(0, 0, 0.5f);
         }
     }
     public bool ImOpen() { return open; }
@@ -105,5 +112,14 @@ public class KilnController : MonoBehaviour
     {
         electricity = 2;
         secondColor = new Color(1, 0.3f, 0);
+    }
+    static public void PassToInv()
+    {
+        string[] names = { "Mona", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
+        Recipe aux = ScriptableObject.CreateInstance<Recipe>();
+        aux.amount = 1;
+        if (foodIndex != -1) aux.type = names[foodIndex];
+        else aux.type = "Basura";
+        Inventory.GetComponent<Inventory>().AddRecipe(aux);
     }
 }
