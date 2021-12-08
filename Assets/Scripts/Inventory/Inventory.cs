@@ -56,8 +56,11 @@ public class Inventory : MonoBehaviour
     //lista que recoge los distintos ingredientes especiales
     private List<string> specialIngredientsList = new List<string> { "Masigolem", "Huevos celestes", "Leche de dragona", "Azucar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio" };
 
+    //que cada receta tenga asociada una lista de items que recoja el tipo de ingrediente necesario y la cantidad de este
+
     //------------------------------------------------------------
     //pruebas de ingredientes
+  
     private Items harina;
     private Items masigolem;
     private Items huevos;
@@ -77,7 +80,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        //para que el inventario se mantenga entre escenas NO FUNCIONA
+        //para que el inventario se mantenga entre escenas
         DontDestroyOnLoad(this.gameObject);
 
         for (int i = 0; i < 21; i++)
@@ -99,14 +102,13 @@ public class Inventory : MonoBehaviour
 
         inventoryOpened = false;
         inventoryType = 0;
-        touchingTable = true;
+        touchingTable = false;
         ingrID = 0;
         recipeID = 0;
 
         //pruebas de aumentar inventario
-        //-------------------------------------------------------------------------------------------
-        //la creación del objeto hay que hacerla así porque un Items es un scriptable object
-
+        //------------------------------------------------------------------------------------------
+        
         harina = ScriptableObject.CreateInstance<Items>();
         harina.amount = 5;
         harina.type = "Harina";
@@ -131,10 +133,10 @@ public class Inventory : MonoBehaviour
         limoncio.amount = 3;
         limoncio.type = "Limoncio";
         AddIngrItem(limoncio);
-
-
+        
         //SubstractIngrItem(masigolem, 2);
 
+        
         aceite = ScriptableObject.CreateInstance<Items>();
         aceite.amount = 2;
         aceite.type = "Aceite";
@@ -149,13 +151,9 @@ public class Inventory : MonoBehaviour
         agua.amount = 8;
         agua.type = "Agua";
         AddIngrItem(agua);
+        
 
         //creación de recetas de prueba
-
-        mona = ScriptableObject.CreateInstance<Recipe>();
-        mona.amount = 0;
-        mona.type = "Mona de Pascua";
-        AddRecipe(mona);
 
         fartons = ScriptableObject.CreateInstance<Recipe>();
         fartons.amount = 0;
@@ -172,17 +170,21 @@ public class Inventory : MonoBehaviour
         farinada.type = "Farinada";
         AddRecipe(farinada);
 
+        mona = ScriptableObject.CreateInstance<Recipe>();
+        mona.amount = 0;
+        mona.type = "Mona de Pascua";
+        AddRecipe(mona);
+
         farinada = ScriptableObject.CreateInstance<Recipe>();
-        farinada.amount = 1;
+        farinada.amount = 3;
         farinada.type = "Farinada";
         AddRecipe(farinada);
 
         mona = ScriptableObject.CreateInstance<Recipe>();
-        mona.amount = 6;
+        mona.amount = 1;
         mona.type = "Mona de Pascua";
         AddRecipe(mona);
 
-        Debug.Log(recipeImagesList.Count);
         //-------------------------------------------------------------------
     }
 
@@ -224,8 +226,12 @@ public class Inventory : MonoBehaviour
                 //PONER CONDICIÓN DE ESTAR TOCANDO A UN MUNDANO
                 if (Input.GetKeyDown(KeyCode.F) && inventoryType == 1)
                 {
-                    givenRecipe = TakeRecipeBySelector();
-                    SubstractRecipeItem(givenRecipe, 1);
+                    //aunque pulsemos F, solo se podrá quitar un plato de la receta si poseemos alguno, imagen color blanco = tenemos mínimo un plato ya preparado
+                    if (inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recipeID).transform.GetChild(0).transform.GetComponent<Image>().color == Color.white)
+                    {
+                        givenRecipe = TakeRecipeBySelector();
+                        SubstractRecipeItem(givenRecipe, 1);
+                    }
                 }
             }
 
@@ -442,7 +448,6 @@ public class Inventory : MonoBehaviour
     }
 
     //mover selector por el recetario
-    //FALTAN LOS LÍMITES DEL SELECTOR
     private void MoveInRecetario()
     {
             Debug.Log(recipeID);
@@ -713,15 +718,15 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < recipeList.Count; i++)
         {
-            /*
+            
             //reproducimos el sonido si hay almenos una receta del tipo en el que está encima el selector
-            if (!inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled)
+            if (!inventory.transform.GetChild(0).GetComponent<AudioSource>().enabled)
             {
-                inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = true;
+                inventory.transform.GetChild(0).GetComponent<AudioSource>().enabled = true;
             }
 
-            inventory.transform.GetChild(1).GetComponent<AudioSource>().Play();
-            */
+            inventory.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            
 
             //buscamos el tipo
             if (recipeList[i].type == recipe.type)
@@ -819,6 +824,28 @@ public class Inventory : MonoBehaviour
 
         return recipe;
     }
+
+    /*
+    private bool CheckGreyRecipeColor()
+    {
+        //comprobamos de los slots ocupados si alguno de ellos tiene la imagen en todo normal y no en gris, gris = no tenemos platos de esa receta
+        for (int i = 0; i < recipeBySlotList.Count; i++)
+        {
+            if (recipeBySlotList[i] != null)
+            {
+                if (inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).transform.GetComponent<Image>().color == Color.white)
+                {
+                    //si hay mínimo un plato creado la imagen será blanca y podremos quitar algún plato, hacer el sonido...etc
+                    //false indica que no todos las recetas están en gris
+                    return false;
+                }
+            }
+        }
+
+        //true indica que todas las recetas están en gris
+        return true;
+    }
+    */
 
     //en el cuadro negro del recetario se mostrarán los ingredientes que requiere la receta sobre la que está situado el selector
     private void IngredientsPerRecipe()
