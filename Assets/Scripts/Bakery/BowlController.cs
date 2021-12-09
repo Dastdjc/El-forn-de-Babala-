@@ -14,13 +14,13 @@ public class BowlController : MonoBehaviour
         Content.localPosition = new Vector3(0, -0.9f, 0);
         ingredients = new int[13];
     }
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Kiln.GetToCook(DeterminateFood());
+            GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().GetToCook(DeterminateFood());
         }
-    }*/
+    }
     private int DeterminateFood()
     {
         /*
@@ -93,7 +93,7 @@ public class BowlController : MonoBehaviour
     public void PutIngredient(Items ingr)
     {
         int index = 0;
-        Debug.Log(ingr.type);
+        //Debug.Log(ingr.type);
         string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
         while (names[index] != ingr.type) { index++; }
         ingredients[index] += 1;

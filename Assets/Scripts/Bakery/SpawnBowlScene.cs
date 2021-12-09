@@ -8,7 +8,7 @@ public class SpawnBowlScene : MonoBehaviour
     //[HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public GameObject currentTask;
     public GameObject camara;
-    //public GameObject task;
+    public GameObject task;
     public GameObject Texto;
     private bool touchingPlayer;
     // Start is called before the first frame update
@@ -23,8 +23,18 @@ public class SpawnBowlScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && touchingPlayer)
         {
-            Time.timeScale = 0;
-            //currentTask = Instantiate(task, camara.transform);
+            if(Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                currentTask = Instantiate(task, camara.transform);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                Destroy(currentTask);
+                FoodBar.DestroyBar();
+            }
+            
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
