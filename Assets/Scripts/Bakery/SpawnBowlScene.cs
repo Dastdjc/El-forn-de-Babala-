@@ -6,7 +6,7 @@ using TMPro;
 public class SpawnBowlScene : MonoBehaviour
 {
     //[HideInInspector] public Rigidbody2D rb;
-    [HideInInspector] public GameObject currentTask;
+    //[HideInInspector] public GameObject currentTask;
     public GameObject camara;
     public GameObject task;
     public GameObject Texto;
@@ -26,13 +26,13 @@ public class SpawnBowlScene : MonoBehaviour
             if(Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                currentTask = Instantiate(task, camara.transform);
+                task.SetActive(true);
             }
             else
             {
                 Time.timeScale = 1;
-                Destroy(currentTask);
-                FoodBar.DestroyBar();
+                task.SetActive(false);
+                //FoodBar.DestroyBar();
             }
             
         }
