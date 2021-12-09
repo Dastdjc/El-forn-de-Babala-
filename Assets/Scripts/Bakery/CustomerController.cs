@@ -80,7 +80,7 @@ public class CustomerController : MonoBehaviour
                     if (timer >= TimeWaiting)
                     {
                         state++;
-                        satisfaction = -2;
+                        satisfaction = -3;
                         Talk(false);
                         conversando = true;
                     }
@@ -215,9 +215,9 @@ public class CustomerController : MonoBehaviour
     //El array consta de options[0] que es el índice de la comida y options[1] que es como de cocinada está
     public void SetSatisfaction(Recipe food)
     {
-        if(food.type != command.ToString()) { satisfaction = -1; }
-        //else if(options[1] != 1) { satisfaction = 0; }
-        else { satisfaction = 1; }
+        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
+        //else if(options[1] == 0) { satisfaction = 2; }
+        else { satisfaction = 5; }
         state++;
     }
     private void OnCollisionEnter2D(Collision2D collision)
