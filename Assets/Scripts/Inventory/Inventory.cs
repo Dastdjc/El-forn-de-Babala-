@@ -6,6 +6,9 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
+    //variables tocando mesa y tocando horno
+    public bool touchingTable;
+
     //para poder quitar objetos del inventario
     //Usa la variable estatica TableController.isOnColision
 
@@ -35,8 +38,6 @@ public class Inventory : MonoBehaviour
     //esta lista, dada en el Unity, solo se usa para "robar" la imagen de la receta correcta
     public List<Recipe> recipeImagesList;
 
-    public GameObject Spawner;
-
     //esta se usa para determinar si ya poseemos un item del tipo que vamos a añadir
     private List<Items> ingrList = new List<Items>();
 
@@ -50,29 +51,34 @@ public class Inventory : MonoBehaviour
     private List<Recipe> recipeList = new List<Recipe>();
 
     //lista que recoge los distintos ingredientes especiales
-    private List<string> specialIngredientsList = new List<string> { "Masigolem", "Huevos celestes", "Leche de dragona", "Azucar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio" };
+    //private List<string> specialIngredientsList = new List<string> { "Masigolem", "Huevos celestes", "Leche de dragona", "Azucar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio" };
 
     //------------------------------------------------------------
     //pruebas de ingredientes
-    private Items harina;
-    private Items levadura;
-    private Items leche;
-    private Items mantequilla;
-    private Items azucar;
-    private Items masigolem;
-    private Items huevos;
-    private Items calabaza;
-    private Items aceite;
-    private Items huevosCelestes;
-    private Items agua;
-    private Items limoncio;
-    private Items requeson;
+    
+    //private Items harina;
+    //private Items levadura;
+    //private Items leche;
+    //private Items mantequilla;
+    //private Items azucar;
+    //private Items masigolem;
+    //private Items huevos;
+    //private Items calabaza;
+    //private Items aceite;
+    //private Items huevosCelestes;
+    //private Items agua;
+    //private Items limoncio;
+    //private Items requeson;
+    
 
-    /*private Recipe mocadora;
+    //------------------------------------------------------------
+    //pruebas de recetas
+    /*
+    private Recipe mocadora;
     private Recipe fartons;
     private Recipe coca;
-    private Recipe farinada;*/
-
+    private Recipe farinada;
+    */
     //----------------------------------------------------------
 
     private void Awake()
@@ -96,7 +102,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        touchingTable = false;
         inventoryOpened = false;
         inventoryType = 0;
         ingrID = 0;
@@ -105,9 +111,9 @@ public class Inventory : MonoBehaviour
         //pruebas de aumentar inventario
         //-------------------------------------------------------------------------------------------
         //la creación del objeto hay que hacerla así porque un Items es un scriptable object
-        
+        /*
         harina = ScriptableObject.CreateInstance<Items>();
-        harina.amount = 5;
+        harina.amount = 1;
         harina.type = "Harina";
         AddIngrItem(harina);
 
@@ -136,41 +142,51 @@ public class Inventory : MonoBehaviour
         azucar.type = "Azúcar";
         AddIngrItem(azucar);
 
-        /*requeson = ScriptableObject.CreateInstance<Items>();
+        requeson = ScriptableObject.CreateInstance<Items>();
         requeson.amount = 5;
         requeson.type = "Requesón";
         AddIngrItem(requeson);
+        */
 
+        /*
         limoncio = ScriptableObject.CreateInstance<Items>();
         limoncio.amount = 3;
         limoncio.type = "Limoncio";
-        AddIngrItem(limoncio);*/
+        AddIngrItem(limoncio);
+        */
 
-        /*masigolem = ScriptableObject.CreateInstance<Items>();
+        /*
+        masigolem = ScriptableObject.CreateInstance<Items>();
         masigolem.amount = 2;
         masigolem.type = "Masigolem";
         AddIngrItem(masigolem);
+        */
 
 
         //SubstractIngrItem(masigolem, 2);
-
+        /*
         aceite = ScriptableObject.CreateInstance<Items>();
         aceite.amount = 2;
         aceite.type = "Aceite";
         AddIngrItem(aceite);
+        */
 
-        /*huevosCelestes = ScriptableObject.CreateInstance<Items>();
+        /*
+        huevosCelestes = ScriptableObject.CreateInstance<Items>();
         huevosCelestes.amount = 1;
         huevosCelestes.type = "Huevos celestes";
         AddIngrItem(huevosCelestes);
+        */
 
+        /*
         agua = ScriptableObject.CreateInstance<Items>();
         agua.amount = 8;
         agua.type = "Agua";
         AddIngrItem(agua);
+        */
 
         //creación de recetas de prueba
-
+        /*
         mocadora = ScriptableObject.CreateInstance<Recipe>();
         mocadora.amount = 4;
         mocadora.type = "Mocadorà";
@@ -189,13 +205,20 @@ public class Inventory : MonoBehaviour
         farinada = ScriptableObject.CreateInstance<Recipe>();
         farinada.amount = 9;
         farinada.type = "Farinada";
-        AddRecipe(farinada);*/
+        AddRecipe(farinada);
+
+        fartons = ScriptableObject.CreateInstance<Recipe>();
+        fartons.amount = 8;
+        fartons.type = "Fartons";
+        AddRecipe(fartons);
+        */
 
         //-------------------------------------------------------------------
     }
 
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             //sonido abrir inventario
@@ -217,7 +240,7 @@ public class Inventory : MonoBehaviour
                 MoveInIngredentario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.F) && touchingTable)
                 {
                     givenItem = TakeItemBySelector();
                     GameObject.FindGameObjectWithTag("Bol").GetComponent<BowlController>().PutIngredient(givenItem);
@@ -229,13 +252,17 @@ public class Inventory : MonoBehaviour
             {
                 MoveInRecetario();
 
+                //HACIA ABAJO HAY ALGO MAL: nullReferenceException (script: SpawnCustomer)
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
+                /*
                 int i = SpawnCustomers.WhichToching();
+
                 if (Input.GetKeyDown(KeyCode.F) && i < 5)
                 {
                     //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
                     SpawnCustomers.Customers[i].GetComponent<CustomerController>().SetSatisfaction(null);
                 }
+                */
             }
 
 
@@ -435,6 +462,7 @@ public class Inventory : MonoBehaviour
         //colocamos el selector en la casilla correcta
         selector.transform.position = inventory.transform.GetChild(1).transform.GetChild(ingrID).transform.position;
 
+        /*
         //mostramos las estrellas al lado del nombre si el ingrediente es especial
         for (int i = 0; i < specialIngredientsList.Count; i++)
         {
@@ -448,6 +476,7 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             }
         }
+        */
     }
 
     //mover selector por el recetario
