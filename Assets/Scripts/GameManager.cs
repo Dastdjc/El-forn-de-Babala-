@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameState state = GameState.InicioJuego;
     public GameObject[] edificios;
-    static private GameObject servicios;
+    static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
 
     public static event System.Action<GameState> OnGameStateChanged;
 
@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
     private MifaCharacterDialogueManager mifa;
     private CinemachineVirtualCamera panaderia_cam;
 
-
+    // variables para mantener durante el juego
+    public int satisfacciónAcumulada = 1;
+   
     // Booleanos para aparicion desde otra escena
     private bool fromBosque;
     private bool fromPanadería;
@@ -76,7 +78,7 @@ public class GameManager : MonoBehaviour
         // Mifa
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
 
-        panaderia_cam = GameObject.Find("Anim_panadería").GetComponent<CinemachineVirtualCamera>();
+        panaderia_cam = GameObject.Find("Cam_Anim_panadería").GetComponent<CinemachineVirtualCamera>();
 
         wallToPanadería = GameObject.Find("WallToPanadería");
         wallToPanadería.SetActive(false);
@@ -260,6 +262,17 @@ public class GameManager : MonoBehaviour
         servicios.SetActive(false);
         playerSpawnPosition = new Vector3(-10, -2, 0);
         fromPanadería = true;
+    }
+
+    public void SumarSatisfacción(int suma) // O resta si es negativo 
+    {
+        satisfacciónAcumulada += suma;
+        if (satisfacciónAcumulada >= 25)
+        {
+            satisfacciónAcumulada = 0;
+            // Enviar señal para spawnear cliente especial
+            return;
+        }
     }
     private enum Edificios 
     { 

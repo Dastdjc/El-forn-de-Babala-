@@ -25,7 +25,8 @@ public class CharacterDialogueManager : MonoBehaviour
         // Chose recipe
         recipeNumber = Random.Range(0, recipeOptions.lines.Count); //Min inclusivo y max exclusivo
         //recipeNumber = 0;
-        Debug.Log(recipeNumber);
+        //Debug.Log(recipeNumber);
+
         // Add the recipe dialogue
         conversationInstace.lines.Add(recipeOptions.lines[recipeNumber]);
         // Add conversation continuation

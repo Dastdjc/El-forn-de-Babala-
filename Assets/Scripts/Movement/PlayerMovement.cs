@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     private GameObject dashParticles;
     private SpriteRenderer sr;
     private DialogueManager dm;
+    private Vector3 idleScale;
 
     public float speed = 5;
     public float dashSpeed = 10;
     public Animator animator;
+    public GameObject idle_anim;
  
     void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         dashParticles = GameObject.Find("Dore_player/DashParticles");
         dashParticles.SetActive(false);
+        idleScale = new Vector3(1, 1, 1);
 
         sr = gameObject.GetComponent<SpriteRenderer>();
 
@@ -45,16 +48,23 @@ public class PlayerMovement : MonoBehaviour
             Vector2 dir = new Vector2(x, y);
 
             animator.SetFloat("speed", Mathf.Abs(dir.x));
+
+            idle_anim.SetActive(true);
             // Flip del sprite de Dore
             if (dir.x < 0) {
-                transform.localScale = new Vector3(-1, 1, 1);
+                idleScale.x = -1;
+                idle_anim.SetActive(false);
+                //transform.localScale = new Vector3(-1, 1, 1);
                 sr.flipX = true;
             }
             else if (dir.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                idleScale.x = 1;
+                idle_anim.SetActive(false);
+                //transform.localScale = new Vector3(1, 1, 1);
                 sr.flipX = false;
             }
+            idle_anim.transform.localScale = idleScale;
 
             // Lógica del movimiento
             if (!isDashing)
