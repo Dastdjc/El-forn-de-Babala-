@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(0f, 0f);
+            idle_anim.SetActive(true);
             animator.SetFloat("speed", 0);
         }
     }
