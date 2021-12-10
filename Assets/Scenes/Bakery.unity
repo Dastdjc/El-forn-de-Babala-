@@ -403,8 +403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodToCook: {fileID: 1489734085461681258, guid: 9a7aae1b2315c3d44a549cb5cf340470, type: 3}
-  FoodVisuals:
-  - {fileID: 21300000, guid: 154f65dc3de251048b47982d6801949a, type: 3}
 --- !u!50 &64309553
 Rigidbody2D:
   serializedVersion: 4
@@ -1674,6 +1672,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3888282327788650635, guid: fbba1bee4acbf9047a43e1b30a7102c3, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888282327788650635, guid: fbba1bee4acbf9047a43e1b30a7102c3, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888282327788650635, guid: fbba1bee4acbf9047a43e1b30a7102c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f9ae0d55ebb2774a86926fbfa48dd3a, type: 3}
+    - target: {fileID: 3888282327788650635, guid: fbba1bee4acbf9047a43e1b30a7102c3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4448945122436906835, guid: fbba1bee4acbf9047a43e1b30a7102c3, type: 3}
       propertyPath: m_Name
       value: BowlMinigame
@@ -2249,7 +2263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577a7c42f0b652f43850d1fc035ee20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camara: {fileID: 670302892}
+  camara: {fileID: 670302895}
   task: {fileID: 1126994338}
   Texto: {fileID: 66385040}
 --- !u!1 &833628907

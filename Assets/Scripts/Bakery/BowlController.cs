@@ -19,6 +19,7 @@ public class BowlController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().GetToCook(DeterminateFood());
+            FoodBar.BarVisibility();
         }
     }
     private int DeterminateFood()
@@ -52,6 +53,7 @@ public class BowlController : MonoBehaviour
         if (IsEnough(recipe)) { return 7; }
         recipe = new int[] { 0, 0, 0, 0, 6, 1, 0, 2, 1, 6, 6 };
         if (IsEnough(recipe)) { return 8; }
+        Resset();
         return -1;
     }
     private bool IsEnough(int[] q) 
@@ -63,6 +65,7 @@ public class BowlController : MonoBehaviour
             if (ingredients[i] < q[i]) isOnbowl = false;
             i++;
         }
+        if (isOnbowl) Resset();
         return isOnbowl; 
     }
     private void Resset() 

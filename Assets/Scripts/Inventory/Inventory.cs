@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 {
     //variables tocando mesa y tocando horno
     public bool touchingTable;
+    public bool touchingCustomer;
 
     //para poder quitar objetos del inventario
     //Usa la variable estatica TableController.isOnColision
@@ -56,26 +57,26 @@ public class Inventory : MonoBehaviour
     //------------------------------------------------------------
     //pruebas de ingredientes
     
-    //private Items harina;
-    //private Items levadura;
-    //private Items leche;
-    //private Items mantequilla;
-    //private Items azucar;
+    private Items harina;
+    private Items levadura;
+    private Items leche;
+    private Items mantequilla;
+    private Items azucar;
     //private Items masigolem;
-    //private Items huevos;
+    private Items huevos;
     //private Items calabaza;
-    //private Items aceite;
+    private Items aceite;
     //private Items huevosCelestes;
-    //private Items agua;
+    private Items agua;
     //private Items limoncio;
-    //private Items requeson;
+    private Items requeson;
     
 
     //------------------------------------------------------------
     //pruebas de recetas
     /*
     private Recipe mocadora;
-    private Recipe fartons;
+    */private Recipe fartons;/*
     private Recipe coca;
     private Recipe farinada;
     */
@@ -111,9 +112,9 @@ public class Inventory : MonoBehaviour
         //pruebas de aumentar inventario
         //-------------------------------------------------------------------------------------------
         //la creación del objeto hay que hacerla así porque un Items es un scriptable object
-        /*
+        
         harina = ScriptableObject.CreateInstance<Items>();
-        harina.amount = 1;
+        harina.amount = 5;
         harina.type = "Harina";
         AddIngrItem(harina);
 
@@ -146,7 +147,7 @@ public class Inventory : MonoBehaviour
         requeson.amount = 5;
         requeson.type = "Requesón";
         AddIngrItem(requeson);
-        */
+        
 
         /*
         limoncio = ScriptableObject.CreateInstance<Items>();
@@ -206,12 +207,12 @@ public class Inventory : MonoBehaviour
         farinada.amount = 9;
         farinada.type = "Farinada";
         AddRecipe(farinada);
-
+        */
         fartons = ScriptableObject.CreateInstance<Recipe>();
         fartons.amount = 8;
         fartons.type = "Fartons";
         AddRecipe(fartons);
-        */
+        
 
         //-------------------------------------------------------------------
     }
@@ -252,17 +253,13 @@ public class Inventory : MonoBehaviour
             {
                 MoveInRecetario();
 
-                //HACIA ABAJO HAY ALGO MAL: nullReferenceException (script: SpawnCustomer)
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                /*
-                int i = SpawnCustomers.WhichToching();
-
-                if (Input.GetKeyDown(KeyCode.F) && i < 5)
+                
+                if (Input.GetKeyDown(KeyCode.F) && touchingCustomer && SpawnCustomers.WhichToching() < 4)
                 {
                     //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
-                    SpawnCustomers.Customers[i].GetComponent<CustomerController>().SetSatisfaction(null);
+                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].GetComponent<CustomerController>().SetSatisfaction(null);
                 }
-                */
             }
 
 

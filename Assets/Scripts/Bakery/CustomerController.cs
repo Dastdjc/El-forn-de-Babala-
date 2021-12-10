@@ -21,6 +21,7 @@ public class CustomerController : MonoBehaviour
     private GameObject gmo;
     private bool conversando;
     public bool tochingPlayer = false;
+    static private CustomerController[] Instance = new CustomerController[4];
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -36,11 +37,28 @@ public class CustomerController : MonoBehaviour
 
     private void Awake()
     {
-        gmo = GameObject.FindGameObjectWithTag("dialogo");
-        if (gmo != null)
+        int i = 0;
+        int j = 0;
+        while(Instance[i] != null)
         {
-            dmcm = gmo.GetComponent<DialogueManagerCM>();
+            i++;
+            if (Instance[i] == this) j = i;
         }
+        if (i < 4)
+        {
+            Instance[i] = this;
+            DontDestroyOnLoad(gameObject);
+            gmo = GameObject.FindGameObjectWithTag("dialogo");
+            if (gmo != null)
+            {
+                dmcm = gmo.GetComponent<DialogueManagerCM>();
+            }
+        }
+        else if (Instance[j] != this)
+        {
+            Destroy(gameObject);
+        }
+        
     }
     void Start()
     {
@@ -222,10 +240,21 @@ public class CustomerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        tochingPlayer = true;
+        if(state == 2)
+        {
+            Debug.Log("I'm in");
+            tochingPlayer = true;
+            //GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = true;
+        }
+        Debug.Log("Holaaaaaaaaaa");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        tochingPlayer = false;
+        if(state == 2)
+        {
+            Debug.Log("I'm out");
+            tochingPlayer = false;
+            //GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
+        }
     }
 }

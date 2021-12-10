@@ -7,7 +7,6 @@ public class KilnController : MonoBehaviour
     private bool open = false;
     private GameObject objectEntering;
     public GameObject FoodToCook;//Es un objeto con sprite renderer y lo uso para instanciarlo y un hijo con un sprite rectangular y otro hijo mascara
-    public Sprite[] FoodVisuals;
     static private int foodIndex;
     private SpriteRenderer ColorBar;
     private Transform Mask;
@@ -76,7 +75,7 @@ public class KilnController : MonoBehaviour
             if (electricity >= 2)
             {
                 timer += 0.01f;
-                if (timer > 100 && Random.Range(0, 1000) == 1)
+                if (timer > 1000 && Random.Range(0, 1000) == 1)
                 {
                     electricity = 0;
                     secondColor = new Color(0.35f, 0.26f, 0.16f);
@@ -94,8 +93,6 @@ public class KilnController : MonoBehaviour
             foodIndex = selectSprite;
             objectEntering.gameObject.layer = 7;
             objectEntering.transform.localScale = new Vector3(1, 1, 1);
-            if(selectSprite != -1)objectEntering.GetComponent<SpriteRenderer>().sprite = FoodVisuals[selectSprite];
-
             objectEntering.transform.position = new Vector3(29.3f, -1.6f, 0);
 
 
@@ -120,6 +117,7 @@ public class KilnController : MonoBehaviour
         aux.amount = 1;
         if (foodIndex != -1) aux.type = names[foodIndex];
         else aux.type = "Basura";
+        Debug.Log(aux.type);
         Inventory.GetComponent<Inventory>().AddRecipe(aux);
     }
 }
