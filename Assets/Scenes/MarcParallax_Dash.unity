@@ -2852,7 +2852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.819
+  m_FalloffIntensity: 0.54
   m_Color: {r: 0.96961725, g: 1, b: 0.61698115, a: 1}
   m_Intensity: 0.28
   m_LightVolumeOpacity: 0
@@ -2872,7 +2872,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 36.22
+  m_ShapeLightFalloffSize: 5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 28.53341, y: -6.149938, z: 0}
@@ -13911,7 +13911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546595948481475830, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_FalloffIntensity
-      value: 0.5
+      value: 0.196
       objectReference: {fileID: 0}
     - target: {fileID: 1546595948481475830, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_PointLightInnerAngle
@@ -13919,7 +13919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546595948481475830, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 17.52
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1546595948481475831, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_RootOrder
