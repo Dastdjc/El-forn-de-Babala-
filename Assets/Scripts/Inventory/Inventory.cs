@@ -254,11 +254,10 @@ public class Inventory : MonoBehaviour
                 MoveInRecetario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                
                 if (Input.GetKeyDown(KeyCode.F) && touchingCustomer && SpawnCustomers.WhichToching() < 4)
                 {
                     //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
-                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].GetComponent<CustomerController>().SetSatisfaction(null);
+                    //SpawnCustomers.Customers[SpawnCustomers.WhichToching()].GetComponent<CustomerController>().SetSatisfaction(givenRecipe);
                 }
             }
 

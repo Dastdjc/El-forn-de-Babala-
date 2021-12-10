@@ -45,7 +45,6 @@ public class SpawnCustomers : MonoBehaviour
                 {
                     CustomersNumber--;
                     Customers[firstPlace] = Instantiate(NormalCustomer, new Vector3(-12 - firstPlace * 4, -1.55f, 0), Quaternion.identity);
-                    //DontDestroyOnLoad(Customers[firstPlace]);
                 }
             }
         }
@@ -70,7 +69,8 @@ public class SpawnCustomers : MonoBehaviour
     static public int WhichToching()
     {
         int i = 0;
-        while(!Customers[i].GetComponent<CustomerController>().tochingPlayer && i < Customers.Length) { i++; }
+        while (i < Customers.Length && Customers[i] == null) { i++; }
+        while(i < Customers.Length && !Customers[i].GetComponent<CustomerController>().tochingPlayer) { i++; while (i < Customers.Length && Customers[i] == null) { i++; } }
         return i;
     }
 }

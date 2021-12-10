@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseTracker : MonoBehaviour
 {
-    private Vector3 mousePos;
+    /*private Vector3 mousePos;
     private Vector3 initialPos;
     public bool isHeld { get; private set; }
     public bool fromDown = false;
@@ -34,5 +34,9 @@ public class MouseTracker : MonoBehaviour
     {
         isHeld = false;
         transform.position = initialPos;
+    }*/
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Hollaaaaaaaa");
     }
 }

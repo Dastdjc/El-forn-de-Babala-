@@ -8,12 +8,12 @@ public class CustomerController : MonoBehaviour
     public int TimeWaiting = 2;
     private RectTransform Mask;
     private SpriteRenderer image;
-    public Conversation conversation;
+    /*public Conversation conversation;
     public Conversation enfadado;
     public Conversation bueno;
     public Conversation medio;
     public Conversation malo;
-    public DialogueManagerCM dmcm;
+    public DialogueManagerCM dmcm;*/
     private float timer = 0;
     private int satisfaction = 0;
     private int state;
@@ -35,7 +35,7 @@ public class CustomerController : MonoBehaviour
     }
     private Recetas command;
 
-    private void Awake()
+    /*private void Awake()
     {
         int i = 0;
         int j = 0;
@@ -59,7 +59,7 @@ public class CustomerController : MonoBehaviour
             Destroy(gameObject);
         }
         
-    }
+    }*/
     void Start()
     {
         //Se asigna la layer CustomerIn que no colisionan con CustomerIn
@@ -80,6 +80,7 @@ public class CustomerController : MonoBehaviour
     {
         if(Time.timeScale == 1)
         {
+            //if(Instance[0] == this)Debug.Log(state);
             switch (state)
             {
                 //Anda a su sitio
@@ -104,7 +105,7 @@ public class CustomerController : MonoBehaviour
                     }
                     break;
                 
-                case 3:
+                case 3:/*
                     switch (satisfaction)
                     {
                         case -2:
@@ -155,7 +156,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                    }
+                    }*/
                     walk = 15;
                     state++;
                     break;
@@ -226,7 +227,7 @@ public class CustomerController : MonoBehaviour
                 default:
                     break;
             }*/
-            state++;
+            state = 2;
         }
     }
     //El horno o el inventario invocarán este método que determinará la satisfacción del cliente
@@ -256,5 +257,9 @@ public class CustomerController : MonoBehaviour
             tochingPlayer = false;
             //GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
         }
-    }
+    }/*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Holaaaaaaaaaa");
+    }*/
 }

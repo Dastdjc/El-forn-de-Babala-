@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45334272}
   - component: {fileID: 45334271}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 66385041}
   - component: {fileID: 66385043}
   - component: {fileID: 66385042}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Texto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2130,7 @@ GameObject:
   - component: {fileID: 812746871}
   - component: {fileID: 812746872}
   - component: {fileID: 812746873}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2596,7 +2596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1278240785}
   - component: {fileID: 1278240786}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
