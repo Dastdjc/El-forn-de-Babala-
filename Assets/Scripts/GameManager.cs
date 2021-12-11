@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour
         }
         else if (scene.name == "MarcParallax_Dash") 
         {
+            Debug.Log("EnBosque");
             Bosque();
         }
         else if (scene.name == "Bakery") 
