@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546595948463439534}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00000166893, y: -0.14, z: -5.219553}
+  m_LocalPosition: {x: 0, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1546595949742741798}
@@ -1359,7 +1359,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -4822,7 +4822,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88aebcd41d46e9c4180b9c9f2799888f, type: 2}
+  - {fileID: 2100000, guid: 5bb4269c067eed74390ac98022b6acef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4913,11 +4913,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.424
+  m_FalloffIntensity: 0.743
   m_Color: {r: 1, g: 0.84465325, b: 0.4666667, a: 1}
   m_Intensity: 0.84
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000002b6c7525
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 1
   m_LightOrder: 0
@@ -4985,12 +4985,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatedText: {fileID: 0}
   voices:
-  - {fileID: 8300000, guid: 23e64a8c63d664e4db7d78d8e954fa45, type: 3}
-  - {fileID: 8300000, guid: 6cc2e8d9dc42dfb47996424a7e08f090, type: 3}
-  - {fileID: 8300000, guid: 80d917a3b2f1bd34998c5952e8d076e4, type: 3}
-  - {fileID: 8300000, guid: 8ac31f83914da884596cc961acc9d342, type: 3}
-  - {fileID: 8300000, guid: 080c7c0a4f5b9b74dbf8b4abf5efa2ca, type: 3}
-  - {fileID: 8300000, guid: 640927081f8270245a62fb9448b4f495, type: 3}
+  - {fileID: 8300000, guid: 3901599af05874b44852e464c124163d, type: 3}
+  - {fileID: 8300000, guid: 6c7d0f7dded9512468b74c6c7601924a, type: 3}
+  - {fileID: 8300000, guid: c6c2e62b02b8c204d89268d374cb4e6b, type: 3}
+  - {fileID: 8300000, guid: a4e42fd64da0dd54bb6fffedd0d45c17, type: 3}
+  - {fileID: 8300000, guid: b217f892a93ea1a418981f3af879d845, type: 3}
+  - {fileID: 8300000, guid: daedd6ff98aca6f45baf37bb420d7fe2, type: 3}
   punctuations:
   - {fileID: 8300000, guid: b4a78886068ec69419f6d816748528bc, type: 3}
   - {fileID: 8300000, guid: bff333a425c11374299d72155b164a8e, type: 3}
@@ -5279,7 +5279,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546595949742741789}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -41, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
