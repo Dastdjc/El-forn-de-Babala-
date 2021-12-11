@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     [System.Serializable] public class ConversationFinishEvent : UnityEvent { }
     public ConversationFinishEvent onConversationFinish;
 
-    private int conversationIndex = 0;
+    [HideInInspector]public int conversationIndex = 0;
     private bool conversationStarted = false;
     private bool nextDialogue = false;
 
