@@ -45,6 +45,7 @@ public class SpawnCustomers : MonoBehaviour
                 {
                     int which = Random.Range(0, 5);
                     CustomersNumber--;
+                    //Customer[0] es el de más a la derecha
                     Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
                     Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
                     Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
@@ -72,8 +73,16 @@ public class SpawnCustomers : MonoBehaviour
     static public int WhichToching()
     {
         int i = 0;
-        while (i < Customers.Length && Customers[i] == null) { i++; }
-        while(i < Customers.Length && !Customers[i].GetComponent<CustomerController>().tochingPlayer) { i++; while (i < Customers.Length && Customers[i] == null) { i++; } }
+        try
+        {
+            while (i < Customers.Length)
+            {
+                if (Customers[i] == null) i++;
+                if (Customers[i] != null && Customers[i].GetComponent<CustomerController>().tochingPlayer) break;
+            }
+        }
+        catch { Debug.Log(i); i = 4; }
+        
         return i;
     }
 }

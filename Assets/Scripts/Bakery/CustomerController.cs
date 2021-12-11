@@ -87,7 +87,7 @@ public class CustomerController : MonoBehaviour
                 //Anda a su sitio
                 case 0:
                     if (walk > 0) { parent.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { state++; }
+                    else { state++;parent.GetComponent<Animator>().SetBool("waitting",true); }
                     break;
                 //Tiene que pedir y hablar
                 //Está en el método OnMouseDown//

@@ -104,6 +104,7 @@ public class KilnController : MonoBehaviour
             ColorBar.color = new Color(0, 0, 0.5f);
         }
     }
+    public bool ImBusy() { return objectEntering == null; }
     public bool ImOpen() { return open; }
     static public void ReturnElec()
     {

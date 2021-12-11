@@ -16,7 +16,7 @@ public class BowlController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().ImBusy())
         {
             GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().GetToCook(DeterminateFood());
             FoodBar.BarVisibility();
@@ -102,6 +102,11 @@ public class BowlController : MonoBehaviour
         ingredients[index] += 1;
         Content.transform.position += new Vector3(0, Upmov, 0);
         //if(ingredients[0] > 2)BackIgredients();
-        FoodBar.AddItemToBar(ingr.itemImage, index, ingredients[index]);
+        int j = 0;
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList.Count; i++)
+        {
+            if (GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[i].type == ingr.type) { j = i; }
+        }
+        FoodBar.AddItemToBar(GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[j].itemImage, index, ingredients[index]);
     }
 }

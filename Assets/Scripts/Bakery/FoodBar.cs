@@ -27,6 +27,7 @@ public class FoodBar : MonoBehaviour
             AreActive++;
         }
         Bar[index].GetComponent<SpriteRenderer>().sprite = sp;
+        Bar[index].transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         float offset = (AreActive-1) * (-0.5f);
         for(int i = 0; i < Bar.Length; i++)
         {
