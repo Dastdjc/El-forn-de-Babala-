@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject NormalCustomer;
+    public GameObject[] NormalCustomer;
     static public GameObject[] Customers;
     private int CustomersNumber = -1;    
     private int firstPlace = -1;
@@ -43,8 +43,11 @@ public class SpawnCustomers : MonoBehaviour
                 int NewC = Random.Range(1, 5);
                 if (NewC == 1)
                 {
+                    int which = Random.Range(0, 5);
                     CustomersNumber--;
-                    Customers[firstPlace] = Instantiate(NormalCustomer, new Vector3(-12 - firstPlace * 4, -1.55f, 0), Quaternion.identity);
+                    Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
+                    Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
+                    Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
                 }
             }
         }

@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dore_player
       objectReference: {fileID: 0}
+    - target: {fileID: 1546595949742741792, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1546595949742741795, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: menu
       value: 

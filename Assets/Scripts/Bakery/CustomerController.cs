@@ -6,6 +6,7 @@ using TMPro;
 public class CustomerController : MonoBehaviour
 {
     public int TimeWaiting = 2;
+    public Transform parent;
     private RectTransform Mask;
     private SpriteRenderer image;
     /*public Conversation conversation;
@@ -18,8 +19,8 @@ public class CustomerController : MonoBehaviour
     private int satisfaction = 0;
     private int state;
     private float walk = 15;
-    private GameObject gmo;
-    private bool conversando;
+    //private GameObject gmo;
+    //private bool conversando;
     public bool tochingPlayer = false;
     static private CustomerController[] Instance = new CustomerController[4];
     //State == 0 cuando entra a la panadería
@@ -63,7 +64,7 @@ public class CustomerController : MonoBehaviour
     void Start()
     {
         //Se asigna la layer CustomerIn que no colisionan con CustomerIn
-        gameObject.layer = 3;
+        gameObject.layer = 6;
 
         
         //A medida que avanze y se desbloqueen más recetas el juego ,
@@ -85,7 +86,7 @@ public class CustomerController : MonoBehaviour
             {
                 //Anda a su sitio
                 case 0:
-                    if (walk > 0) { transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    if (walk > 0) { parent.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
                     else { state++; }
                     break;
                 //Tiene que pedir y hablar
@@ -99,9 +100,8 @@ public class CustomerController : MonoBehaviour
                     if (timer >= TimeWaiting)
                     {
                         state++;
-                        satisfaction = -3;
                         Talk(false);
-                        conversando = true;
+                        //conversando = true;
                     }
                     break;
                 
@@ -161,21 +161,11 @@ public class CustomerController : MonoBehaviour
                     state++;
                     break;
                 case 4:
-                    if(walk > 0) { transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    if(walk > 0) { parent.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
                     else { Destroy(gameObject); }
                     break;
             }
         }
-    }
-    public void OnMouseOver()
-    {
-        if(state == 2 && Time.timeScale ==1)
-            Talk(true);
-    }
-    public void OnMouseExit()
-    {
-        if (state == 2 && Time.timeScale == 1)
-            Talk(false);
     }
     public void PrintCommand()
     {
@@ -188,9 +178,18 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    private void OnMouseDown()
+    public void SetSatisfaction(Recipe food)
     {
-        if(state == 1)
+        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
+        //else if(options[1] == 0) { satisfaction = 2; }
+        else { satisfaction = 5; }
+        Debug.Log(satisfaction);
+        GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
+        state++;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (state == 1)
         {
             /*switch (command)
             {
@@ -229,37 +228,17 @@ public class CustomerController : MonoBehaviour
             }*/
             state = 2;
         }
-    }
-    //El horno o el inventario invocarán este método que determinará la satisfacción del cliente
-    //El array consta de options[0] que es el índice de la comida y options[1] que es como de cocinada está
-    public void SetSatisfaction(Recipe food)
-    {
-        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
-        //else if(options[1] == 0) { satisfaction = 2; }
-        else { satisfaction = 5; }
-        state++;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(state == 2)
+        if (state == 2)
         {
-            Debug.Log("I'm in");
+            Talk(true);
             tochingPlayer = true;
-            //GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = true;
+            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = true;
         }
-        Debug.Log("Holaaaaaaaaaa");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(state == 2)
-        {
-            Debug.Log("I'm out");
-            tochingPlayer = false;
-            //GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
-        }
-    }/*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Holaaaaaaaaaa");
-    }*/
+        Talk(false);
+        tochingPlayer = false;
+        GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
+    }
 }
