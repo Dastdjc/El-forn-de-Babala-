@@ -5276,12 +5276,20 @@ PrefabInstance:
       objectReference: {fileID: 1240521659}
     - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: voices.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: voices.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3901599af05874b44852e464c124163d, type: 3}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: voices.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c7d0f7dded9512468b74c6c7601924a, type: 3}
     - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: voices.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: a4e42fd64da0dd54bb6fffedd0d45c17, type: 3}
+      objectReference: {fileID: 8300000, guid: c6c2e62b02b8c204d89268d374cb4e6b, type: 3}
     - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: voices.Array.data[3]
       value: 
@@ -5289,7 +5297,27 @@ PrefabInstance:
     - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: voices.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: daedd6ff98aca6f45baf37bb420d7fe2, type: 3}
+      objectReference: {fileID: 8300000, guid: b217f892a93ea1a418981f3af879d845, type: 3}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: punctuations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: punctuations.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b4a78886068ec69419f6d816748528bc, type: 3}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: punctuations.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: bff333a425c11374299d72155b164a8e, type: 3}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: punctuations.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: bff333a425c11374299d72155b164a8e, type: 3}
+    - target: {fileID: 1546595948931064318, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1546595949559319290, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_Volume
       value: 0.7

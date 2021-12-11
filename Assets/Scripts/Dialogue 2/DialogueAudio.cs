@@ -12,32 +12,36 @@ public class DialogueAudio : MonoBehaviour
     [Space]
     public AudioSource voiceSource;
     public AudioSource punctuationSource;
+    public string character;
+    private DialogueManager dm;
 
     // Start is called before the first frame update
     void Start()
     {
         //villager = GetComponent<VillagerScript>();
 
-
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         animatedText.onTextReveal.AddListener((newChar) => ReproduceSound(newChar));
     }
 
     public void ReproduceSound(char c)
     {
 
-        
-        if (char.IsPunctuation(c) && !punctuationSource.isPlaying)
+        if (character == dm.conversation.lines[dm.conversationIndex].character.name)
         {
-            voiceSource.Stop();
-            punctuationSource.clip = punctuations[Random.Range(0, punctuations.Length)];
-            punctuationSource.Play();
-        }
+            if (c == '.' && !punctuationSource.isPlaying)
+            {
+                voiceSource.Stop();
+                punctuationSource.clip = punctuations[Random.Range(0, punctuations.Length)];
+                punctuationSource.Play();
+            }
 
-        if (char.IsLetter(c) && !voiceSource.isPlaying)
-        {
-            punctuationSource.Stop();
-            voiceSource.clip = voices[Random.Range(0, voices.Length)];
-            voiceSource.Play();
+            if (char.IsLetter(c) && !voiceSource.isPlaying)
+            {
+                punctuationSource.Stop();
+                voiceSource.clip = voices[Random.Range(0, voices.Length)];
+                voiceSource.Play();
+            }
         }
 
     }
