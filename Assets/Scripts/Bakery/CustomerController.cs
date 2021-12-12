@@ -22,6 +22,7 @@ public class CustomerController : MonoBehaviour
     //private GameObject gmo;
     //private bool conversando;
     public bool tochingPlayer = false;
+    public bool ImSpecial = false;
     static private CustomerController[] Instance = new CustomerController[4];
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
@@ -157,12 +158,12 @@ public class CustomerController : MonoBehaviour
                             }
                             break;
                     }*/
-                    walk = 15;
+                    walk = 18;
                     state++;
                     break;
                 case 4:
                     if(walk > 0) { parent.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { Destroy(gameObject); }
+                    else { Destroy(parent.gameObject); }
                     break;
             }
         }

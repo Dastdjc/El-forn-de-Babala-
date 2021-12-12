@@ -6,11 +6,13 @@ public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject[] NormalCustomer;
+    public GameObject[] SpecialCustomer;
     static public GameObject[] Customers;
     private int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
     static private SpawnCustomers Instance;
+    public bool SpawnigSpecial = false;
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class SpawnCustomers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 1 && CustomersNumber > 0)
+        if (Time.timeScale == 1 && CustomersNumber > 0 && !SpawnigSpecial)
         {
             CoolDown += Time.deltaTime;
             if (CoolDown > 2 && ThereSpace())
@@ -84,5 +86,33 @@ public class SpawnCustomers : MonoBehaviour
         catch { Debug.Log(i); i = 4; }
         
         return i;
+    }
+    public void SpawnSpecial(int SpecialID)
+    {
+        bool allNull = true;
+        int i = 0;
+        while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
+        if (allNull)
+        {
+            ThereSpace();
+            Customers[firstPlace] = Instantiate(SpecialCustomer[SpecialID], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
+            Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
+            Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
+            switch (SpecialID)//For setting customer dialog
+            {
+                case 0://Tombatossals
+                    break;
+                case 1://El dragón
+                    break;
+                case 2://Jaume
+                    break;
+                case 3://Butoni
+                    break;
+                case 4://SantVicent
+                    break;
+                case 5://Gulliver
+                    break;
+            }
+        }
     }
 }
