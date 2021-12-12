@@ -3538,7 +3538,7 @@ MonoBehaviour:
   player: {fileID: 1980098890}
   conversation: {fileID: 11400000, guid: 5a318e17fc238b24a8c30822f4296826, type: 2}
   dm: {fileID: 1140291188}
-  tutorialActivated: 1
+  tutorialActivated: 0
 --- !u!1 &1432928050
 GameObject:
   m_ObjectHideFlags: 0
