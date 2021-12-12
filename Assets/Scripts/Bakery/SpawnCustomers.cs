@@ -5,12 +5,14 @@ using UnityEngine;
 public class SpawnCustomers : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject NormalCustomer;
+    public GameObject[] NormalCustomer;
+    public GameObject[] SpecialCustomer;
     static public GameObject[] Customers;
     private int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
     static private SpawnCustomers Instance;
+    public bool SpawnigSpecial = false;
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class SpawnCustomers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 1 && CustomersNumber > 0)
+        if (Time.timeScale == 1 && CustomersNumber > 0 && !SpawnigSpecial)
         {
             CoolDown += Time.deltaTime;
             if (CoolDown > 2 && ThereSpace())
@@ -43,13 +45,17 @@ public class SpawnCustomers : MonoBehaviour
                 int NewC = Random.Range(1, 5);
                 if (NewC == 1)
                 {
+                    int which = Random.Range(0, 5);
                     CustomersNumber--;
-                    Customers[firstPlace] = Instantiate(NormalCustomer, new Vector3(-12 - firstPlace * 4, -1.55f, 0), Quaternion.identity);
-                    //DontDestroyOnLoad(Customers[firstPlace]);
+                    //Customer[0] es el de más a la derecha
+                    Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
+                    Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
+                    Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
+                    DontDestroyOnLoad(Customers[firstPlace]);
                 }
             }
         }
-        else if(CustomersNumber == 0) { Debug.Log("Se ha acabado el día"); }
+        else if(CustomersNumber == 0) { /*Debug.Log("Se ha acabado el día");*/ }
     }
     private bool ThereSpace()
     {
@@ -58,19 +64,58 @@ public class SpawnCustomers : MonoBehaviour
         firstPlace = -1;
         return false;
     }
-    static public void PauseScene()
+    static public void PauseScene(bool pause)
     {
-        if (Time.timeScale == 1) Time.timeScale = 0;
+        if (pause) Time.timeScale = 0;
         else Time.timeScale = 1;
         for(int i = 0; i < Customers.Length; i++)
         {
-            Customers[i].SetActive(Time.timeScale == 1);
+            Customers[i].SetActive(pause);
         }
     }
     static public int WhichToching()
     {
         int i = 0;
-        while(!Customers[i].GetComponent<CustomerController>().tochingPlayer && i < Customers.Length) { i++; }
+        /*try
+        {*/
+            while (i < 4)
+            {
+                if (Customers[i] == null) i++;
+                if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount-1).GetComponent<CustomerController>().tochingPlayer) break;
+                i++;
+            }
+        /*}
+        catch { Debug.Log(i); i = 4; }*/
+        
         return i;
+    }
+    public void SpawnSpecial(int SpecialID)
+    {
+        bool allNull = true;
+        int i = 0;
+        CustomersNumber = 0;
+        while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
+        if (allNull)
+        {
+            ThereSpace();
+            Customers[firstPlace] = Instantiate(SpecialCustomer[SpecialID], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
+            Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
+            Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
+            switch (SpecialID)//For setting customer dialog
+            {
+                case 0://Tombatossals
+                    break;
+                case 1://El dragón
+                    break;
+                case 2://Jaume
+                    break;
+                case 3://Butoni
+                    break;
+                case 4://SantVicent
+                    break;
+                case 5://Gulliver
+                    break;
+            }
+        }
     }
 }

@@ -27,6 +27,7 @@ public class DialogueManagerCM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TextPro = GameObject.Find("DialogueManager").transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Animated>();
         //TextPro.text = conversation.lines[0].text;
         TextPro.onDialogueFinish.AddListener(canSkip);
         
@@ -73,6 +74,11 @@ public class DialogueManagerCM : MonoBehaviour
     }
     void setUpConversation()
     {
+        /*TargetGroup = GameObject.Find("DialogueManager").transform.GetChild(2).GetComponent<CinemachineTargetGroup>();
+        dialogueCamera = GameObject.Find("DialogueManager").transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+        dialogueBox = GameObject.Find("DialogueManager").transform.GetChild(0).gameObject;
+        boxAnimation = GameObject.Find("DialogueManager").transform.GetChild(0).GetComponent<Animator>();*/
+
         TargetGroup.m_Targets[1].target = NPC;
         dialogueCamera.Priority = 11;
         dialogueBox.SetActive(true);
@@ -90,6 +96,7 @@ public class DialogueManagerCM : MonoBehaviour
     }
     void ChangeTMPText(int a)
     {
+
         TextPro.text = conversation.lines[a].text;
         Line.Mood lineMood = conversation.lines[a].Emotion;
         Character character = conversation.lines[a].character;

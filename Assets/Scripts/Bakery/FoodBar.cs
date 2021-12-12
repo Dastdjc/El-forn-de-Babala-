@@ -9,12 +9,14 @@ public class FoodBar : MonoBehaviour
     static private GameObject Example;
     [HideInInspector]static private GameObject[] Bar;
     static private int AreActive = 0;
+    static public Transform Camara;
     private void Start()
     {
         Bar = new GameObject[13];
         Example = gameObject.transform.GetChild(2).gameObject;
-        for(int i = 0; i < Bar.Length; i++) { Bar[i] = Instantiate(Example); Bar[i].SetActive(false); }
-        Destroy(Example);
+        Example.SetActive(false);
+        for(int i = 0; i < Bar.Length; i++) { Bar[i] = Instantiate(Example); }
+        Camara = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     static public void AddItemToBar(Sprite sp, int index, int q)
@@ -25,12 +27,14 @@ public class FoodBar : MonoBehaviour
             AreActive++;
         }
         Bar[index].GetComponent<SpriteRenderer>().sprite = sp;
+        Bar[index].transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         float offset = (AreActive-1) * (-0.5f);
         for(int i = 0; i < Bar.Length; i++)
         {
             if (Bar[i].activeSelf) 
             {
-                Bar[i].transform.position = new Vector3(offset, 2, 0);
+                Bar[i].transform.position = new Vector3(offset, 3, 0);
+                Bar[i].transform.position += new Vector3(Camara.position.x, 0, 0);
                 offset += 1;
                 Bar[index].transform.GetChild(0).GetComponent<TextMeshPro>().text = q.ToString();
             }
@@ -38,7 +42,15 @@ public class FoodBar : MonoBehaviour
             
         }
     }
-    static public void DestroyBar() { Bar = null; }
+    static public void BarVisibility()
+    {
+        for(int i = 0; i < Bar.Length; i++)
+        {
+            Bar[i].SetActive(false);
+            Bar[i].transform.GetChild(0).GetComponent<TextMeshPro>().text = "";
+        }
+        AreActive = 0;
+    }
 
     /*
     //Hay que pasar los ingredientes por cada barra? Por código o algún fichero?

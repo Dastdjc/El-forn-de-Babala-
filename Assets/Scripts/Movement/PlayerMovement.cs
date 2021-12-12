@@ -110,7 +110,8 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DashWait() // Función que no se ejecuta en cada frame
     {
-        for (float i = 6; i >= 0; i-- ) {
+        for (float i = 6; i >= 0; i--)
+        {
             rb.drag -= 1;
             yield return new WaitForSeconds(.05f);  // Tiempo que se espera en cada frame para volver a la ejecución de la función
         }

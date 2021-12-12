@@ -5,7 +5,8 @@ using TMPro;
 
 public class CustomerController : MonoBehaviour
 {
-    public int TimeWaiting = 2;
+    public int TimeWaiting = 1;
+    public Transform parent;
     private RectTransform Mask;
     private SpriteRenderer image;
     public Conversation conversation;
@@ -21,6 +22,9 @@ public class CustomerController : MonoBehaviour
     private GameObject gmo;
     private bool conversando;
     public bool tochingPlayer = false;
+    public bool ImSpecial = false;
+    //static private CustomerController[] Instance = new CustomerController[4];
+    static public int MaxIndexRecipe;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -36,16 +40,34 @@ public class CustomerController : MonoBehaviour
 
     private void Awake()
     {
+        /*int i = 0;
+        int j = 0;
+        while(Instance[i] != null)
+        {
+            i++;
+            if (Instance[i] == this) j = i;
+        }
+        if (i < 4)
+        {
+            Instance[i] = this;
+            while(parent != null) { }
+            DontDestroyOnLoad(parent);
+            
+        else if (Instance[j] != this)
+        {
+            Destroy(gameObject);
+        }*/
         gmo = GameObject.FindGameObjectWithTag("dialogo");
         if (gmo != null)
         {
             dmcm = gmo.GetComponent<DialogueManagerCM>();
         }
     }
+
     void Start()
     {
         //Se asigna la layer CustomerIn que no colisionan con CustomerIn
-        gameObject.layer = 3;
+        gameObject.layer = 6;
 
         
         //A medida que avanze y se desbloqueen más recetas el juego ,
@@ -62,12 +84,13 @@ public class CustomerController : MonoBehaviour
     {
         if(Time.timeScale == 1)
         {
+            //if(Instance[0] == this)Debug.Log(state);
             switch (state)
             {
                 //Anda a su sitio
                 case 0:
-                    if (walk > 0) { transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { state++; }
+                    if (walk > 0) { parent.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { state++;parent.GetComponent<Animator>().SetBool("waitting",true); }
                     break;
                 //Tiene que pedir y hablar
                 //Está en el método OnMouseDown//
@@ -79,8 +102,7 @@ public class CustomerController : MonoBehaviour
                     image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
                     if (timer >= TimeWaiting)
                     {
-                        state++;
-                        satisfaction = -3;
+                        state = 3;
                         Talk(false);
                         conversando = true;
                     }
@@ -89,7 +111,7 @@ public class CustomerController : MonoBehaviour
                 case 3:
                     switch (satisfaction)
                     {
-                        case -2:
+                        case 0:
                             //Se va a su casa enfadado
                             //se va por tiempo
                             if (conversando)
@@ -101,7 +123,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case -1:
+                        case -3:
                             //pedido malo
                             //te has equivocado de ingredientes o es otro plato
                             if (conversando)
@@ -113,7 +135,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 0:
+                        case 2:
                             //pedido medio
                             //el plato correcto pero no está en el punto del horno
                             if (conversando)
@@ -125,12 +147,12 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 1:
+                        case 5:
                             //pedido bueno
                             //todo perfecto
                             if (conversando)
                             {
-                                dmcm.index = Random.Range(0, 7);
+                                dmcm.index = Random.Range(0, 6);
                                 dmcm.NPC = transform;
                                 dmcm.conversation = bueno;
                                 dmcm.inConversation = true;
@@ -138,25 +160,15 @@ public class CustomerController : MonoBehaviour
                             }
                             break;
                     }
-                    walk = 15;
+                    walk = 18;
                     state++;
                     break;
                 case 4:
-                    if(walk > 0) { transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { Destroy(gameObject); }
+                    if(walk > 0) { parent.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { Destroy(parent.gameObject); }
                     break;
             }
         }
-    }
-    public void OnMouseOver()
-    {
-        if(state == 2 && Time.timeScale ==1)
-            Talk(true);
-    }
-    public void OnMouseExit()
-    {
-        if (state == 2 && Time.timeScale == 1)
-            Talk(false);
     }
     public void PrintCommand()
     {
@@ -169,11 +181,22 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    private void OnMouseDown()
+    public void SetSatisfaction(Recipe food)
     {
-        if(state == 1)
+        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
+        //else if(options[1] == 0) { satisfaction = 2; }
+        else { satisfaction = 5; }
+        Debug.Log(satisfaction);
+        GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
+        conversando = true;
+        //Calcular satisfacción
+        state = 3;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (state == 1)
         {
-            /*switch (command)
+            switch (command)
             {
                 case Recetas.Mona:
                     dmcm.index = Random.Range(0, 2);
@@ -207,25 +230,20 @@ public class CustomerController : MonoBehaviour
                     break;
                 default:
                     break;
-            }*/
-            state++;
+            }
+            state = 2;
         }
-    }
-    //El horno o el inventario invocarán este método que determinará la satisfacción del cliente
-    //El array consta de options[0] que es el índice de la comida y options[1] que es como de cocinada está
-    public void SetSatisfaction(Recipe food)
-    {
-        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
-        //else if(options[1] == 0) { satisfaction = 2; }
-        else { satisfaction = 5; }
-        state++;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        tochingPlayer = true;
+        if (state == 2)
+        {
+            Talk(true);
+            tochingPlayer = true;
+            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = true;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        Talk(false);
         tochingPlayer = false;
+        GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
     }
 }

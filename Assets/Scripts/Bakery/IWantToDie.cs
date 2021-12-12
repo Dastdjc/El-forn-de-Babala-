@@ -27,7 +27,7 @@ public class IWantToDie : MonoBehaviour
     }*/
     private void OnMouseDown()
     {
-
+        KilnController.PassToInv();
         Destroy(gameObject);
     }
 }

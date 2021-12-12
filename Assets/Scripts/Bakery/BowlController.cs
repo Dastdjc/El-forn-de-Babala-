@@ -16,9 +16,10 @@ public class BowlController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().ImBusy())
         {
             GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().GetToCook(DeterminateFood());
+            FoodBar.BarVisibility();
         }
     }
     private int DeterminateFood()
@@ -52,6 +53,7 @@ public class BowlController : MonoBehaviour
         if (IsEnough(recipe)) { return 7; }
         recipe = new int[] { 0, 0, 0, 0, 6, 1, 0, 2, 1, 6, 6 };
         if (IsEnough(recipe)) { return 8; }
+        Resset();
         return -1;
     }
     private bool IsEnough(int[] q) 
@@ -63,6 +65,7 @@ public class BowlController : MonoBehaviour
             if (ingredients[i] < q[i]) isOnbowl = false;
             i++;
         }
+        if (isOnbowl) Resset();
         return isOnbowl; 
     }
     private void Resset() 
@@ -99,6 +102,11 @@ public class BowlController : MonoBehaviour
         ingredients[index] += 1;
         Content.transform.position += new Vector3(0, Upmov, 0);
         //if(ingredients[0] > 2)BackIgredients();
-        FoodBar.AddItemToBar(ingr.itemImage, index, ingredients[index]);
+        int j = 0;
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList.Count; i++)
+        {
+            if (GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[i].type == ingr.type) { j = i; }
+        }
+        FoodBar.AddItemToBar(GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[j].itemImage, index, ingredients[index]);
     }
 }
