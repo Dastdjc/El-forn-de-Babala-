@@ -65,7 +65,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.AnimacionPanaderia);
         else if (conversationIndex == 1) // Acabado segundo dialogo (empieza tutorial)
             GameManager.Instance.UpdateGameState(GameManager.GameState.Tutorial);
-        if (conversationIndex!= 2)
+        if (conversationIndex!= 2 && conversationIndex != 3)
             conversationIndex++;
     }
 }

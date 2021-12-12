@@ -13411,7 +13411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858475628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -41, y: 18, z: 0}
+  m_LocalPosition: {x: 57, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 371994043}
@@ -13671,8 +13671,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 0.6436953, g: 1, b: 0.53207546, a: 1}
+      minMaxState: 2
+      minColor: {r: 0.4009552, g: 1, b: 0.22075468, a: 1}
       maxColor: {r: 0.6773364, g: 0.9811321, b: 0.5127803, a: 1}
       maxGradient:
         serializedVersion: 2
@@ -14118,7 +14118,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1000, y: 10.4, z: 1}
+    m_Scale: {x: 688.26, y: 12.54, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0

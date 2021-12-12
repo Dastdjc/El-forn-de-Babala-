@@ -209,7 +209,9 @@ public class GameManager : MonoBehaviour
         DesbloquearEdificio(Edificios.Panaderia);
         if (tutorialCocina)
         {
-            //wallToPanadería.SetActive(true);
+            //wallToPanadería.SetActive(true); No hacer esto porque en la escena ya está puesto a true, y como cambiamos de escena se rompe (la referencia se pierde)
+            mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+            mifa.conversationIndex = 3;
         }
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
