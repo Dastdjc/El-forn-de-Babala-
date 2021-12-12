@@ -27,6 +27,7 @@ public class KilnController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Inventory = GameObject.FindGameObjectWithTag("Inventory");
     }
 
     private void Start() 

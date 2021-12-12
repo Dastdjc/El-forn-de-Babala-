@@ -51,10 +51,11 @@ public class SpawnCustomers : MonoBehaviour
                     Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
                     Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
                     Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
+                    DontDestroyOnLoad(Customers[firstPlace]);
                 }
             }
         }
-        else if(CustomersNumber == 0) { Debug.Log("Se ha acabado el día"); }
+        else if(CustomersNumber == 0) { /*Debug.Log("Se ha acabado el día");*/ }
     }
     private bool ThereSpace()
     {
@@ -63,27 +64,28 @@ public class SpawnCustomers : MonoBehaviour
         firstPlace = -1;
         return false;
     }
-    static public void PauseScene()
+    static public void PauseScene(bool pause)
     {
-        if (Time.timeScale == 1) Time.timeScale = 0;
+        if (pause) Time.timeScale = 0;
         else Time.timeScale = 1;
         for(int i = 0; i < Customers.Length; i++)
         {
-            Customers[i].SetActive(Time.timeScale == 1);
+            Customers[i].SetActive(pause);
         }
     }
     static public int WhichToching()
     {
         int i = 0;
-        try
-        {
-            while (i < Customers.Length)
+        /*try
+        {*/
+            while (i < 4)
             {
                 if (Customers[i] == null) i++;
-                if (Customers[i] != null && Customers[i].GetComponent<CustomerController>().tochingPlayer) break;
+                if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount-1).GetComponent<CustomerController>().tochingPlayer) break;
+                i++;
             }
-        }
-        catch { Debug.Log(i); i = 4; }
+        /*}
+        catch { Debug.Log(i); i = 4; }*/
         
         return i;
     }
@@ -91,6 +93,7 @@ public class SpawnCustomers : MonoBehaviour
     {
         bool allNull = true;
         int i = 0;
+        CustomersNumber = 0;
         while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
         if (allNull)
         {

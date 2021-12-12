@@ -257,8 +257,9 @@ public class Inventory : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F) && touchingCustomer && SpawnCustomers.WhichToching() < 4)
                 {
                     //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
-                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].GetComponent<CustomerController>().SetSatisfaction(recipeBySlotList[recetID]);
+                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.GetChild(SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.childCount - 1).GetComponent<CustomerController>().SetSatisfaction(recipeBySlotList[recetID]);
                     recipeBySlotList[recetID].amount--;
+                    OpenCloseInventory();
                 }
             }
 

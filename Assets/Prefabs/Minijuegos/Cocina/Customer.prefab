@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7910050923945453033}
   - component: {fileID: 1004551546637682713}
   - component: {fileID: 1805441284343643451}
+  - component: {fileID: 4137603504095328045}
   m_Layer: 6
   m_Name: Customer
   m_TagString: Untagged
@@ -163,7 +164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeWaiting: 2
+  parent: {fileID: 0}
+  conversation: {fileID: 11400000, guid: 9074345b8f6c9234eb900a8744253a7a, type: 2}
+  enfadado: {fileID: 11400000, guid: b7a3eefb45512d941bd7c50923f71385, type: 2}
+  bueno: {fileID: 11400000, guid: eb3bac78da1ad014c8899465659342ac, type: 2}
+  medio: {fileID: 11400000, guid: 3e213db815e93bb44b6735e1a927a746, type: 2}
+  malo: {fileID: 11400000, guid: b7a3eefb45512d941bd7c50923f71385, type: 2}
+  dmcm: {fileID: 4137603504095328045}
   tochingPlayer: 0
+  ImSpecial: 0
 --- !u!95 &1805441284343643451
 Animator:
   serializedVersion: 3
@@ -183,6 +192,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4137603504095328045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004551546637683174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2e7c2dacf97f845a0fcb141030fd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 0}
+  conversation: {fileID: 0}
+  NPC: {fileID: 0}
+  TextPro: {fileID: 0}
+  boxAnimation: {fileID: 0}
+  dialogueBox: {fileID: 0}
+  inConversation: 0
+  dialogueCamera: {fileID: 0}
+  TargetGroup: {fileID: 0}
+  index: 0
 --- !u!1 &1004551547286603116
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,25 +5,26 @@ using TMPro;
 
 public class CustomerController : MonoBehaviour
 {
-    public int TimeWaiting = 2;
+    public int TimeWaiting = 1;
     public Transform parent;
     private RectTransform Mask;
     private SpriteRenderer image;
-    /*public Conversation conversation;
+    public Conversation conversation;
     public Conversation enfadado;
     public Conversation bueno;
     public Conversation medio;
     public Conversation malo;
-    public DialogueManagerCM dmcm;*/
+    public DialogueManagerCM dmcm;
     private float timer = 0;
     private int satisfaction = 0;
     private int state;
     private float walk = 15;
-    //private GameObject gmo;
-    //private bool conversando;
+    private GameObject gmo;
+    private bool conversando;
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
-    static private CustomerController[] Instance = new CustomerController[4];
+    //static private CustomerController[] Instance = new CustomerController[4];
+    static public int MaxIndexRecipe;
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
@@ -37,9 +38,9 @@ public class CustomerController : MonoBehaviour
     }
     private Recetas command;
 
-    /*private void Awake()
+    private void Awake()
     {
-        int i = 0;
+        /*int i = 0;
         int j = 0;
         while(Instance[i] != null)
         {
@@ -49,19 +50,20 @@ public class CustomerController : MonoBehaviour
         if (i < 4)
         {
             Instance[i] = this;
-            DontDestroyOnLoad(gameObject);
-            gmo = GameObject.FindGameObjectWithTag("dialogo");
-            if (gmo != null)
-            {
-                dmcm = gmo.GetComponent<DialogueManagerCM>();
-            }
-        }
+            while(parent != null) { }
+            DontDestroyOnLoad(parent);
+            
         else if (Instance[j] != this)
         {
             Destroy(gameObject);
+        }*/
+        gmo = GameObject.FindGameObjectWithTag("dialogo");
+        if (gmo != null)
+        {
+            dmcm = gmo.GetComponent<DialogueManagerCM>();
         }
-        
-    }*/
+    }
+
     void Start()
     {
         //Se asigna la layer CustomerIn que no colisionan con CustomerIn
@@ -100,16 +102,16 @@ public class CustomerController : MonoBehaviour
                     image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
                     if (timer >= TimeWaiting)
                     {
-                        state++;
+                        state = 3;
                         Talk(false);
-                        //conversando = true;
+                        conversando = true;
                     }
                     break;
                 
-                case 3:/*
+                case 3:
                     switch (satisfaction)
                     {
-                        case -2:
+                        case 0:
                             //Se va a su casa enfadado
                             //se va por tiempo
                             if (conversando)
@@ -121,7 +123,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case -1:
+                        case -3:
                             //pedido malo
                             //te has equivocado de ingredientes o es otro plato
                             if (conversando)
@@ -133,7 +135,7 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 0:
+                        case 2:
                             //pedido medio
                             //el plato correcto pero no está en el punto del horno
                             if (conversando)
@@ -145,19 +147,19 @@ public class CustomerController : MonoBehaviour
                                 conversando = false;
                             }
                             break;
-                        case 1:
+                        case 5:
                             //pedido bueno
                             //todo perfecto
                             if (conversando)
                             {
-                                dmcm.index = Random.Range(0, 7);
+                                dmcm.index = Random.Range(0, 6);
                                 dmcm.NPC = transform;
                                 dmcm.conversation = bueno;
                                 dmcm.inConversation = true;
                                 conversando = false;
                             }
                             break;
-                    }*/
+                    }
                     walk = 18;
                     state++;
                     break;
@@ -186,13 +188,15 @@ public class CustomerController : MonoBehaviour
         else { satisfaction = 5; }
         Debug.Log(satisfaction);
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
-        state++;
+        conversando = true;
+        //Calcular satisfacción
+        state = 3;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (state == 1)
         {
-            /*switch (command)
+            switch (command)
             {
                 case Recetas.Mona:
                     dmcm.index = Random.Range(0, 2);
@@ -226,7 +230,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 default:
                     break;
-            }*/
+            }
             state = 2;
         }
         if (state == 2)
