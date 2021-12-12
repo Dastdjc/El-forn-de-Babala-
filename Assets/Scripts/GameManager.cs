@@ -205,7 +205,8 @@ public class GameManager : MonoBehaviour
     void Pueblo() // Función que se ejecuta al volver al pueblo nada después de AWAKE y antes de START
     {
         // Volviendo a pueblo...
-        Debug.Log("Volviendo a pueblo...");
+        //Debug.Log("Volviendo a pueblo...");
+        DesbloquearEdificio(Edificios.Panaderia);
         if (tutorialCocina)
         {
             //wallToPanadería.SetActive(true);
