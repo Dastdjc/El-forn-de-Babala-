@@ -53,7 +53,6 @@ public class JumpToScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
         if (!JustClick) trigger = true;
         transform.GetChild(0).gameObject.SetActive(true);
     }

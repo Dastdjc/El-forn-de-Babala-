@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameState state = GameState.InicioJuego;
-    public GameObject[] edificios;
     static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
+    public GameObject[] edificios;
 
     public static event System.Action<GameState> OnGameStateChanged;
 
@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour
         }
         else if (scene.name == "MarcParallax_Dash") 
         {
+            Debug.Log("EnBosque");
             Bosque();
         }
         else if (scene.name == "Bakery") 
@@ -204,10 +205,13 @@ public class GameManager : MonoBehaviour
     void Pueblo() // Función que se ejecuta al volver al pueblo nada después de AWAKE y antes de START
     {
         // Volviendo a pueblo...
-        Debug.Log("Volviendo a pueblo...");
+        //Debug.Log("Volviendo a pueblo...");
+        DesbloquearEdificio(Edificios.Panaderia);
         if (tutorialCocina)
         {
-            //wallToPanadería.SetActive(true);
+            //wallToPanadería.SetActive(true); No hacer esto porque en la escena ya está puesto a true, y como cambiamos de escena se rompe (la referencia se pierde)
+            mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+            mifa.conversationIndex = 3;
         }
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
@@ -274,7 +278,12 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
-    private enum Edificios 
+
+    public void DesbloquearEdificio(Edificios indice) 
+    {
+        edificios[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
+    }
+    public enum Edificios 
     { 
         Panaderia,
         Gas,

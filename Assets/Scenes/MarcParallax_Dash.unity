@@ -13993,6 +13993,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.99083686
       objectReference: {fileID: 0}
+    - target: {fileID: 4973685732679358512, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.11215659
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973685732679358512, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.99369055
+      objectReference: {fileID: 0}
     - target: {fileID: 7133218232293846360, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.000000003958108
@@ -14043,7 +14051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0cf1f3d2461984a8bdb33cfee80dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToJump: 9
+  SceneToJump: 7
   JustClick: 0
   transition: {fileID: 491317054}
   transitionTime: 1

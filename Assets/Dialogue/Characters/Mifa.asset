@@ -15,4 +15,8 @@ MonoBehaviour:
   fullName: Mifa
   mood:
   - emotion: 0
-    graphic: {fileID: 21300000, guid: 005cdb674f4eafe418cd433a57713b6d, type: 3}
+    graphic: {fileID: 21300000, guid: 176a247c028f4ac438cbf090ad380ffb, type: 3}
+  - emotion: 1
+    graphic: {fileID: 21300000, guid: 535d15384badec3409caae422f7a3a5d, type: 3}
+  - emotion: 6
+    graphic: {fileID: 21300000, guid: c47b6868fdc972a469547c29047b2e23, type: 3}

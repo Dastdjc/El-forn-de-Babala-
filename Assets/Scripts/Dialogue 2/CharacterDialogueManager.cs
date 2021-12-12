@@ -17,6 +17,7 @@ public class CharacterDialogueManager : MonoBehaviour
     private bool spokenTo = false;
     private Conversation conversationInstace;
     private SpriteRenderer sr;
+    private Material material;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class CharacterDialogueManager : MonoBehaviour
         conversationInstace.lines.AddRange(continuation.lines);
 
         sr = GetComponent<SpriteRenderer>();
+        material = sr.material;
     }
     // Update is called once per frame
     void Update()
@@ -40,7 +42,11 @@ public class CharacterDialogueManager : MonoBehaviour
        
         if (closeEnough)
         {
-            transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            if (!dm.inConversation)
+                material.SetFloat("Thickness", 0.02f);
+            else
+                material.SetFloat("Thickness", 0f);
+            //transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
             if (player.position.x > this.transform.position.x)
                 sr.flipX = true;
             else sr.flipX = false;
@@ -52,8 +58,9 @@ public class CharacterDialogueManager : MonoBehaviour
                 dm.inConversation = true;
             }
         }
-        else {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+        else
+        {
+            material.SetFloat("Thickness", 0f);
         }
 
         if (Vector2.Distance(player.position, transform.position) <= detectionRange) {
