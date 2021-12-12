@@ -16,11 +16,18 @@ public class MifaCharacterDialogueManager : MonoBehaviour
     private Material material;
     public int conversationIndex { get; set; }
 
+    private bool firstTime = true;
+    /*public GameObject pulsaE;
+    private Animator pulsaEAnim;*/
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         dm.onConversationFinish.AddListener(nextConversation);
         material = sr.material;
+
+        /*pulsaE = GameObject.Find("Pulsa E");
+        pulsaEAnim = pulsaE.GetComponent<Animator>();*/
     }
     // Update is called once per frame
     void Update()
@@ -45,6 +52,12 @@ public class MifaCharacterDialogueManager : MonoBehaviour
                 dm.NPC = transform;
                 dm.conversation = conversation[conversationIndex];
                 dm.inConversation = true;
+
+                /*if (firstTime) 
+                {
+                    pulsaEAnim.SetTrigger("PulsaE");
+                    firstTime = false;
+                }*/
             }
         }
         else
@@ -68,4 +81,8 @@ public class MifaCharacterDialogueManager : MonoBehaviour
         if (conversationIndex!= 2 && conversationIndex != 3)
             conversationIndex++;
     }
+   /* void EliminarPulsaE() 
+    {
+        pulsaE.SetActive(false);
+    }*/
 }

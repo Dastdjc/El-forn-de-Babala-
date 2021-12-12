@@ -38,6 +38,12 @@ public class MenuScript : MonoBehaviour
     }
     public void ChangeScene(int index) 
     {
+        if (index == 0) 
+        {
+            Destroy(GameManager.Instance);
+            Destroy(GameObject.Find("GAME MANAGER"));
+            Destroy(GameObject.Find("SERVICIOS"));
+        }
         StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
         Time.timeScale = 1; 
         StartCoroutine(LoadLevel(index));
