@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameState state = GameState.InicioJuego;
-    public GameObject[] edificios;
     static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
+    public GameObject[] edificios;
 
     public static event System.Action<GameState> OnGameStateChanged;
 
@@ -275,7 +275,12 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
-    private enum Edificios 
+
+    public void DesbloquearEdificio(Edificios indice) 
+    {
+        edificios[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
+    }
+    public enum Edificios 
     { 
         Panaderia,
         Gas,
