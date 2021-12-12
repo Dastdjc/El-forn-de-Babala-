@@ -15,4 +15,10 @@ MonoBehaviour:
   fullName: El dragon del patriarca
   mood:
   - emotion: 0
-    graphic: {fileID: 21300000, guid: 06bd20111622ef1439de84e1e688542c, type: 3}
+    graphic: {fileID: 21300000, guid: 0913c88ddf0fc774ab972f5ad1ada1d9, type: 3}
+  - emotion: 1
+    graphic: {fileID: 21300000, guid: 927ee2f5322c6e34e915a40b15c4d750, type: 3}
+  - emotion: 5
+    graphic: {fileID: 21300000, guid: 1b3d0480b55e14845bff3ad6f533c65e, type: 3}
+  - emotion: 4
+    graphic: {fileID: 21300000, guid: 1924b85453bd8be499bdb90a896b1699, type: 3}
