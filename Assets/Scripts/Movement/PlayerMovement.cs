@@ -126,4 +126,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isDashing", false);
         dashParticles.SetActive(false);
     }
+    public Rigidbody2D GetRB() 
+    {
+        return rb;
+    }
 }

@@ -206,15 +206,18 @@ public class GameManager : MonoBehaviour
     {
         // Volviendo a pueblo...
         //Debug.Log("Volviendo a pueblo...");
+
+        // Activar edificios y mostrar la panadería
+        servicios.SetActive(true);
         DesbloquearEdificio(Edificios.Panaderia);
         if (tutorialCocina)
         {
             //wallToPanadería.SetActive(true); No hacer esto porque en la escena ya está puesto a true, y como cambiamos de escena se rompe (la referencia se pierde)
+            // Poner nueva conversación a Mifa
             mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
             mifa.conversationIndex = 3;
         }
-        // Activar edificios y mostrar la panadería
-        servicios.SetActive(true);
+       
         Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
         panaderia_anim.SetTrigger("panaderia2");
 

@@ -5,7 +5,7 @@ using TMPro;
 
 public class CustomerController : MonoBehaviour
 {
-    public int TimeWaiting = 1;
+    public float TimeWaiting = 0.8f;
     public Transform parent;
     private RectTransform Mask;
     private SpriteRenderer image;
@@ -25,9 +25,13 @@ public class CustomerController : MonoBehaviour
     public bool ImSpecial = false;
     //static private CustomerController[] Instance = new CustomerController[4];
     static public int MaxIndexRecipe;
+
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
+
+    public SpriteRenderer sr;
+    private Material outline;
     enum Recetas
     {
         Mona = 0,
@@ -79,6 +83,18 @@ public class CustomerController : MonoBehaviour
         Mask = gameObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>();
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
+
+        outline = sr.material;
+    }
+    private void Update()
+    {
+        if (state == 1) 
+        {
+            if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
+            {
+                Pedir();
+            }
+        }
     }
     void FixedUpdate()
     {
@@ -95,6 +111,7 @@ public class CustomerController : MonoBehaviour
                 //Tiene que pedir y hablar
                 //Está en el método OnMouseDown//
                 //Espera a que le des su comida
+                //case 1
                 case 2:
                     timer += 0.001f;
                     
@@ -192,9 +209,51 @@ public class CustomerController : MonoBehaviour
         //Calcular satisfacción
         state = 3;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void Pedir() {
+        
+            switch (command)
+            {
+                case Recetas.Mona:
+                    dmcm.index = Random.Range(0, 2);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Flaons:
+                    dmcm.index = Random.Range(12, 14);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Farinada:
+                    dmcm.index = Random.Range(2, 4);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Fartons:
+                    dmcm.index = Random.Range(8, 10);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                case Recetas.Bunyols:
+                    dmcm.index = Random.Range(4, 6);
+                    dmcm.NPC = transform;
+                    dmcm.conversation = conversation;
+                    dmcm.inConversation = true;
+                    break;
+                default:
+                    break;
+            }
+        state = 2;
+        OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (state == 1)
+        outline.SetFloat("Thickness",0.03f);
+        /*if (state == 1)
         {
             switch (command)
             {
@@ -232,16 +291,18 @@ public class CustomerController : MonoBehaviour
                     break;
             }
             state = 2;
-        }
+        }*/
         if (state == 2)
         {
             Talk(true);
             tochingPlayer = true;
             GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = true;
         }
+        tochingPlayer = true;
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        outline.SetFloat("Thickness", 0);
         Talk(false);
         tochingPlayer = false;
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;

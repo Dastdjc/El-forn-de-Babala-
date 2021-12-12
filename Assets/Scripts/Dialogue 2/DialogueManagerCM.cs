@@ -23,6 +23,7 @@ public class DialogueManagerCM : MonoBehaviour
     private float startTime;
     private float t;
     private bool timer = true;
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,20 @@ public class DialogueManagerCM : MonoBehaviour
         TextPro = GameObject.Find("DialogueManager").transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Animated>();
         //TextPro.text = conversation.lines[0].text;
         TextPro.onDialogueFinish.AddListener(canSkip);
+        playerMovement = GameObject.Find("Dore_player").GetComponent<PlayerMovement>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (inConversation)
         {
+            playerMovement.GetRB().velocity = new Vector2(0f, 0f);
+            playerMovement.idle_anim.SetActive(true);
+            playerMovement.animator.SetFloat("speed", 0);
+            playerMovement.enabled = false;
             if (conversationIndex >= 1)
             {
                 boxAnimation.SetBool("Cartel", false);
@@ -49,12 +55,12 @@ public class DialogueManagerCM : MonoBehaviour
             }
             else
             {
-                 if (!conversationStarted)
-                 {
-                     setUpConversation();
-                     showDialogue(index);
-                 }
-                 conversationStarted = true;
+                if (!conversationStarted)
+                {
+                    setUpConversation();
+                    showDialogue(index);
+                }
+                conversationStarted = true;
                 if (timer)
                 {
                     startTime = Time.time;
@@ -70,6 +76,10 @@ public class DialogueManagerCM : MonoBehaviour
                     timer = true;
                 }
             }
+        }
+        else 
+        {
+            playerMovement.enabled = true;
         }
     }
     void setUpConversation()

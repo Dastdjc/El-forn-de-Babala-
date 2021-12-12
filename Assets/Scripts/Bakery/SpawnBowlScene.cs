@@ -14,14 +14,14 @@ public class SpawnBowlScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Texto.GetComponent<TextMeshPro>().text = "Pulsa R para poner ingredientes";
+        Texto.GetComponent<TextMeshPro>().text = "Pulsa E para poner ingredientes";
         Texto.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && touchingPlayer)
+        if (Input.GetKeyDown(KeyCode.E) && touchingPlayer)
         {
             if(Time.timeScale == 1)
             {
@@ -42,12 +42,12 @@ public class SpawnBowlScene : MonoBehaviour
         }
         if (task.activeSelf) { Time.timeScale = 0; }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         touchingPlayer = true;
         Texto.SetActive(true);
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         touchingPlayer = false;
         Texto.SetActive(false);

@@ -367,10 +367,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.9}
+  m_Offset: {x: 0, y: -2.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -405,6 +405,7 @@ MonoBehaviour:
   dmcm: {fileID: 0}
   tochingPlayer: 0
   ImSpecial: 0
+  sr: {fileID: 5393778026382452698}
 --- !u!95 &8358821260078363705
 Animator:
   serializedVersion: 3
@@ -480,7 +481,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 4753326429094194063, guid: 1b93eb3cd8c6c8342952329afef4b6c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -524,8 +525,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Testo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1b93eb3cd8c6c8342952329afef4b6c3, type: 2}
+  m_sharedMaterial: {fileID: 4753326429094194063, guid: 1b93eb3cd8c6c8342952329afef4b6c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -701,6 +702,10 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 0.43500006
       objectReference: {fileID: 0}
+    - target: {fileID: -3530474872906363485, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66f6988b8769f6c4fafc95edf661e7fa, type: 2}
     - target: {fileID: -2952778003831399690, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: -0.0006172657
@@ -729,10 +734,18 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 0.57490575
       objectReference: {fileID: 0}
+    - target: {fileID: 838785881346785232, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66f6988b8769f6c4fafc95edf661e7fa, type: 2}
     - target: {fileID: 1414975261095552398, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
       propertyPath: m_Name
       value: Woman1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1895529243371593966, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66f6988b8769f6c4fafc95edf661e7fa, type: 2}
     - target: {fileID: 3050318626256094376, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 0.00000020861626
@@ -817,6 +830,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5313683457747073060, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66f6988b8769f6c4fafc95edf661e7fa, type: 2}
+    - target: {fileID: 5682712944851013585, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66f6988b8769f6c4fafc95edf661e7fa, type: 2}
     - target: {fileID: 7066881012712179306, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9141183
@@ -891,5 +912,10 @@ GameObject:
 --- !u!4 &8222039913244025005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5520297808426256217, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
+  m_PrefabInstance: {fileID: 4717938257652668426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5393778026382452698 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 838785881346785232, guid: 0dd1b8105ce7608478e69ce6fc9a07bd, type: 3}
   m_PrefabInstance: {fileID: 4717938257652668426}
   m_PrefabAsset: {fileID: 0}
