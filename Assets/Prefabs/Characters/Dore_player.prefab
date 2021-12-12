@@ -4985,18 +4985,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatedText: {fileID: 0}
   voices:
-  - {fileID: 8300000, guid: 3901599af05874b44852e464c124163d, type: 3}
-  - {fileID: 8300000, guid: 6c7d0f7dded9512468b74c6c7601924a, type: 3}
-  - {fileID: 8300000, guid: c6c2e62b02b8c204d89268d374cb4e6b, type: 3}
-  - {fileID: 8300000, guid: a4e42fd64da0dd54bb6fffedd0d45c17, type: 3}
-  - {fileID: 8300000, guid: b217f892a93ea1a418981f3af879d845, type: 3}
+  - {fileID: 8300000, guid: 14623e384fe96954fa3b70ee4fe9de1e, type: 3}
+  - {fileID: 8300000, guid: 8b6649275691c084dbc849a45d024b35, type: 3}
   - {fileID: 8300000, guid: daedd6ff98aca6f45baf37bb420d7fe2, type: 3}
+  - {fileID: 8300000, guid: ea3218ca1446bef479ed5b977fa59586, type: 3}
+  - {fileID: 8300000, guid: 1674026d77b8af74a988ff931f2fe0a3, type: 3}
   punctuations:
   - {fileID: 8300000, guid: b4a78886068ec69419f6d816748528bc, type: 3}
   - {fileID: 8300000, guid: bff333a425c11374299d72155b164a8e, type: 3}
   voiceSource: {fileID: 1546595949559319290}
   punctuationSource: {fileID: 1546595948931064318}
-  character: 
+  character: Dore
 --- !u!1 &1546595948931064319
 GameObject:
   m_ObjectHideFlags: 0
