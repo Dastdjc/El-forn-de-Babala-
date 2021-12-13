@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameState state = GameState.InicioJuego;
     static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
+    public GameObject customers;    // El gameObject Spawner donde están todos los clientes por atender
     public GameObject[] edificios;
 
     public static event System.Action<GameState> OnGameStateChanged;
@@ -41,6 +42,9 @@ public class GameManager : MonoBehaviour
     private bool tutorialCocina;
     private GameObject wallToPanadería;
     private GameObject wallToTown;
+
+    // clientes
+    private bool spawned = false;
     // Siguientes estados
 
     private void Awake()
@@ -68,10 +72,10 @@ public class GameManager : MonoBehaviour
 
         // referencia al jugador y sus spawns
         player = GameObject.Find("Dore_player");
-        playerSpawnPositionInicioJuego = new Vector3(-380, -128, 0);
+        playerSpawnPositionInicioJuego = new Vector3(-380, -135, 0);
         playerSpawnPosition = playerSpawnPositionInicioJuego;
-        playerSpawnPositionBosque = new Vector3(-290, -128, 0);
-        playerSpawnPositionPanadería = new Vector3(-345, -128, 0);
+        playerSpawnPositionBosque = new Vector3(-290, -135, 0);
+        playerSpawnPositionPanadería = new Vector3(-534, -135, 0);
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -239,6 +243,7 @@ public class GameManager : MonoBehaviour
         }
         else if (fromPanadería)
         {
+            customers.SetActive(false);
             Debug.Log("Viniendo de panadería...");
             playerSpawnPosition = playerSpawnPositionPanadería;
             fromPanadería = false;
@@ -266,9 +271,12 @@ public class GameManager : MonoBehaviour
     }
     void Panadería() 
     {
+        if (spawned)
+            customers.SetActive(true);
         servicios.SetActive(false);
         playerSpawnPosition = new Vector3(-10, -2, 0);
         fromPanadería = true;
+        spawned = true;
     }
 
     public void SumarSatisfacción(int suma) // O resta si es negativo 

@@ -26,7 +26,7 @@ public class DialogueAudio : MonoBehaviour
 
     public void ReproduceSound(char c)
     {
-
+        
         if (character == dm.conversation.lines[dm.conversationIndex].character.name)
         {
             if (c == '.' && !punctuationSource.isPlaying)

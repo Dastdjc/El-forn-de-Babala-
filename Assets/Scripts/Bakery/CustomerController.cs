@@ -84,6 +84,7 @@ public class CustomerController : MonoBehaviour
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
 
+        parent = transform.parent;
         outline = sr.material;
     }
     private void Update()
@@ -198,7 +199,7 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    public void SetSatisfaction(Recipe food)
+    public void SetSatisfaction(Recipe food)// De momento solo puede estar perfecto o mal
     {
         if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
         //else if(options[1] == 0) { satisfaction = 2; }

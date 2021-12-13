@@ -28,7 +28,7 @@ public class DialogueManagerCM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TextPro = GameObject.Find("DialogueManager").transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Animated>();
+        //TextPro = GameObject.Find("DialogueManager").transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Animated>();
         //TextPro.text = conversation.lines[0].text;
         TextPro.onDialogueFinish.AddListener(canSkip);
         playerMovement = GameObject.Find("Dore_player").GetComponent<PlayerMovement>();
@@ -52,6 +52,7 @@ public class DialogueManagerCM : MonoBehaviour
                 conversationStarted = false;
                 dialogueCamera.Priority = 1;
                 conversationIndex = 0;
+                Invoke("BorrarTexto", 1f);
             }
             else
             {
@@ -98,7 +99,10 @@ public class DialogueManagerCM : MonoBehaviour
 
 
     }
-
+    void BorrarTexto() 
+    {
+        TextPro.text = "";
+    }
     void showDialogue(int a)
     {
         ChangeTMPText(a);

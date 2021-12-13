@@ -11,7 +11,7 @@ public class SpawnCustomers : MonoBehaviour
     private int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
-    static private SpawnCustomers Instance;
+    static public SpawnCustomers Instance;
     public bool SpawnigSpecial = false;
 
     private void Awake()
@@ -29,8 +29,9 @@ public class SpawnCustomers : MonoBehaviour
 
     void Start()
     {
-        if(CustomersNumber == -1)CustomersNumber = Random.Range(6, 20);
+        if(CustomersNumber == -1)CustomersNumber = Random.Range(6, 10);
         Customers = new GameObject[4];
+        GameManager.Instance.customers = Instance.gameObject;
     }
 
     // Update is called once per frame
@@ -50,8 +51,9 @@ public class SpawnCustomers : MonoBehaviour
                     //Customer[0] es el de más a la derecha
                     Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
                     Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
-                    Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
-                    DontDestroyOnLoad(Customers[firstPlace]);
+                    //Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
+                    Customers[firstPlace].transform.parent = this.transform;
+                    /*DontDestroyOnLoad(Customers[firstPlace]);*/
                 }
             }
         }
