@@ -271,8 +271,12 @@ public class GameManager : MonoBehaviour
     }
     void Panadería() 
     {
-        if (spawned)
+        if (spawned) // Si ya se ha entrado en la panadería
             customers.SetActive(true);
+        else // Primera vez que se entra
+        {
+            Time.timeScale = 0;
+        }
         servicios.SetActive(false);
         playerSpawnPosition = new Vector3(-10, -2, 0);
         fromPanadería = true;

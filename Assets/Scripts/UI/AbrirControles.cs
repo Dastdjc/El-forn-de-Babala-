@@ -39,14 +39,14 @@ public class AbrirControles : MonoBehaviour
     {
         mat.SetFloat("Thickness", 0.06f);
         inRange = true;
-        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+        transform.localScale = transform.localScale * 1.1f;//new Vector3(1.1f, 1.1f, 1.1f);
         transform.Rotate(new Vector3(0, 0, 5));
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         mat.SetFloat("Thickness", 0f);
         inRange = false;
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        transform.localScale = transform.localScale * 0.9f;//new Vector3(1f, 1f, 1f);
         transform.Rotate(new Vector3(0, 0, -5));
     }
 }
