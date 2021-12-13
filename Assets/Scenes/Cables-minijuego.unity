@@ -1100,7 +1100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a2152b860366b1449dd89d43c06e858, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e91606b81e32c2841a5ad4a2bc9b29e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1390,6 +1390,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462978501}
     m_Modifications:
+    - target: {fileID: 388801092832389243, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6819239944382303966, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
     - target: {fileID: 1042119940532178021, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_Color.b
       value: 0.60754716
@@ -1401,6 +1405,10 @@ PrefabInstance:
     - target: {fileID: 1042119940532178021, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785822956181733686, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4489247035755830175, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_RootOrder
@@ -1447,21 +1455,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6578052729194893845, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4710984459976364328, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
+    - target: {fileID: 6578052729194893845, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_Color.b
-      value: 0.60754716
+      value: 0.8745099
       objectReference: {fileID: 0}
     - target: {fileID: 6578052729194893845, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_Color.g
-      value: 0.60754716
+      value: 0.8352942
       objectReference: {fileID: 0}
     - target: {fileID: 6578052729194893845, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.9058824
       objectReference: {fileID: 0}
     - target: {fileID: 8449462647255227463, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
       propertyPath: m_Name
       value: Cable
       objectReference: {fileID: 0}
+    - target: {fileID: 8605530153120014654, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2630143045139994762, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
+    - target: {fileID: 9014576631509186173, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2630143045139994762, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45efde5ff5c62f45aaae0244ad7990a, type: 3}
 --- !u!4 &1126842228252628839 stripped
