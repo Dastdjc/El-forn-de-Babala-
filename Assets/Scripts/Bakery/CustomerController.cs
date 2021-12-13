@@ -24,7 +24,7 @@ public class CustomerController : MonoBehaviour
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
     //static private CustomerController[] Instance = new CustomerController[4];
-    static public int MaxIndexRecipe;
+    //static public int MaxIndexRecipe = 5;
 
     //State == 0 cuando entra a la panadería
     //State == 1 cuando pide algo y empieza a cansarse
@@ -38,7 +38,11 @@ public class CustomerController : MonoBehaviour
         Flaons  = 1,
         Farinada = 2,
         Fartons = 3,
-        Bunyols = 4
+        Bunyols = 4,
+        Pilotes = 5,
+        Coca = 6,
+        Pasteles = 7,
+        Mocadora = 8
     }
     private Recetas command;
 
@@ -73,10 +77,12 @@ public class CustomerController : MonoBehaviour
         //Se asigna la layer CustomerIn que no colisionan con CustomerIn
         gameObject.layer = 6;
 
-        
+
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
-        command = (Recetas)Random.Range(0, 5);
+
+        //command = (Recetas)Random.Range(0, GameManager.Instance.maxIndexRecipe);
+        command = (Recetas)3;//Random.Range(0, GameManager.Instance.maxIndexRecipe);
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
@@ -140,6 +146,7 @@ public class CustomerController : MonoBehaviour
                                 dmcm.inConversation = true;
                                 conversando = false;
                             }
+                            GameManager.Instance.SumarSatisfacción(0);
                             break;
                         case -3:
                             //pedido malo
@@ -152,6 +159,7 @@ public class CustomerController : MonoBehaviour
                                 dmcm.inConversation = true;
                                 conversando = false;
                             }
+                            GameManager.Instance.SumarSatisfacción(-3);
                             break;
                         case 2:
                             //pedido medio
@@ -164,6 +172,7 @@ public class CustomerController : MonoBehaviour
                                 dmcm.inConversation = true;
                                 conversando = false;
                             }
+                            GameManager.Instance.SumarSatisfacción(2);
                             break;
                         case 5:
                             //pedido bueno
@@ -176,6 +185,7 @@ public class CustomerController : MonoBehaviour
                                 dmcm.inConversation = true;
                                 conversando = false;
                             }
+                            GameManager.Instance.SumarSatisfacción(5);
                             break;
                     }
                     walk = 18;

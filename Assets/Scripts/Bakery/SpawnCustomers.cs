@@ -8,7 +8,7 @@ public class SpawnCustomers : MonoBehaviour
     public GameObject[] NormalCustomer;
     public GameObject[] SpecialCustomer;
     static public GameObject[] Customers;
-    private int CustomersNumber = -1;    
+    public int CustomersNumber = -1;    
     private int firstPlace = -1;
     private float CoolDown = 0;
     static public SpawnCustomers Instance;
@@ -93,12 +93,15 @@ public class SpawnCustomers : MonoBehaviour
     }
     public void SpawnSpecial(int SpecialID)
     {
+        Debug.Log("Spawn especial");
+        SpawnigSpecial = true;
         bool allNull = true;
         int i = 0;
         CustomersNumber = 0;
         while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
         if (allNull)
         {
+            Debug.Log("Special enters...");
             ThereSpace();
             Customers[firstPlace] = Instantiate(SpecialCustomer[SpecialID], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
             Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);

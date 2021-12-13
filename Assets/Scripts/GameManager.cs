@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     // variables para mantener durante el juego
     public int satisfacciónAcumulada = 1;
+    public int maxIndexRecipe = 5;
+    private int specialCharacterIndex = 0;
    
     // Booleanos para aparicion desde otra escena
     private bool fromBosque;
@@ -286,10 +288,12 @@ public class GameManager : MonoBehaviour
     public void SumarSatisfacción(int suma) // O resta si es negativo 
     {
         satisfacciónAcumulada += suma;
-        if (satisfacciónAcumulada >= 25)
+        if (satisfacciónAcumulada >= 20)
         {
             satisfacciónAcumulada = 0;
             // Enviar señal para spawnear cliente especial
+            //customers.GetComponent<SpawnCustomers>().CustomersNumber = 0;
+            customers.GetComponent<SpawnCustomers>().SpawnSpecial(specialCharacterIndex);
             return;
         }
     }
