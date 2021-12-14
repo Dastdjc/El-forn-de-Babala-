@@ -15,4 +15,10 @@ MonoBehaviour:
   fullName: Tombatossals
   mood:
   - emotion: 0
-    graphic: {fileID: 21300000, guid: 27e3523f85148e44587e6ff82e36e2f8, type: 3}
+    graphic: {fileID: 21300000, guid: 8c95c87231c2a9e458de14f4694a4d33, type: 3}
+  - emotion: 1
+    graphic: {fileID: 21300000, guid: f992ca7dda5ed6c4fa25d4e74931871f, type: 3}
+  - emotion: 5
+    graphic: {fileID: 21300000, guid: 3c0e52ff1b0b4404db1000183f497d45, type: 3}
+  - emotion: 4
+    graphic: {fileID: 21300000, guid: 618c2f5217f2be5479e456ef4611671c, type: 3}

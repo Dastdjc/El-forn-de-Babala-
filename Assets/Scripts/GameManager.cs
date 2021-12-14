@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
     // variables para mantener durante el juego
     public int satisfacciónAcumulada = 1;
     public int maxIndexRecipe = 5;
-    private int specialCharacterIndex = 0;
-   
+    public int specialCharacterIndex = 0;
+    public bool dia;
+
     // Booleanos para aparicion desde otra escena
     private bool fromBosque;
     private bool fromPanadería;

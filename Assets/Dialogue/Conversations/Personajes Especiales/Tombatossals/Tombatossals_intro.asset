@@ -70,13 +70,13 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
     text: "<size=50><speed=20><shake=0,2>\xA1Hola buenas! <pause=1><shake=0,2>\xBF\xA1Alguien
       va a tomarme el pedido!?<pause=1><shake=0,2> \xA1Tengo mucha hambre!<speed=40>"
-    Emotion: 0
+    Emotion: 5
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "S-S\xED.<pause=1> A-aqu\xED estoy..."
     Emotion: 3
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
     text: <speed=20>Ah, menos mal. Por fin viene alguien.<speed=40>
-    Emotion: 3
+    Emotion: 4
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xBFQ-<pause=0,2>Quer\xEDa tomar algo se\xF1or?"
     Emotion: 3

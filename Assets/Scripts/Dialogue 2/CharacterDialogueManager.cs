@@ -23,10 +23,18 @@ public class CharacterDialogueManager : MonoBehaviour
 
     private void Start()
     {
+
+        //recipeNumber = Random.Range(0, GameManager.Instance.maxIndexRecipe); //Min inclusivo y max exclusivo
+        //sr = GetComponent<SpriteRenderer>();
+        //material = sr.material;
+        player = GameObject.Find("Dore_player").transform;
+    }
+    public Conversation CrearConversacion(int indiceReceta) 
+    {
         conversationInstace = ScriptableObject.CreateInstance("Conversation") as Conversation;
         conversationInstace.lines.AddRange(conversation.lines);
         // Chose recipe
-        recipeNumber = Random.Range(0, GameManager.Instance.maxIndexRecipe); //Min inclusivo y max exclusivo
+        recipeNumber = indiceReceta; //Min inclusivo y max exclusivo
         //recipeNumber = 0;
         //Debug.Log(recipeNumber);
 
@@ -34,12 +42,8 @@ public class CharacterDialogueManager : MonoBehaviour
         conversationInstace.lines.Add(recipeOptions.lines[recipeNumber]);
         // Add conversation continuation
         conversationInstace.lines.AddRange(continuation.lines);
-
-        //sr = GetComponent<SpriteRenderer>();
-        //material = sr.material;
-        player = GameObject.Find("Dore_player").transform;
+        return conversationInstace;
     }
-    // Update is called once per frame
     void Update()
     {
        

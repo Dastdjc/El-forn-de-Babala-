@@ -95,11 +95,19 @@ public class CustomerController : MonoBehaviour
     }
     private void Update()
     {
-        if (state == 1) 
+        if (state == 1)
         {
             if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
             {
                 Pedir();
+            }
+        }
+        else if (state == 2) 
+        {
+            if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dmcm.inConversation)
+            {
+                SetSatisfaction(Inventory.Instance.GetRecipe());
+                Inventory.Instance.OpenCloseInventory();
             }
         }
     }

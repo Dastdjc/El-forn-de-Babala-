@@ -6,6 +6,7 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
     //variables tocando mesa y tocando horno
     public bool touchingTable;
     public bool touchingCustomer;
@@ -60,6 +61,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         //para que el inventario se mantenga entre escenas NO FUNCIONA
         DontDestroyOnLoad(this.gameObject);
 
@@ -134,13 +136,18 @@ public class Inventory : MonoBehaviour
                 MoveInRecetario();
 
                 //también puedes seleccionar un objeto del inventario para restarle la cantidad necesaria a un ingrediente
-                if (Input.GetKeyDown(KeyCode.F) && touchingCustomer && SpawnCustomers.WhichToching() < 4)
+                /*if (Input.GetKeyDown(KeyCode.F) && touchingCustomer && SpawnCustomers.WhichToching() < 4)
                 {
+                    Debug.Log("Intentando dar receta a cliente");
                     //quitaremos uno a la cantidad de platos que tengamos de una receta, siempre que tengamos mínimo uno
-                    SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.GetChild(SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.childCount - 1).GetComponent<CustomerController>().SetSatisfaction(recipeBySlotList[recetID]);
+                    if (!SpawnCustomers.specialSpawned)
+                        SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.GetChild(SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.childCount - 1).GetComponent<CustomerController>().SetSatisfaction(recipeBySlotList[recetID]);
+                    else
+                        SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.GetChild(SpawnCustomers.Customers[SpawnCustomers.WhichToching()].transform.childCount - 1).GetComponent<SpecialCustomerController>().SetSatisfaction(recipeBySlotList[recetID]);
                     recipeBySlotList[recetID].amount--;
                     OpenCloseInventory();
-                }
+                }*/
+               // OpenCloseInventory();
             }
 
 
@@ -218,7 +225,7 @@ public class Inventory : MonoBehaviour
     }
 
     //abrir y cerrar inventario
-    private void OpenCloseInventory()
+    public void OpenCloseInventory()
     {
         if (!inventoryOpened)
         {
@@ -358,7 +365,7 @@ public class Inventory : MonoBehaviour
     //mover selector por el recetario
     private void MoveInRecetario()
     {
-        Debug.Log(recipeList.Count);
+        //Debug.Log(recipeList.Count);
 
         if (Input.GetKeyDown(KeyCode.D) && recetID+3 < recipeList.Count)
         {
@@ -706,5 +713,9 @@ public class Inventory : MonoBehaviour
     private void IngredientsPerRecipe()
     {
 
+    }
+    public Recipe GetRecipe() 
+    {
+        return recipeBySlotList[recetID];
     }
 }

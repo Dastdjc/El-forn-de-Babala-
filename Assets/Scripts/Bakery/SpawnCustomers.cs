@@ -13,6 +13,7 @@ public class SpawnCustomers : MonoBehaviour
     private float CoolDown = 0;
     static public SpawnCustomers Instance;
     public bool SpawnigSpecial = false;
+    static public bool specialSpawned = false;
 
     private void Awake()
     {
@@ -83,8 +84,11 @@ public class SpawnCustomers : MonoBehaviour
             while (i < 4)
             {
                 if (Customers[i] == null) i++;
-                if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount-1).GetComponent<CustomerController>().tochingPlayer) break;
-                i++;
+                if (!specialSpawned)
+                    if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount-1).GetComponent<CustomerController>().tochingPlayer) break;
+                else
+                    if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount - 1).GetComponent<SpecialCustomerController>().tochingPlayer) break;
+            i++;
             }
         /*}
         catch { Debug.Log(i); i = 4; }*/
@@ -95,13 +99,14 @@ public class SpawnCustomers : MonoBehaviour
     {
         Debug.Log("Spawn especial");
         SpawnigSpecial = true;
-        bool allNull = true;
-        int i = 0;
+        //bool allNull = true;
+        //int i = 0;
         CustomersNumber = 0;
-        while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
-        Debug.Log(transform.childCount);
-        if (this.transform.childCount-1 == 0)
+        //while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
+        //Debug.Log(transform.childCount);
+        if (this.transform.childCount-1 == 0)   // Si ya no quedan más clientes
         {
+            specialSpawned = true;
             GameManager.Instance.satisfacciónAcumulada = 0;
             Debug.Log("Special enters...");
             ThereSpace();
@@ -109,22 +114,6 @@ public class SpawnCustomers : MonoBehaviour
             Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
             Customers[firstPlace].transform.parent = this.transform;
             //Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
-           
-            switch (SpecialID)//For setting customer dialog
-            {
-                case 0://Tombatossals
-                    break;
-                case 1://El dragón
-                    break;
-                case 2://Jaume
-                    break;
-                case 3://Butoni
-                    break;
-                case 4://SantVicent
-                    break;
-                case 5://Gulliver
-                    break;
-            }
         }
     }
 }

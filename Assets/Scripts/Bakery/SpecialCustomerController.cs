@@ -6,7 +6,7 @@ using TMPro;
 public class SpecialCustomerController : MonoBehaviour
 {
     public float TimeWaiting = 0.8f;
-    //public Transform parent;
+    public Transform parent;
     private RectTransform Mask;
     private SpriteRenderer image;
     public DialogueManager dm;
@@ -77,7 +77,7 @@ public class SpecialCustomerController : MonoBehaviour
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
         cdm = GetComponent<CharacterDialogueManager>();
-        command = (Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe);
+        command = (Recetas)1;//(Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe);
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
@@ -85,16 +85,34 @@ public class SpecialCustomerController : MonoBehaviour
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
 
-        //parent = transform.parent;
+        parent = transform.parent;
         outline = sr.material;
     }
     private void Update()
     {
-        if (state == 1) 
+        if (state == 1)
         {
             if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
             {
                 Pedir();
+            }
+        }
+        else if (state == 2)
+        {
+            if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dm.inConversation)
+            {
+                SetSatisfaction(Inventory.Instance.GetRecipe());
+                Inventory.Instance.OpenCloseInventory();
+            }
+        }
+        else if (state == 4) 
+        {
+            if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
+            {
+                dm.conversation = cdm.final;
+                dm.NPC = transform;
+                dm.inConversation = true;
+                state++;
             }
         }
     }
@@ -108,7 +126,7 @@ public class SpecialCustomerController : MonoBehaviour
             {
                 //Anda a su sitio
                 case 0:
-                    if (walk > 0) { transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    if (walk > 0) { parent.transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
                     else { state++;
                         //parent.GetComponent<Animator>().SetBool("waitting",true); 
                     }
@@ -118,22 +136,42 @@ public class SpecialCustomerController : MonoBehaviour
                 //Espera a que le des su comida
                 //case 1
                 case 2:
-                    timer += 0.001f;
-                    
-                    Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
-                    image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
-                    if (timer >= TimeWaiting)
+                    if (!dm.inConversation)
                     {
-                        state = 3;
-                        Talk(false);
-                        conversando = true;
+                        timer += 0.001f;
+
+                        Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
+                        image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
+                        if (timer >= TimeWaiting)
+                        {
+                            state = 3;
+                            Talk(false);
+                            conversando = true;
+                        }
                     }
                     break;
                 
                 case 3:
                     Conversation conversationInstace = ScriptableObject.CreateInstance("Conversation") as Conversation;
-                    conversationInstace.lines.Add(cdm.reacciones.lines[satisfaction]);
-                    dm.conversation =  conversationInstace;
+                    switch (satisfaction) 
+                    {
+                        case 0:
+                            conversationInstace.lines.Add(cdm.reacciones.lines[0]);
+                            break;
+                        case -3:
+                            conversationInstace.lines.Add(cdm.reacciones.lines[1]);
+                            break;
+                        case 2:
+                            conversationInstace.lines.Add(cdm.reacciones.lines[2]);
+                            break;
+                        case 5:
+                            conversationInstace.lines.Add(cdm.reacciones.lines[3]);
+                            break;
+                    }
+                    
+                    dm.conversation = conversationInstace;
+                    dm.NPC = transform;
+                    dm.inConversation = true;
                     /*switch (satisfaction)
                     {
                         case 0:
@@ -194,8 +232,21 @@ public class SpecialCustomerController : MonoBehaviour
                     state++;
                     break;
                 case 4:
-                    if (walk > 0) { transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { Destroy(transform.gameObject); GameManager.Instance.SumarSatisfacción(0); }
+                    if (satisfaction == 0 || satisfaction == -3) 
+                    {
+                        if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                        else { Destroy(parent.transform.gameObject); GameManager.Instance.SumarSatisfacción(0); }
+                    }
+                    break;
+                case 5:
+                    if (!dm.inConversation)
+                    {
+                        if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                        else { Destroy(parent.transform.gameObject); GameManager.Instance.SumarSatisfacción(0); }
+                        if (satisfaction > 0)
+                            GameManager.Instance.specialCharacterIndex++;
+                        GameManager.Instance.dia = false;
+                    }
                     break;
             }
         }
@@ -224,6 +275,11 @@ public class SpecialCustomerController : MonoBehaviour
     }
 
     void Pedir() {
+        //Conversation conversationInstace = ScriptableObject.CreateInstance("Conversation") as Conversation;
+        //conversationInstace.lines.Add(cdm.reacciones.lines[satisfaction]);
+        dm.conversation = cdm.CrearConversacion((int)command);
+        dm.NPC = transform;
+        dm.inConversation = true;
         state = 2;
         OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
     }
