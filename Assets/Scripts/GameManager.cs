@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
     public GameObject customers;    // El gameObject Spawner donde están todos los clientes por atender
     public GameObject[] edificios;
+    public GameObject fondoDia;
+    public GameObject fondoNoche;
+    public GameObject luzDia;
+    public GameObject luzNoche;
 
     public static event System.Action<GameState> OnGameStateChanged;
 
@@ -225,8 +229,8 @@ public class GameManager : MonoBehaviour
             mifa.conversationIndex = 3;
         }
        
-        Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
-        panaderia_anim.SetTrigger("panaderia2");
+        //Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
+        //panaderia_anim.SetTrigger("panaderia2");
 
         // Desactivar el hitbox que note deja pasar al bosque
          GameObject.Find("InitialCollider").SetActive(false);
@@ -251,9 +255,30 @@ public class GameManager : MonoBehaviour
             playerSpawnPosition = playerSpawnPositionPanadería;
             fromPanadería = false;
         }
+        Debug.Log(dia);
+        SpritesDia(dia);
+        /*if (!dia) 
+        {
+            fondoDia.SetActive(false);
+            fondoNoche.SetActive(true);
+            player.transform.GetChild(5).gameObject.SetActive(true);
+            servicios.transform.GetChild(0).gameObject.SetActive(false); // Servicios de día
+            servicios.transform.GetChild(1).gameObject.SetActive(true); // Serbvicios de noche
+            luzDia.SetActive(false);
+            luzNoche.SetActive(true);
+        }*/
 
     }
-
+    void SpritesDia(bool esDia) 
+    {
+        fondoDia.SetActive(esDia);
+        fondoNoche.SetActive(!esDia);
+        player.transform.GetChild(5).gameObject.SetActive(!esDia);
+        servicios.transform.GetChild(0).gameObject.SetActive(esDia); // Servicios de día
+        servicios.transform.GetChild(1).gameObject.SetActive(!esDia); // Servicios de noche
+        luzDia.SetActive(esDia);
+        luzNoche.SetActive(!esDia);
+    }
     void Bosque() // Función que se ejecuta llegar al bosque
     {
         if (!tutorialCocina) // Si no se ha jugado a un minijuego, no se puede volver
@@ -302,6 +327,7 @@ public class GameManager : MonoBehaviour
     public void DesbloquearEdificio(Edificios indice) 
     {
         edificios[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
+        edificios[(int)indice].GetComponent<SpriteRenderer>().enabled = false;
     }
     public enum Edificios 
     { 
