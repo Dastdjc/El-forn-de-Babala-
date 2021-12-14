@@ -192,8 +192,8 @@ public class CustomerController : MonoBehaviour
                     state++;
                     break;
                 case 4:
-                    if(walk > 0) { parent.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { Destroy(parent.gameObject); }
+                    if (walk > 0) { parent.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { Destroy(parent.gameObject); GameManager.Instance.SumarSatisfacción(0); }
                     break;
             }
         }

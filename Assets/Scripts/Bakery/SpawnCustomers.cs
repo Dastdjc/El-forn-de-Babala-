@@ -99,8 +99,10 @@ public class SpawnCustomers : MonoBehaviour
         int i = 0;
         CustomersNumber = 0;
         while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
-        if (allNull)
+        Debug.Log(transform.childCount);
+        if (this.transform.childCount-1 == 0)
         {
+            GameManager.Instance.satisfacciónAcumulada = 0;
             Debug.Log("Special enters...");
             ThereSpace();
             Customers[firstPlace] = Instantiate(SpecialCustomer[SpecialID], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
