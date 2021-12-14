@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CustomerController : MonoBehaviour
+public class SpecialCustomerController : MonoBehaviour
 {
     public float TimeWaiting = 0.8f;
-    public Transform parent;
+    //public Transform parent;
     private RectTransform Mask;
     private SpriteRenderer image;
-    public Conversation conversation;
-    public Conversation enfadado;
-    public Conversation bueno;
-    public Conversation medio;
-    public Conversation malo;
-    public DialogueManagerCM dmcm;
+    public DialogueManager dm;
     private float timer = 0;
     private int satisfaction = 0;
     private int state;
@@ -23,6 +18,7 @@ public class CustomerController : MonoBehaviour
     private bool conversando;
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
+    public CharacterDialogueManager cdm;
     //static private CustomerController[] Instance = new CustomerController[4];
     //static public int MaxIndexRecipe = 5;
 
@@ -34,15 +30,15 @@ public class CustomerController : MonoBehaviour
     private Material outline;
     enum Recetas
     {
-        Mona = 0,
-        Fartons = 1,
-        Farinada = 2,
-        Bunyols = 3,
-        Pilotes = 4,
-        Flaons = 5,
-        Coca = 6,
-        Pasteles = 7,
-        Mocadora = 8
+        Mona,
+        Fartons,
+        Farinada,
+        Bunyols,
+        Pilotes,
+        Flaons,
+        Coca,
+        Pasteles,
+        Mocadora
     }
     private Recetas command;
 
@@ -68,7 +64,7 @@ public class CustomerController : MonoBehaviour
         gmo = GameObject.FindGameObjectWithTag("dialogo");
         if (gmo != null)
         {
-            dmcm = gmo.GetComponent<DialogueManagerCM>();
+            dm = gmo.GetComponent<DialogueManager>();
         }
     }
 
@@ -80,9 +76,8 @@ public class CustomerController : MonoBehaviour
 
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
-
-        //command = (Recetas)Random.Range(0, GameManager.Instance.maxIndexRecipe);
-        command = (Recetas)1;//Random.Range(0, GameManager.Instance.maxIndexRecipe);
+        cdm = GetComponent<CharacterDialogueManager>();
+        command = (Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe);
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
@@ -90,7 +85,7 @@ public class CustomerController : MonoBehaviour
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
 
-        parent = transform.parent;
+        //parent = transform.parent;
         outline = sr.material;
     }
     private void Update()
@@ -103,6 +98,7 @@ public class CustomerController : MonoBehaviour
             }
         }
     }
+    
     void FixedUpdate()
     {
         if(Time.timeScale == 1)
@@ -112,8 +108,10 @@ public class CustomerController : MonoBehaviour
             {
                 //Anda a su sitio
                 case 0:
-                    if (walk > 0) { parent.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { state++;parent.GetComponent<Animator>().SetBool("waitting",true); }
+                    if (walk > 0) { transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { state++;
+                        //parent.GetComponent<Animator>().SetBool("waitting",true); 
+                    }
                     break;
                 //Tiene que pedir y hablar
                 //Está en el método OnMouseDown//
@@ -133,17 +131,20 @@ public class CustomerController : MonoBehaviour
                     break;
                 
                 case 3:
-                    switch (satisfaction)
+                    Conversation conversationInstace = ScriptableObject.CreateInstance("Conversation") as Conversation;
+                    conversationInstace.lines.Add(cdm.reacciones.lines[satisfaction]);
+                    dm.conversation =  conversationInstace;
+                    /*switch (satisfaction)
                     {
                         case 0:
                             //Se va a su casa enfadado
                             //se va por tiempo
                             if (conversando)
                             {
-                                dmcm.index = Random.Range(0, 6);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = enfadado;
-                                dmcm.inConversation = true;
+                                dm.index = Random.Range(0, 6);
+                                dm.NPC = transform;
+                                dm.conversation ;
+                                dm.inConversation = true;
                                 conversando = false;
                             }
                             GameManager.Instance.SumarSatisfacción(0);
@@ -188,12 +189,13 @@ public class CustomerController : MonoBehaviour
                             GameManager.Instance.SumarSatisfacción(5);
                             break;
                     }
+                    */
                     walk = 18;
                     state++;
                     break;
                 case 4:
-                    if (walk > 0) { parent.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { Destroy(parent.gameObject); GameManager.Instance.SumarSatisfacción(0); }
+                    if (walk > 0) { transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
+                    else { Destroy(transform.gameObject); GameManager.Instance.SumarSatisfacción(0); }
                     break;
             }
         }
@@ -222,42 +224,6 @@ public class CustomerController : MonoBehaviour
     }
 
     void Pedir() {
-        
-            switch (command)
-            {
-                case Recetas.Mona:
-                    dmcm.index = Random.Range(0, 2);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Flaons:
-                    dmcm.index = Random.Range(12, 14);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Farinada:
-                    dmcm.index = Random.Range(2, 4);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Fartons:
-                    dmcm.index = Random.Range(8, 10);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Bunyols:
-                    dmcm.index = Random.Range(4, 6);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                default:
-                    break;
-            }
         state = 2;
         OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
     }
@@ -318,4 +284,5 @@ public class CustomerController : MonoBehaviour
         tochingPlayer = false;
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
     }
+
 }

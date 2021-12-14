@@ -9,11 +9,13 @@ public class CharacterDialogueManager : MonoBehaviour
     public Conversation conversation;
     public Conversation recipeOptions;
     public Conversation continuation;
+    public Conversation reacciones;
+    public Conversation final;
     public float detectionRange = 10;
     public DialogueManager dm;
 
     private bool closeEnough = false;
-    private int recipeNumber;
+    public int recipeNumber;
     private bool spokenTo = false;
     private Conversation conversationInstace;
     private SpriteRenderer sr;
@@ -24,7 +26,7 @@ public class CharacterDialogueManager : MonoBehaviour
         conversationInstace = ScriptableObject.CreateInstance("Conversation") as Conversation;
         conversationInstace.lines.AddRange(conversation.lines);
         // Chose recipe
-        recipeNumber = Random.Range(0, recipeOptions.lines.Count); //Min inclusivo y max exclusivo
+        recipeNumber = Random.Range(0, GameManager.Instance.maxIndexRecipe); //Min inclusivo y max exclusivo
         //recipeNumber = 0;
         //Debug.Log(recipeNumber);
 
@@ -33,14 +35,15 @@ public class CharacterDialogueManager : MonoBehaviour
         // Add conversation continuation
         conversationInstace.lines.AddRange(continuation.lines);
 
-        sr = GetComponent<SpriteRenderer>();
-        material = sr.material;
+        //sr = GetComponent<SpriteRenderer>();
+        //material = sr.material;
+        player = GameObject.Find("Dore_player").transform;
     }
     // Update is called once per frame
     void Update()
     {
        
-        if (closeEnough)
+        /*if (closeEnough)
         {
             if (!dm.inConversation)
                 material.SetFloat("Thickness", 0.02f);
@@ -66,6 +69,6 @@ public class CharacterDialogueManager : MonoBehaviour
         if (Vector2.Distance(player.position, transform.position) <= detectionRange) {
             closeEnough = true;
         }
-        else closeEnough = false;
+        else closeEnough = false;*/
     }
 }
