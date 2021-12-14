@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour
 
     //para poder abrir y cerrar el inventario
     public GameObject inventory;
-    private bool inventoryOpened;
+    public bool inventoryOpened;
 
     //0 para el de ingredientes y 1 para el de recetas
     private int inventoryType;

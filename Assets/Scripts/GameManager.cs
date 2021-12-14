@@ -258,6 +258,10 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(dia);
         SpritesDia(dia);
+        if (!dia && specialCharacterIndex <= 1) 
+        {
+            mifa.conversationIndex = 4;
+        }
         /*if (!dia) 
         {
             fondoDia.SetActive(false);
