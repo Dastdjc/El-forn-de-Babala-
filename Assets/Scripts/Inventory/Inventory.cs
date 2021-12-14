@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
     {
         Instance = this;
         //para que el inventario se mantenga entre escenas NO FUNCIONA
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
 
         for (int i = 0; i < 21; i++)
         {

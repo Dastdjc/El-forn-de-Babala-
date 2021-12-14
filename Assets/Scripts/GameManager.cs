@@ -271,6 +271,14 @@ public class GameManager : MonoBehaviour
     }
     void SpritesDia(bool esDia) 
     {
+        GameObject escenarios = GameObject.Find("ESCENARIOS");
+        fondoDia = escenarios.transform.GetChild(0).gameObject;
+        fondoNoche = escenarios.transform.GetChild(1).gameObject;
+        GameObject luz = GameObject.Find("Lights");
+        luzDia = luz.transform.GetChild(0).gameObject;
+        luzNoche = luz.transform.GetChild(1).gameObject;
+        player = GameObject.Find("Dore_player");
+
         fondoDia.SetActive(esDia);
         fondoNoche.SetActive(!esDia);
         player.transform.GetChild(5).gameObject.SetActive(!esDia);
@@ -303,7 +311,7 @@ public class GameManager : MonoBehaviour
             customers.SetActive(true);
         else // Primera vez que se entra
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
         }
         servicios.SetActive(false);
         playerSpawnPosition = new Vector3(-10, -2, 0);
