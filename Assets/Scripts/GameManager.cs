@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public int satisfacciónAcumulada = 1;
     public int maxIndexRecipe = 5;
     public int specialCharacterIndex = 0;
-    public bool dia;
+    public bool dia = true;
 
     // Booleanos para aparicion desde otra escena
     private bool fromBosque;
