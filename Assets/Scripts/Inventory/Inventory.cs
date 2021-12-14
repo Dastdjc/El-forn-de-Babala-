@@ -51,36 +51,12 @@ public class Inventory : MonoBehaviour
     //esta se usa para determinar si ya poseemos una receta del tipo que vamos a añadir y cuántos platos de esa receta poseemos
     private List<Recipe> recipeList = new List<Recipe>();
 
-    //lista que recoge los distintos ingredientes especiales
-    //private List<string> specialIngredientsList = new List<string> { "Masigolem", "Huevos celestes", "Leche de dragona", "Azucar estelar", "Queso lunar", "Mantemimo", "O'Lantern", "Limoncio" };
 
-    //------------------------------------------------------------
-    //pruebas de ingredientes
     
     private Items harina;
-    private Items levadura;
-    private Items leche;
-    private Items mantequilla;
-    private Items azucar;
-    //private Items masigolem;
-    private Items huevos;
-    //private Items calabaza;
-    private Items aceite;
-    //private Items huevosCelestes;
-    private Items agua;
-    //private Items limoncio;
-    private Items requeson;
-    
 
-    //------------------------------------------------------------
-    //pruebas de recetas
-    /*
-    private Recipe mocadora;
-    */private Recipe fartons;/*
-    private Recipe coca;
-    private Recipe farinada;
-    */
-    //----------------------------------------------------------
+    private Recipe fartons;
+
 
     private void Awake()
     {
@@ -109,112 +85,16 @@ public class Inventory : MonoBehaviour
         ingrID = 0;
         recetID = 0;
 
-        //pruebas de aumentar inventario
-        //-------------------------------------------------------------------------------------------
-        //la creación del objeto hay que hacerla así porque un Items es un scriptable object
-        
         harina = ScriptableObject.CreateInstance<Items>();
         harina.amount = 5;
         harina.type = "Harina";
         AddIngrItem(harina);
 
-        huevos = ScriptableObject.CreateInstance<Items>();
-        huevos.amount = 4;
-        huevos.type = "Huevos";
-        AddIngrItem(huevos);
-
-        levadura = ScriptableObject.CreateInstance<Items>();
-        levadura.amount = 4;
-        levadura.type = "Levadura";
-        AddIngrItem(levadura);
-
-        leche = ScriptableObject.CreateInstance<Items>();
-        leche.amount = 4;
-        leche.type = "Leche";
-        AddIngrItem(leche);
-
-        mantequilla = ScriptableObject.CreateInstance<Items>();
-        mantequilla.amount = 4;
-        mantequilla.type = "Mantequilla";
-        AddIngrItem(mantequilla);
-
-        azucar = ScriptableObject.CreateInstance<Items>();
-        azucar.amount = 4;
-        azucar.type = "Azúcar";
-        AddIngrItem(azucar);
-
-        requeson = ScriptableObject.CreateInstance<Items>();
-        requeson.amount = 5;
-        requeson.type = "Requesón";
-        AddIngrItem(requeson);
-        
-
-        /*
-        limoncio = ScriptableObject.CreateInstance<Items>();
-        limoncio.amount = 3;
-        limoncio.type = "Limoncio";
-        AddIngrItem(limoncio);
-        */
-
-        /*
-        masigolem = ScriptableObject.CreateInstance<Items>();
-        masigolem.amount = 2;
-        masigolem.type = "Masigolem";
-        AddIngrItem(masigolem);
-        */
-
-
-        //SubstractIngrItem(masigolem, 2);
-        /*
-        aceite = ScriptableObject.CreateInstance<Items>();
-        aceite.amount = 2;
-        aceite.type = "Aceite";
-        AddIngrItem(aceite);
-        */
-
-        /*
-        huevosCelestes = ScriptableObject.CreateInstance<Items>();
-        huevosCelestes.amount = 1;
-        huevosCelestes.type = "Huevos celestes";
-        AddIngrItem(huevosCelestes);
-        */
-
-        /*
-        agua = ScriptableObject.CreateInstance<Items>();
-        agua.amount = 8;
-        agua.type = "Agua";
-        AddIngrItem(agua);
-        */
-
-        //creación de recetas de prueba
-        /*
-        mocadora = ScriptableObject.CreateInstance<Recipe>();
-        mocadora.amount = 4;
-        mocadora.type = "Mocadorà";
-        AddRecipe(mocadora);
-
+       
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 1;
+        fartons.amount = 0;
         fartons.type = "Fartons";
         AddRecipe(fartons);
-
-        coca = ScriptableObject.CreateInstance<Recipe>();
-        coca.amount = 6;
-        coca.type = "Coca de llanda";
-        AddRecipe(coca);
-
-        farinada = ScriptableObject.CreateInstance<Recipe>();
-        farinada.amount = 9;
-        farinada.type = "Farinada";
-        AddRecipe(farinada);
-        */
-        fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 8;
-        fartons.type = "Fartons";
-        AddRecipe(fartons);
-        
-
-        //-------------------------------------------------------------------
     }
 
     private void Update()
@@ -342,7 +222,6 @@ public class Inventory : MonoBehaviour
     {
         if (!inventoryOpened)
         {
-            Time.timeScale = 0;
             inventoryOpened = true;
 
             //último inventario abierto el de ingredientes
@@ -377,7 +256,6 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
             inventoryOpened = false;
             inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = false;
@@ -478,10 +356,11 @@ public class Inventory : MonoBehaviour
     }
 
     //mover selector por el recetario
-    //FALTAN LOS LÍMITES DEL SELECTOR
     private void MoveInRecetario()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        Debug.Log(recipeList.Count);
+
+        if (Input.GetKeyDown(KeyCode.D) && recetID+3 < recipeList.Count)
         {
             recetID += 3;
 
@@ -492,7 +371,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && recetID-3 > recipeList.Count)
         {
             recetID -= 3;
 
@@ -503,7 +382,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) && recetID > 0)
         {
             recetID--;
 
@@ -514,7 +393,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && recetID < recipeList.Count)
         {
             recetID++;
 
@@ -535,7 +414,7 @@ public class Inventory : MonoBehaviour
         selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recetID).transform.position;
 
         //mostramos los ingredientes necesarios para hacer la receta
-        IngredientsPerRecipe();
+        //IngredientsPerRecipe();
     }
 
     //Añadir objetos al inventario
@@ -593,6 +472,60 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //public void AddRecipeItem(Recipe item)
+    //{
+    //    if (ingrList.Count > 0)
+    //    {
+    //        for (int i = 0; i < ingrList.Count; i++)
+    //        {
+    //            //si ya poseemos mínimo un ingrediente de los que vamos a añadir
+    //            if (ingrList[i].type == item.type)
+    //            {
+    //                //la cantidad que ya había más la cantidad pasada 
+    //                ingrList[i].amount += item.amount;
+
+    //                for (int p = 0; p < itemBySlotList.Count; p++)
+    //                {
+    //                    if (itemBySlotList[p].type == item.type)
+    //                    {
+    //                        inventory.transform.GetChild(1).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = ingrList[i].amount.ToString();
+    //                        return;
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+
+    //    ingrList.Add(item);
+
+    //    //aumentamos en uno la cantidad de slots ocupados
+    //    c++;
+
+    //    for (int i = 0; i < itemBySlotList.Count; i++)
+    //    {
+    //        //cogemos el primer slot vacío que encontremos y lo activamos para el nuevo item
+    //        //la lista de slots libres y los slots van de la mano, misma indexación
+    //        if (itemBySlotList[i] == null)
+    //        {
+    //            inventory.transform.GetChild(1).transform.GetChild(i).gameObject.SetActive(true);
+    //            itemBySlotList[i] = item;
+
+    //            //buscamos la imagen correspondiente al nuevo item
+    //            for (int j = 0; j < ingrImagesList.Count; j++)
+    //            {
+    //                if (ingrImagesList[j].type == item.type)
+    //                {
+    //                    //activamos para el slot la imagen correcta dependiendo del ingrediente
+    //                    inventory.transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = ingrImagesList[j].itemImage;
+    //                    //activamos su cantidad, texto
+    //                    inventory.transform.GetChild(1).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = ingrList[ingrList.Count - 1].amount.ToString();
+    //                    return;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+
     public void AddRecipe(Recipe recipe)
     {
         if (recipeList.Count > 0)
@@ -605,14 +538,14 @@ public class Inventory : MonoBehaviour
                     //la cantidad que ya había más la cantidad pasada 
                     recipeList[i].amount += recipe.amount;
 
-                    for (int p = 0; p < recipeBySlotList.Count; p++)
-                    {
-                        if (recipeBySlotList[p].type == recipe.type)
-                        {
-                            inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
+                    //for (int p = 0; p < recipeBySlotList.Count; p++)
+                    //{
+                    //    if (recipeBySlotList[p].type == recipe.type)
+                    //    {
+                    //        inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
                             return;
-                        }
-                    }
+                    //    }
+                    //}
                 }
             }
         }
@@ -633,8 +566,8 @@ public class Inventory : MonoBehaviour
                     {
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
-                        //activamos su cantidad, texto
-                        inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[recipeList.Count - 1].amount.ToString();
+                        ////activamos su cantidad, texto
+                        //inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[recipeList.Count - 1].amount.ToString();
                         return;
                     }
                 }
@@ -772,13 +705,6 @@ public class Inventory : MonoBehaviour
 
     private void IngredientsPerRecipe()
     {
-        /*
-        foreach (Items ingredient in ingredientsPerSlotList)
-        {
-            //inventory.transform.GetChild(0).transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = 
-            inventory.transform.GetChild(0).transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = ingredient.itemImage;
-            i++;
-        }
-        */
+
     }
 }
