@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 
         tutorialBosque = false;
         tutorialCocina = false;
+        dia = true;
 
         UpdateGameState(state);
     }

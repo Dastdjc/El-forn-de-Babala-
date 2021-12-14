@@ -19,16 +19,16 @@ MonoBehaviour:
     text: "<speed=20>\xA1Buenos y forzudos dias! <speed=40>"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xA1Buenos dias!<pause=0,5> Mifa, este cliente parece diferente a los
-      dem\xE1s..."
+    text: "\xA1Buenos dias!<pause=0,5> <color=#FF805D>Mifa</color>, este cliente
+      parece diferente a los dem\xE1s..."
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "As\xED es Dore, creo que este cliente tiene potencial para venirse a vivir
-      aqu\xED."
+    text: "As\xED es <color=#FE77A2>Dore</color>, creo que este cliente tiene potencial
+      para venirse a vivir aqu\xED."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xBFEn serio?<pause=0,5> \xBFNo es un poco<speed=5>... <speed=40>especial
-      para venirse a vivir a Babal\xE0?"
+      para venirse a vivir a <color=#8d6cd9>Babal\xE0</color>?"
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "S\xED, es bastante especial tu lo has dicho. Ser\xEDa perfecto para que
@@ -50,22 +50,22 @@ MonoBehaviour:
       \xA1No puedo hacerlo, me da mucha verg\xFCenza!"
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Pero Dore,<pause=0,5> \xA1tienes que hacerlo! Si te lo arreglara yo todo
-      no solucionariamos nada."
+    text: "Pero <color=#FE77A2>Dore</color>,<pause=0,5> \xA1tienes que hacerlo! Si
+      te lo arreglara yo todo no solucionariamos nada."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Ya lo s\xE9, pero..."
     Emotion: 6
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Dore,<pause=0,5><size=45> \xA1yo creo en t\xED! <pause=0,5>\xA1Cre\xED
-      en t\xED desde la primera vez que te v\xED!<pause=0,5><shake=0,2> \xA1Tu puedes
-      hacerlo!"
+    text: "<color=#FE77A2>Dore</color>,<pause=0,5><size=45> \xA1yo creo en t\xED!
+      <pause=0,5>\xA1Cre\xED en t\xED desde la primera vez que te v\xED!<pause=0,5><shake=0,2>
+      \xA1Tu puedes hacerlo!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: <speed=5>...<speed=40>
     Emotion: 3
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Vale, lo har\xE9..<pause=1> Espero no trabarme mucho."
+    text: "Vale, lo har\xE9...<pause=1> Espero no trabarme mucho."
     Emotion: 3
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
     text: "<size=50><speed=20><shake=0,2>\xA1Hola buenas! <pause=1><shake=0,2>\xBF\xA1Alguien

@@ -25,36 +25,35 @@ MonoBehaviour:
     text: Me alegro mucho entonces.
     Emotion: 0
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Dore, tendr\xE1s que hablar mas con \xE9l si quieres que se qued\xE9 en
-      el pueblo."
+    text: "<color=#FE77A2>Dore</color>, tendr\xE1s que hablar mas con \xE9l si quieres
+      que se qued\xE9 en el pueblo."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Ya lo s\xE9, estoy pensando que decir. A\xFAn me da verg\xFCenza..."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Entonces, \xBFle ha gustado esta panaderia?"
-    Emotion: 0
-  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Entonces, \xBFle ha gustado esta panaderia?"
+    text: "Entonces, \xBFle ha gustado esta <color=#E1AC82>panader\xEDa</color>?"
     Emotion: 1
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
     text: Si, la verdad. La encuentro muy curiosa.
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Esto no lo encuentras en la ciudad, \xBFverdad?"
+    text: "Esto no lo encuentras en la <color=#5c5c5>ciudad</color>, \xBFverdad?"
     Emotion: 0
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: No, desde luego. Las cosas en la ciudad no estan tan buenas.
+    text: No, desde luego. Las cosas en la <color=#5c5c5>ciudad</color> no estan
+      tan buenas.
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Pues la verdad es que nuestro pueblo est\xE1 deshabitado y una persona
       tan fuerte como usted nos vendr\xEDa bien \xBFQu\xE9 le parece mudarse aqu\xED?"
     Emotion: 6
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: "\xBFMudarme? No s\xE9, en la ciudad tengo el gimnasio... Me costaria dejarlo..."
+    text: "\xBFMudarme? No s\xE9, en la c<color=#5c5c5>ciudad</color> tengo el gimnasio...
+      Me costaria dejarlo..."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xA1Mifa le estoy perdiendo, ayuda!"
+    text: "\xA1<color=#FF805D>Mifa</color> le estoy perdiendo, ayuda!"
     Emotion: 2
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Dile que aqu\xED se puede hacer ejercicio al aire libre, mucho m\xE9s
@@ -62,10 +61,11 @@ MonoBehaviour:
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Pero puedes hacer ejercicio al aire libre sin ning\xFAn problema y sin
-      la poluci\xF3n de la ciudad. Ademas podr\xE1s reparar coches a amigos y a conocidos."
+      la poluci\xF3n de la c<color=#5c5c5>ciudad</color>. Ademas podr\xE1s reparar
+      coches a amigos y a conocidos."
     Emotion: 0
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: "La verdad es que me encanta reparar coches, pero siento que en la ciudad
+    text: "La verdad es que me encanta reparar coches, pero siento que en la <color=#5c5c5>ciudad</color>
       los clientes son muy frios. Aqu\xED estar\xEDa mas arropado."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
@@ -79,10 +79,11 @@ MonoBehaviour:
     text: Por cierto me llamo Tombatossals, pero todos mis amigos me llaman Tomb.
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Encantada, Tomb. Yo soy... <pause=1> <size=50>\xA1DORE! <size=40>"
+    text: "Encantada, Tomb. Yo soy... <pause=1> <size=50>\xA1<color=#FE77A2>DORE</color>!
+      <size=40>"
     Emotion: 1
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "\xA1Muy bien Dore!"
+    text: "\xA1Muy bien <color=#FE77A2>Dore</color>!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Lo he conseguido... No s\xE9 ni como pero lo he conseguido..."
