@@ -114,7 +114,7 @@ public class KilnController : MonoBehaviour
     }
     static public void PassToInv()
     {
-        string[] names = { "Mona", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
+        string[] names = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
         Recipe aux = ScriptableObject.CreateInstance<Recipe>();
         aux.amount = 1;
         if (foodIndex != -1) aux.type = names[foodIndex];
