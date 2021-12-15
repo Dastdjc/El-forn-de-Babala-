@@ -27,9 +27,13 @@ public class berries : MonoBehaviour
 
     private void OnMouseDown()
     {
-        dragOffset = transform.position - getPosMouse();   
+        dragOffset = transform.position - getPosMouse();
+        //transform.localScale = transform.localScale * 1.1f;
     }
-
+    private void OnMouseUp()
+    {
+        //transform.localScale = transform.localScale * 0.9f;
+    }
     private void OnMouseDrag()
     {
         transform.position = Vector3.MoveTowards(transform.position, getPosMouse() + dragOffset, speed * Time.deltaTime);

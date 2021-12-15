@@ -19,7 +19,7 @@ MonoBehaviour:
     text: "Hola soy<speed=5>... <speed=50> <size= 50><shake=0,2><color=#FF805D> \xA1MIFA!</color>"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: <speed=30><size= 50><shake=0.2><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</b>
+    text: <speed=30><size= 50><shake=0.2><b>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH.</b>
     Emotion: 2
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Tranquila, tranquila, soy otra bruja como t\xFA, estaba viendote a trav\xE9s
@@ -29,7 +29,7 @@ MonoBehaviour:
     text: "Parec\xEDa que necesitabas ayuda."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: '<size= 20>Ah vale. Ho-<pause=0,3>Hola, yo soy <color=#FE77A2>Dore</color>... '
+    text: '<size= 20>Ah, vale. Ho-<pause=0,3>Hola, yo soy <color=#FE77A2>Dore</color>... '
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "\xBFC\xF3mo? No te escucho bien."
@@ -74,7 +74,7 @@ MonoBehaviour:
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Bueno, est\xE1<speed=10>...<speed=40> Eso<speed=10>... <speed=40>Pero,<pause=0,3>
-      no, es una tonteria..."
+      no, es una tonter\xEDa..."
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "<size=40>\xA1Venga, dilo!"
@@ -83,6 +83,6 @@ MonoBehaviour:
     text: Bueno, supongo que cocinar, sobretodo <color=#e388ce>dulces</color>...
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Asi que <color=#e388ce>dulces</color>, \xBFeh?<pause=0,7> Pues entonces
+    text: "As\xED que <color=#e388ce>dulces</color>, \xBFeh?<pause=0,7> Pues entonces
       preparate para la<speed=10>...<speed=40><size=50><shake=0,1> \xA1MAGIA!"
     Emotion: 1
