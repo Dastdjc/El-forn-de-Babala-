@@ -32,12 +32,14 @@ public class MinijuegoBee : MonoBehaviour
         
         if (DONDESEA == true && Input.GetKeyDown(KeyCode.E))
         {
+            
             if(currentTask == null)
             {
                 // Permitir volver al pueblo una vez juguemos un minijuego
                 if (GameManager.Instance.state == GameManager.GameState.Tutorial) {
                     GameManager.Instance.UpdateGameState(GameManager.GameState.TutorialCocina);
                 }
+                Debug.Log(currentTask);
                 Player.GetComponent<PlayerMovement>().enabled = false;
                 hitbox.SetActive(false);
                 StartCoroutine(AudioFadeOut.FadeOut(BGmusic, 1f));

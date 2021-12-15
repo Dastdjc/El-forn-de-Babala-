@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3595789465614001739}
   - component: {fileID: 3595789465614001736}
   - component: {fileID: 3595789465614001737}
-  - component: {fileID: 3595789465614001742}
+  - component: {fileID: 4330183551162313959}
   m_Layer: 0
   m_Name: Calabaza
   m_TagString: Calabaza
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3595789465614001743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.31, y: 7.18, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 1109610835
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 154f65dc3de251048b47982d6801949a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de06b344be45fb7469cb7b78217528b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,8 +105,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3595789465614001742
-CircleCollider2D:
+--- !u!70 &4330183551162313959
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,6 +118,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04139158, y: 0.6943211}
-  serializedVersion: 2
-  m_Radius: 3.231843
+  m_Offset: {x: 0.2780519, y: -0.47056207}
+  m_Size: {x: 13.424946, y: 6.708773}
+  m_Direction: 1

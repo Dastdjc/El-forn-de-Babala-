@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
         {
             rnd = Random.Range(0, 5);
             spawn.x = Random.Range(xMin, xMax);
-            spawn.y = 30;
+            spawn.y = Random.Range(9, 12);
             prefab = Instantiate(items[rnd], spawn, Quaternion.identity);
             prefab.transform.parent = padre.transform;
             timeSpawn = Time.time + spawnRate;

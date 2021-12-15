@@ -18,17 +18,22 @@ public class Timer : MonoBehaviour
     public GameObject minijuego2;
     public GameObject spawner;
 
+    public GameObject pantallaTutorial;
     public GameObject player;
 
     public GameObject pantallaFinal;
 
     public TextMeshProUGUI textoFinal;
+    private Collider2D colliderPlayer;
 
     private bool playing = true;
     void Start()
     {
-        startTime = Time.time;
+        spawner.SetActive(false);
+        timerText.enabled = false;
         minijuego = FindObjectOfType<MinijuegoBee>();
+        MostrarTutorial();
+        colliderPlayer = player.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -122,5 +127,24 @@ public class Timer : MonoBehaviour
         minijuego.hitbox.SetActive(true);
         minijuego.rb.bodyType = RigidbodyType2D.Dynamic;
         minijuego.BGmusic.mute = false;
+    }
+    void MostrarTutorial()
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        pantallaTutorial.SetActive(true);
+        anim_pantallaTutorial.SetTrigger("aparicion");
+        
+
+    }
+    public void EsconderTutorial()
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        anim_pantallaTutorial.SetTrigger("desaparicion");
+        playing = true;
+        spawner.SetActive(true);
+        startTime = Time.time;
+        timerText.enabled = true;
+        colliderPlayer.isTrigger = false;
+
     }
 }
