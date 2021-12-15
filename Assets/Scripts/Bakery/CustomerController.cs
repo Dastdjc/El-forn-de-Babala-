@@ -107,7 +107,8 @@ public class CustomerController : MonoBehaviour
             if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dmcm.inConversation)
             {
                 SetSatisfaction(Inventory.Instance.GetRecipe());
-                Inventory.Instance.OpenCloseInventory();
+                if (Inventory.Instance.inventoryOpened)
+                    Inventory.Instance.OpenCloseInventory();
             }
         }
     }

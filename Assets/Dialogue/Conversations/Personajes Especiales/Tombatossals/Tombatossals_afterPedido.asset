@@ -19,7 +19,7 @@ MonoBehaviour:
     text: V-Vale, marchando.<speed=40>
     Emotion: 0
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: <speed=20>Espero que este bueno.<speed=40>
+    text: "<speed=20>Espero que est\xE9 bueno.<speed=40>"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "<size=20>No se preocupe, todo esta buen\xEDsimo.<size=36>"

@@ -222,19 +222,16 @@ public class GameManager : MonoBehaviour
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
         DesbloquearEdificio(Edificios.Panaderia);
-        if (tutorialCocina)
-        {
-            //wallToPanadería.SetActive(true); No hacer esto porque en la escena ya está puesto a true, y como cambiamos de escena se rompe (la referencia se pierde)
-            // Poner nueva conversación a Mifa
-            mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
-            mifa.conversationIndex = 3;
-        }
        
+
         //Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
         //panaderia_anim.SetTrigger("panaderia2");
 
+
+        // Encontrar referencias a objetos
+        mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
         // Desactivar el hitbox que note deja pasar al bosque
-         GameObject.Find("InitialCollider").SetActive(false);
+        GameObject.Find("InitialCollider").SetActive(false);
 
         // Play BG music
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -256,8 +253,19 @@ public class GameManager : MonoBehaviour
             playerSpawnPosition = playerSpawnPositionPanadería;
             fromPanadería = false;
         }
+
         Debug.Log(dia);
         SpritesDia(dia);
+
+        // Conversaciones de Mifa
+
+        if (tutorialCocina)
+        {
+            //wallToPanadería.SetActive(true); No hacer esto porque en la escena ya está puesto a true, y como cambiamos de escena se rompe (la referencia se pierde)
+            // Poner nueva conversación a Mifa
+            mifa.conversationIndex = 3;
+        }
+
         if (!dia && specialCharacterIndex <= 1) 
         {
             mifa.conversationIndex = 4;
