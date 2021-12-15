@@ -243,9 +243,11 @@ public class SpecialCustomerController : MonoBehaviour
                     if (!dm.inConversation)
                     {
                         if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                        else { Destroy(parent.transform.gameObject); GameManager.Instance.SumarSatisfacción(0); }
-                        if (satisfaction > 0)
-                            GameManager.Instance.specialCharacterIndex++;
+                        else { Destroy(parent.transform.gameObject); 
+                            GameManager.Instance.SumarSatisfacción(0);
+                            if (satisfaction > 0)
+                                GameManager.Instance.specialCharacterIndex++;
+                        } 
                         GameManager.Instance.dia = false;
                     }
                     break;
