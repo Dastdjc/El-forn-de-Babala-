@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5403801937256172050}
   - component: {fileID: 5403801937256172052}
   - component: {fileID: 7947857230711312556}
+  - component: {fileID: 214446878613656603}
   m_Layer: 0
   m_Name: Almendra
   m_TagString: Almendra
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -121,3 +122,29 @@ CapsuleCollider2D:
   m_Offset: {x: -0.19833668, y: 0.57298046}
   m_Size: {x: 6.991143, y: 8.886377}
   m_Direction: 0
+--- !u!114 &214446878613656603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5403801937256172055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 73cd072bfd55bd0600000000b767a1db53512342
+  m_ShapePath:
+  - {x: -3.2229373, y: -3.3380277, z: 0}
+  - {x: 1.9888123, y: -3.4502215, z: 0}
+  - {x: 3.8400002, y: 2.16, z: 0}
+  - {x: -2.04491, y: 5.245314, z: 0}
+  m_ShapePathHash: -1936776599
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 148468

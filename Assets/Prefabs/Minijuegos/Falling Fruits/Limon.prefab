@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5942109592194781174}
   - component: {fileID: 5942109592194781173}
   - component: {fileID: 6998686388284295638}
+  - component: {fileID: -8140994426943929727}
   m_Layer: 0
   m_Name: Limon
   m_TagString: Limon
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -121,3 +122,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0.4737963, y: -0.3632441}
   m_Size: {x: 10.103225, y: 6.8498836}
   m_Direction: 1
+--- !u!114 &-8140994426943929727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942109592194781179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 73cd072bfd55bd0600000000b767a1db53512342
+  m_ShapePath:
+  - {x: -5.522898, y: -3.3941243, z: 0}
+  - {x: 6.476541, y: -3.8989935, z: 0}
+  - {x: 6.420444, y: 3.394126, z: 0}
+  - {x: -4.849739, y: 3.1697383, z: 0}
+  m_ShapePathHash: -1626589396
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 148636
