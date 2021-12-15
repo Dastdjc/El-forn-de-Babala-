@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3506576436694382158, guid: 97102b2f88ab0eb48bee4867adb8a80d, type: 3}
+  m_Sprite: {fileID: -6819239944382303966, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6337646991719243360, guid: 97102b2f88ab0eb48bee4867adb8a80d, type: 3}
+  m_Sprite: {fileID: 3762643912346244886, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -268,7 +268,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -4612780052235628664, guid: 97102b2f88ab0eb48bee4867adb8a80d, type: 3}
+  m_Sprite: {fileID: -2630143045139994762, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
   m_Color: {r: 0.9881122, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -350,7 +350,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5451783303251534561, guid: 97102b2f88ab0eb48bee4867adb8a80d, type: 3}
+  m_Sprite: {fileID: 4710984459976364328, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -432,7 +432,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4612780052235628664, guid: 97102b2f88ab0eb48bee4867adb8a80d, type: 3}
+  m_Sprite: {fileID: -2630143045139994762, guid: 7a8ee8a5e62a1824b997bcc8aab9e51d, type: 3}
   m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -452,6 +452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4489247035755830175}
+  - component: {fileID: 8527477180886171141}
   m_Layer: 0
   m_Name: Cable
   m_TagString: Untagged
@@ -475,6 +476,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8527477180886171141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449462647255227463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5924fb0cdb81abf46b1662d6e9f5c91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalCable: {fileID: 388801092832389243}
+  luz: {fileID: 3785822956181733686}
 --- !u!1 &9160820873514253799
 GameObject:
   m_ObjectHideFlags: 0
