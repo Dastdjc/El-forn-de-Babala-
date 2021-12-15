@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
             // Poner nueva conversación a Mifa
             mifa.conversationIndex = 3;
         }
-
+        Debug.Log(specialCharacterIndex);
         if (!dia && specialCharacterIndex <= 1) 
         {
             mifa.conversationIndex = 4;

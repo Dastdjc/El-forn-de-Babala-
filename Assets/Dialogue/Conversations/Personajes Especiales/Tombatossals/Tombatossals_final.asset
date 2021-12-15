@@ -29,7 +29,7 @@ MonoBehaviour:
       que se quede en el pueblo."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Ya lo s\xE9<speed=30>, estoy pensando que decir. A\xFAn me da verg\xFCenza...<speed=40>"
+    text: "Ya lo s\xE9<speed=30>, estoy pensando qu\xE9 decir. A\xFAn me da verg\xFCenza...<speed=40>"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Entonces, \xBFle ha gustado esta <color=#E1AC82>panader\xEDa</color>?"
@@ -38,15 +38,17 @@ MonoBehaviour:
     text: "S\xED, la verdad.<pause=0,5> La encuentro muy curiosa."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Esto no lo encuentras en la <color=#c5c5c5>ciudad</color>, \xBFverdad?"
+    text: "Esto no lo encuentras en la <color=#c5c5c5>ciudad</color><pause=0,5>,
+      \xBFverdad?"
     Emotion: 0
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: No, desde luego. Las cosas en la<color=#c5c5c5>ciudad</color> no estan
-      tan buenas.
+    text: No, desde luego.<pause=0,5> Las cosas en la <color=#c5c5c5>ciudad</color>
+      no estan tan buenas.
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Pues la verdad es que nuestro pueblo est\xE1 deshabitado y una persona
-      tan fuerte como usted nos vendr\xEDa bien \xBFQu\xE9 le parece mudarse aqu\xED?"
+    text: "Pues nuestro pueblo est\xE1 deshabitado y una persona tan fuerte como
+      usted nos vendr\xEDa bien<pause=0,5><speed=10>...<speed=40> \xBFQu\xE9 le parece
+      mudarse aqu\xED?"
     Emotion: 6
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
     text: "\xBFMudarme? No s\xE9, en la <color=#c5c5c5>ciudad</color> tengo el gimnasio<speed=5>...<speed=40><pause=0,5>
@@ -60,13 +62,13 @@ MonoBehaviour:
       beneficioso y barato."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Pero puedes hacer ejercicio al aire libre sin ning\xFAn problema y sin
-      la poluci\xF3n de la <color=#c5c5c5>ciudad</color>. Adem\xE1s, podr\xE1s reparar
-      coches a amigos y a conocidos."
+    text: "Aqu\xED puedes hacer ejercicio al aire libre y sin la poluci\xF3n de la
+      <color=#c5c5c5>ciudad</color>.<pause=0,5> Adem\xE1s, podr\xE1s reparar coches
+      a amigos y a conocidos."
     Emotion: 0
   - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
-    text: "La verdad es que me encanta reparar coches, pero siento que en la <color=#c5c5c5>ciudad</color>
-      los clientes son muy frios. Aqu\xED estar\xEDa m\xE1s arropado."
+    text: "Me encanta reparar coches, pero siento que en la <color=#c5c5c5>ciudad</color>
+      los clientes son muy frios.<pause=0,5>Aqu\xED estar\xEDa m\xE1s arropado."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Aqu\xED todos nos conocemos y somos una gran familia."
@@ -87,5 +89,5 @@ MonoBehaviour:
     text: "\xA1Muy bien <color=#FE77A2>Dore</color>!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Lo he conseguido... No s\xE9 ni como pero lo he conseguido..."
+    text: "Lo he conseguido...<pause=1> No s\xE9 ni como pero lo he conseguido..."
     Emotion: 2
