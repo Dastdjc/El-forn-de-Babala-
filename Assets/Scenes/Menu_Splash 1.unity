@@ -12293,6 +12293,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1640372549, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1752928512, guid: 198d1d329f680894ea38a357bb2ec2ba, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
