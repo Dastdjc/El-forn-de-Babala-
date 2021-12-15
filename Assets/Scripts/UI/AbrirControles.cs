@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbrirControles : MonoBehaviour
 {
     public GameObject controles;
+    public GameObject text;
     private Animator UIanimator;
     private Material mat;
     private GameObject player;
@@ -37,6 +38,7 @@ public class AbrirControles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        text.SetActive(true);
         mat.SetFloat("Thickness", 0.06f);
         inRange = true;
         transform.localScale = transform.localScale * 1.1f;//new Vector3(1.1f, 1.1f, 1.1f);
@@ -44,6 +46,7 @@ public class AbrirControles : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        text.SetActive(false);
         mat.SetFloat("Thickness", 0f);
         inRange = false;
         transform.localScale = transform.localScale * 0.9f;//new Vector3(1f, 1f, 1f);
