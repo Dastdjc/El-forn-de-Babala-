@@ -8,6 +8,7 @@ public class Cable : MonoBehaviour
     public SpriteRenderer finalCable;
     public GameObject luz;
     static private int cables = 8;
+    private Cables_minijuego Cables_minijuego;
 
     private Vector2 posicionOriginal;
     private Vector2 tamañoOriginal;
@@ -17,7 +18,7 @@ public class Cable : MonoBehaviour
     {
         posicionOriginal = transform.position;
         tamañoOriginal = finalCable.size;
-        
+        Cables_minijuego = transform.root.gameObject.GetComponent<Cables_minijuego>();
     }
 
     // Update is called once per frame
@@ -89,6 +90,9 @@ public class Cable : MonoBehaviour
                     //conexion correcta
                     Conectar();
                     otroCable.Conectar();
+
+                    Cables_minijuego.conexionesActuales++;
+                    Cables_minijuego.ComprovarVictoria();
                 }
 
             }
