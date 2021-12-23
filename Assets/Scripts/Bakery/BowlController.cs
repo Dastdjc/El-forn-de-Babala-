@@ -6,21 +6,36 @@ public class BowlController : MonoBehaviour
 {
     private Transform Content;
     private int[] ingredients = new int[13];
+    static public int[][] IngPerRecipe;
+    public int selected = 0;
     static private float Upmov = 0.05f;
     //public KilnController Kiln;
+    private void Awake()
+    {
+        setIngrRecp();
+    }
     void Start()
     {
+        setIngrRecp();
         Content = transform.GetChild(0);
         Content.localPosition = new Vector3(0, -0.9f, 0);
-        ingredients = new int[13];
+        //FoodBar.SetNumbers(IngPerRecipe[selected]);
+        //ingredients = new int[13];
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().ImBusy())
+        /*if (Input.GetKeyDown(KeyCode.C) && GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().ImBusy())
         {
             GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().GetToCook(DeterminateFood());
             FoodBar.BarVisibility();
-        }
+        }*/
+        int selec = selected;
+        if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
+        else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) { }
+        else if (Input.GetKeyDown(KeyCode.RightArrow)) { IsEnough(IngPerRecipe[selected]); }
+
+        if(selec != selected) { FoodBar.SetNumbers(IngPerRecipe[selected],selected); }
     }
     private int DeterminateFood()
     {
@@ -35,26 +50,27 @@ public class BowlController : MonoBehaviour
          * 8)Pasteles de boniato
          * 9)Mocadorá
          */
-        int[] recipe = { 5, 1, 1, 2, 2, 1 };
-        if (IsEnough(recipe)) { return 0; }
-        recipe = new int[]{ 5, 2, 0, 0, 2, 3, 2, 2 };
-        if (IsEnough(recipe)) { return 1; }
-        recipe = new int[] { 5, 1, 0, 0, 3, 3, 2, 2, 1, 1 };
-        if (IsEnough(recipe)) { return 2; }
-        recipe = new int[] { 5, 0, 2, 0, 2, 2, 0, 0, 1, 0, 0, 0, 1 };
-        if (IsEnough(recipe)) { return 3; }
-        recipe = new int[] { 5, 2, 4, 0, 2, 1, 2, 0, 1 };
-        if (IsEnough(recipe)) { return 4; }
-        recipe = new int[] { 5, 0, 0, 0, 2, 2, 4, 0, 0, 4, 2 };
-        if (IsEnough(recipe)) { return 5; }
-        recipe = new int[] { 5, 0, 8, 0, 6, 5, 1, 0, 1 };
-        if (IsEnough(recipe)) { return 6; }
-        recipe = new int[] { 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 4 };
-        if (IsEnough(recipe)) { return 7; }
-        recipe = new int[] { 0, 0, 0, 0, 6, 1, 0, 2, 1, 6, 6 };
-        if (IsEnough(recipe)) { return 8; }
-        Resset();
+        /*int i = 0;
+        while (i < IngPerRecipe.Length && !IsEnough(IngPerRecipe[i]))
+        {
+            i++;
+        }
+
+        if (i < IngPerRecipe.Length) { return i; }*/
         return -1;
+    }
+    private void setIngrRecp()
+    {
+        IngPerRecipe = new int[9][];
+        IngPerRecipe[0] = new int[] { 5, 1, 1, 2, 2, 1 };
+        IngPerRecipe[1] = new int[] { 5, 2, 0, 0, 2, 3, 2, 2 };
+        IngPerRecipe[2] = new int[] { 5, 1, 0, 0, 3, 3, 2, 2, 1, 1 };
+        IngPerRecipe[3] = new int[] { 5, 0, 2, 0, 2, 2, 0, 0, 1, 0, 0, 0, 1 };
+        IngPerRecipe[4] = new int[] { 5, 2, 4, 0, 2, 1, 2, 0, 1 };
+        IngPerRecipe[5] = new int[] { 5, 0, 0, 0, 2, 2, 4, 0, 0, 4, 2 };
+        IngPerRecipe[6] = new int[] { 5, 0, 8, 0, 6, 5, 1, 0, 1 };
+        IngPerRecipe[7] = new int[] { 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 4 };
+        IngPerRecipe[8] = new int[] { 0, 0, 0, 0, 6, 1, 0, 2, 1, 6, 6 };
     }
     private bool IsEnough(int[] q) 
     {
@@ -107,6 +123,6 @@ public class BowlController : MonoBehaviour
         {
             if (GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[i].type == ingr.type) { j = i; }
         }
-        FoodBar.AddItemToBar(GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[j].itemImage, index, ingredients[index]);
+        //FoodBar.AddItemToBar(GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrImagesList[j].itemImage, index, ingredients[index]);
     }
 }

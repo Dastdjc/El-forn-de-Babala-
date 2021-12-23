@@ -5,8 +5,6 @@ using TMPro;
 
 public class SpawnBowlScene : MonoBehaviour
 {
-    //[HideInInspector] public Rigidbody2D rb;
-    //[HideInInspector] public GameObject currentTask;
     public Transform camara;
     public GameObject task;
     public GameObject Texto;
@@ -27,16 +25,17 @@ public class SpawnBowlScene : MonoBehaviour
             {
                 Time.timeScale = 0;
                 task.SetActive(true);
+                task.transform.GetChild(2).GetComponent<FoodBar>().Initiate();
                 task.transform.position = new Vector3(camara.position.x, -2.5f, 0);
                 GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingTable = true;
             }
             else
             {
                 Time.timeScale = 1;
-                GameObject.FindGameObjectWithTag("Bol").GetComponent<BowlController>().BackIgredients();
+                //GameObject.FindGameObjectWithTag("Bol").GetComponent<BowlController>().BackIgredients();
                 task.SetActive(false);
                 GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingTable = false;
-                FoodBar.BarVisibility();
+                //FoodBar.BarVisibility();
             }
             
         }
