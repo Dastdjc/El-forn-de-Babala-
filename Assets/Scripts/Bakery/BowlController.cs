@@ -37,7 +37,7 @@ public class BowlController : MonoBehaviour
 
         if(selec != selected) { FoodBar.SetNumbers(IngPerRecipe[selected],selected); }
     }
-    private int DeterminateFood()
+    public int DeterminateFood()
     {
         /*
          * 1)Mona
@@ -57,6 +57,26 @@ public class BowlController : MonoBehaviour
         }
 
         if (i < IngPerRecipe.Length) { return i; }*/
+        int[] auxArray = new int[13];
+        foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
+        {
+            int index = 0;
+            string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
+            while (names[index] != itm.type) { index++; }
+            auxArray[index] = itm.amount;
+        }
+        if (IsEnough(auxArray))
+        {
+            foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
+            {
+                int index = 0;
+                string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
+                while (names[index] != itm.type) { index++; }
+                itm.amount =- IngPerRecipe[selected][index];
+            }
+            return selected;
+        }
+
         return -1;
     }
     private void setIngrRecp()
@@ -78,7 +98,7 @@ public class BowlController : MonoBehaviour
         int i = 0;
         while(i < q.Length && isOnbowl)
         {
-            if (ingredients[i] < q[i]) isOnbowl = false;
+            if (IngPerRecipe[selected][i] < q[i]) isOnbowl = false;
             i++;
         }
         if (isOnbowl) Resset();
