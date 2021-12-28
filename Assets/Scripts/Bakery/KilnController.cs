@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class KilnController : MonoBehaviour
 {
-    private bool open = false;
+
+    /*private bool open = false;
     private GameObject objectEntering;
     public GameObject FoodToCook;//Es un objeto con sprite renderer y lo uso para instanciarlo y un hijo con un sprite rectangular y otro hijo mascara
-    static private int foodIndex;
+    
     private SpriteRenderer ColorBar;
     private Transform Mask;
-    static public int electricity = 2;
     private float timer;
-    static private Color secondColor = new Color(1, 0.3f, 0);
-    static public GameObject Inventory;
+    */static public int electricity = 2;/*
     private KilnController Instance;
 
     private void Awake()
@@ -34,20 +33,6 @@ public class KilnController : MonoBehaviour
     {
         if(open) gameObject.GetComponent<SpriteRenderer>().color = secondColor;
         else gameObject.GetComponent<SpriteRenderer>().color = new Color(0.25f, 0, 1);
-    }
-    private void OnMouseDown()
-    {
-        if (open)
-        {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.25f, 0, 1);
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 4;
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().color = secondColor;
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        }
-        open = !open;
     }
     private void Update()
     {
@@ -106,20 +91,22 @@ public class KilnController : MonoBehaviour
         }
     }
     public bool ImBusy() { return objectEntering == null; }
-    public bool ImOpen() { return open; }
+    public bool ImOpen() { return open; }*/
     static public void ReturnElec()
     {
         electricity = 2;
-        secondColor = new Color(1, 0.3f, 0);
     }
-    static public void PassToInv()
+    static public void PassToInv(int index)
     {
         string[] names = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
         Recipe aux = ScriptableObject.CreateInstance<Recipe>();
         aux.amount = 1;
-        if (foodIndex != -1) aux.type = names[foodIndex];
-        else aux.type = "Basura";
-        Debug.Log(aux.type);
-        Inventory.GetComponent<Inventory>().AddRecipe(aux);
+        if (index != -1)
+        {
+            aux.type = names[index];
+            //else aux.type = "Basura";
+            Debug.Log(index);
+            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddRecipe(aux);
+        }
     }
 }
