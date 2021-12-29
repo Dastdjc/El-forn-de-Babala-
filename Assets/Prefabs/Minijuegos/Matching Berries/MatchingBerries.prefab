@@ -2089,6 +2089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100d6c44547cd4e47b85c86f4cddac54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 5487080521494843699, guid: 6267dd122b90aed4ca2898894f7bbcda, type: 3}
+  particleMalPrefab: {fileID: 5487080521494843699, guid: db0c00f3f8791754f9fe217010847ef1, type: 3}
 --- !u!61 &7416745229513474239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2767,6 +2769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095e38319ad4a9b408b0a099dc2f319b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 5487080521494843699, guid: 6267dd122b90aed4ca2898894f7bbcda, type: 3}
+  particleMalPrefab: {fileID: 5487080521494843699, guid: db0c00f3f8791754f9fe217010847ef1, type: 3}
 --- !u!61 &7416745230673445859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2986,6 +2990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 5487080521494843699, guid: 6267dd122b90aed4ca2898894f7bbcda, type: 3}
+  particleMalPrefab: {fileID: 5487080521494843699, guid: db0c00f3f8791754f9fe217010847ef1, type: 3}
 --- !u!1 &7416745231021272271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,6 +3221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8a29d41eeec144c8439b3846ed9535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 5487080521494843699, guid: 6267dd122b90aed4ca2898894f7bbcda, type: 3}
+  particleMalPrefab: {fileID: 5487080521494843699, guid: db0c00f3f8791754f9fe217010847ef1, type: 3}
 --- !u!61 &7416745231074176406
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,9 +6,11 @@ public class triggerCesta : MonoBehaviour
 {
     private eventSystem cosa;
     private spawnerBerries spawn;
+
     public GameObject particlePrefab;
+    public GameObject particleMalPrefab;
     private GameObject particula;
-    private Vector3 posicion;
+    private GameObject particulaMal;
     
 
     void Start()
@@ -18,7 +20,6 @@ public class triggerCesta : MonoBehaviour
 
         GameObject spawner = GameObject.Find("Spawner");
         spawn = spawner.GetComponent<spawnerBerries>();
-        posicion.Set(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z - 1);
     }
 
    
@@ -26,10 +27,12 @@ public class triggerCesta : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Destroy(particula);
+        Destroy(particulaMal);
 
         if (collision.gameObject.tag == "Azul")
         {
-            particula = Instantiate(particlePrefab, posicion, Quaternion.identity);
+            particula = Instantiate(particlePrefab, gameObject.transform.position, Quaternion.identity);
             particula.transform.parent = gameObject.transform;
             Destroy(collision.gameObject);
             cosa.puntuacion += 30;
@@ -37,6 +40,8 @@ public class triggerCesta : MonoBehaviour
         }
         else if (collision.gameObject.tag != "Azul")
         {
+            particulaMal = Instantiate(particleMalPrefab, gameObject.transform.position, Quaternion.identity);
+            particulaMal.transform.parent = gameObject.transform;
             Destroy(collision.gameObject);
             cosa.puntuacion -= 20;
             spawn.cantGO -= 1;

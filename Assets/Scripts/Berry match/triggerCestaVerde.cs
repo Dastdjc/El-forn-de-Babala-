@@ -7,6 +7,11 @@ public class triggerCestaVerde : MonoBehaviour
     private eventSystem cosa;
     private spawnerBerries spawn;
 
+    public GameObject particlePrefab;
+    public GameObject particleMalPrefab;
+    private GameObject particula;
+    private GameObject particulaMal;
+
     void Start()
     {
         GameObject cesta = GameObject.Find("EventHandler");
@@ -19,17 +24,24 @@ public class triggerCestaVerde : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Destroy(particula);
+        Destroy(particulaMal);
+
         if (collision.gameObject.tag == "Verde")
         {
+            particula = Instantiate(particlePrefab, gameObject.transform.position, Quaternion.identity);
+            particula.transform.parent = gameObject.transform;
             Destroy(collision.gameObject);
-            spawn.cantGO -= 1;
             cosa.puntuacion += 30;
+            spawn.cantGO -= 1;
         }
         else if (collision.gameObject.tag != "Verde")
         {
+            particulaMal = Instantiate(particleMalPrefab, gameObject.transform.position, Quaternion.identity);
+            particulaMal.transform.parent = gameObject.transform;
             Destroy(collision.gameObject);
-            spawn.cantGO -= 1;
             cosa.puntuacion -= 20;
+            spawn.cantGO -= 1;
         }
     }
 }
