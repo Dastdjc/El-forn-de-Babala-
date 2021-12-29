@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private DialogueManager dm;
     private Vector3 idleScale;
+    private CinemachineImpulseSource cameraImpulse;
 
     public float speed = 5;
     public float dashSpeed = 10;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         idleScale = new Vector3(1, 1, 1);
 
         sr = gameObject.GetComponent<SpriteRenderer>();
+        cameraImpulse = this.GetComponent<CinemachineImpulseSource>();
 
         // inital position in the scene
         if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque)
@@ -72,11 +75,16 @@ public class PlayerMovement : MonoBehaviour
                 Walk(dir);
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && xRaw != 0)
+            if (Input.GetKey(KeyCode.LeftShift) && !isDashing && xRaw != 0)
             {
                 animator.SetBool("isDashing", true);
                 dashParticles.SetActive(true);
-                Dash(xRaw);
+                    Dash(xRaw);
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                rb.drag = 14;
+                StartCoroutine("DashWait");
             }
         }
         else
@@ -98,18 +106,24 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         Vector2 dash = new Vector2(x, 0);
         
+        //rb.drag = 14;
         rb.velocity += dash.normalized * dashSpeed;
-        rb.drag = 14;
         rb.gravityScale = 0;
 
-        CameraShake.Instance.ShakeCamera(5f, 0.1f);
-
-        //Debug.Log("dash");
-        StartCoroutine("DashWait"); // Parecido a un timer
+        cameraImpulse.GenerateImpulse();
+        //CameraShake.Instance.ShakeCamera(5f, 0.1f);
+       
+        //StartCoroutine("DashWait"); // Parecido a un timer
     }
 
     IEnumerator DashWait() // Función que no se ejecuta en cada frame
     {
+        //for (float i = 6; i >= 0; i--)
+        //{
+        //    rb.drag -= 1;
+        //    yield return new WaitForSeconds(.05f);  // Tiempo que se espera en cada frame para volver a la ejecución de la función
+        //}
+
         for (float i = 6; i >= 0; i--)
         {
             rb.drag -= 1;
