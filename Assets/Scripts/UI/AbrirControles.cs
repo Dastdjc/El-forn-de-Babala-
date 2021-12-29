@@ -16,26 +16,32 @@ public class AbrirControles : MonoBehaviour
         UIanimator = controles.GetComponent<Animator>();
         mat = this.gameObject.GetComponent<SpriteRenderer>().material;
         player = GameObject.Find("Dore_player");
+        DesactivarControles();
     }
     private void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E)) 
+        if (inRange && Input.GetKeyDown(KeyCode.E) && !controles.active) 
         {
+            controles.SetActive(true);
             UIanimator.SetTrigger("aparicion");
             Invoke("DesactivarPlayer", 0.5f);
         }
     }
     private void DesactivarPlayer() 
     { 
-        player.SetActive(false); 
+        player.SetActive(false);
     }
 
     public void CerrarControles() 
     {
         UIanimator.SetTrigger("desaparicion");
         player.SetActive(true);
+        Invoke("DesactivarControles", 0.5f);
     }
-
+    private void DesactivarControles() 
+    {
+        controles.SetActive(false);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         text.SetActive(true);
