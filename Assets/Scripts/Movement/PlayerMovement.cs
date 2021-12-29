@@ -50,9 +50,12 @@ public class PlayerMovement : MonoBehaviour
             float xRaw = Input.GetAxisRaw("Horizontal");
             Vector2 dir = new Vector2(x, y);
 
-            animator.SetFloat("speed", Mathf.Abs(dir.x));
-
-            idle_anim.SetActive(true);
+            if (!isDashing)
+            {
+                animator.SetFloat("speed", Mathf.Abs(dir.x));
+                idle_anim.SetActive(true);
+            }
+            
             // Flip del sprite de Dore
             if (dir.x < 0) {
                 idleScale.x = -1;
@@ -70,16 +73,16 @@ public class PlayerMovement : MonoBehaviour
             idle_anim.transform.localScale = idleScale;
 
             // Lógica del movimiento
-            if (!isDashing)
-            {
+            //if (!isDashing)
+            //{
                 Walk(dir);
-            }
+            //}
 
-            if (Input.GetKey(KeyCode.LeftShift) && !isDashing && xRaw != 0)
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 animator.SetBool("isDashing", true);
                 dashParticles.SetActive(true);
-                    Dash(xRaw);
+                Dash(xRaw);
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift))
             {
@@ -108,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         
         //rb.drag = 14;
         rb.velocity += dash.normalized * dashSpeed;
-        rb.gravityScale = 0;
+        rb.gravityScale = 1;
 
         cameraImpulse.GenerateImpulse();
         //CameraShake.Instance.ShakeCamera(5f, 0.1f);
