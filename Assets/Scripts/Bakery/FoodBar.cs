@@ -30,6 +30,14 @@ public class FoodBar : MonoBehaviour
             CurrentVisuals[i] = Instantiate(Example);
             CurrentVisuals[i].GetComponent<SpriteRenderer>().sprite = ingrs[i];
         }
+        WhatIHaveRefresh();
+        Camara = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        Result.transform.position = new Vector3(3, 2, 0) + new Vector3(Camara.position.x, 0, 0);
+        Result.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Result.transform.GetChild(0).gameObject.SetActive(false);
+    }
+    public void WhatIHaveRefresh()
+    {
         WhatIHave = new int[13];
         foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
@@ -38,12 +46,8 @@ public class FoodBar : MonoBehaviour
             while (names[index] != itm.type) { index++; }
             WhatIHave[index] = itm.amount;
         }
-        Camara = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        Result.transform.position = new Vector3(3, 2, 0) + new Vector3(Camara.position.x, 0, 0);
-        Result.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        Result.transform.GetChild(0).gameObject.SetActive(false);
     }
-    static public void SetNumbers(int[] paid, int res)
+    public void SetNumbers(int[] paid, int res)
     {
         WhatINeed = paid;
         AreActive = 0;

@@ -17,47 +17,52 @@ public class BowlController : MonoBehaviour
     //public KilnController Kiln;
     void Start()
     {
+        ColorBar.gameObject.SetActive(false);
         setIngrRecp();
         Content = transform.GetChild(0);
         Content.localPosition = new Vector3(0, -0.9f, 0);
-        FoodBar.SetNumbers(IngPerRecipe[selected],selected);
+        gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected],selected);
         //relativeX = GameObject.FindGameObjectWithTag("MainCamera").transform.position.x;
     }
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.C) && GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().ImBusy())
-        {
-            GameObject.FindGameObjectWithTag("Horno").GetComponent<KilnController>().GetToCook(DeterminateFood());
-            FoodBar.BarVisibility();
-        }*/
         int selec = selected;
         if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
         else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) { if (somethingInside != -2) { PassToInv(somethingInside); somethingInside = -2; } }
         else if (Input.GetKeyDown(KeyCode.RightArrow)) { somethingInside = DeterminateFood(); ActivateCookBar(); }
-
-        if(cookState == -1 && selec != selected) { FoodBar.SetNumbers(IngPerRecipe[selected],selected); }
-        else if(cookState > -1 && ColorBar.transform.position.x < 2.25f){
-            ColorBar.transform.position += new Vector3(0.01f, 0, 0);
-            if(ColorBar.transform.position.x > -0.4f)
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (somethingInside != -2)
             {
-                cookState = 1;
-                ColorBar.color = new Color(0, 0.5f, 0);
-            }
-            else if(ColorBar.transform.position.x > 1)
-            {
-                cookState = 2;
-                ColorBar.color = new Color(0.5f, 0, 0);
+                PassToInv(somethingInside, cookState);
+                somethingInside = -2;
+                ColorBar.gameObject.SetActive(false);
             }
         }
+        if (cookState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected],selected); }
+        else if(cookState > -1 && ColorBar.transform.localPosition.x < 2.25f){
+            ColorBar.transform.localPosition += new Vector3(0.002f, 0, 0);
+            if (ColorBar.transform.localPosition.x > 1)
+            {
+                cookState = 2;
+                ColorBar.color = new Color(0.8f, 0, 0);
+            }
+            else if (ColorBar.transform.localPosition.x > -0.4f)
+            {
+                cookState = 1;
+                ColorBar.color = new Color(0, 0.8f, 0);
+            }
+            
+        }
     }
-    private void PassToInv(int index)
+    private void PassToInv(int index, int state)
     {
         string[] names = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
         Recipe aux = ScriptableObject.CreateInstance<Recipe>();
         aux.amount = 1;
         if (index != -1)aux.type = names[index];
         else aux.type = "Basura";
+        Debug.Log(state);
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddRecipe(aux);
     }
     public int DeterminateFood()
@@ -83,18 +88,20 @@ public class BowlController : MonoBehaviour
             while (names[index] != itm.type) { index++; }
             auxArray[index] = itm.amount;
         }
-        if (IsEnough(auxArray))
+
+        foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
-            foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
-            {
-                int index = 0;
-                string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
-                while (names[index] != itm.type) { index++; }
-                itm.amount = -IngPerRecipe[selected][index];
-            }
-            return selected;
+            int index = 0;
+            string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
+            while (names[index] != itm.type) { index++; }
+            if (itm.amount > 0 && itm.amount > IngPerRecipe[selected][index])
+                itm.amount -= IngPerRecipe[selected][index];
+            else itm.amount = 0;
         }
-        if(oneUnless)return -1;
+        gameObject.GetComponent<FoodBar>().WhatIHaveRefresh();
+        gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected);
+        if (IsEnough(auxArray))return selected;
+        if (oneUnless)return -1;
         return -2;
     }
     private void setIngrRecp()
@@ -127,7 +134,8 @@ public class BowlController : MonoBehaviour
     {
         cookState = 0;
         ColorBar.gameObject.SetActive(true);
-        ColorBar.color = new Color(0, 0, 0.5f);
+        ColorBar.color = new Color(0, 0, 0.8f);
+        ColorBar.transform.localPosition = new Vector3(-2.25f, 0, 0);
     }
     /*public void PutIngredient(Items ingr)
     {
