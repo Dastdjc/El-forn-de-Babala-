@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]public int conversationIndex = 0;
     private bool conversationStarted = false;
     private bool nextDialogue = false;
+    private bool accelerating = false;
 
 
     // Start is called before the first frame update
@@ -44,6 +45,11 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !accelerating)
+                {
+                    TextPro.maxVisibleCharacters = TextPro.text.Length;
+                }
+
                 if (!conversationStarted)
                     setUpConversation();
 

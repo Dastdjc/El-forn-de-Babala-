@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private DialogueManager dm;
     private Vector3 idleScale;
     private CinemachineImpulseSource cameraImpulse;
+    private AudioSource dash_body;
+    private AudioSource dash_init;
+    private AudioSource dash_end;
+    private AudioSource dash_moving;
+
+    private bool dashMovingPlayed = false;
 
     public float speed = 5;
     public float dashSpeed = 10;
@@ -30,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
         sr = gameObject.GetComponent<SpriteRenderer>();
         cameraImpulse = this.GetComponent<CinemachineImpulseSource>();
+
+        dash_init = GameObject.Find("Dash_init").GetComponent<AudioSource>();
+        dash_body = GameObject.Find("Dash_body").GetComponent<AudioSource>();
+        dash_end = GameObject.Find("Dash_end").GetComponent<AudioSource>();
+        dash_moving = GameObject.Find("Dash_moving").GetComponent<AudioSource>();
 
         // inital position in the scene
         if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque)
@@ -55,9 +66,10 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetFloat("speed", Mathf.Abs(dir.x));
                 idle_anim.SetActive(true);
             }
-            
+
             // Flip del sprite de Dore
-            if (dir.x < 0) {
+            if (dir.x < 0)
+            {
                 idleScale.x = -1;
                 idle_anim.SetActive(false);
                 //transform.localScale = new Vector3(-1, 1, 1);
@@ -70,13 +82,28 @@ public class PlayerMovement : MonoBehaviour
                 //transform.localScale = new Vector3(1, 1, 1);
                 sr.flipX = false;
             }
+
+            // Sonido del dash
+            if (isDashing && Mathf.Abs(dir.x) != 0) // Si no se mueve y está dashing
+            {
+                if (isDashing && !dashMovingPlayed)
+                {
+                    dash_moving.Play();
+                    dashMovingPlayed = true;
+                }
+
+            }
+            else 
+            {
+                dash_moving.Stop();
+                dashMovingPlayed = false;
+            }
+
             idle_anim.transform.localScale = idleScale;
 
             // Lógica del movimiento
-            //if (!isDashing)
-            //{
-                Walk(dir);
-            //}
+
+            Walk(dir);
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -88,13 +115,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.drag = 14;
                 StartCoroutine("DashWait");
+
+                dash_body.Stop();
+                dash_moving.Stop();
+                dash_end.Play();
             }
         }
         else
         {
+            idle_anim.transform.localScale = idleScale;
             rb.velocity = new Vector2(0f, 0f);
+            animator.SetBool("isDashing", false);
             idle_anim.SetActive(true);
             animator.SetFloat("speed", 0);
+
+            dash_body.Stop();
+            dash_moving.Stop();
+            dash_end.Stop();
         }
     }
 
@@ -105,13 +142,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash(float x) 
     {
+        if (!isDashing)
+        {
+            dash_init.Play();
+            dash_body.Play();
+        }
+        
         isDashing = true;
         rb.velocity = Vector2.zero;
         Vector2 dash = new Vector2(x, 0);
         
         //rb.drag = 14;
         rb.velocity += dash.normalized * dashSpeed;
-        rb.gravityScale = 1;
+        rb.gravityScale = 0;
 
         cameraImpulse.GenerateImpulse();
         //CameraShake.Instance.ShakeCamera(5f, 0.1f);
@@ -135,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
 
         isDashing = false;
 
-        rb.gravityScale = 1;
+        rb.gravityScale = 1f;
         rb.drag = 0;
 
         //Debug.Log("STOP dash");
