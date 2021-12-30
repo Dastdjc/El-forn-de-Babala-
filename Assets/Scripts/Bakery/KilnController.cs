@@ -96,17 +96,5 @@ public class KilnController : MonoBehaviour
     {
         electricity = 2;
     }
-    static public void PassToInv(int index)
-    {
-        string[] names = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
-        Recipe aux = ScriptableObject.CreateInstance<Recipe>();
-        aux.amount = 1;
-        if (index != -1)
-        {
-            aux.type = names[index];
-            //else aux.type = "Basura";
-            Debug.Log(index);
-            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddRecipe(aux);
-        }
-    }
+    
 }
