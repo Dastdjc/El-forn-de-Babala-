@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
                 idle_anim.SetActive(false);
                 //transform.localScale = new Vector3(-1, 1, 1);
                 sr.flipX = true;
-                shadow.localPosition.Set(shadow.localPosition.x - 1, shadow.position.y, shadow.position.z);
+                
             }
             else if (dir.x > 0)
             {
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
                 idle_anim.SetActive(false);
                 //transform.localScale = new Vector3(1, 1, 1);
                 sr.flipX = false;
-                shadow.localPosition.Set(shadow.localPosition.x + 1, shadow.position.y, shadow.position.z);
+                
             }
 
             // Sonido del dash
