@@ -48,6 +48,8 @@ public class DialogueManager : MonoBehaviour
                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !accelerating)
                 {
                     TextPro.maxVisibleCharacters = TextPro.text.Length;
+                    TextPro.visibleCounter = TextPro.text.Length;
+                    // Falta que dejen de hablar y te deje skipear
                 }
 
                 if (!conversationStarted)
