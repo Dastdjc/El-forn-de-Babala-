@@ -29,7 +29,11 @@ public class BowlController : MonoBehaviour
         int selec = selected;
         if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
         else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) { somethingInside = DeterminateFood(); ActivateCookBar(); }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        { //Pasar del inventario a la olla
+            somethingInside = DeterminateFood();
+            ActivateCookBar(); 
+        }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (somethingInside != -2)
@@ -39,20 +43,21 @@ public class BowlController : MonoBehaviour
                 ColorBar.gameObject.SetActive(false);
             }
         }
+        //Una vez ha pasado a la olla aqui se calcula como de hecho está
         if (cookState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected],selected); }
         else if(cookState > -1 && ColorBar.transform.localPosition.x < 2.25f){
             ColorBar.transform.localPosition += new Vector3(0.002f, 0, 0);
-            if (ColorBar.transform.localPosition.x > 1)
+            if (ColorBar.transform.localPosition.x > 1)//Muy hecho
             {
                 cookState = 2;
                 ColorBar.color = new Color(0.8f, 0, 0);
             }
-            else if (ColorBar.transform.localPosition.x > -0.4f)
+            else if (ColorBar.transform.localPosition.x > -0.4f)//En el punto
             {
                 cookState = 1;
                 ColorBar.color = new Color(0, 0.8f, 0);
             }
-            
+            //Normal
         }
     }
     private void PassToInv(int index, int state)
