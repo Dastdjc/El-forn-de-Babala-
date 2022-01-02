@@ -14340,6 +14340,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 452981239453856031, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521946538501273042, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1546595948463439539, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 5
@@ -14480,9 +14488,21 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.9936905
       objectReference: {fileID: 0}
+    - target: {fileID: 5248960859616443541, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7133218232293846360, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.00000009289912
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259980185498637108, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520296065138708386, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
