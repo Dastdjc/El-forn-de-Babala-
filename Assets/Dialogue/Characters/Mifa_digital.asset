@@ -15,4 +15,8 @@ MonoBehaviour:
   fullName: 
   mood:
   - emotion: 0
-    graphic: {fileID: 3695762414548416406, guid: 0265b8ecc05e04e4abf494dafc5cb864, type: 3}
+    graphic: {fileID: 21300000, guid: ed5c76cc799a6a84997ff97e3bda324d, type: 3}
+  - emotion: 1
+    graphic: {fileID: 21300000, guid: 264f69d1440f155439c2dae4464191e5, type: 3}
+  - emotion: 6
+    graphic: {fileID: 21300000, guid: 6e5d5865ae8fb314eafc65742929093d, type: 3}
