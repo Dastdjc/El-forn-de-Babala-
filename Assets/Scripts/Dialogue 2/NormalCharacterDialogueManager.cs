@@ -9,10 +9,12 @@ public class NormalCharacterDialogueManager : MonoBehaviour
     public Conversation conversation;
     public float detectionRange = 10;
     public DialogueManager dm;
+    public GameObject[] sprites;
 
     private bool closeEnough = false;
     private bool spokenTo = false;
     private SpriteRenderer sr;
+    private Material material;
 
     private void Start()
     {
@@ -24,12 +26,18 @@ public class NormalCharacterDialogueManager : MonoBehaviour
 
         if (closeEnough)
         {
-            transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-            if (player.position.x > this.transform.position.x)
-                sr.flipX = true;
-            else sr.flipX = false;
 
-            if (Input.GetKeyDown(KeyCode.Space) && !dm.inConversation && !spokenTo)
+            if (!dm.inConversation)
+                SetThickness(0.005f);
+            else
+                SetThickness(0f);
+
+            
+            if (player.position.x > this.transform.position.x)
+                transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
+            else transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+
+            if (Input.GetKeyDown(KeyCode.E) && !dm.inConversation && !spokenTo)
             {
                 dm.NPC = transform;
                 dm.conversation = conversation;
@@ -38,7 +46,7 @@ public class NormalCharacterDialogueManager : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            SetThickness(0f);
         }
 
         if (Vector2.Distance(player.position, transform.position) <= detectionRange)
@@ -46,5 +54,14 @@ public class NormalCharacterDialogueManager : MonoBehaviour
             closeEnough = true;
         }
         else closeEnough = false;
+    }
+    void SetThickness(float thick)
+    {
+        foreach (GameObject sprite in sprites)
+        {
+            material = sprite.GetComponent<SpriteRenderer>().material;
+            material.SetFloat("Thickness", thick);
+        }
+        return;
     }
 }
