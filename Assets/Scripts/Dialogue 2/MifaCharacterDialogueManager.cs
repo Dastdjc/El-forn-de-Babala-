@@ -9,10 +9,11 @@ public class MifaCharacterDialogueManager : MonoBehaviour
     public Conversation[] conversation;
     public float detectionRange = 10;
     public DialogueManager dm;
+    public GameObject[] sprites;
 
     private bool closeEnough = false;
     private bool spokenTo = false;
-    private SpriteRenderer sr;
+    //private SpriteRenderer sr;
     private Material material;
     public int conversationIndex { get; set; }
 
@@ -22,9 +23,9 @@ public class MifaCharacterDialogueManager : MonoBehaviour
 
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GameObject.Find("/Characters/mifa/Mifa 1/BackSombrero").GetComponent<SpriteRenderer>();
         dm.onConversationFinish.AddListener(nextConversation);
-        material = sr.material;
+        //material = sr.material;
 
         /*pulsaE = GameObject.Find("Pulsa E");
         pulsaEAnim = pulsaE.GetComponent<Animator>();*/
@@ -37,14 +38,14 @@ public class MifaCharacterDialogueManager : MonoBehaviour
         {
             // Outline
             if (!dm.inConversation)
-                material.SetFloat("Thickness",0.02f);
-            else 
-                material.SetFloat("Thickness", 0f);
+                SetThickness(0.005f);
+            else
+                SetThickness(0f);
 
             // character Orientation
             if (player.position.x > this.transform.position.x)
-                sr.flipX = true;
-            else sr.flipX = false;
+                transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
+            else transform.localScale = new Vector3(1.5f, 1.5f, 1f); ;
 
             // interactivity
             if (Input.GetKeyDown(KeyCode.E) && !dm.inConversation && !spokenTo)
@@ -62,7 +63,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
         }
         else
         {
-            material.SetFloat("Thickness", 0f);
+            SetThickness(0f);
         }
 
         if (Vector2.Distance(player.position, transform.position) <= detectionRange)
@@ -80,7 +81,16 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.Tutorial);
         if (conversationIndex!= 2 && conversationIndex != 3 && conversationIndex != 4)
             conversationIndex++;
+    }
 
+    void SetThickness(float thick) 
+    {
+        foreach (GameObject sprite in sprites) 
+        {
+            material = sprite.GetComponent<SpriteRenderer>().material;
+            material.SetFloat("Thickness", thick);
+        }
+        return;
     }
    /* void EliminarPulsaE() 
     {

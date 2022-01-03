@@ -25,7 +25,9 @@ public class BeeSpawner : MonoBehaviour
             aux.transform.parent = BeeWithoutVisual.transform;
             aux.GetComponent<SpriteRenderer>().sprite = options[Random.Range(0, 4)];
             //aux.transform.position = new Vector3(0, 0, 0);
-            aux.GetComponent<Animation>().Play();
+            //aux.GetComponent<Animation>().Play();
+            // AQUÍ HACE FALTA GENERAR EL MOVIMIENTO QUE QUEREMOS POR CÓDIGO
+            // MoverAbejas();
             Debug.Log(aux != null);
             FlyingBees.Enqueue(aux);
             

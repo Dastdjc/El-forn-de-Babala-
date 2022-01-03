@@ -59,7 +59,7 @@ public class SongManager : MonoBehaviour
     {
         if (!audioSource.isPlaying && !finished) 
         {
-            score = ScoreManager.maxCombo;
+            score = ScoreManager.score;
             CalcularRecompensa();
             RecompensaAInventario();
             finished = true;
@@ -70,7 +70,7 @@ public class SongManager : MonoBehaviour
     void CalcularRecompensa() 
     {
         Debug.Log(score);
-        float multiplicador = score / 50;   // Max score = 97
+        float multiplicador = score / 1500;   // Max score = 9700
         agua = (int)(multiplicador * 1 * UnityEngine.Random.Range(0.8f, 1f));
         leche = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
         requeson = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));

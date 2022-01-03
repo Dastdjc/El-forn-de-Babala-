@@ -45,7 +45,7 @@ public class AbrirControles : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         text.SetActive(true);
-        mat.SetFloat("Thickness", 0.06f);
+        mat.SetFloat("Thickness", 0.01f);
         inRange = true;
         transform.localScale = transform.localScale * 1.1f;//new Vector3(1.1f, 1.1f, 1.1f);
         transform.Rotate(new Vector3(0, 0, 5));
