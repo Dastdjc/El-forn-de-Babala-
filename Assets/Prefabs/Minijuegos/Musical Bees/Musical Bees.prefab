@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 264676242755943778}
   m_LocalRotation: {x: -0.00094496115, y: -0.00010533181, z: 0.00053679093, w: 0.9999994}
   m_LocalPosition: {x: 0, y: -5, z: 10}
-  m_LocalScale: {x: 1.15, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children: []
   m_Father: {fileID: 5044103488489207350}
   m_RootOrder: 7
@@ -453,8 +453,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051950543141861920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 2983434200547409379}
   - {fileID: 2911755878553601832}
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 7
-  input: 102
+  input: 119
   notePrefab: {fileID: 4657588930947063877, guid: 218f21ed6fe2a124e93f8a04321574c1, type: 3}
   timeStamps: []
 --- !u!1 &1895746566513790221
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 9
-  input: 106
+  input: 100
   notePrefab: {fileID: 4657588930947063877, guid: 218f21ed6fe2a124e93f8a04321574c1, type: 3}
   timeStamps: []
 --- !u!1 &2112410606116989697
@@ -1607,7 +1607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2290939155929633444}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.12901574, y: -5, z: 10}
+  m_LocalPosition: {x: 0.5, y: -5, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7718526117512278868}
@@ -1804,8 +1804,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2581668881172932659}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalPosition: {x: 3, y: -1.5, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 6200149375842109704}
   - {fileID: 6272929545228888571}
@@ -2197,8 +2197,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2959051880933958078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 6027945117707962739}
   - {fileID: 6915891877827129488}
@@ -4461,7 +4461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6176931649293704243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: -0.44601953}
+  m_LocalPosition: {x: -0.5, y: 7, z: -0.44601953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2796930980443338626}
@@ -4561,7 +4561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 11
-  input: 107
+  input: 115
   notePrefab: {fileID: 4657588930947063877, guid: 218f21ed6fe2a124e93f8a04321574c1, type: 3}
   timeStamps: []
 --- !u!1 &6879645443339751677
@@ -4852,15 +4852,15 @@ RectTransform:
   m_GameObject: {fileID: 7127720768919967199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 8.697944}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 5044103488489207350}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.77943593, y: -2}
-  m_SizeDelta: {x: 20.83, y: 5}
+  m_AnchoredPosition: {x: 0.97, y: -1.9480667}
+  m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &215762635750076308
 MeshRenderer:
@@ -4950,8 +4950,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.1
-  m_fontSizeBase: 25.1
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5306,7 +5306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 5
-  input: 100
+  input: 97
   notePrefab: {fileID: 4657588930947063877, guid: 218f21ed6fe2a124e93f8a04321574c1, type: 3}
   timeStamps: []
 --- !u!1 &7482251773691799584
@@ -5797,7 +5797,7 @@ RectTransform:
   m_GameObject: {fileID: 8710494678462723144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 2065644819295666471}
   - {fileID: 436563732613759083}
@@ -5807,8 +5807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -0.5}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3, y: -1.5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &600350522533866472
 SpriteRenderer:
