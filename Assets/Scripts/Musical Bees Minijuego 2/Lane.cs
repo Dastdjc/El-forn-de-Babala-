@@ -14,12 +14,14 @@ public class Lane : MonoBehaviour
 
     int spawnIndex = 0;
     int inputIndex = 0;
+    private ParticleSystem hitParticle;
 
     private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = this.transform.parent.gameObject.GetComponent<Animator>();
+        hitParticle = GetComponentInChildren<ParticleSystem>();
     }
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
     {
@@ -59,7 +61,7 @@ public class Lane : MonoBehaviour
                     PlayPressedAnimation();
                     if (Math.Abs(audioTime - timeStamp) < marginOfError)
                     {
-                        
+                        hitParticle.Play();
                         Hit();
                         print($"Hit on {inputIndex} note");
                         Destroy(notes[inputIndex].gameObject);
