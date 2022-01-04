@@ -25,19 +25,18 @@ public class berries : MonoBehaviour
         spawn = spawner.GetComponent<spawnerBerries>();
     }
 
-    private void OnMouseDown()
+    /*private void OnMouseDown()
     {
         Debug.Log("clicando");
         dragOffset = transform.position - getPosMouse();
         //transform.localScale = transform.localScale * 1.1f;
-    }
+    }*/
     private void OnMouseUp()
     {
         //transform.localScale = transform.localScale * 0.9f;
     }
     private void OnMouseDrag()
     {
-        Debug.Log("arrastrando");
         transform.position = Vector3.MoveTowards(transform.position, getPosMouse() + dragOffset, speed * Time.deltaTime);
     }
 
@@ -54,7 +53,7 @@ public class berries : MonoBehaviour
     {
         float t = Time.time - startTime;
         
-        if (t > 20)
+        if (t > 3.5)
         {
             Destroy(gameObject);
             t = 0;

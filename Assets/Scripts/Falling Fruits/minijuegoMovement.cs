@@ -9,6 +9,10 @@ public class minijuegoMovement : MonoBehaviour
 
     public float speedInterpolate;
 
+    public GameObject particulasBien;
+    public GameObject particulasAturdir;
+    private GameObject particula;
+
     private Vector2 position = new Vector2 (0f, 0f);
     private Vector3 mousePosition;
 
@@ -58,22 +62,32 @@ public class minijuegoMovement : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Almendra":
+                particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
+                particula.transform.parent = gameObject.transform;
                 almendra += 1;
                 //Almendra.amount += 1;
                 break;
             case "Limon":
+                particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
+                particula.transform.parent = gameObject.transform;
                 limon += 1;
                 //Limon.amount += 1;
                 break;
             case "Boniato":
+                particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
+                particula.transform.parent = gameObject.transform;
                 boniato += 1;
                 //Boniato.amount += 1;
                 break;
             case "Calabaza":
+                particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
+                particula.transform.parent = gameObject.transform;
                 calabaza += 1;
                 //Calabaza.amount += 1;
                 break;
             case "Piedra":
+                particula = Instantiate(particulasAturdir, gameObject.transform.position, Quaternion.identity);
+                particula.transform.parent = gameObject.transform;
                 rb.bodyType = RigidbodyType2D.Static;
                 coll.enabled = false;
                 aturdido = true;
@@ -88,7 +102,7 @@ public class minijuegoMovement : MonoBehaviour
 
     IEnumerator Aturdir()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         rb.bodyType = RigidbodyType2D.Dynamic;
         coll.enabled = true;
         aturdido = false;

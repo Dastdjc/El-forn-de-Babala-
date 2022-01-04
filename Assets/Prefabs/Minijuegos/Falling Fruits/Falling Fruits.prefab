@@ -2271,7 +2271,7 @@ SpriteRenderer:
   m_Size: {x: 4.18, y: 3.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5518893824490586358
@@ -2287,6 +2287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedInterpolate: 0.008
+  particulasBien: {fileID: 1500378020736912, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
+  particulasAturdir: {fileID: 1248395426657969815, guid: dfb4bba143e6e6b408b118768685ef4f, type: 3}
   calabaza: 0
   almendra: 0
   limon: 0
