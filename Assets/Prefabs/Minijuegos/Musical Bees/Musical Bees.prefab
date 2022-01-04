@@ -839,6 +839,9 @@ MonoBehaviour:
   playing: 0
   inputDelayInMilliseconds: 0
   fileLocation: MusicalBees.mid
+  versions:
+  - {fileID: 8300000, guid: b4307c5029b7d2643b3c6187206ebda6, type: 3}
+  - {fileID: 8300000, guid: 90a542c1cf83e074fa4ff67d9edc7879, type: 3}
   noteTime: 1.1
   noteSpawnScale: 5
   noteTapScale: 2
@@ -6058,6 +6061,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1691628839919975065, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
+      propertyPath: m_Name
+      value: Normal
+      objectReference: {fileID: 0}
     - target: {fileID: 3991073771686037576, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
       propertyPath: m_Name
       value: TutorialMB
@@ -6066,6 +6073,24 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4990235426098043234}
+    - target: {fileID: 4626190102397654015, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EsconderTutorial_Facil
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575700174459716645, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
+      propertyPath: m_text
+      value: 'Normal
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348038983346595131, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4990235426098043234}
+    - target: {fileID: 8348038983346595131, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EsconderTutorial_Dificil
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5449f38fab30cc34587f0694e0395429, type: 3}
 --- !u!1 &1325917074234062431 stripped

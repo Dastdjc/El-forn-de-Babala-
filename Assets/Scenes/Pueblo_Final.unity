@@ -5487,8 +5487,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.43529412}
-        key2: {r: 0, g: 0, b: 0, a: 0.49019608}
+        key1: {r: 1, g: 1, b: 1, a: 0.8156863}
+        key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -5504,7 +5504,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 32960
-        atime2: 33924
+        atime2: 65535
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -5512,7 +5512,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 4
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -40982,7 +40982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407213802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -601.7, y: -9.11879, z: -10}
+  m_LocalPosition: {x: -222.89996, y: -9.11879, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 890124030}
@@ -49075,7 +49075,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696833317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -601.7, y: -6.1187897, z: -10}
+  m_LocalPosition: {x: -222.89996, y: -6.1187897, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51494,7 +51494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546595949742741798, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1023.9
+      value: -645.1
       objectReference: {fileID: 0}
     - target: {fileID: 1546595949742741798, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57529,7 +57529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993488041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -601.7, y: -6.1187897, z: -10}
+  m_LocalPosition: {x: -222.89996, y: -6.1187897, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 584841259}
@@ -64522,6 +64522,18 @@ PrefabInstance:
     - target: {fileID: 4073613618055050378, guid: e6f135270a934144ab8d9b4b3a67c021, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187797697222845022, guid: e6f135270a934144ab8d9b4b3a67c021, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.869792
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187797697222845022, guid: e6f135270a934144ab8d9b4b3a67c021, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.49341878
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187797697222845022, guid: e6f135270a934144ab8d9b4b3a67c021, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -59.131
       objectReference: {fileID: 0}
     - target: {fileID: 4264580507583469235, guid: e6f135270a934144ab8d9b4b3a67c021, type: 3}
       propertyPath: m_Materials.Array.data[0]
