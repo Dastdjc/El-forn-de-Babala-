@@ -11,7 +11,10 @@ public class triggerCesta : MonoBehaviour
     public GameObject particleMalPrefab;
     private GameObject particula;
     private GameObject particulaMal;
-    
+
+    public AudioSource sonidoAcertar;
+    public AudioSource sonidoFallar;
+
 
     void Start()
     {
@@ -34,6 +37,7 @@ public class triggerCesta : MonoBehaviour
         {
             particula = Instantiate(particlePrefab, gameObject.transform.position, Quaternion.identity);
             particula.transform.parent = gameObject.transform;
+            sonidoAcertar.Play();
             Destroy(collision.gameObject);
             cosa.puntuacion += 30;
             spawn.cantGO -= 1;
@@ -42,6 +46,7 @@ public class triggerCesta : MonoBehaviour
         {
             particulaMal = Instantiate(particleMalPrefab, gameObject.transform.position, Quaternion.identity);
             particulaMal.transform.parent = gameObject.transform;
+            sonidoFallar.Play();
             Destroy(collision.gameObject);
             cosa.puntuacion -= 20;
             spawn.cantGO -= 1;

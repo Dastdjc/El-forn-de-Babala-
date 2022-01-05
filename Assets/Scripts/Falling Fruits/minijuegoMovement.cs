@@ -21,9 +21,9 @@ public class minijuegoMovement : MonoBehaviour
     //Variables globales para los recursos
     [HideInInspector]
     public int calabaza, almendra, limon, boniato;
-    [HideInInspector]
-    //public Items Calabaza, Almendra, Limon, Boniato;
-    //public Inventory Inventario;
+
+    public AudioSource sonidoPiedra;
+    public AudioSource sonidoAcertar;
 
     void Start()
     {
@@ -64,33 +64,38 @@ public class minijuegoMovement : MonoBehaviour
             case "Almendra":
                 particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
                 particula.transform.parent = gameObject.transform;
+                sonidoAcertar.Play();
                 almendra += 1;
                 //Almendra.amount += 1;
                 break;
             case "Limon":
                 particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
                 particula.transform.parent = gameObject.transform;
+                sonidoAcertar.Play();
                 limon += 1;
                 //Limon.amount += 1;
                 break;
             case "Boniato":
                 particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
                 particula.transform.parent = gameObject.transform;
+                sonidoAcertar.Play();
                 boniato += 1;
                 //Boniato.amount += 1;
                 break;
             case "Calabaza":
                 particula = Instantiate(particulasBien, gameObject.transform.position, Quaternion.identity);
                 particula.transform.parent = gameObject.transform;
+                sonidoAcertar.Play();
                 calabaza += 1;
                 //Calabaza.amount += 1;
                 break;
             case "Piedra":
+                aturdido = true;
                 particula = Instantiate(particulasAturdir, gameObject.transform.position, Quaternion.identity);
                 particula.transform.parent = gameObject.transform;
-                rb.bodyType = RigidbodyType2D.Static;
-                coll.enabled = false;
-                aturdido = true;
+                sonidoPiedra.Play();
+                rb.velocity = Vector2.zero;
+                coll.enabled = false; 
                 break;
             default:
                 break;
@@ -103,7 +108,6 @@ public class minijuegoMovement : MonoBehaviour
     IEnumerator Aturdir()
     {
         yield return new WaitForSeconds(3);
-        rb.bodyType = RigidbodyType2D.Dynamic;
         coll.enabled = true;
         aturdido = false;
     }
