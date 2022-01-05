@@ -44,7 +44,8 @@ public class AbrirControles : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        text.SetActive(true);
+        if (text)
+            text.SetActive(true);
         mat.SetFloat("Thickness", 0.01f);
         inRange = true;
         transform.localScale = transform.localScale * 1.1f;//new Vector3(1.1f, 1.1f, 1.1f);
@@ -52,7 +53,8 @@ public class AbrirControles : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        text.SetActive(false);
+        if (text)
+            text.SetActive(false);
         mat.SetFloat("Thickness", 0f);
         inRange = false;
         transform.localScale = transform.localScale * 0.9f;//new Vector3(1f, 1f, 1f);

@@ -15,7 +15,7 @@ public class ArrowUIinteraction : MonoBehaviour
             newScreen.SetActive(true);
             oldScreen.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (!derecha && Input.GetKeyDown(KeyCode.Q))
         {
             newScreen.SetActive(true);
             oldScreen.SetActive(false);
