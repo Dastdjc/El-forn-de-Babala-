@@ -24,48 +24,51 @@ public class FoodBar : MonoBehaviour
         //Debug.Log(recipes.Length);
         IngrNames = new string[] { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendras", "Boniatos", "Calabaza" };
         RecipeNames = new string[] { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
-        if (Ingredients == null && Numbers == null)
+
+        Ingredients = new GameObject[ingrs.Length];
+        Result = new GameObject[3];
+        Numbers = new GameObject[ingrs.Length + 1];
+        for (int i = 0; i < Result.Length; i++)
         {
-            Ingredients = new GameObject[13];
-            Result = new GameObject[3];
-            Numbers = new GameObject[14];
-            for(int i = 0; i < Result.Length; i++)
+            Result[i] = Instantiate(Example.transform.GetChild(1).gameObject);
+            Result[i].SetActive(true);
+            if (i != 0) Result[i].GetComponent<Image>().sprite = recipes[i - 1];
+            else
             {
-                Result[i] = Instantiate(Example.transform.GetChild(1).gameObject);
-                Result[i].SetActive(true);
-                if (i != 0) Result[i].GetComponent<Image>().sprite = recipes[i - 1];
-                else { 
-                    Result[i].GetComponent<Image>().sprite = null;
-                    Result[i].GetComponent<Image>().color = new Color(0, 0, 0, 0);
-                }
-                if(i != 1)
-                {
-                    Result[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                }
-                Result[i].transform.SetParent(Example.transform.GetChild(0));
-                Result[i].transform.localPosition = new Vector3(-450, (i - 1) * 100, 0);
+                Result[i].GetComponent<Image>().sprite = null;
+                Result[i].GetComponent<Image>().color = new Color(0, 0, 0, 0);
             }
-            
-            for (int i = 0; i < ingrs.Length + 1; i++)
+            if (i != 1)
             {
-                Numbers[i] = Instantiate(Example.transform.GetChild(2).gameObject);
-                Numbers[i].SetActive(true);
-                if (i < Ingredients.Length)
-                {
-                    Ingredients[i] = Instantiate(Example.transform.GetChild(1).gameObject);
-                    Ingredients[i].GetComponent<Image>().sprite = ingrs[i];
-                    Ingredients[i].transform.SetParent(Example.transform.GetChild(0));
-                    Ingredients[i].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-                    Ingredients[i].SetActive(true);
-                    Numbers[i].transform.SetParent(Ingredients[i].transform);
-                }
-                else 
-                {
-                    Numbers[13].transform.SetParent(Result[1].transform);
-                    Numbers[13].transform.localPosition = new Vector3(150, 0, 0);
-                    Numbers[13].SetActive(true);
-                }
+                Result[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             }
+            Result[i].transform.SetParent(Example.transform.GetChild(0));
+            Result[i].transform.localPosition = new Vector3(-450, (i - 1) * 100, 0);
+            Result[i].transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        for (int i = 0; i < ingrs.Length + 1; i++)
+        {
+            Numbers[i] = Instantiate(Example.transform.GetChild(2).gameObject);
+            Numbers[i].SetActive(true);
+            if (i < Ingredients.Length)
+            {
+                Ingredients[i] = Instantiate(Example.transform.GetChild(1).gameObject);
+                Ingredients[i].GetComponent<Image>().sprite = ingrs[i];
+                Ingredients[i].transform.SetParent(Example.transform.GetChild(0));
+                Ingredients[i].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+                Ingredients[i].SetActive(true);
+                Numbers[i].transform.SetParent(Ingredients[i].transform);
+                Numbers[i].transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                Numbers[Ingredients.Length].transform.SetParent(Result[1].transform);
+                Numbers[Ingredients.Length].transform.localPosition = new Vector3(150, 0, 0);
+                Numbers[Ingredients.Length].SetActive(true);
+                Numbers[i].transform.localScale = new Vector3(1, 1, 1);
+            }
+
         }
         WhatIHaveRefresh();
     }
@@ -75,7 +78,7 @@ public class FoodBar : MonoBehaviour
         foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
             int index = 0;
-            while (IngrNames[index] != itm.type) { index++; }
+            while (index < IngrNames.Length && IngrNames[index] != itm.type) { index++; }
             WhatIHave[index] = itm.amount;
         }
     }
@@ -83,21 +86,19 @@ public class FoodBar : MonoBehaviour
     {
         WhatINeed = paid;
         AreActive = 0;
-        for(int i = 0; i < WhatINeed.Length; i++)
+        for(int i = 0; i < ingrs.Length; i++)
         {
             Ingredients[i].SetActive(WhatINeed[i] > 0);
             if (Ingredients[i].activeSelf)
             {
                 Numbers[i].GetComponent<TextMeshProUGUI>().text = IngrNames[i] + '\n' + WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
                 AreActive++;
-                //Ingredients[i].transform.localPosition = new Vector3((AreActive - 1) * (-0.5f)*1.5f, 2, 0);
                 Ingredients[i].transform.localPosition = new Vector3((AreActive - 1) * 85 - 150, 2, 0);
-                //Ingredients[i].transform.position += new Vector3(Camara.position.x, 0, 0);
             }
         }
         for (int j = -1; j < 2; j++)
         {
-            if (!((res == 0 && j == -1) || (res == 8 && j == 1)))
+            if (!((res == 0 && j == -1) || (res == recipes.Length - 1 && j == 1)))
             {
                 Result[j + 1].GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 Result[j + 1].GetComponent<Image>().sprite = recipes[res + j];
@@ -108,6 +109,6 @@ public class FoodBar : MonoBehaviour
             }
         }
         
-        Numbers[13].GetComponent<TextMeshProUGUI>().text = RecipeNames[res];
+        Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().text = RecipeNames[res];
     }
 }

@@ -18,7 +18,7 @@ public class CustomerController : MonoBehaviour
     private float timer = 0;
     private int satisfaction = 0;
     private int state;
-    private float walk = 15;
+    private float walk = 27.5f;
     private GameObject gmo;
     private bool conversando;
     public bool tochingPlayer = false;

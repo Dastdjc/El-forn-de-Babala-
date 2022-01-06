@@ -31,7 +31,7 @@ public class SpawnCustomers : MonoBehaviour
     void Start()
     {
         if(CustomersNumber == -1)CustomersNumber = Random.Range(6, 10);
-        Customers = new GameObject[4];
+        Customers = new GameObject[3];
         GameManager.Instance.customers = Instance.gameObject;
     }
 
@@ -50,7 +50,7 @@ public class SpawnCustomers : MonoBehaviour
                     int which = Random.Range(0, 5);
                     CustomersNumber--;
                     //Customer[0] es el de más a la derecha
-                    Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
+                    Customers[firstPlace] = Instantiate(NormalCustomer[which], new Vector3(-84 - firstPlace * 8, -7, 0), Quaternion.identity);
                     Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
                     //Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;
                     Customers[firstPlace].transform.parent = this.transform;
