@@ -14,12 +14,14 @@ public class Lane : MonoBehaviour
 
     int spawnIndex = 0;
     int inputIndex = 0;
+    private ParticleSystem hitParticle;
 
     private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = this.transform.parent.gameObject.GetComponent<Animator>();
+        hitParticle = GetComponentInChildren<ParticleSystem>();
     }
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
     {
@@ -57,25 +59,22 @@ public class Lane : MonoBehaviour
                 if (Input.GetKeyDown(input))
                 {
                     PlayPressedAnimation();
-                    if (Math.Abs(audioTime - timeStamp) < marginOfError)
+                    if (Math.Abs(audioTime - timeStamp) < marginOfError)    // Dada a tiempo
                     {
-                        
+                        hitParticle.Play();
                         Hit();
-                        print($"Hit on {inputIndex} note");
+                        //print($"Hit on {inputIndex} note");
                         Destroy(notes[inputIndex].gameObject);
                         inputIndex++;
                     }
-                    else
-                    {
-                        print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
-                    }
+                    // else inaccurate (podría poner más tipos de puntuación XD)
                 }
                 else if (Input.GetKeyUp(input))
                     PlayReleasedAnimation();
-                if (timeStamp + marginOfError <= audioTime)
+                if (timeStamp + marginOfError <= audioTime) // Si se pierde la nota
                 {
                     Miss();
-                    print($"Missed {inputIndex} note");
+                    //print($"Missed {inputIndex} note");
                     inputIndex++;
                 }
             }

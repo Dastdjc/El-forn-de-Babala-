@@ -13,9 +13,10 @@ namespace TMPro
     public class TMP_Animated : TextMeshProUGUI
     {
 
-        [SerializeField] private float speed = 10;
+        [SerializeField] public float speed = 10;
         public TextRevealEvent onTextReveal;
         public DialogueEvent onDialogueFinish;
+        public int visibleCounter;
 
         public void ReadText(string newText)
         {
@@ -47,7 +48,7 @@ namespace TMPro
             IEnumerator Read()
             {
                 int subCounter = 0;
-                int visibleCounter = 0;
+                visibleCounter = 0;
                 while (subCounter < subTexts.Length)
                 {
                     // if 

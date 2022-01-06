@@ -22,6 +22,7 @@ public class SongManager : MonoBehaviour
     public int inputDelayInMilliseconds;
 
     public string fileLocation;
+    public AudioClip[] versions;
     public float noteTime;
     public float noteSpawnScale = 3f;
     public float noteTapScale = 1f;
@@ -35,6 +36,7 @@ public class SongManager : MonoBehaviour
     public static MidiFile midiFile;
 
     private bool finished;
+    private bool gameStarted = false;
     private int agua;
     private int leche;
     private int requeson;
@@ -42,8 +44,12 @@ public class SongManager : MonoBehaviour
 
     void Start()
     {
+        score = 0;
         Instance = this;
         MostrarTutorial();
+    }
+    private void SetGame() 
+    {
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
             StartCoroutine(ReadFromWebsite());
@@ -53,13 +59,13 @@ public class SongManager : MonoBehaviour
             ReadFromFile();
         }
         finished = true;
+        Invoke("StartSong", songDelayInSeconds);
     }
-
     private void Update()
     {
-        if (!audioSource.isPlaying && !finished) 
+        if (gameStarted && !audioSource.isPlaying && !finished) 
         {
-            score = ScoreManager.maxCombo;
+            score = ScoreManager.score;
             CalcularRecompensa();
             RecompensaAInventario();
             finished = true;
@@ -70,7 +76,7 @@ public class SongManager : MonoBehaviour
     void CalcularRecompensa() 
     {
         Debug.Log(score);
-        float multiplicador = score / 50;   // Max score = 97
+        float multiplicador = score / 1500;   // Max score = 9700
         agua = (int)(multiplicador * 1 * UnityEngine.Random.Range(0.8f, 1f));
         leche = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
         requeson = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
@@ -108,12 +114,22 @@ public class SongManager : MonoBehaviour
         anim_pantallaTutorial.SetTrigger("aparicion");
 
     }
-    public void EsconderTutorial() 
+    public void EsconderTutorial_Facil() 
     {
         Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
         anim_pantallaTutorial.SetTrigger("desaparicion");
-        Invoke("StartSong", songDelayInSeconds);
-
+        //Invoke("StartSong", songDelayInSeconds);
+        fileLocation = "MusicalBees_easy.mid";
+        audioSource.clip = versions[0];
+        SetGame();
+    }
+    public void EsconderTutorial_Dificil()
+    {
+        Animator anim_pantallaTutorial = pantallaTutorial.GetComponent<Animator>();
+        anim_pantallaTutorial.SetTrigger("desaparicion");
+        fileLocation = "MusicalBees.mid";
+        audioSource.clip = versions[1];
+        SetGame();
     }
     void MostrarPantallaFinal() 
     {
@@ -181,6 +197,7 @@ public class SongManager : MonoBehaviour
         audioSource.Play();
         playing = true;
         finished = false;
+        gameStarted = true;
     }
     public static double GetAudioSourceTime()
     {
