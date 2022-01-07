@@ -18,20 +18,23 @@ public class FoodBar : MonoBehaviour
     private int AreActive;
     private string[] IngrNames;
     private string[] RecipeNames;
+    private Animator myController;
 
     public void Initiate()
     {
-        //Debug.Log(recipes.Length);
+        Example.gameObject.SetActive(true);
+        myController = Example.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        myController.enabled = true;
+        //myController.enabled = false;
         IngrNames = new string[] { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendras", "Boniatos", "Calabaza" };
         RecipeNames = new string[] { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
-
         Ingredients = new GameObject[ingrs.Length];
         Result = new GameObject[3];
         Numbers = new GameObject[ingrs.Length + 1];
         for (int i = 0; i < Result.Length; i++)
         {
             Result[i] = Instantiate(Example.transform.GetChild(1).gameObject);
-            Result[i].SetActive(true);
+            Result[i].SetActive(false);
             if (i != 0) Result[i].GetComponent<Image>().sprite = recipes[i - 1];
             else
             {
@@ -57,7 +60,7 @@ public class FoodBar : MonoBehaviour
                 Ingredients[i].GetComponent<Image>().sprite = ingrs[i];
                 Ingredients[i].transform.SetParent(Example.transform.GetChild(0));
                 Ingredients[i].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-                Ingredients[i].SetActive(true);
+                Ingredients[i].SetActive(false);
                 Numbers[i].transform.SetParent(Ingredients[i].transform);
                 Numbers[i].transform.localScale = new Vector3(1, 1, 1);
             }
@@ -65,12 +68,20 @@ public class FoodBar : MonoBehaviour
             {
                 Numbers[Ingredients.Length].transform.SetParent(Result[1].transform);
                 Numbers[Ingredients.Length].transform.localPosition = new Vector3(150, 0, 0);
-                Numbers[Ingredients.Length].SetActive(true);
+                Numbers[Ingredients.Length].SetActive(false);
                 Numbers[i].transform.localScale = new Vector3(1, 1, 1);
             }
 
         }
         WhatIHaveRefresh();
+        SetBarVisibility(true);
+    }
+    public void SetBarVisibility(bool state)
+    {
+        for (int i = 0; i < Ingredients.Length; i++) { Ingredients[i].SetActive(state); }
+        for(int i = 0; i < Result.Length; i++) { Result[i].SetActive(state); }
+        Numbers[Ingredients.Length].SetActive(state);
+
     }
     public void WhatIHaveRefresh()
     {
@@ -110,5 +121,20 @@ public class FoodBar : MonoBehaviour
         }
         
         Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().text = RecipeNames[res];
+    }
+    public void ActivateAnimation(bool direc)
+    {
+        myController.enabled = true;
+        Debug.Log(myController.isActiveAndEnabled);
+        Debug.Log(direc);
+        myController.SetBool("Direction", direc);
+        myController.SetTrigger("ActivateAnim");
+    }
+    public bool ReturnBarState() 
+    {
+        myController.enabled = true;
+        bool resul = myController.GetBool("Direction");
+        myController.enabled = false;
+        return resul;
     }
 }

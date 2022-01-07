@@ -18,6 +18,7 @@ public class BowlController : MonoBehaviour
         gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected],selected);
         Texto.GetComponent<TextMeshPro>().text = "Pulsa E para poner ingredientes";
         Texto.SetActive(false);
+        //gameObject.GetComponent<FoodBar>().Example.gameObject.SetActive(true);
     }
     private void setIngrRecp()
     {
@@ -46,35 +47,48 @@ public class BowlController : MonoBehaviour
          *      Si lo anterior ha ocurrido y pulsa ESC:
          *          Se desactiva la barra y el booleano
          */
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.E))
+        if (touchingPlayer && Input.GetKeyDown(KeyCode.E) && !gameObject.GetComponent<FoodBar>().ReturnBarState())
         {
-            if (!Texto.activeSelf) { gameObject.GetComponent<FoodBar>().Example.gameObject.SetActive(true); Time.timeScale = 0; }
-                Texto.SetActive(false);
-        }
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!gameObject.GetComponent<FoodBar>().Example.gameObject.activeSelf) { Texto.SetActive(true); Time.timeScale = 1; }
-                gameObject.GetComponent<FoodBar>().Example.gameObject.SetActive(false);
-        }
-        
-        int selec = selected;
-        if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
-        else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        { //Pasar del inventario a la olla
-            somethingInside = DeterminateFood();
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (somethingInside != -2)
+            if (!Texto.activeSelf) 
             {
-                PassToInv(somethingInside, cookState);
-                somethingInside = -2;
-                //ColorBar.gameObject.SetActive(false);
+                gameObject.GetComponent<FoodBar>().ActivateAnimation(true);
+            }
+            Texto.SetActive(false);
+            Time.timeScale = 0;
+        }
+        if (touchingPlayer && Input.GetKeyDown(KeyCode.Escape) && !Texto.activeSelf)
+        {
+            if (!gameObject.GetComponent<FoodBar>().ReturnBarState())
+            {
+                Texto.SetActive(true);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                gameObject.GetComponent<FoodBar>().ActivateAnimation(false);
             }
         }
-        //Una vez ha pasado a la olla aqui se calcula como de hecho está
-        if (cookState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected],selected); }
+        if(!gameObject.GetComponent<FoodBar>().ReturnBarState())
+        {
+            int selec = selected;
+            if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
+            else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            { //Pasar del inventario a la olla
+                somethingInside = DeterminateFood();
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (somethingInside != -2)
+                {
+                    PassToInv(somethingInside, cookState);
+                    somethingInside = -2;
+                }
+            }
+            //Una vez ha pasado a la olla aqui se calcula como de hecho está
+            if (cookState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
+        }
+        
     }
     private void PassToInv(int index, int state)
     {
