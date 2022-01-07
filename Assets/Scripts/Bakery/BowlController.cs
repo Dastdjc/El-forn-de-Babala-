@@ -11,6 +11,7 @@ public class BowlController : MonoBehaviour
     private bool touchingPlayer;
     private int somethingInside = -2;
     private int cookState = -1;
+    private float timer;
     void Start()
     {
         setIngrRecp();
@@ -46,7 +47,7 @@ public class BowlController : MonoBehaviour
          *          Se activa la barra y el booleano del inventario
          *      Si lo anterior ha ocurrido y pulsa ESC:
          *          Se desactiva la barra y el booleano
-         */
+         *//*
         if (touchingPlayer && Input.GetKeyDown(KeyCode.E) && !gameObject.GetComponent<FoodBar>().ReturnBarState())
         {
             if (!Texto.activeSelf) 
@@ -69,25 +70,37 @@ public class BowlController : MonoBehaviour
             }
         }
         if(!gameObject.GetComponent<FoodBar>().ReturnBarState())
+        {*/
+        int selec = selected;
+        if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
+        else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))//Pasar del inventario a la olla
         {
-            int selec = selected;
-            if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
-            else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            { //Pasar del inventario a la olla
-                somethingInside = DeterminateFood();
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if (somethingInside != -2)
-                {
-                    PassToInv(somethingInside, cookState);
-                    somethingInside = -2;
-                }
-            }
-            //Una vez ha pasado a la olla aqui se calcula como de hecho está
-            if (cookState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
+            somethingInside = DeterminateFood();
+            gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
+            cookState++;
         }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (somethingInside != -2)
+            {
+                PassToInv(somethingInside, cookState);
+                somethingInside = -2;
+            }
+        }
+        //Una vez ha pasado a la olla aqui se calcula como de hecho está
+        if (cookState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
+        else if(somethingInside != -2 && cookState > -1 && cookState < 5)
+        {
+            timer += Time.deltaTime / 10;
+            if(timer > 2)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color
+                cookState++;
+            }
+        }
+
+        //}
         
     }
     private void PassToInv(int index, int state)
