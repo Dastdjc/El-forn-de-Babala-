@@ -318,6 +318,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1742999092106327619, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882030179922463224, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5044103488489207350, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -365,6 +421,18 @@ PrefabInstance:
     - target: {fileID: 6176931649293704243, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
       propertyPath: m_Name
       value: Musical Bees
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902557095173994771, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902557095173994771, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902557095173994771, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0dfea370c63c14b8aee6d4213f58f5, type: 3}

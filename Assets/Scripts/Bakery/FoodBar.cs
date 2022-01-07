@@ -6,7 +6,69 @@ using TMPro;
 
 public class FoodBar : MonoBehaviour
 {
-    static private GameObject Example;
+    public GameObject Example;
+    public Sprite[] ingrs;
+    public Sprite[] recipes;
+    static private Sprite[] recipesStat;
+    static private GameObject[] CurrentVisuals;
+    static private GameObject Result;
+    static private int[] WhatINeed;
+    static private int[] WhatIHave;
+    static private int AreActive;
+    static private Transform Camara;
+
+    public void Initiate()
+    {
+        recipesStat = new Sprite[recipes.Length];
+        for(int i = 0; i < recipes.Length; i++) { recipesStat[i] = recipes[i]; }
+        Example.SetActive(false);
+        CurrentVisuals = new GameObject[13];
+        Result = Instantiate(Example);
+        
+        for (int i = 0; i < 13; i++)
+        {
+            CurrentVisuals[i] = Instantiate(Example);
+            CurrentVisuals[i].GetComponent<SpriteRenderer>().sprite = ingrs[i];
+        }
+        WhatIHaveRefresh();
+        Camara = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        Result.transform.position = new Vector3(3, 2, 0) + new Vector3(Camara.position.x, 0, 0);
+        Result.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Result.transform.GetChild(0).gameObject.SetActive(false);
+    }
+    public void WhatIHaveRefresh()
+    {
+        WhatIHave = new int[13];
+        foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
+        {
+            int index = 0;
+            string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
+            while (names[index] != itm.type) { index++; }
+            WhatIHave[index] = itm.amount;
+        }
+    }
+    public void SetNumbers(int[] paid, int res)
+    {
+        WhatINeed = paid;
+        AreActive = 0;
+        int i;
+        for(i = 0; i < WhatINeed.Length; i++)
+        {
+            CurrentVisuals[i].SetActive(WhatINeed[i] > 0);
+            if (CurrentVisuals[i].activeSelf)
+            {
+                CurrentVisuals[i].transform.GetChild(0).GetComponent<TextMeshPro>().text = WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
+                AreActive++;
+                CurrentVisuals[i].transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                CurrentVisuals[i].transform.position = new Vector3((AreActive - 1) * (-0.5f)*1.5f, 2, 0);
+                CurrentVisuals[i].transform.position += new Vector3(Camara.position.x, 0, 0);
+            }
+        }
+        Result.GetComponent<SpriteRenderer>().sprite = recipesStat[res];
+        Result.SetActive(true);
+        for (int j = i; j < CurrentVisuals.Length; j++) { CurrentVisuals[j].SetActive(false); }
+    }
+    /*static private GameObject Example;
     [HideInInspector]static private GameObject[] Bar;
     static private int AreActive = 0;
     static public Transform Camara;
