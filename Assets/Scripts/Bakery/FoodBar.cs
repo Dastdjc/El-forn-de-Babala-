@@ -125,8 +125,6 @@ public class FoodBar : MonoBehaviour
     public void ActivateAnimation(bool direc)
     {
         myController.enabled = true;
-        Debug.Log(myController.isActiveAndEnabled);
-        Debug.Log(direc);
         myController.SetBool("Direction", direc);
         myController.SetTrigger("ActivateAnim");
     }
