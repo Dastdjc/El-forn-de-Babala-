@@ -36,7 +36,6 @@ public class berrieVerde : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        Debug.Log("Arriba");
         Verde.SetBool("Agarrar", false);
 
     }

@@ -23,7 +23,6 @@ public class berrieNegra : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        Debug.Log("Arriba");
         Negra.SetBool("Agarrar", false);
     }
 

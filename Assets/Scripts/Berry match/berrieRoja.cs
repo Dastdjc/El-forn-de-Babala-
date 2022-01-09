@@ -36,7 +36,6 @@ public class berrieRoja : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        Debug.Log("Arriba");
         Roja.SetBool("Agarrar", false);
 
     }
