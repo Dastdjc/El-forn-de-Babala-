@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class berries : MonoBehaviour
+public class berrieRoja : MonoBehaviour
 {
     private Vector3 dragOffset;
     private Camera cam;
@@ -14,7 +14,7 @@ public class berries : MonoBehaviour
 
     private spawnerBerries spawn;
 
-    public Animator Azul;
+    public Animator Roja;
 
 
     private void Awake()
@@ -31,14 +31,14 @@ public class berries : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Azul.SetBool("Agarrar", true);
+        Roja.SetBool("Agarrar", true);
 
     }
     private void OnMouseUp()
     {
         Debug.Log("Arriba");
-        Azul.SetBool("Agarrar", false);
-              
+        Roja.SetBool("Agarrar", false);
+
     }
     private void OnMouseDrag()
     {
@@ -57,7 +57,7 @@ public class berries : MonoBehaviour
     private void Update()
     {
         float t = Time.time - startTime;
-        
+
         if (t > 4.5)
         {
             Destroy(gameObject);
