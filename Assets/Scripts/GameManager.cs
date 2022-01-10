@@ -52,7 +52,12 @@ public class GameManager : MonoBehaviour
 
     // clientes
     private bool spawned = false;
+
+    // Cortar la cuerda final
+    private GameObject cuerdaHitBox;
     // Siguientes estados
+
+
 
     private void Awake()
     {
@@ -140,6 +145,12 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Pueblo:
                 //Pueblo();
+                break;
+            case GameState.CinematicaFinal:
+                SetUpCinematicaFinal();
+                break;
+            case GameState.CortarCuerda:
+                SetUpCortarCuerda();
                 break;
         }
 
@@ -350,6 +361,22 @@ public class GameManager : MonoBehaviour
         edificios[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
         edificios[(int)indice].GetComponent<SpriteRenderer>().enabled = false;
     }
+
+    public void SetUpCinematicaFinal() 
+    {
+        mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+        mifa.conversationIndex = mifa.conversation.Length-1;
+        wallToPanadería.SetActive(false);
+        playerSpawnPosition = playerSpawnPositionInicioJuego;
+
+        cuerdaHitBox = GameObject.Find("CintaFinal");
+        cuerdaHitBox.transform.GetChild(1).gameObject.SetActive(false);
+    }
+    public void SetUpCortarCuerda() 
+    {
+        mifa.enabled = false;
+        cuerdaHitBox.transform.GetChild(1).gameObject.SetActive(true);
+    }
     public enum Edificios 
     { 
         Panaderia,
@@ -368,6 +395,8 @@ public class GameManager : MonoBehaviour
         Tutorial,
         TutorialCocina,
         Bosque,
-        Pueblo
+        Pueblo,
+        CinematicaFinal,
+        CortarCuerda
     }
 }

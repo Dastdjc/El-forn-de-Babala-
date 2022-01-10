@@ -26,9 +26,6 @@ public class DialogueAudio : MonoBehaviour
 
     public void ReproduceSound(char c)
     {
-
-        Debug.Log(character);
-        Debug.Log(dm.conversation.lines[dm.conversationIndex].character.name);
         if (character == dm.conversation.lines[dm.conversationIndex].character.name)
         {
             if (c == '.' && !punctuationSource.isPlaying)
