@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
         {
             AnimacionPanaderia();
         }
-        mifa.conversationIndex = 1;
+        mifa.conversationIndex = 1; // la segunda conversación con Mifa, después de la animación de la pan.
     }
 
     void Tutorial() // Tutorial del bosque
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
         {
             AnimacionPanaderia();
         }
-        mifa.conversationIndex = 2;
+        mifa.conversationIndex = 2; // Te dice de ir al bosque
         GameObject.Find("InitialCollider").SetActive(false);
     }
 
@@ -294,7 +294,7 @@ public class GameManager : MonoBehaviour
 
         fondoDia.SetActive(esDia);
         fondoNoche.SetActive(!esDia);
-        player.transform.GetChild(5).gameObject.SetActive(!esDia);
+        player.transform.GetChild(4).gameObject.SetActive(!esDia);
         servicios.transform.GetChild(0).gameObject.SetActive(esDia); // Servicios de día
         servicios.transform.GetChild(1).gameObject.SetActive(!esDia); // Servicios de noche
         luzDia.SetActive(esDia);

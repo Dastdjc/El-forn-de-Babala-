@@ -39,7 +39,7 @@ public class MinijuegoBee : MonoBehaviour
                 if (GameManager.Instance.state == GameManager.GameState.Tutorial) {
                     GameManager.Instance.UpdateGameState(GameManager.GameState.TutorialCocina);
                 }
-                Debug.Log(currentTask);
+                
                 Player.GetComponent<PlayerMovement>().enabled = false;
                 hitbox.SetActive(false);
                 StartCoroutine(AudioFadeOut.FadeOut(BGmusic, 1f));

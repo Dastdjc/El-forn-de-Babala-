@@ -17,6 +17,13 @@ TagManager:
   - Bol
   - Horno
   - Customer
+  - Limon
+  - Almendra
+  - Boniato
+  - Rojo
+  - Verde
+  - Negra
+  - Azul
   layers:
   - Default
   - TransparentFX
@@ -65,4 +72,7 @@ TagManager:
     locked: 0
   - name: MiniGame
     uniqueID: 1109610835
+    locked: 0
+  - name: particulas
+    uniqueID: 364021091
     locked: 0
