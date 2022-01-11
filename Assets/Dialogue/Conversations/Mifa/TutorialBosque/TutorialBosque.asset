@@ -19,60 +19,76 @@ MonoBehaviour:
     text: "\xBFHola, hola?<pause=1> \xBFFunciona esto?"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "<size=50><speed=50><shake=1>\xA1AAAAA, SOCORRO UN FANTASMA!<speed=40>"
-    Emotion: 2
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "No, Dore, soy yo<pause=0,5> \xA1Mifa!"
-    Emotion: 0
-  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xA1Jolines Mifa, menudo susto!"
-    Emotion: 5
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "Jejeje, qu\xE9 graciosa eres."
-    Emotion: 1
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "Ten\xEDa que contactar contigo para explicarte qu\xE9 tienes que hacer."
-    Emotion: 1
-  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Ah, de acuerdo.
-    Emotion: 1
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "En el bosque hay tres fuentes de ingredientes, las abejas, las copas de
-      los \xE1rboles y los arbustos."
-    Emotion: 0
-  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: <speed=5>...<speed=40>
-    Emotion: 5
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "\xBFQu\xE9 pasa?"
-    Emotion: 4
-  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFS\xF3lo podemos sacar ingredientes de eso?"
+    text: "\xBFQ-qu\xE9?<pause=1> Me parece que he escuchado a Mifa."
     Emotion: 4
   - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "\xA1S\xED! T\xFA conf\xEDa en mi, son las mejores fuentes m\xE1gicas de
-      un bosque."
+    text: "\xA1Claro que me has escuchado! Te estoy hablando por la bola de cristal."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "De acuerdo, confiar\xE9 en t\xED."
-    Emotion: 1
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "Para conseguir ingredientees de las abejas, debes atraerlas tocando la
-      flauta y te dejar\xE1n muchas cosas."
+    text: "\xBFEntonces puedes escuchar todo lo que digo?"
     Emotion: 0
   - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "De las copas de los \xE1rboles caen muchas cosas distintas, pero <pause=0,5>\xA1Ten
-      cuidado con las rocas!"
-    Emotion: 0
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "Y en los arbustos deber\xE1s recolectar bayas m\xE1gicas que se convierten
-      en todo tipo de ingredientes."
+    text: "As\xED es."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "<speed=5>Hmmm... <speed=40>No lo entiendo muy bien...<pause=0,5> Pero
-      de acuerdo, voy ver qu\xE9 puedo hacer."
+    text: <pause=1>.<pause=1>.<pause=1>.
+    Emotion: 3
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<speed=30>No se si podr\xE9 acostumbrarme a esto..."
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "\xA1Claro que s\xED! As\xED siempre estaremos comunicadas."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Bueno, cambiando de tema, \xBFque quieres que haga aqu\xED? "
     Emotion: 0
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "\xBFConoces este bosque?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Por supuesto! Es el bosque que sol\xEDa ir de peque\xF1a."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Me encantaba este bosque. Y sigue siendo igual de precioso.
+    Emotion: 6
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Casi puedo escuchar una m\xFAsica proveniente del bosque. "
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: Pues en este bosque tan bonito vas a recoger los recursos necesarios.
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFAqu\xED? \xBFY como lo har\xE9? "
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: 'Con mi magia he conseguido crear tres sistemas de recolectas para todos. '
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<speed=30>\xBFY... por qu\xE9 no me las das con tu magia?"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "<speed=40>Hombre, \xBFqu\xE9 diferencia habr\xEDa entre d\xE1rtela con
+      mi magia "
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: 'y comprarla al por mayor en la ciudad? '
+    Emotion: 5
   - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
     text: "\xA1As\xED me gusta! <pause=0,5> <size=45>\xA1Acercate a alguno de los
       elementos que brillan y ponte a recolectar cosas!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "Con esto los ingredientes ser\xE1n lo m\xE1s naturales posibles."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Tiene su l\xF3gica la verdad. Puedo incluso olerlo ya desde aqu\xED. "
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "Cuando te acerques a un sistema de recolecci\xF3n este brillar\xE1. "
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
+    text: "As\xED lo reconocer\xE1s m\xE1s f\xE1cilmente. "
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Pues no se hable m\xE1s. Voy a recoger unos cuantos recursos."
     Emotion: 1
