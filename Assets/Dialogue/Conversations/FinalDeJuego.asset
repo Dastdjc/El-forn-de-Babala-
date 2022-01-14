@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: FinalDeJuego
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Hola <color=#FE77A2>Dore</color>!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "H-hola a todos... \xBFQu\xE9 hac\xE9is aqu\xED?"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 74914135da461fe4aa3516337b21f074, type: 2}
+    text: "Me sorprende que no sepas qu\xE9 nos tramamos..."
+    Emotion: 5
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Hoy vamos a inaugurar Babal\xE0 de forma oficial!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBF\xBFQU\xC9?!"
+    Emotion: 2
+  - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
+    text: "As\xED es peque\xF1a, tu pueblo vuelve a estar rebosante de vida y no
+      est\xE1 de m\xE1s reinaugurarlo."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: ccb51e1379108844db9823432e21c330, type: 2}
+    text: "Has hecho mucho por nosotros y por Babal\xE0, as\xED que quer\xEDamos
+      recompensartelo."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
+    text: "Adem\xE1s, organizar un peque\xF1o evento para conocernos todos va muy
+      bien."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "No hay buena acci\xF3n que no sea recompensada, <color=#FE77A2>Dore</color>."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: e9205e2e9ac80254ebae77c1239a01c5, type: 2}
+    text: "Por eso, vamos a celebrar todos juntos que Babal\xE0 sea un pueblo oficial."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Chicos, esto es muy bonito... Creo que voy a llorar.
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "NO <color=#FE77A2>DORE</color>. Es una ocasi\xF3n muy especial no est\xE9s
+      triste."
+    Emotion: 6
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Mejor, corta t\xFA el lazo y consideraremos Babal\xE0 vivo una vez m\xE1s."
+    Emotion: 1
