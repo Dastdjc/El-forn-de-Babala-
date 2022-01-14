@@ -9,9 +9,11 @@ public class BowlController : MonoBehaviour
     static public int selected = 0;
     public GameObject Texto;
     private bool touchingPlayer;
+    private int HUDState;
     private int somethingInside = -2;
     private int coockState = -1;
     private float timer;
+
     void Start()
     {
         setIngrRecp();
@@ -36,75 +38,80 @@ public class BowlController : MonoBehaviour
     }
     private void Update()
     {
-        /*
-         * <==Funcionamiento de la barra==>>
-         * A comprobar:
-         *      Si el jugador está tocando el bol
-         *      Si ha pulsado E
-         *      Si ha pulsado ESC
-         *  Pasa:
-         *      Si está tocando del bol y pulsa E:
-         *          Se activa la barra y el booleano del inventario
-         *      Si lo anterior ha ocurrido y pulsa ESC:
-         *          Se desactiva la barra y el booleano
-         */
+        ManageHUD();
+        int selec = selected;
+        if (HUDState == 3 && selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
+        else if (HUDState == 3 && selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
+        else if (HUDState == 3 && Input.GetKeyDown(KeyCode.E))//Pasar del inventario a la olla
+        {
+            somethingInside = DeterminateFood();
+            gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
+            coockState = 0;
+            HUDState++;
+        }
+        else if (HUDState == 1 && Input.GetKeyDown(KeyCode.E))//Pasa de la olla al inventario
+        {
+            if (somethingInside != -2)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
+                PassToInv(somethingInside);
+                somethingInside = -2;
+                coockState = -1;
+            }
+        }
+
+        //Una vez ha pasado a la olla aqui se calcula como de hecho está
+        if (coockState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
+        else if (somethingInside != -2 && coockState > -1 && coockState < 3)
+        {
+            timer += Time.deltaTime * (coockState + 1) / 5;
+            if (timer > 2)
+            {
+                timer = 0;
+                gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color
+                coockState++;
+            }
+        }
+    }
+    private void ManageHUD()
+    {
         if (touchingPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            if (!Texto.activeSelf) 
+            if (HUDState == 0)
             {
-                gameObject.GetComponent<FoodBar>().ActivateAnimation(true);
+                Texto.SetActive(false);
+                HUDState++;
             }
-            Texto.SetActive(false);
-            //Time.timeScale = 0;
+            else if (HUDState == 1 && somethingInside == -2) { HUDState++; }
         }
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.Escape) && !Texto.activeSelf)
+        if (HUDState == 2 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y > 360)
         {
-            if (!gameObject.GetComponent<FoodBar>().ReturnBarState())
+            gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, 500 * Time.deltaTime);
+        }
+        else if (HUDState == 2 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y <= 360) 
+        {
+            HUDState++;
+            gameObject.GetComponent<FoodBar>().SetBarVisibility(true);
+        }
+
+        if (touchingPlayer && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (HUDState == 3) 
+            {
+                HUDState++;
+                gameObject.GetComponent<FoodBar>().SetBarVisibility(false);
+            }
+            else if (HUDState == 1)
             {
                 Texto.SetActive(true);
-                //Time.timeScale = 1;
-            }
-            else
-            {
-                gameObject.GetComponent<FoodBar>().ActivateAnimation(false);
+                HUDState = 0;
             }
         }
-        if (!Texto.activeSelf)
+        if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y < 750)
         {
-            int selec = selected;
-            if (selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
-            else if (selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
-            else if (Input.GetKeyDown(KeyCode.Q))//Pasar del inventario a la olla
-            {
-                somethingInside = DeterminateFood();
-                gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
-                coockState = 0;
-            }
-            else if (Input.GetKeyDown(KeyCode.Z))
-            {
-                if (somethingInside != -2)
-                {
-                    gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
-                    PassToInv(somethingInside);
-                    somethingInside = -2;
-                    coockState = -1;
-                }
-            }
-            //Una vez ha pasado a la olla aqui se calcula como de hecho está
-            if (coockState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
-            else if (somethingInside != -2 && coockState > -1 && coockState < 3)
-            {
-                timer += Time.deltaTime * (coockState + 1) / 5;
-                if (timer > 2)
-                {
-                    timer = 0;
-                    gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color
-                    coockState++;
-                }
-            }
-
+            gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition += new Vector2(0, 500 * Time.deltaTime);
         }
-        
+        else if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y >= 750) { HUDState = 1; }
     }
     private void PassToInv(int index)
     {
@@ -154,7 +161,6 @@ public class BowlController : MonoBehaviour
         if (oneUnless)return -1;
         return -2;
     }
-    
     private bool IsEnough(int[] q) 
     {
         bool isOnbowl = true;

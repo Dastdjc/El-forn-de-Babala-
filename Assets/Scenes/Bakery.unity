@@ -5203,11 +5203,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Example: {fileID: 1867642597}
   ingrs:
+  - {fileID: 21300000, guid: 1088ad5a753c4bb48906e5bd39df30bd, type: 3}
+  - {fileID: 21300000, guid: 1088ad5a753c4bb48906e5bd39df30bd, type: 3}
+  - {fileID: 21300000, guid: 15b8d7cfbd061aa43ac9dfb4d2eb3143, type: 3}
+  - {fileID: 21300000, guid: 15b8d7cfbd061aa43ac9dfb4d2eb3143, type: 3}
+  - {fileID: 21300000, guid: c6deef338ed778b41bd7d5dbb763a57d, type: 3}
+  - {fileID: 21300000, guid: 4e435858a8b158046b0e02205382afe6, type: 3}
+  - {fileID: 21300000, guid: 83fa791dfaa9d3644ba1de82e79004f5, type: 3}
+  - {fileID: 21300000, guid: 29af1fe1dcffbde4e9f2f2adbf0a5ec1, type: 3}
   - {fileID: 21300000, guid: 1ec23a40201e47b4cb093c007e7c0e13, type: 3}
+  - {fileID: 21300000, guid: 1ec23a40201e47b4cb093c007e7c0e13, type: 3}
+  - {fileID: 21300000, guid: d61cafb63a4979048afdf076b5ade703, type: 3}
+  - {fileID: 21300000, guid: 4cdb8d304413e3e468911524678ad150, type: 3}
+  - {fileID: 21300000, guid: 065c3cd961b2458409f6a28fd4e7a779, type: 3}
   recipes:
   - {fileID: 21300000, guid: 817d4d56b82cee547ba15a5a775e7cc4, type: 3}
   - {fileID: 21300000, guid: d3246bdc8e8c2234099b1925acd0d225, type: 3}
   - {fileID: 21300000, guid: d3246bdc8e8c2234099b1925acd0d225, type: 3}
+  - {fileID: 21300000, guid: adb0b0198a83ae44a8b6a522f7078aaf, type: 3}
+  - {fileID: 21300000, guid: ddf33f8d48cedbd4c8fccba27c9ddf84, type: 3}
+  - {fileID: 21300000, guid: 50eef1130997abc4a92c790bfc5c8672, type: 3}
+  - {fileID: 21300000, guid: 632d3bb9d125e50448818a956b1be98e, type: 3}
+  - {fileID: 21300000, guid: 4443d7d82148ddc46823c85abaf16c3d, type: 3}
+  - {fileID: 21300000, guid: 632d3bb9d125e50448818a956b1be98e, type: 3}
 --- !u!114 &812746874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,8 +8018,6 @@ GameObject:
   - component: {fileID: 1618644283}
   - component: {fileID: 1618644285}
   - component: {fileID: 1618644284}
-  - component: {fileID: 1618644286}
-  - component: {fileID: 1618644287}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -8066,37 +8082,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618644282}
   m_CullTransparentMesh: 1
---- !u!95 &1618644286
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618644282}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1298142a1801c37429991bd0a56dcc2f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1618644287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618644282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49fb012c29a1d441a41a859b286e188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1726804671
 GameObject:
   m_ObjectHideFlags: 0

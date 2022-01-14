@@ -18,13 +18,10 @@ public class FoodBar : MonoBehaviour
     private int AreActive;
     private string[] IngrNames;
     private string[] RecipeNames;
-    private Animator myController;
 
     public void Initiate()
     {
         Example.gameObject.SetActive(true);
-        myController = Example.transform.GetChild(0).gameObject.GetComponent<Animator>();
-        myController.enabled = true;
         //myController.enabled = false;
         IngrNames = new string[] { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendras", "Boniatos", "Calabaza" };
         RecipeNames = new string[] { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
@@ -121,18 +118,5 @@ public class FoodBar : MonoBehaviour
         }
         
         Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().text = RecipeNames[res];
-    }
-    public void ActivateAnimation(bool direc)
-    {
-        myController.enabled = true;
-        myController.SetBool("Direction", direc);
-        myController.SetTrigger("ActivateAnim");
-    }
-    public bool ReturnBarState() 
-    {
-        myController.enabled = true;
-        bool resul = myController.GetBool("Direction");
-        myController.enabled = false;
-        return resul;
     }
 }
