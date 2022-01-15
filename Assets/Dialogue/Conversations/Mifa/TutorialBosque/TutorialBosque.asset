@@ -31,13 +31,13 @@ MonoBehaviour:
     text: "As\xED es."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: <pause=1>.<pause=1>.<pause=1>.
+    text: <pause=1>...
     Emotion: 3
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "<speed=30>No se si podr\xE9 acostumbrarme a esto..."
     Emotion: 3
   - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "\xA1Claro que s\xED! As\xED siempre estaremos comunicadas."
+    text: "<speed=40>\xA1Claro que s\xED! As\xED siempre estaremos comunicadas."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Bueno, cambiando de tema, \xBFque quieres que haga aqu\xED? "
@@ -73,10 +73,6 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
     text: 'y comprarla al por mayor en la ciudad? '
     Emotion: 5
-  - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
-    text: "\xA1As\xED me gusta! <pause=0,5> <size=45>\xA1Acercate a alguno de los
-      elementos que brillan y ponte a recolectar cosas!"
-    Emotion: 1
   - character: {fileID: 11400000, guid: 4587aeac80d174f41bf702edceadbd51, type: 2}
     text: "Con esto los ingredientes ser\xE1n lo m\xE1s naturales posibles."
     Emotion: 1
