@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: m_ShapePath.Array.data[23].y
       value: 0.37615988
       objectReference: {fileID: 0}
+    - target: {fileID: 1546595948780046148, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: animatedText
+      value: 
+      objectReference: {fileID: 1900968662}
     - target: {fileID: 1546595949742741789, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_Name
       value: Dore_player
@@ -8673,6 +8677,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 721931635
       objectReference: {fileID: 0}
+    - target: {fileID: 4640289344337551062, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: animatedText
+      value: 
+      objectReference: {fileID: 1900968662}
     - target: {fileID: 7026306710145414421, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9030568
@@ -9012,6 +9020,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899043018}
   m_CullTransparentMesh: 1
+--- !u!114 &1900968662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5171071733659227863, guid: 06cb2a1cbe326c24dad42f07c8320f46, type: 3}
+  m_PrefabInstance: {fileID: 2009883267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5850122b664597d4ebf23480f87aed89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1916261251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8078242884769498500, guid: 7a82a8dc7c8a74e4fa0f20c4db2c3da8, type: 3}

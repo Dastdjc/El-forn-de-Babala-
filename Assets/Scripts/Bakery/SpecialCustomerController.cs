@@ -117,6 +117,8 @@ public class SpecialCustomerController : MonoBehaviour
                 dm.NPC = transform;
                 dm.inConversation = true;
                 state++;
+                parent.GetComponent<Animator>().SetBool("Moving", true);
+                parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
             }
         }
     }
@@ -232,8 +234,6 @@ public class SpecialCustomerController : MonoBehaviour
                             break;
                     }
                     */
-                    parent.GetComponent<Animator>().SetBool("Moving", true);
-                    parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                     walk = 18;
                     state++;
                     break;
