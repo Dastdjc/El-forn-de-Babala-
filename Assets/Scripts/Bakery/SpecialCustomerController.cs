@@ -15,7 +15,7 @@ public class SpecialCustomerController : MonoBehaviour
     private int state;
     private float walk = 27.5f;
     private GameObject gmo;
-    private bool conversando;
+    private bool leaving = false;
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
     public CharacterDialogueManager cdm;
@@ -117,8 +117,7 @@ public class SpecialCustomerController : MonoBehaviour
                 dm.NPC = transform;
                 dm.inConversation = true;
                 state++;
-                parent.GetComponent<Animator>().SetBool("Moving", true);
-                parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
+                
             }
         }
     }
@@ -152,7 +151,6 @@ public class SpecialCustomerController : MonoBehaviour
                         {
                             state = 3;
                             Talk(false);
-                            conversando = true;
                         }
                     }
                     break;
@@ -247,6 +245,12 @@ public class SpecialCustomerController : MonoBehaviour
                 case 5:
                     if (!dm.inConversation)
                     {
+                        if (!leaving)
+                        {
+                            leaving = true;
+                            parent.GetComponent<Animator>().SetBool("Moving", true);
+                            parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
+                        }
                         if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
                         else { Destroy(parent.transform.gameObject); 
                             GameManager.Instance.SumarSatisfacción(0);
@@ -277,7 +281,6 @@ public class SpecialCustomerController : MonoBehaviour
         else { satisfaction = 5; }
         Debug.Log(satisfaction);
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
-        conversando = true;
         //Calcular satisfacción
         state = 3;
     }

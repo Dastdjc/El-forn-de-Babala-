@@ -571,6 +571,7 @@ public class Inventory : MonoBehaviour
                 {
                     if (recipeImagesList[j].type == recipe.type)
                     {
+                        recipeBySlotList[i].recipeImage = recipeImagesList[j].recipeImage;
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
                         ////activamos su cantidad, texto
