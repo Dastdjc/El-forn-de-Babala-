@@ -360,6 +360,7 @@ MonoBehaviour:
   dmcm: {fileID: 0}
   tochingPlayer: 0
   ImSpecial: 0
+  SpriteID: 4
   sr: {fileID: 4606646108581126354}
 --- !u!95 &3246053435320183386
 Animator:
@@ -380,6 +381,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &434615395
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203299694023296256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ff82bdd72c8eb040ab762c2e2a85ade, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &434615394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203299694023296256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Solvers:
+  - {fileID: 949153803}
+  - {fileID: 1985931380}
+  m_Weight: 1
+  m_SolverEditorData:
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
 --- !u!1 &3637655315417500935
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,46 +591,6 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!95 &434615395
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4203299694023296256}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ff82bdd72c8eb040ab762c2e2a85ade, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &434615394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4203299694023296256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Solvers:
-  - {fileID: 949153803}
-  - {fileID: 1985931380}
-  m_Weight: 1
-  m_SolverEditorData:
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
 --- !u!1 &4786003559803416689
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,15 +842,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6335427296350851326, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0012946725
+      value: 0.0012949109
       objectReference: {fileID: 0}
     - target: {fileID: -6335427296350851326, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.3950001
+      value: 0.39500016
       objectReference: {fileID: 0}
     - target: {fileID: -6335427296350851326, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.8383651
+      value: 0.8383652
       objectReference: {fileID: 0}
     - target: {fileID: -5711821581169868567, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_LocalRotation.w
@@ -857,7 +858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5711821581169868567, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000014894735
+      value: 0.00000027369074
       objectReference: {fileID: 0}
     - target: {fileID: -5449853241657972905, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_SortingLayer
@@ -909,31 +910,31 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 66f6988b8769f6c4fafc95edf661e7fa, type: 2}
     - target: {fileID: -4799976845545572029, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.00104931
+      value: -0.0010492653
       objectReference: {fileID: 0}
     - target: {fileID: -4799976845545572029, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00093996525
+      value: -0.00093993545
       objectReference: {fileID: 0}
     - target: {fileID: -4799976845545572029, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.2078698
+      value: 0.20786983
       objectReference: {fileID: 0}
     - target: {fileID: -4799976845545572029, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.38621995
+      value: 0.38621992
       objectReference: {fileID: 0}
     - target: {fileID: -4706772236989704131, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.0091949105
+      value: -0.009194821
       objectReference: {fileID: 0}
     - target: {fileID: -4706772236989704131, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0018899739
+      value: 0.0018901825
       objectReference: {fileID: 0}
     - target: {fileID: -4706772236989704131, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.354195
+      value: 0.35419506
       objectReference: {fileID: 0}
     - target: {fileID: -4706772236989704131, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.y
@@ -1025,11 +1026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1757217326048677658, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.11999977
+      value: 0.12000024
       objectReference: {fileID: 0}
     - target: {fileID: 1757217326048677658, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 2.0749998
+      value: 2.0750003
       objectReference: {fileID: 0}
     - target: {fileID: 2828064125299302967, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_RootOrder
@@ -1093,7 +1094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3349070827482441480, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.01567471
+      value: -0.015674472
       objectReference: {fileID: 0}
     - target: {fileID: 3349070827482441480, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.y
@@ -1101,19 +1102,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3794741980841962900, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.15494548
+      value: -0.15494537
       objectReference: {fileID: 0}
     - target: {fileID: 3794741980841962900, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0020854473
+      value: 0.002085507
       objectReference: {fileID: 0}
     - target: {fileID: 3794741980841962900, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.23716505
+      value: 0.23716515
       objectReference: {fileID: 0}
     - target: {fileID: 3794741980841962900, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.5649041
+      value: 0.56490415
       objectReference: {fileID: 0}
     - target: {fileID: 6290142349408715848, guid: 0cf03cddd41faa6429524de3132409af, type: 3}
       propertyPath: m_SortingLayer

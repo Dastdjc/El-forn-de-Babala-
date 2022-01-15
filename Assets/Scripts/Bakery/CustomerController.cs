@@ -23,6 +23,7 @@ public class CustomerController : MonoBehaviour
     private bool conversando;
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
+    public int SpriteID;
     //static private CustomerController[] Instance = new CustomerController[4];
     //static public int MaxIndexRecipe = 5;
 
@@ -142,6 +143,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 
                 case 3:
+                    DialogueManagerCM.TalkingWith = SpriteID;
                     switch (satisfaction)
                     {
                         case 0:
@@ -230,43 +232,44 @@ public class CustomerController : MonoBehaviour
         state = 3;
     }
 
-    void Pedir() {
-        
-            switch (command)
-            {
-                case Recetas.Mona:
-                    dmcm.index = Random.Range(0, 2);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Flaons:
-                    dmcm.index = Random.Range(12, 14);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Farinada:
-                    dmcm.index = Random.Range(2, 4);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Fartons:
-                    dmcm.index = Random.Range(8, 10);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Bunyols:
-                    dmcm.index = Random.Range(4, 6);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                default:
-                    break;
-            }
+    void Pedir()
+    {
+        DialogueManagerCM.TalkingWith = SpriteID;
+        switch (command)
+        {
+            case Recetas.Mona:
+                dmcm.index = Random.Range(0, 2);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Flaons:
+                dmcm.index = Random.Range(12, 14);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Farinada:
+                dmcm.index = Random.Range(2, 4);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Fartons:
+                dmcm.index = Random.Range(8, 10);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Bunyols:
+                dmcm.index = Random.Range(4, 6);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            default:
+                break;
+        }
         state = 2;
         OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
     }

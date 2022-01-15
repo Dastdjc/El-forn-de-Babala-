@@ -94,8 +94,10 @@ public class Inventory : MonoBehaviour
 
        
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 0;
+        fartons.amount = 1;
         fartons.type = "Fartons";
+        fartons.Coock = new Queue<int>();
+        fartons.Coock.Enqueue(2);
         AddRecipe(fartons);
     }
 
