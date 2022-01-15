@@ -110,7 +110,7 @@ public class SpawnCustomers : MonoBehaviour
             GameManager.Instance.satisfacciónAcumulada = 0;
             Debug.Log("Special enters...");
             ThereSpace();
-            Customers[firstPlace] = Instantiate(SpecialCustomer[SpecialID], new Vector3(-12 - firstPlace * 4, -3.48f, 0), Quaternion.identity);
+            Customers[firstPlace] = Instantiate(SpecialCustomer[SpecialID], new Vector3(-84 - firstPlace * 8, -7, 0), Quaternion.identity);
             Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.SetActive(true);
             Customers[firstPlace].transform.parent = this.transform;
             //Customers[firstPlace].transform.GetChild(Customers[firstPlace].transform.childCount - 1).gameObject.GetComponent<CustomerController>().parent = Customers[firstPlace].transform;

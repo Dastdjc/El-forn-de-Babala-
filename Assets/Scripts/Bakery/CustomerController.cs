@@ -197,6 +197,8 @@ public class CustomerController : MonoBehaviour
                             GameManager.Instance.SumarSatisfacción(5);
                             break;
                     }
+                    parent.GetComponent<Animator>().SetBool("waitting", false);
+                    parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                     walk = 18;
                     state++;
                     break;

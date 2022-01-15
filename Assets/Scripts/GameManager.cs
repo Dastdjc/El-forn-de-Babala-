@@ -338,7 +338,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
         servicios.SetActive(false);
-        playerSpawnPosition = new Vector3(-10, -2, 0);
+        playerSpawnPosition = new Vector3(-80, -2, 0);
         fromPanadería = true;
         spawned = true;
     }

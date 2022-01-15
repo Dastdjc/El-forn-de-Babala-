@@ -13,7 +13,7 @@ public class SpecialCustomerController : MonoBehaviour
     private float timer = 0;
     private int satisfaction = 0;
     private int state;
-    private float walk = 15;
+    private float walk = 27.5f;
     private GameObject gmo;
     private bool conversando;
     public bool tochingPlayer = false;
@@ -87,6 +87,9 @@ public class SpecialCustomerController : MonoBehaviour
 
         parent = transform.parent;
         outline = sr.material;
+
+        parent.GetComponent<Animator>().SetBool("Moving", true);
+        parent.GetComponent<Animator>().SetBool("Moving", true);
     }
     private void Update()
     {
@@ -128,7 +131,7 @@ public class SpecialCustomerController : MonoBehaviour
                 //Anda a su sitio
                 case 0:
                     if (walk > 0) { parent.transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { state++;
+                    else { state++; parent.GetComponent<Animator>().SetBool("Moving", false);
                         //parent.GetComponent<Animator>().SetBool("waitting",true); 
                     }
                     break;
@@ -229,6 +232,8 @@ public class SpecialCustomerController : MonoBehaviour
                             break;
                     }
                     */
+                    parent.GetComponent<Animator>().SetBool("Moving", true);
+                    parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                     walk = 18;
                     state++;
                     break;
