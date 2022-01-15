@@ -544,6 +544,7 @@ public class Inventory : MonoBehaviour
                 {
                     //la cantidad que ya había más la cantidad pasada 
                     recipeList[i].amount += recipe.amount;
+                    recipeList[i].Coock.Enqueue(recipe.Coock.Dequeue());
 
                     //for (int p = 0; p < recipeBySlotList.Count; p++)
                     //{

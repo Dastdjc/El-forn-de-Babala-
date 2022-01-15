@@ -220,12 +220,12 @@ public class CustomerController : MonoBehaviour
     }
     public void SetSatisfaction(Recipe food)// De momento solo puede estar perfecto o mal
     {
-        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
-        //else if(options[1] == 0) { satisfaction = 2; }
-        else { satisfaction = 5; }
-        Debug.Log(satisfaction);
+        if (food.type != command.ToString() && (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
+        else if (food.type == command.ToString() && food.Coock.Peek() == 1) { satisfaction = 2; }
+        else if (food.type == command.ToString() && food.Coock.Peek() == 2) { satisfaction = 5; }
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
         conversando = true;
+        food.Coock.Dequeue();
         //Calcular satisfacción
         state = 3;
     }
