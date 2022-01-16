@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 1228049207}
   - component: {fileID: 1228049206}
   m_Layer: 0
-  m_Name: para animar 2.0
+  m_Name: Gulliver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1251,8 +1251,8 @@ MonoBehaviour:
   - {fileID: 672934713}
   - {fileID: 570159064}
   m_Bounds:
-    m_Center: {x: -2.1133525, y: 1.312619, z: 0}
-    m_Extent: {x: 2.2550004, y: 5.058254, z: 0}
+    m_Center: {x: -2.1150005, y: 1.3781025, z: 0}
+    m_Extent: {x: 2.2550004, y: 5.0731044, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!95 &1228049208
