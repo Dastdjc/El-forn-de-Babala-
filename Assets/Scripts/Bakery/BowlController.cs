@@ -38,38 +38,41 @@ public class BowlController : MonoBehaviour
     }
     private void Update()
     {
-        ManageHUD();
-        int selec = selected;
-        if (HUDState == 3 && selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
-        else if (HUDState == 3 && selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
-        else if (HUDState == 3 && Input.GetKeyDown(KeyCode.E))//Pasar del inventario a la olla
+        if (GameObject.FindGameObjectWithTag("Inventory").transform.GetChild(0).gameObject.activeSelf)
         {
-            somethingInside = DeterminateFood();
-            gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
-            coockState = 0;
-            HUDState++;
-        }
-        else if (HUDState == 1 && Input.GetKeyDown(KeyCode.E))//Pasa de la olla al inventario
-        {
-            if (somethingInside != -2)
+            ManageHUD();
+            int selec = selected;
+            if (HUDState == 3 && selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
+            else if (HUDState == 3 && selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
+            else if (HUDState == 3 && Input.GetKeyDown(KeyCode.E))//Pasar del inventario a la olla
             {
-                gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
-                PassToInv(somethingInside);
-                somethingInside = -2;
-                coockState = -1;
+                somethingInside = DeterminateFood();
+                gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
+                coockState = 0;
+                HUDState++;
             }
-        }
-
-        //Una vez ha pasado a la olla aqui se calcula como de hecho está
-        if (coockState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
-        else if (somethingInside != -2 && coockState > -1 && coockState < 3)
-        {
-            timer += Time.deltaTime * (coockState + 1) / 5;
-            if (timer > 2)
+            else if (HUDState == 1 && Input.GetKeyDown(KeyCode.E))//Pasa de la olla al inventario
             {
-                timer = 0;
-                gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color
-                coockState++;
+                if (somethingInside != -2)
+                {
+                    gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
+                    PassToInv(somethingInside);
+                    somethingInside = -2;
+                    coockState = -1;
+                }
+            }
+
+            //Una vez ha pasado a la olla aqui se calcula como de hecho está
+            if (coockState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
+            else if (somethingInside != -2 && coockState > -1 && coockState < 3)
+            {
+                timer += Time.deltaTime * (coockState + 1) / 5;
+                if (timer > 2)
+                {
+                    timer = 0;
+                    gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color
+                    coockState++;
+                }
             }
         }
     }
@@ -118,6 +121,7 @@ public class BowlController : MonoBehaviour
         string[] names = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
         Recipe aux = ScriptableObject.CreateInstance<Recipe>();
         aux.amount = 1;
+        aux.Coock = new Queue<int>();
         aux.Coock.Enqueue(coockState);
         if (index != -1)aux.type = names[index];
         else aux.type = "Basura";
