@@ -14,7 +14,9 @@ public class BowlController : MonoBehaviour
     private int coockState = -1;
     private float timer;
     public GameObject player;
-
+    public AudioSource bowlSound;
+    public AudioSource BGMusic;
+    private bool startedCooking = false;
     void Start()
     {
         setIngrRecp();
@@ -56,6 +58,8 @@ public class BowlController : MonoBehaviour
             {
                 if (somethingInside != -2)
                 {
+                    startedCooking = false;
+                    StartCoroutine(AudioFadeOut.FadeIn(BGMusic, 1f));
                     gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
                     PassToInv(somethingInside);
                     somethingInside = -2;
@@ -70,8 +74,14 @@ public class BowlController : MonoBehaviour
             //-----------------//
             else if (somethingInside != -2 && coockState > -1 && coockState < 3)
             {
+                if (!startedCooking) 
+                {
+                    startedCooking = true;
+                    StartCoroutine(AudioFadeOut.FadeOut(BGMusic, 1f));
+                    bowlSound.PlayDelayed(1f);
+                }
                 timer += Time.deltaTime * (coockState + 1) / 5;
-                if (timer > 1.6f)
+                if (timer > 0.7f)
                 {
                     timer = 0;
                     gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color

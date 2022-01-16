@@ -3,11 +3,11 @@ using System.Collections;
 
 public static class AudioFadeOut
 {
-
+    private static float lastVol = 1;
     public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;
-
+        lastVol = audioSource.volume;
         while (audioSource.volume > 0)
         {
             audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
@@ -15,7 +15,7 @@ public static class AudioFadeOut
             yield return null;
         }
 
-        audioSource.Stop();
+        audioSource.Pause();
         audioSource.volume = startVolume;
     }
 
@@ -30,7 +30,7 @@ public static class AudioFadeOut
 
             yield return null;
         }
-        audioSource.volume = 1;
+        audioSource.volume = lastVol;
     }
 
 }
