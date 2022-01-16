@@ -44,7 +44,7 @@ public class BowlController : MonoBehaviour
             ManageHUD();
             int selec = selected;
             if (HUDState == 3 && selected > 0 && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))) { selected--; }
-            else if (HUDState == 3 && selected < 8 && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S))) { selected++; }
+            else if (HUDState == 3 && selected < 8 && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))) { selected++; }
             else if (HUDState == 3 && Input.GetKeyDown(KeyCode.E))//Pasar del inventario a la olla
             {
                 somethingInside = DeterminateFood();
@@ -86,9 +86,10 @@ public class BowlController : MonoBehaviour
         {
             if (HUDState == 0)
             {
-                player.GetComponent<Animator>().enabled = false;
-                //player.GetComponent<PlayerMovement>().enabled = false;
-                //player.GetComponent<PlayerMovement>().speed = 0;
+                player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                player.GetComponent<Animator>().SetFloat("speed", 0f);
+                player.transform.GetChild(0).gameObject.SetActive(true);
+                player.GetComponent<PlayerMovement>().enabled = false;
                 //player.GetComponent<PlayerMovement>().dashSpeed = 0;
 
                 Texto.SetActive(false);
@@ -123,7 +124,6 @@ public class BowlController : MonoBehaviour
             Texto.SetActive(true);
             HUDState = 0;
             player.GetComponent<PlayerMovement>().enabled = true;
-            //player.GetComponent<PlayerMovement>().speed = 20;
             //player.GetComponent<Animator>().enabled = true;
         }
     }

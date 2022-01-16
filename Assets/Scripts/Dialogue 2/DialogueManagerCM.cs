@@ -76,12 +76,9 @@ public class DialogueManagerCM : MonoBehaviour
                     t = 0;
                     startTime = 0;
                     timer = true;
+                    playerMovement.enabled = true;
                 }
             }
-        }
-        else 
-        {
-            playerMovement.enabled = true;
         }
     }
     static public void SetImTalking(int cus) { TalkingWith = cus; }
