@@ -13,6 +13,7 @@ public class BowlController : MonoBehaviour
     private int somethingInside = -2;
     private int coockState = -1;
     private float timer;
+    public GameObject player;
 
     void Start()
     {
@@ -38,12 +39,12 @@ public class BowlController : MonoBehaviour
     }
     private void Update()
     {
-        if (GameObject.FindGameObjectWithTag("Inventory").transform.GetChild(0).gameObject.activeSelf)
+        if (!GameObject.FindGameObjectWithTag("Inventory").transform.GetChild(0).gameObject.activeSelf)
         {
             ManageHUD();
             int selec = selected;
-            if (HUDState == 3 && selected > 0 && Input.GetKeyDown(KeyCode.DownArrow)) { selected--; }
-            else if (HUDState == 3 && selected < 8 && Input.GetKeyDown(KeyCode.UpArrow)) { selected++; }
+            if (HUDState == 3 && selected > 0 && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))) { selected--; }
+            else if (HUDState == 3 && selected < 8 && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S))) { selected++; }
             else if (HUDState == 3 && Input.GetKeyDown(KeyCode.E))//Pasar del inventario a la olla
             {
                 somethingInside = DeterminateFood();
@@ -64,10 +65,13 @@ public class BowlController : MonoBehaviour
 
             //Una vez ha pasado a la olla aqui se calcula como de hecho está
             if (coockState == -1 && selec != selected) { gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected); }
+            //-------------------//
+            // Animación caldero//
+            //-----------------//
             else if (somethingInside != -2 && coockState > -1 && coockState < 3)
             {
                 timer += Time.deltaTime * (coockState + 1) / 5;
-                if (timer > 2)
+                if (timer > 1.6f)
                 {
                     timer = 0;
                     gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa al siguiente color
@@ -82,11 +86,16 @@ public class BowlController : MonoBehaviour
         {
             if (HUDState == 0)
             {
+                player.GetComponent<Animator>().enabled = false;
+                //player.GetComponent<PlayerMovement>().enabled = false;
+                //player.GetComponent<PlayerMovement>().speed = 0;
+                //player.GetComponent<PlayerMovement>().dashSpeed = 0;
+
                 Texto.SetActive(false);
                 HUDState++;
             }
-            else if (HUDState == 1 && somethingInside == -2) { HUDState++; }
         }
+        if (HUDState == 1 && somethingInside == -2) { HUDState++; }
         if (HUDState == 2 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y > 360)
         {
             gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, 500 * Time.deltaTime);
@@ -104,17 +113,19 @@ public class BowlController : MonoBehaviour
                 HUDState++;
                 gameObject.GetComponent<FoodBar>().SetBarVisibility(false);
             }
-            else if (HUDState == 1)
-            {
-                Texto.SetActive(true);
-                HUDState = 0;
-            }
         }
         if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y < 750)
         {
             gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition += new Vector2(0, 500 * Time.deltaTime);
         }
-        else if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y >= 750) { HUDState = 1; }
+        else if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y >= 750) 
+        {
+            Texto.SetActive(true);
+            HUDState = 0;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            //player.GetComponent<PlayerMovement>().speed = 20;
+            //player.GetComponent<Animator>().enabled = true;
+        }
     }
     private void PassToInv(int index)
     {

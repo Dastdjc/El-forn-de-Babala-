@@ -26,7 +26,6 @@ public class DialogueManagerCM : MonoBehaviour
     private PlayerMovement playerMovement;
     public Sprite[] Faces;
     static public int TalkingWith = 0;
-    private int prove;
 
     // Start is called before the first frame update
     void Start()

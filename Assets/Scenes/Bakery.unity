@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: m_ShapePath.Array.data[23].y
       value: 0.37615988
       objectReference: {fileID: 0}
+    - target: {fileID: 1546595948780046150, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1546595949742741789, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
       propertyPath: m_Name
       value: Dore_player
@@ -5239,6 +5243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Texto: {fileID: 66385040}
+  player: {fileID: 1922856091}
 --- !u!95 &812746875
 Animator:
   serializedVersion: 3
@@ -9076,6 +9081,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922092832}
   m_CullTransparentMesh: 1
+--- !u!1 &1922856091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1546595949742741789, guid: d350f326ddadcbb438cc10838b2906aa, type: 3}
+  m_PrefabInstance: {fileID: 37755842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1930203965
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,9 @@ public class FoodBar : MonoBehaviour
                 Result[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             }
             Result[i].transform.SetParent(Example.transform.GetChild(0));
+            //-------------------------------//
+            // Posición recetas             //
+            //-----------------------------//
             Result[i].transform.localPosition = new Vector3(-450, (i - 1) * 100, 0);
             Result[i].transform.localScale = new Vector3(1, 1, 1);
         }
@@ -101,6 +104,9 @@ public class FoodBar : MonoBehaviour
             {
                 Numbers[i].GetComponent<TextMeshProUGUI>().text = IngrNames[i] + '\n' + WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
                 AreActive++;
+                //-------------------------------//
+                // Posición ingredientes        //
+                //-----------------------------//
                 Ingredients[i].transform.localPosition = new Vector3((AreActive - 1) * 85 - 150, 2, 0);
             }
         }
