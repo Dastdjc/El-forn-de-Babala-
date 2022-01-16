@@ -101,7 +101,7 @@ public class BowlController : MonoBehaviour
         {
             gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, 500 * Time.deltaTime);
         }
-        else if (HUDState == 2 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y <= 360) 
+        else if (HUDState == 2 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y <= 400) 
         {
             HUDState++;
             gameObject.GetComponent<FoodBar>().SetBarVisibility(true);

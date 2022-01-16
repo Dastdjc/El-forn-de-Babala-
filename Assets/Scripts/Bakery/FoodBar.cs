@@ -46,7 +46,7 @@ public class FoodBar : MonoBehaviour
             //-------------------------------//
             // Posición recetas             //
             //-----------------------------//
-            Result[i].transform.localPosition = new Vector3(-450, (i - 1) * 100, 0);
+            Result[i].transform.localPosition = new Vector3(-600, (i - 1) * 100, 0);
             Result[i].transform.localScale = new Vector3(1, 1, 1);
         }
 
@@ -58,11 +58,14 @@ public class FoodBar : MonoBehaviour
             {
                 Ingredients[i] = Instantiate(Example.transform.GetChild(1).gameObject);
                 Ingredients[i].GetComponent<Image>().sprite = ingrs[i];
+                Ingredients[i].GetComponent<Image>().preserveAspect = true;
                 Ingredients[i].transform.SetParent(Example.transform.GetChild(0));
-                Ingredients[i].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+                Ingredients[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
                 Ingredients[i].SetActive(false);
                 Numbers[i].transform.SetParent(Ingredients[i].transform);
                 Numbers[i].transform.localScale = new Vector3(1, 1, 1);
+                // Posición de los números
+                Numbers[i].transform.localPosition= new Vector3(20, -100, 0);
             }
             else
             {
@@ -107,7 +110,7 @@ public class FoodBar : MonoBehaviour
                 //-------------------------------//
                 // Posición ingredientes        //
                 //-----------------------------//
-                Ingredients[i].transform.localPosition = new Vector3((AreActive - 1) * 85 - 150, 2, 0);
+                Ingredients[i].transform.localPosition = new Vector3((AreActive - 1) * 135 - 240, 2, 0);
             }
         }
         for (int j = -1; j < 2; j++)
@@ -116,13 +119,16 @@ public class FoodBar : MonoBehaviour
             {
                 Result[j + 1].GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 Result[j + 1].GetComponent<Image>().sprite = recipes[res + j];
+                Result[j + 1].GetComponent<Image>().preserveAspect = true;
             }
             else
             {
                 Result[j + 1].GetComponent<Image>().color = new Color(0, 0, 0, 0);
             }
         }
-        
+
+        Numbers[Ingredients.Length].transform.localPosition = new Vector3(175f, 0f, 0f);
         Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().text = RecipeNames[res];
+        Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().alignment = TMPro.TextAlignmentOptions.Center;
     }
 }
