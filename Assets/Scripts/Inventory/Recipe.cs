@@ -8,4 +8,5 @@ public class Recipe : ScriptableObject
     public string type;
     public int amount;
     public Sprite recipeImage;
+    public Queue<int> Coock;
 }

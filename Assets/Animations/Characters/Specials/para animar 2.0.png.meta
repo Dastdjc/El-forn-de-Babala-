@@ -227,47 +227,47 @@ TextureImporter:
     bones:
     - name: Torso
       position: {x: 212.49718, y: 751.4236, z: 3}
-      rotation: {x: 0, y: 0, z: -0.70128775, w: 0.7128784}
-      length: 223.37917
+      rotation: {x: 0, y: 0, z: -0.70658904, w: 0.70762414}
+      length: 220.58371
       parentId: -1
     - name: Chaqueta_atras
-      position: {x: 615.14795, y: -115.365395, z: 0}
-      rotation: {x: 0, y: 0, z: 0.0024352951, w: 0.999997}
+      position: {x: 616.8025, y: -106.16994, z: 0}
+      rotation: {x: 0, y: 0, z: 0.009899069, w: 0.999951}
       length: 86.063835
       parentId: 0
     - name: Cabesa
-      position: {x: 229.92078, y: 454.8906, z: 4}
-      rotation: {x: 0, y: -0, z: 0.99368656, w: 0.112191804}
+      position: {x: 223.10513, y: 458.27206, z: 4}
+      rotation: {x: 0, y: 0, z: 0.99449635, w: 0.10477166}
       length: 243.26173
       parentId: 0
     - name: Pierna1L
-      position: {x: 456.57086, y: 263.4999, z: 1}
-      rotation: {x: 0, y: 0, z: -0.0038486044, w: 0.9999926}
+      position: {x: 452.58728, y: 270.28586, z: 1}
+      rotation: {x: 0, y: 0, z: 0.0036154042, w: 0.9999935}
       length: 105.271034
       parentId: 0
     - name: Pierna2L
-      position: {x: 105.27103, y: -0.000009182213, z: 1}
+      position: {x: 105.27103, y: -0.000009001568, z: 1}
       rotation: {x: 0, y: 0, z: 0.00034526698, w: 0.99999994}
-      length: 97.948425
+      length: 97.94843
       parentId: 3
     - name: Pierna3L
-      position: {x: 97.948425, y: -0.000011590901, z: 1}
+      position: {x: 97.94843, y: -0.0000115730745, z: 1}
       rotation: {x: 0, y: 0, z: -0.57823753, w: 0.8158685}
       length: 91.50343
       parentId: 4
     - name: Pierna1R
-      position: {x: 459.79663, y: 516.1218, z: 2}
-      rotation: {x: 0, y: 0, z: 0.028320843, w: 0.9995989}
-      length: 112.89101
+      position: {x: 452.04175, y: 522.9276, z: 2}
+      rotation: {x: 0, y: 0, z: 0.035781085, w: 0.9993597}
+      length: 112.89102
       parentId: 0
     - name: Pierna2R
-      position: {x: 112.89102, y: -0.0000022375884, z: 2}
-      rotation: {x: 0, y: 0, z: -0.013457664, w: 0.99990946}
-      length: 119.12419
+      position: {x: 112.89104, y: -0.0000033511144, z: 2}
+      rotation: {x: 0, y: 0, z: -0.013456558, w: 0.99990946}
+      length: 119.1242
       parentId: 6
     - name: Pierna3R
-      position: {x: 119.1242, y: 0.00002065028, z: 2}
-      rotation: {x: 0, y: 0, z: -0.59372747, w: 0.80466616}
+      position: {x: 119.124214, y: -0.00019471257, z: 2}
+      rotation: {x: 0, y: 0, z: -0.59372836, w: 0.8046655}
       length: 72.96588
       parentId: 7
     spriteID: 5e97eb03825dee720800000000000000

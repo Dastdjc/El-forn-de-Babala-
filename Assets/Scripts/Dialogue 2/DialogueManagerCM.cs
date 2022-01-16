@@ -24,6 +24,8 @@ public class DialogueManagerCM : MonoBehaviour
     private float t;
     private bool timer = true;
     private PlayerMovement playerMovement;
+    public Sprite[] Faces;
+    static public int TalkingWith = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,6 @@ public class DialogueManagerCM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (inConversation)
         {
             playerMovement.GetRB().velocity = new Vector2(0f, 0f);
@@ -83,6 +84,7 @@ public class DialogueManagerCM : MonoBehaviour
             playerMovement.enabled = true;
         }
     }
+    static public void SetImTalking(int cus) { TalkingWith = cus; }
     void setUpConversation()
     {
         /*TargetGroup = GameObject.Find("DialogueManager").transform.GetChild(2).GetComponent<CinemachineTargetGroup>();
@@ -94,10 +96,6 @@ public class DialogueManagerCM : MonoBehaviour
         dialogueCamera.Priority = 11;
         dialogueBox.SetActive(true);
         boxAnimation.SetBool("Cartel", true);
-
-        
-
-
     }
     void BorrarTexto() 
     {
@@ -110,11 +108,12 @@ public class DialogueManagerCM : MonoBehaviour
     }
     void ChangeTMPText(int a)
     {
-
         TextPro.text = conversation.lines[a].text;
         Line.Mood lineMood = conversation.lines[a].Emotion;
         Character character = conversation.lines[a].character;
-        portrait.sprite = GetCharacterPortrait(lineMood, character);
+        //portrait.sprite = GetCharacterPortrait(lineMood, character);
+        portrait.sprite = Faces[TalkingWith];
+        //Debug.Log("No, por aqui");
     }
 
     Sprite GetCharacterPortrait(Line.Mood lineMood, Character ch)

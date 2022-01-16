@@ -94,8 +94,10 @@ public class Inventory : MonoBehaviour
 
        
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 0;
+        fartons.amount = 1;
         fartons.type = "Fartons";
+        fartons.Coock = new Queue<int>();
+        fartons.Coock.Enqueue(2);
         AddRecipe(fartons);
     }
 
@@ -544,6 +546,7 @@ public class Inventory : MonoBehaviour
                 {
                     //la cantidad que ya había más la cantidad pasada 
                     recipeList[i].amount += recipe.amount;
+                    recipeList[i].Coock.Enqueue(recipe.Coock.Dequeue());
 
                     //for (int p = 0; p < recipeBySlotList.Count; p++)
                     //{
