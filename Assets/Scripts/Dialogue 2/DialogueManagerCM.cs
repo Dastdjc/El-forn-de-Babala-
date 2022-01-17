@@ -54,6 +54,7 @@ public class DialogueManagerCM : MonoBehaviour
                 dialogueCamera.Priority = 1;
                 conversationIndex = 0;
                 Invoke("BorrarTexto", 1f);
+                playerMovement.enabled = true;
             }
             else
             {
@@ -76,7 +77,6 @@ public class DialogueManagerCM : MonoBehaviour
                     t = 0;
                     startTime = 0;
                     timer = true;
-                    playerMovement.enabled = true;
                 }
             }
         }
