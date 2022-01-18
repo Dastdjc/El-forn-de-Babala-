@@ -402,7 +402,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S) && recetID < recipeList.Count)
+        else if (Input.GetKeyDown(KeyCode.S) && recetID+1 < recipeList.Count)
         {
             recetID++;
 
@@ -417,7 +417,9 @@ public class Inventory : MonoBehaviour
         
         //mostramos de la receta en el que está el selector
         inventory.transform.GetChild(4).transform.GetChild(0).GetComponent<TMP_Text>().text = recipeBySlotList[recetID].type;
-        
+
+        //mostramos los ingredientes de la receta correcta
+        IdentifyRecipeIgredients();
 
         //colocamos el selector en la casilla correcta
         selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recetID).transform.position;
@@ -703,6 +705,27 @@ public class Inventory : MonoBehaviour
 
             anterior = i;
         }
+    }
+
+    private void IdentifyRecipeIgredients()
+    {
+        int i = 0;
+
+        if (recipeBySlotList[recetID].type == "Fartons")
+        {
+            i = 2;
+        }
+        //elsesif
+
+        for (int j = 1; j < 10; j++)
+        {
+            if (j != i)
+            {
+                inventory.transform.GetChild(0).transform.GetChild(j).gameObject.SetActive(false);
+            }
+        }
+
+        inventory.transform.GetChild(0).transform.GetChild(i).gameObject.SetActive(true);
     }
 
     private Items TakeItemBySelector()
