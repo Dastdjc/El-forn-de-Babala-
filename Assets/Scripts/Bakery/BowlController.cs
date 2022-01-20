@@ -88,6 +88,7 @@ public class BowlController : MonoBehaviour
                     coockState++;
                 }
             }
+            else if(coockState >= 3) { Texto.SetActive(false); }
         }
     }
     private void ManageHUD()
@@ -131,7 +132,7 @@ public class BowlController : MonoBehaviour
         }
         else if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y >= 750) 
         {
-            Texto.SetActive(true);
+            if (somethingInside == -2) Texto.SetActive(true);
             HUDState = 0;
             player.GetComponent<PlayerMovement>().enabled = true;
             //player.GetComponent<Animator>().enabled = true;
@@ -198,6 +199,6 @@ public class BowlController : MonoBehaviour
         }
         return isOnbowl; 
     }
-    private void OnTriggerEnter2D(Collider2D collision) { touchingPlayer = true; Texto.SetActive(true); }
+    private void OnTriggerEnter2D(Collider2D collision) { touchingPlayer = true; if(somethingInside == -2)Texto.SetActive(true); }
     private void OnTriggerExit2D(Collider2D collision) { touchingPlayer = false; Texto.SetActive(false); }
 }
