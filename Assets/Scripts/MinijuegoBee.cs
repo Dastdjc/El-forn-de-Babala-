@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.SceneManagement;
 
 public class MinijuegoBee : MonoBehaviour
@@ -39,8 +40,9 @@ public class MinijuegoBee : MonoBehaviour
                 if (GameManager.Instance.state == GameManager.GameState.Tutorial) {
                     GameManager.Instance.UpdateGameState(GameManager.GameState.TutorialCocina);
                 }
-                
+                camara.GetComponent<CinemachineVirtualCamera>().Priority = 11;
                 Player.GetComponent<PlayerMovement>().enabled = false;
+                Player.GetComponent<Animator>().SetFloat("speed", 0f);
                 hitbox.SetActive(false);
                 StartCoroutine(AudioFadeOut.FadeOut(BGmusic, 1f));
                 currentTask = Instantiate(task, camara.transform);

@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         stepTimer = stepTime;
 
         // inital position in the scene
-        if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque)
+        if (GameManager.Instance.state != GameManager.GameState.InicioJuego && GameManager.Instance.state != GameManager.GameState.Bosque && GameManager.Instance.state != GameManager.GameState.CinematicaFinal)
         {
             Debug.Log(GameManager.Instance.playerSpawnPosition);
             transform.localPosition = GameManager.Instance.playerSpawnPosition;

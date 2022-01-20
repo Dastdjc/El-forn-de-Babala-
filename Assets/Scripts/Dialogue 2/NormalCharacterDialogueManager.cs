@@ -33,9 +33,9 @@ public class NormalCharacterDialogueManager : MonoBehaviour
                 SetThickness(0f);
 
             
-            if (player.position.x > this.transform.position.x)
-                transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
-            else transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+           /* if (player.position.x > this.transform.position.x)
+                //transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
+            else //transform.localScale = new Vector3(1.5f, 1.5f, 1f);*/
 
             if (Input.GetKeyDown(KeyCode.E) && !dm.inConversation && !spokenTo)
             {

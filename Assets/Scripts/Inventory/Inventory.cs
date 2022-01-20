@@ -94,8 +94,10 @@ public class Inventory : MonoBehaviour
 
        
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 0;
+        fartons.amount = 1;
         fartons.type = "Fartons";
+        fartons.Coock = new Queue<int>();
+        fartons.Coock.Enqueue(2);
         AddRecipe(fartons);
     }
 
@@ -400,7 +402,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S) && recetID < recipeList.Count)
+        else if (Input.GetKeyDown(KeyCode.S) && recetID+1 < recipeList.Count)
         {
             recetID++;
 
@@ -415,7 +417,9 @@ public class Inventory : MonoBehaviour
         
         //mostramos de la receta en el que está el selector
         inventory.transform.GetChild(4).transform.GetChild(0).GetComponent<TMP_Text>().text = recipeBySlotList[recetID].type;
-        
+
+        //mostramos los ingredientes de la receta correcta
+        IdentifyRecipeIgredients();
 
         //colocamos el selector en la casilla correcta
         selector.transform.position = inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(recetID).transform.position;
@@ -544,6 +548,7 @@ public class Inventory : MonoBehaviour
                 {
                     //la cantidad que ya había más la cantidad pasada 
                     recipeList[i].amount += recipe.amount;
+                    recipeList[i].Coock.Enqueue(recipe.Coock.Dequeue());
 
                     //for (int p = 0; p < recipeBySlotList.Count; p++)
                     //{
@@ -571,6 +576,7 @@ public class Inventory : MonoBehaviour
                 {
                     if (recipeImagesList[j].type == recipe.type)
                     {
+                        recipeBySlotList[i].recipeImage = recipeImagesList[j].recipeImage;
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
                         ////activamos su cantidad, texto
@@ -699,6 +705,27 @@ public class Inventory : MonoBehaviour
 
             anterior = i;
         }
+    }
+
+    private void IdentifyRecipeIgredients()
+    {
+        int i = 0;
+
+        if (recipeBySlotList[recetID].type == "Fartons")
+        {
+            i = 2;
+        }
+        //elsesif
+
+        for (int j = 1; j < 10; j++)
+        {
+            if (j != i)
+            {
+                inventory.transform.GetChild(0).transform.GetChild(j).gameObject.SetActive(false);
+            }
+        }
+
+        inventory.transform.GetChild(0).transform.GetChild(i).gameObject.SetActive(true);
     }
 
     private Items TakeItemBySelector()

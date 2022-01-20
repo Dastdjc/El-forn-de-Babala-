@@ -20,7 +20,7 @@ public class AbrirControles : MonoBehaviour
     }
     private void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E) && !controles.active) 
+        if (inRange && Input.GetKeyDown(KeyCode.E) && !controles.activeInHierarchy) 
         {
             controles.SetActive(true);
             UIanimator.SetTrigger("aparicion");

@@ -2,39 +2,89 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class FoodBar : MonoBehaviour
 {
-    public GameObject Example;
+    public Canvas Example;
     public Sprite[] ingrs;
     public Sprite[] recipes;
-    static private Sprite[] recipesStat;
-    static private GameObject[] CurrentVisuals;
-    static private GameObject Result;
-    static private int[] WhatINeed;
-    static private int[] WhatIHave;
-    static private int AreActive;
-    static private Transform Camara;
+    private int[] WhatINeed;
+    private int[] WhatIHave;
+    private GameObject[] Result;
+    private GameObject[] Ingredients;
+    private GameObject[] Numbers;
+    private int AreActive;
+    private string[] IngrNames;
+    private string[] RecipeNames;
 
     public void Initiate()
     {
-        recipesStat = new Sprite[recipes.Length];
-        for(int i = 0; i < recipes.Length; i++) { recipesStat[i] = recipes[i]; }
-        Example.SetActive(false);
-        CurrentVisuals = new GameObject[13];
-        Result = Instantiate(Example);
-        
-        for (int i = 0; i < 13; i++)
+        Example.gameObject.SetActive(true);
+        //myController.enabled = false;
+        IngrNames = new string[] { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendras", "Boniatos", "Calabaza" };
+        RecipeNames = new string[] { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
+        Ingredients = new GameObject[ingrs.Length];
+        Result = new GameObject[3];
+        Numbers = new GameObject[ingrs.Length + 1];
+        for (int i = 0; i < Result.Length; i++)
         {
-            CurrentVisuals[i] = Instantiate(Example);
-            CurrentVisuals[i].GetComponent<SpriteRenderer>().sprite = ingrs[i];
+            Result[i] = Instantiate(Example.transform.GetChild(1).gameObject);
+            Result[i].SetActive(false);
+            if (i != 0) Result[i].GetComponent<Image>().sprite = recipes[i - 1];
+            else
+            {
+                Result[i].GetComponent<Image>().sprite = null;
+                Result[i].GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            }
+            if (i != 1)
+            {
+                Result[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            }
+            Result[i].transform.SetParent(Example.transform.GetChild(0));
+            //-------------------------------//
+            // Posición recetas             //
+            //-----------------------------//
+            Result[i].transform.localPosition = new Vector3(-600, (i - 1) * 100, 0);
+            Result[i].transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        for (int i = 0; i < ingrs.Length + 1; i++)
+        {
+            Numbers[i] = Instantiate(Example.transform.GetChild(2).gameObject);
+            Numbers[i].SetActive(true);
+            if (i < Ingredients.Length)
+            {
+                Ingredients[i] = Instantiate(Example.transform.GetChild(1).gameObject);
+                Ingredients[i].GetComponent<Image>().sprite = ingrs[i];
+                Ingredients[i].GetComponent<Image>().preserveAspect = true;
+                Ingredients[i].transform.SetParent(Example.transform.GetChild(0));
+                Ingredients[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                Ingredients[i].SetActive(false);
+                Numbers[i].transform.SetParent(Ingredients[i].transform);
+                Numbers[i].transform.localScale = new Vector3(1, 1, 1);
+                // Posición de los números
+                Numbers[i].transform.localPosition= new Vector3(20, -100, 0);
+            }
+            else
+            {
+                Numbers[Ingredients.Length].transform.SetParent(Result[1].transform);
+                Numbers[Ingredients.Length].transform.localPosition = new Vector3(150, 0, 0);
+                Numbers[Ingredients.Length].SetActive(false);
+                Numbers[i].transform.localScale = new Vector3(1, 1, 1);
+            }
+
         }
         WhatIHaveRefresh();
-        Camara = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        Result.transform.position = new Vector3(3, 2, 0) + new Vector3(Camara.position.x, 0, 0);
-        Result.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        Result.transform.GetChild(0).gameObject.SetActive(false);
+        SetBarVisibility(true);
+    }
+    public void SetBarVisibility(bool state)
+    {
+        for (int i = 0; i < Ingredients.Length; i++) { Ingredients[i].SetActive(state); }
+        for(int i = 0; i < Result.Length; i++) { Result[i].SetActive(state); }
+        Numbers[Ingredients.Length].SetActive(state);
+
     }
     public void WhatIHaveRefresh()
     {
@@ -42,8 +92,7 @@ public class FoodBar : MonoBehaviour
         foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
             int index = 0;
-            string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
-            while (names[index] != itm.type) { index++; }
+            while (index < IngrNames.Length && IngrNames[index] != itm.type) { index++; }
             WhatIHave[index] = itm.amount;
         }
     }
@@ -51,122 +100,35 @@ public class FoodBar : MonoBehaviour
     {
         WhatINeed = paid;
         AreActive = 0;
-        int i;
-        for(i = 0; i < WhatINeed.Length; i++)
+        for(int i = 0; i < ingrs.Length; i++)
         {
-            CurrentVisuals[i].SetActive(WhatINeed[i] > 0);
-            if (CurrentVisuals[i].activeSelf)
+            Ingredients[i].SetActive(WhatINeed[i] > 0);
+            if (Ingredients[i].activeSelf)
             {
-                CurrentVisuals[i].transform.GetChild(0).GetComponent<TextMeshPro>().text = WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
+                Numbers[i].GetComponent<TextMeshProUGUI>().text = IngrNames[i] + '\n' + WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
                 AreActive++;
-                CurrentVisuals[i].transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                CurrentVisuals[i].transform.position = new Vector3((AreActive - 1) * (-0.5f)*1.5f, 2, 0);
-                CurrentVisuals[i].transform.position += new Vector3(Camara.position.x, 0, 0);
+                //-------------------------------//
+                // Posición ingredientes        //
+                //-----------------------------//
+                Ingredients[i].transform.localPosition = new Vector3((AreActive - 1) * 135 - 240, 2, 0);
             }
         }
-        Result.GetComponent<SpriteRenderer>().sprite = recipesStat[res];
-        Result.SetActive(true);
-        for (int j = i; j < CurrentVisuals.Length; j++) { CurrentVisuals[j].SetActive(false); }
-    }
-    /*static private GameObject Example;
-    [HideInInspector]static private GameObject[] Bar;
-    static private int AreActive = 0;
-    static public Transform Camara;
-    private void Start()
-    {
-        Bar = new GameObject[13];
-        Example = gameObject.transform.GetChild(2).gameObject;
-        Example.SetActive(false);
-        for(int i = 0; i < Bar.Length; i++) { Bar[i] = Instantiate(Example); }
-        Camara = GameObject.FindGameObjectWithTag("MainCamera").transform;
-    }
-
-    static public void AddItemToBar(Sprite sp, int index, int q)
-    {
-        if (!Bar[index].activeSelf)
+        for (int j = -1; j < 2; j++)
         {
-            Bar[index].SetActive(true);
-            AreActive++;
-        }
-        Bar[index].GetComponent<SpriteRenderer>().sprite = sp;
-        Bar[index].transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        float offset = (AreActive-1) * (-0.5f);
-        for(int i = 0; i < Bar.Length; i++)
-        {
-            if (Bar[i].activeSelf) 
+            if (!((res == 0 && j == -1) || (res == recipes.Length - 1 && j == 1)))
             {
-                Bar[i].transform.position = new Vector3(offset, 3, 0);
-                Bar[i].transform.position += new Vector3(Camara.position.x, 0, 0);
-                offset += 1;
-                Bar[index].transform.GetChild(0).GetComponent<TextMeshPro>().text = q.ToString();
+                Result[j + 1].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                Result[j + 1].GetComponent<Image>().sprite = recipes[res + j];
+                Result[j + 1].GetComponent<Image>().preserveAspect = true;
             }
-            
-            
+            else
+            {
+                Result[j + 1].GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            }
         }
-    }
-    static public void BarVisibility()
-    {
-        for(int i = 0; i < Bar.Length; i++)
-        {
-            Bar[i].SetActive(false);
-            Bar[i].transform.GetChild(0).GetComponent<TextMeshPro>().text = "";
-        }
-        AreActive = 0;
-    }
 
-    /*
-    //Hay que pasar los ingredientes por cada barra? Por código o algún fichero?
-    public Animator Controller;
-    public GameObject Example;
-    public bool LargeLabel;
-    public int Offset;
-    public string[] names = { "Mona", "Flaons", "Farinada", "Fartons", "Bunyols" };
-    private GameObject[] Bar;
-    private void Start()
-    {
-        // Hay hasta 9 comidas
-        Bar = new GameObject[names.Length];
-        // Crea las comidas
-        for (int i = 0; i < Bar.Length; i++)
-        {
-            Bar[i] = Instantiate(Example);
-            //Posición de la comida, si hay más estarán más apretados
-            Bar[i].transform.position =
-                Bar[i].transform.position + new Vector3(Offset + 2 + (i + 1) * 2 / (Bar.Length * 0.15f), 1.5f, 0);
-            Bar[i].gameObject.GetComponent<FoodController>().FoodName = names[i];
-            Bar[i].gameObject.GetComponent<FoodController>().LargeLabel = LargeLabel;
-            Bar[i].gameObject.GetComponent<FoodController>().Iniciate();
-            Bar[i].transform.SetParent(gameObject.transform, false);
-            Bar[i].SetActive(true);
-        }
+        Numbers[Ingredients.Length].transform.localPosition = new Vector3(175f, 0f, 0f);
+        Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().text = RecipeNames[res];
+        Numbers[Ingredients.Length].GetComponent<TextMeshProUGUI>().alignment = TMPro.TextAlignmentOptions.Center;
     }
-    //Baja o sube la barra dependiendo de la posición
-    private void /OnMouseDown()
-    {
-        if(Time.timeScale == 1 && Controller != null)
-        {
-            Controller.SetTrigger("MouseTouch");
-            bool dir = Controller.GetBool("Up");
-            dir = !dir;
-            Controller.SetBool("Up", dir);
-        }
-        
-    }
-    //Las animaciones una vez acabadas activan esta función
-    public void ResetTrigger() {
-        if(Controller!= null)
-            Controller.ResetTrigger("MouseTouch");
-    }
-    //Al clicar a un cliente, este envía su pedido si es que no lo ha hecho aún
-    //Se llama a esta función desde OnmouseDown() de customerController.cs
-    public void WriteCommand(int index)
-    {
-        Bar[index].transform.GetComponent<FoodController>().SumOrder(1);
-        Bar[index].transform.GetComponent<FoodController>().PrintNumbers();
-    }
-    public void AddFood(int index)
-    {
-        Bar[index].transform.GetComponent<FoodController>().SumQuantity(1);
-        Bar[index].transform.GetComponent<FoodController>().PrintNumbers();
-    }*/
 }

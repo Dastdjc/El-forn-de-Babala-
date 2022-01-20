@@ -18,11 +18,12 @@ public class CustomerController : MonoBehaviour
     private float timer = 0;
     private int satisfaction = 0;
     private int state;
-    private float walk = 15;
+    private float walk = 27.5f;
     private GameObject gmo;
     private bool conversando;
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
+    public int SpriteID;
     //static private CustomerController[] Instance = new CustomerController[4];
     //static public int MaxIndexRecipe = 5;
 
@@ -142,6 +143,7 @@ public class CustomerController : MonoBehaviour
                     break;
                 
                 case 3:
+                    DialogueManagerCM.TalkingWith = SpriteID;
                     switch (satisfaction)
                     {
                         case 0:
@@ -197,6 +199,8 @@ public class CustomerController : MonoBehaviour
                             GameManager.Instance.SumarSatisfacción(5);
                             break;
                     }
+                    parent.GetComponent<Animator>().SetBool("waitting", false);
+                    parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                     walk = 18;
                     state++;
                     break;
@@ -220,53 +224,54 @@ public class CustomerController : MonoBehaviour
     }
     public void SetSatisfaction(Recipe food)// De momento solo puede estar perfecto o mal
     {
-        if(food.type != command.ToString() /*|| options[1] == 2*/) { satisfaction = -3; }
-        //else if(options[1] == 0) { satisfaction = 2; }
-        else { satisfaction = 5; }
-        Debug.Log(satisfaction);
+        if (food.type != command.ToString() && (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
+        else if (food.type == command.ToString() && food.Coock.Peek() == 1) { satisfaction = 2; }
+        else if (food.type == command.ToString() && food.Coock.Peek() == 2) { satisfaction = 5; }
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
         conversando = true;
+        food.Coock.Dequeue();
         //Calcular satisfacción
         state = 3;
     }
 
-    void Pedir() {
-        
-            switch (command)
-            {
-                case Recetas.Mona:
-                    dmcm.index = Random.Range(0, 2);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Flaons:
-                    dmcm.index = Random.Range(12, 14);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Farinada:
-                    dmcm.index = Random.Range(2, 4);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Fartons:
-                    dmcm.index = Random.Range(8, 10);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Bunyols:
-                    dmcm.index = Random.Range(4, 6);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                default:
-                    break;
-            }
+    void Pedir()
+    {
+        DialogueManagerCM.TalkingWith = SpriteID;
+        switch (command)
+        {
+            case Recetas.Mona:
+                dmcm.index = Random.Range(0, 2);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Flaons:
+                dmcm.index = Random.Range(12, 14);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Farinada:
+                dmcm.index = Random.Range(2, 4);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Fartons:
+                dmcm.index = Random.Range(8, 10);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            case Recetas.Bunyols:
+                dmcm.index = Random.Range(4, 6);
+                dmcm.NPC = transform;
+                dmcm.conversation = conversation;
+                dmcm.inConversation = true;
+                break;
+            default:
+                break;
+        }
         state = 2;
         OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
     }

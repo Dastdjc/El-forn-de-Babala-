@@ -52,7 +52,12 @@ public class GameManager : MonoBehaviour
 
     // clientes
     private bool spawned = false;
+
+    // Cortar la cuerda final
+    private GameObject cuerdaHitBox;
     // Siguientes estados
+
+
 
     private void Awake()
     {
@@ -141,6 +146,12 @@ public class GameManager : MonoBehaviour
             case GameState.Pueblo:
                 //Pueblo();
                 break;
+            case GameState.CinematicaFinal:
+                SetUpCinematicaFinal();
+                break;
+            case GameState.CortarCuerda:
+                SetUpCortarCuerda();
+                break;
         }
 
         OnGameStateChanged?.Invoke(newState);
@@ -173,7 +184,7 @@ public class GameManager : MonoBehaviour
         {
             AnimacionPanaderia();
         }
-        mifa.conversationIndex = 1;
+        mifa.conversationIndex = 1; // la segunda conversación con Mifa, después de la animación de la pan.
     }
 
     void Tutorial() // Tutorial del bosque
@@ -182,7 +193,7 @@ public class GameManager : MonoBehaviour
         {
             AnimacionPanaderia();
         }
-        mifa.conversationIndex = 2;
+        mifa.conversationIndex = 2; // Te dice de ir al bosque
         GameObject.Find("InitialCollider").SetActive(false);
     }
 
@@ -294,7 +305,7 @@ public class GameManager : MonoBehaviour
 
         fondoDia.SetActive(esDia);
         fondoNoche.SetActive(!esDia);
-        player.transform.GetChild(5).gameObject.SetActive(!esDia);
+        player.transform.GetChild(4).gameObject.SetActive(!esDia);
         servicios.transform.GetChild(0).gameObject.SetActive(esDia); // Servicios de día
         servicios.transform.GetChild(1).gameObject.SetActive(!esDia); // Servicios de noche
         luzDia.SetActive(esDia);
@@ -327,7 +338,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
         servicios.SetActive(false);
-        playerSpawnPosition = new Vector3(-10, -2, 0);
+        playerSpawnPosition = new Vector3(-80, -2, 0);
         fromPanadería = true;
         spawned = true;
     }
@@ -350,6 +361,22 @@ public class GameManager : MonoBehaviour
         edificios[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
         edificios[(int)indice].GetComponent<SpriteRenderer>().enabled = false;
     }
+
+    public void SetUpCinematicaFinal() 
+    {
+        mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+        mifa.conversationIndex = mifa.conversation.Length-1;
+        wallToPanadería.SetActive(false);
+        playerSpawnPosition = playerSpawnPositionInicioJuego;
+
+        cuerdaHitBox = GameObject.Find("CintaFinal");
+        cuerdaHitBox.transform.GetChild(1).gameObject.SetActive(false);
+    }
+    public void SetUpCortarCuerda() 
+    {
+        mifa.enabled = false;
+        cuerdaHitBox.transform.GetChild(1).gameObject.SetActive(true);
+    }
     public enum Edificios 
     { 
         Panaderia,
@@ -368,6 +395,8 @@ public class GameManager : MonoBehaviour
         Tutorial,
         TutorialCocina,
         Bosque,
-        Pueblo
+        Pueblo,
+        CinematicaFinal,
+        CortarCuerda
     }
 }

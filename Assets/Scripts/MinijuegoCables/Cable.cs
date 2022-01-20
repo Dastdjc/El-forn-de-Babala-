@@ -100,7 +100,7 @@ public class Cable : MonoBehaviour
     {
         luz.SetActive(true);
         cables--;
-        if(cables == 0) { KilnController.ReturnElec(); }
+        //if(cables == 0) { KilnController.ReturnElec(); }
         Destroy(this);
     }
        
