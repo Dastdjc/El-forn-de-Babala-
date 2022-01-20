@@ -5162,7 +5162,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b550b35a8afe79e4888ab705767f26b2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5437,11 +5437,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1088ad5a753c4bb48906e5bd39df30bd, type: 3}
   - {fileID: 21300000, guid: 1088ad5a753c4bb48906e5bd39df30bd, type: 3}
   - {fileID: 21300000, guid: 15b8d7cfbd061aa43ac9dfb4d2eb3143, type: 3}
-  - {fileID: 21300000, guid: 15b8d7cfbd061aa43ac9dfb4d2eb3143, type: 3}
+  - {fileID: 21300000, guid: e258c0d903b02a143bb6d12141835581, type: 3}
   - {fileID: 21300000, guid: c6deef338ed778b41bd7d5dbb763a57d, type: 3}
   - {fileID: 21300000, guid: 4e435858a8b158046b0e02205382afe6, type: 3}
   - {fileID: 21300000, guid: 83fa791dfaa9d3644ba1de82e79004f5, type: 3}
-  - {fileID: 21300000, guid: 29af1fe1dcffbde4e9f2f2adbf0a5ec1, type: 3}
+  - {fileID: 21300000, guid: 2b50171cea72e2b46971a95decf7428d, type: 3}
   - {fileID: 21300000, guid: 1ec23a40201e47b4cb093c007e7c0e13, type: 3}
   - {fileID: 21300000, guid: 1ec23a40201e47b4cb093c007e7c0e13, type: 3}
   - {fileID: 21300000, guid: d61cafb63a4979048afdf076b5ade703, type: 3}
@@ -6173,6 +6173,7 @@ MonoBehaviour:
   - {fileID: 4203299694023296256, guid: 1c40b657746ffb443a10290ac4adea9b, type: 3}
   - {fileID: 1321994102579378167, guid: 9b39fef46974b1745b48ded65c4e6b36, type: 3}
   SpecialCustomer:
+  - {fileID: 6936991887425197234, guid: 7159faffd8392e2438a8e1a954e53643, type: 3}
   - {fileID: 6936991887425197234, guid: a8911032b178cad4ba9a75680ef7a6dc, type: 3}
   - {fileID: 6936991887425197234, guid: 9f54b4a37e1fbe74b9a3272d12dafe83, type: 3}
   CustomersNumber: -1
@@ -7837,7 +7838,7 @@ MonoBehaviour:
   "playerSpawnPositionPanader\xEDa": {x: 0, y: 0, z: 0}
   playerSpawnPositionInicioJuego: {x: 0, y: 0, z: 0}
   playerSpawnPosition: {x: 0, y: 0, z: 0}
-  "satisfacci\xF3nAcumulada": 1
+  "satisfacci\xF3nAcumulada": 5
   maxIndexRecipe: 5
   specialCharacterIndex: 0
   dia: 0

@@ -31,8 +31,7 @@ public class CustomerController : MonoBehaviour
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
 
-    public SpriteRenderer sr;
-    private Material outline;
+    public GameObject[] sprites;
     enum Recetas
     {
         Mona = 0,
@@ -91,22 +90,30 @@ public class CustomerController : MonoBehaviour
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
 
-        parent = transform.parent;
-        outline = sr.material;
     }
     private void Update()
     {
         if (state == 1)
         {
+            if (tochingPlayer && !dmcm.inConversation)
+                SetThickness(0.005f);
+            if (!tochingPlayer)
+                SetThickness(0f);
             if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
             {
+                SetThickness(0f);
                 Pedir();
             }
         }
         else if (state == 2) 
         {
+            if (tochingPlayer && !dmcm.inConversation)
+                SetThickness(0.005f);
+            if (!tochingPlayer)
+                SetThickness(0f);
             if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dmcm.inConversation)
             {
+                SetThickness(0f);
                 SetSatisfaction(Inventory.Instance.GetRecipe());
                 if (Inventory.Instance.inventoryOpened)
                     Inventory.Instance.OpenCloseInventory();
@@ -277,7 +284,7 @@ public class CustomerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        outline.SetFloat("Thickness",0.03f);
+
         /*if (state == 1)
         {
             switch (command)
@@ -327,9 +334,18 @@ public class CustomerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        outline.SetFloat("Thickness", 0);
         Talk(false);
         tochingPlayer = false;
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
+    }
+    void SetThickness(float thick)
+    {
+        Material material;
+        foreach (GameObject sprite in sprites)
+        {
+            material = sprite.GetComponent<SpriteRenderer>().material;
+            material.SetFloat("Thickness", thick);
+        }
+        return;
     }
 }
