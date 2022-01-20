@@ -348,6 +348,7 @@ public class GameManager : MonoBehaviour
         satisfacciónAcumulada += suma;
         if (satisfacciónAcumulada >= 10)
         {
+            
             //satisfacciónAcumulada = 0;
             // Enviar señal para spawnear cliente especial
             //customers.GetComponent<SpawnCustomers>().CustomersNumber = 0;

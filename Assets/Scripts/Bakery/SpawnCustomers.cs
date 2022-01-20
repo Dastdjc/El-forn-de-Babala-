@@ -97,6 +97,7 @@ public class SpawnCustomers : MonoBehaviour
     }
     public void SpawnSpecial(int SpecialID)
     {
+        AudioSource BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         Debug.Log("Spawn especial");
         SpawnigSpecial = true;
         //bool allNull = true;
@@ -106,6 +107,7 @@ public class SpawnCustomers : MonoBehaviour
         //Debug.Log(transform.childCount);
         if (this.transform.childCount-1 == 0)   // Si ya no quedan más clientes
         {
+            StartCoroutine(AudioFadeOut.FadeOut(BG_music, 2f));
             specialSpawned = true;
             GameManager.Instance.satisfacciónAcumulada = 0;
             Debug.Log("Special enters...");
