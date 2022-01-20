@@ -8,6 +8,8 @@ public class berrieNegra : MonoBehaviour
     private Camera cam;
     [SerializeField] private float speed = 10;
 
+    public Animator Negra;
+
 
     private void Awake()
     {
@@ -16,7 +18,12 @@ public class berrieNegra : MonoBehaviour
 
     private void OnMouseDown()
     {
-        dragOffset = transform.position - getPosMouse();
+        Negra.SetBool("Agarrar", true);
+
+    }
+    private void OnMouseUp()
+    {
+        Negra.SetBool("Agarrar", false);
     }
 
     private void OnMouseDrag()

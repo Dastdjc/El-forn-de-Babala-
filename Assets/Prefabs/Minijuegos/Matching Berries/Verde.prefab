@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8366420471452785586}
   - component: {fileID: 899318618498448441}
-  - component: {fileID: 4368222649080276869}
   - component: {fileID: 8282235120400785918}
   - component: {fileID: 4353733882561631263}
   - component: {fileID: 3256167775861824190}
+  - component: {fileID: 5798103958642723193}
   m_Layer: 0
   m_Name: Verde
   m_TagString: Verde
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2300269392674437704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.41, y: 2.01, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4368222649080276869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2300269392674437704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61dd3d77005913e4291c0a4374ad9a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 500
 --- !u!50 &8282235120400785918
 Rigidbody2D:
   serializedVersion: 4
@@ -155,3 +142,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.010299416, y: -0.42447254}
   m_Size: {x: 1.5491729, y: 0.79501384}
   m_Direction: 1
+--- !u!114 &5798103958642723193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300269392674437704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28c349b7aec643409bd12147de9639e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 500
+  Verde: {fileID: 4353733882561631263}

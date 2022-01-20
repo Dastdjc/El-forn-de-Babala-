@@ -110,5 +110,6 @@ public class minijuegoMovement : MonoBehaviour
         yield return new WaitForSeconds(3);
         coll.enabled = true;
         aturdido = false;
+        
     }
 }
