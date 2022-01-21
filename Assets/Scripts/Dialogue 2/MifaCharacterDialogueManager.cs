@@ -81,7 +81,9 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.Tutorial);
         else if (conversationIndex == conversation.Length-1)
             GameManager.Instance.UpdateGameState(GameManager.GameState.CortarCuerda);
-        if (conversationIndex!= 2 && conversationIndex != 3 && conversationIndex != 4)
+        if (conversationIndex == 4)
+            GameManager.Instance.dia = true;
+        if (conversationIndex!= 2 && conversationIndex != 3)
             conversationIndex++;
     }
 
