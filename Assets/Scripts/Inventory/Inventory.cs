@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
 
     //objeto que tomamos del inventario para usarlo en la cocina
     private Items givenItem;
+    //comida que tomamos del comidentario para darselo a los mundanos
+    private Recipe givenRecipe;
 
     //selector de slot
     public GameObject selector;
@@ -168,6 +170,13 @@ public class Inventory : MonoBehaviour
         mona.Coock.Enqueue(2);
         AddRecipe(mona);
 
+        mona = ScriptableObject.CreateInstance<Recipe>();
+        mona.amount = 3;
+        mona.type = "Mona de Pascua";
+        mona.Coock = new Queue<int>();
+        mona.Coock.Enqueue(2);
+        AddRecipe(mona);
+
         pasteles = ScriptableObject.CreateInstance<Recipe>();
         pasteles.amount = 0;
         pasteles.type = "Pasteles de boniato";
@@ -233,15 +242,20 @@ public class Inventory : MonoBehaviour
                 }*/
                // OpenCloseInventory();
             }
+            //si estamos viendo el recetory
             else if (inventoryType == 2 && recipeList.Count > 0)
             {
                 MoveInRecetory();
+
+                if (Input.GetKeyDown(KeyCode.F) && touchingTable && recipeItemBySlotList[comiID].amount > 0)
+                {
+                    givenRecipe = TakeRecipeItemBySelector();
+                    SubstractRecipeItem(givenRecipe, 1);
+                }
             }
-            //si estamos viendo el recetory
 
             //si el inventario está abierto puedes cambiar entre pestañas
             ChangeInventory();
-
         }
     }
 
@@ -787,6 +801,12 @@ public class Inventory : MonoBehaviour
                         if (recipeItemBySlotList[p].type == recipe.type)
                         {
                             inventory.transform.GetChild(7).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
+
+                            if (recipeList[i].amount >= 1)
+                            {
+                                inventory.transform.GetChild(7).transform.GetChild(p).transform.GetChild(0).GetComponent<Image>().color = Color.white;
+                            }
+
                             return;
                         }
                     }
@@ -804,6 +824,7 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(7).transform.GetChild(i).gameObject.SetActive(true);
                 recipeBySlotList[i] = recipe;
                 recipeItemBySlotList[i] = recipe;
+                inventory.transform.GetChild(7).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().color = Color.grey;
 
                 //buscamos la imagen asociada a la receta
                 for (int j = 0; j < recipeImagesList.Count; j++)
@@ -996,6 +1017,49 @@ public class Inventory : MonoBehaviour
         inventory.transform.GetChild(0).transform.GetChild(i).gameObject.SetActive(true);
     }
 
+    //quitar receta del inventario
+    public void SubstractRecipeItem(Recipe recipe, int cuantity)
+    {
+        for (int i = 0; i < recipeList.Count; i++)
+        {
+            //reproducimos el sonido
+
+
+            //buscamos el tipo
+            if (recipeList[i].type == recipe.type)
+            {
+                recipeList[i].amount -= cuantity;
+
+                //si aún quedan comidas del tipo dado
+                if (recipeList[i].amount > 0)
+                {
+                    for (int p = 0; p < recipeItemBySlotList.Count; p++)
+                    {
+                        //actualizamos el texto
+                        if (recipeItemBySlotList[p].type == recipe.type)
+                        {
+                            inventory.transform.GetChild(7).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int p = 0; p < recipeItemBySlotList.Count; p++)
+                    {
+                        //actualizamos el texto
+                        if (recipeItemBySlotList[p].type == recipe.type)
+                        {
+                            inventory.transform.GetChild(7).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
+                            inventory.transform.GetChild(7).transform.GetChild(p).transform.GetChild(0).GetComponent<Image>().color = Color.grey;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private Items TakeItemBySelector()
     {
         Items item;
@@ -1005,10 +1069,15 @@ public class Inventory : MonoBehaviour
         return item;
     }
 
-    private void IngredientsPerRecipe()
+    private Recipe TakeRecipeItemBySelector()
     {
+        Recipe recipe;
 
+        recipe = recipeItemBySlotList[comiID];
+
+        return recipe;
     }
+
     public Recipe GetRecipe() 
     {
         return recipeBySlotList[recetID];
