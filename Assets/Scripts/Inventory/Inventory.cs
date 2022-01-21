@@ -50,13 +50,22 @@ public class Inventory : MonoBehaviour
     private List<Recipe> recipeBySlotList = new List<Recipe>();
 
     //esta se usa para determinar si ya poseemos una receta del tipo que vamos a añadir y cuántos platos de esa receta poseemos
-    private List<Recipe> recipeList = new List<Recipe>();
+    public List<Recipe> recipeList = new List<Recipe>();
 
 
     
     private Items harina;
 
     private Recipe fartons;
+    private Recipe basura;
+    private Recipe bunyols;
+    private Recipe coca;
+    private Recipe farinada;
+    private Recipe flaons;
+    private Recipe mocadora;
+    private Recipe mona;
+    private Recipe pasteles;
+    private Recipe pilotes;
 
 
     private void Awake()
@@ -99,6 +108,69 @@ public class Inventory : MonoBehaviour
         fartons.Coock = new Queue<int>();
         fartons.Coock.Enqueue(2);
         AddRecipe(fartons);
+
+        basura = ScriptableObject.CreateInstance<Recipe>();
+        basura.amount = 1;
+        basura.type = "Basura";
+        basura.Coock = new Queue<int>();
+        basura.Coock.Enqueue(2);
+        AddRecipe(basura);
+
+        bunyols = ScriptableObject.CreateInstance<Recipe>();
+        bunyols.amount = 1;
+        bunyols.type = "Bunyols de calabaza";
+        bunyols.Coock = new Queue<int>();
+        bunyols.Coock.Enqueue(2);
+        AddRecipe(bunyols);
+
+        coca = ScriptableObject.CreateInstance<Recipe>();
+        coca.amount = 1;
+        coca.type = "Coca de llanda";
+        coca.Coock = new Queue<int>();
+        coca.Coock.Enqueue(2);
+        AddRecipe(coca);
+
+        farinada = ScriptableObject.CreateInstance<Recipe>();
+        farinada.amount = 1;
+        farinada.type = "Farinada";
+        farinada.Coock = new Queue<int>();
+        farinada.Coock.Enqueue(2);
+        AddRecipe(farinada);
+
+        flaons = ScriptableObject.CreateInstance<Recipe>();
+        flaons.amount = 1;
+        flaons.type = "Flaons";
+        flaons.Coock = new Queue<int>();
+        flaons.Coock.Enqueue(2);
+        AddRecipe(flaons);
+
+        mocadora = ScriptableObject.CreateInstance<Recipe>();
+        mocadora.amount = 1;
+        mocadora.type = "Mocadorà";
+        mocadora.Coock = new Queue<int>();
+        mocadora.Coock.Enqueue(2);
+        AddRecipe(mocadora);
+
+        mona = ScriptableObject.CreateInstance<Recipe>();
+        mona.amount = 1;
+        mona.type = "Mona de Pascua";
+        mona.Coock = new Queue<int>();
+        mona.Coock.Enqueue(2);
+        AddRecipe(mona);
+
+        pasteles = ScriptableObject.CreateInstance<Recipe>();
+        pasteles.amount = 1;
+        pasteles.type = "Pasteles de boniato";
+        pasteles.Coock = new Queue<int>();
+        pasteles.Coock.Enqueue(2);
+        AddRecipe(pasteles);
+
+        pilotes = ScriptableObject.CreateInstance<Recipe>();
+        pilotes.amount = 1;
+        pilotes.type = "Pilotes de frare";
+        pilotes.Coock = new Queue<int>();
+        pilotes.Coock.Enqueue(2);
+        AddRecipe(pilotes);
     }
 
     private void Update()
@@ -380,7 +452,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A) && recetID-3 > recipeList.Count)
+        else if (Input.GetKeyDown(KeyCode.A) && recetID-3 >= 0)
         {
             recetID -= 3;
 
@@ -709,13 +781,45 @@ public class Inventory : MonoBehaviour
 
     private void IdentifyRecipeIgredients()
     {
+        //si no es ninguna receta es basura
         int i = 0;
 
         if (recipeBySlotList[recetID].type == "Fartons")
         {
             i = 2;
         }
-        //elsesif
+        else if(recipeBySlotList[recetID].type == "Bunyols de calabaza")
+        {
+            i = 4;
+        }
+        else if (recipeBySlotList[recetID].type == "Coca de llanda")
+        {
+            i = 7;
+        }
+        else if (recipeBySlotList[recetID].type == "Farinada")
+        {
+            i = 3;
+        }
+        else if (recipeBySlotList[recetID].type == "Pilotes de frare")
+        {
+            i = 5;
+        }
+        else if (recipeBySlotList[recetID].type == "Flaons")
+        {
+            i = 6;
+        }
+        else if (recipeBySlotList[recetID].type == "Mocadorà")
+        {
+            i = 9;
+        }
+        else if (recipeBySlotList[recetID].type == "Mona de Pascua")
+        {
+            i = 1;
+        }
+        else if (recipeBySlotList[recetID].type == "Pasteles de boniato")
+        {
+            i = 8;
+        }
 
         for (int j = 1; j < 10; j++)
         {
