@@ -7,6 +7,7 @@ public class SpecialCustomerController : MonoBehaviour
 {
     public float TimeWaiting = 0.8f;
     public Transform parent;
+    public Animator animator;
     private RectTransform Mask;
     private SpriteRenderer image;
     public DialogueManager dm;
@@ -19,6 +20,8 @@ public class SpecialCustomerController : MonoBehaviour
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
     public CharacterDialogueManager cdm;
+
+    public DialogueAudio characterAudio;
 
     public GameObject[] sprites;
     //static private CustomerController[] Instance = new CustomerController[4];
@@ -66,6 +69,7 @@ public class SpecialCustomerController : MonoBehaviour
         {
             dm = gmo.GetComponent<DialogueManager>();
         }
+        characterAudio.animatedText = GameObject.Find("TMP_Animated (1)").GetComponent<TMP_Animated>();
     }
 
     void Start()
@@ -86,8 +90,10 @@ public class SpecialCustomerController : MonoBehaviour
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
 
 
-        parent.GetComponent<Animator>().SetBool("Moving", true);
-        parent.GetComponent<Animator>().SetBool("Moving", true);
+        animator.SetBool("Moving", true);
+        animator.SetBool("Moving", true);
+
+        
     }
     private void Update()
     {
@@ -145,7 +151,7 @@ public class SpecialCustomerController : MonoBehaviour
                 //Anda a su sitio
                 case 0:
                     if (walk > 0) { parent.transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { state++; parent.GetComponent<Animator>().SetBool("Moving", false);
+                    else { state++; animator.SetBool("Moving", false);
                         //parent.GetComponent<Animator>().SetBool("waitting",true); 
                     }
                     break;
@@ -261,7 +267,7 @@ public class SpecialCustomerController : MonoBehaviour
                         if (!leaving)
                         {
                             leaving = true;
-                            parent.GetComponent<Animator>().SetBool("Moving", true);
+                            animator.SetBool("Moving", true);
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                         }
                         if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }

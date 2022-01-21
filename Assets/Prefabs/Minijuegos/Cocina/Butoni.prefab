@@ -171,6 +171,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7964600235603121094}
     - target: {fileID: 4213523838140334355, guid: df031cc681124f848887a3d98c74da78, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3618967555616283809}
+    - target: {fileID: 4213523838140334355, guid: df031cc681124f848887a3d98c74da78, type: 3}
       propertyPath: sprites.Array.size
       value: 8
       objectReference: {fileID: 0}
