@@ -139,9 +139,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4849063130170292955}
   - component: {fileID: 4849063130170292952}
-  - component: {fileID: 4849063130170292953}
   - component: {fileID: 4849063130170292954}
   - component: {fileID: 4849063130170292957}
+  - component: {fileID: 7675683390168422133}
   m_Layer: 0
   m_Name: ToBakery
   m_TagString: Untagged
@@ -157,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4849063130170292950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2400002, y: 3.83, z: 0}
+  m_LocalPosition: {x: -6.06, y: 3.71, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4849063130350285433}
@@ -189,22 +189,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.542404, y: 3.3723288}
   m_EdgeRadius: 0
---- !u!114 &4849063130170292953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4849063130170292950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed0cf1f3d2461984a8bdb33cfee80dd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneToJump: 0
-  JustClick: 1
-  transition: {fileID: 4849063130170292957}
-  transitionTime: 1
 --- !u!212 &4849063130170292954
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -275,6 +259,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7675683390168422133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4849063130170292950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc2f17dce898574b8d9c142bd89c5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  task: {fileID: 4849063130350285430}
+  back: 1
+  player: {fileID: 0}
 --- !u!1 &4849063130350285430
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,8 +334,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4849063130401863503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.790512, y: -0.20625937, z: 0}
-  m_LocalScale: {x: 2.08, y: 11.49, z: 1}
+  m_LocalPosition: {x: -9.1117, y: -0.085, z: 0}
+  m_LocalScale: {x: 8.72248, y: 17.816147, z: 1}
   m_Children: []
   m_Father: {fileID: 4849063130350285433}
   m_RootOrder: 4

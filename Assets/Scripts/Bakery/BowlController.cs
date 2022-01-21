@@ -14,6 +14,7 @@ public class BowlController : MonoBehaviour
     private int coockState = -1;
     private float timer;
     public GameObject player;
+    static public bool elec = true;
 
     void Start()
     {
@@ -52,7 +53,7 @@ public class BowlController : MonoBehaviour
                 coockState = 0;
                 HUDState++;
             }
-            else if (HUDState == 1 && Input.GetKeyDown(KeyCode.E))//Pasa de la olla al inventario
+            else if (HUDState == 1 && Input.GetKeyDown(KeyCode.E) && elec)//Pasa de la olla al inventario
             {
                 if (somethingInside != -2)
                 {
@@ -60,6 +61,8 @@ public class BowlController : MonoBehaviour
                     PassToInv(somethingInside);
                     somethingInside = -2;
                     coockState = -1;
+                    int breakelec = Random.Range(0, 10);
+                    elec = breakelec < 9;
                 }
             }
 

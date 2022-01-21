@@ -94,30 +94,10 @@ public class CustomerController : MonoBehaviour
         parent = transform.parent;
         outline = sr.material;
     }
-    private void Update()
-    {
-        if (state == 1)
-        {
-            if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
-            {
-                Pedir();
-            }
-        }
-        else if (state == 2) 
-        {
-            if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dmcm.inConversation)
-            {
-                SetSatisfaction(Inventory.Instance.GetRecipe());
-                if (Inventory.Instance.inventoryOpened)
-                    Inventory.Instance.OpenCloseInventory();
-            }
-        }
-    }
     void FixedUpdate()
     {
         if(Time.timeScale == 1)
         {
-            //if(Instance[0] == this)Debug.Log(state);
             switch (state)
             {
                 //Anda a su sitio
@@ -128,7 +108,12 @@ public class CustomerController : MonoBehaviour
                 //Tiene que pedir y hablar
                 //Está en el método OnMouseDown//
                 //Espera a que le des su comida
-                //case 1
+                case 1:
+                    if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
+                    {
+                        Pedir();
+                    }
+                    break;
                 case 2:
                     timer += 0.001f;
                     
@@ -139,6 +124,12 @@ public class CustomerController : MonoBehaviour
                         state = 3;
                         Talk(false);
                         conversando = true;
+                    }
+                    if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dmcm.inConversation)
+                    {
+                        SetSatisfaction(Inventory.Instance.GetRecipe());
+                        if (Inventory.Instance.inventoryOpened)
+                            Inventory.Instance.OpenCloseInventory();
                     }
                     break;
                 
@@ -161,7 +152,7 @@ public class CustomerController : MonoBehaviour
                             break;
                         case -3:
                             //pedido malo
-                            //te has equivocado de ingredientes o es otro plato
+                            //no es lo que habia pedido o no esta bien horneado
                             if (conversando)
                             {
                                 dmcm.index = Random.Range(0, 5);
@@ -222,9 +213,9 @@ public class CustomerController : MonoBehaviour
             child.gameObject.SetActive(appear);
         }
     }
-    public void SetSatisfaction(Recipe food)// De momento solo puede estar perfecto o mal
+    public void SetSatisfaction(Recipe food)
     {
-        if (food.type != command.ToString() && (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
+        if (food.type != command.ToString() || (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
         else if (food.type == command.ToString() && food.Coock.Peek() == 1) { satisfaction = 2; }
         else if (food.type == command.ToString() && food.Coock.Peek() == 2) { satisfaction = 5; }
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
@@ -273,54 +264,14 @@ public class CustomerController : MonoBehaviour
                 break;
         }
         state = 2;
-        OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
+        //OnTriggerEnter2D(GameObject.Find("Dore_player").GetComponent<Collider2D>());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         outline.SetFloat("Thickness",0.03f);
-        /*if (state == 1)
-        {
-            switch (command)
-            {
-                case Recetas.Mona:
-                    dmcm.index = Random.Range(0, 2);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Flaons:
-                    dmcm.index = Random.Range(12, 14);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Farinada:
-                    dmcm.index = Random.Range(2, 4);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Fartons:
-                    dmcm.index = Random.Range(8, 10);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                case Recetas.Bunyols:
-                    dmcm.index = Random.Range(4, 6);
-                    dmcm.NPC = transform;
-                    dmcm.conversation = conversation;
-                    dmcm.inConversation = true;
-                    break;
-                default:
-                    break;
-            }
-            state = 2;
-        }*/
         if (state == 2)
         {
             Talk(true);
-            tochingPlayer = true;
             GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = true;
         }
         tochingPlayer = true;

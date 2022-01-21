@@ -57,6 +57,7 @@ public class Inventory : MonoBehaviour
     private Items harina;
 
     private Recipe fartons;
+    private Recipe mocadora;
 
 
     private void Awake()
@@ -99,6 +100,13 @@ public class Inventory : MonoBehaviour
         fartons.Coock = new Queue<int>();
         fartons.Coock.Enqueue(2);
         AddRecipe(fartons);
+
+        mocadora = ScriptableObject.CreateInstance<Recipe>();
+        mocadora.amount = 1;
+        mocadora.type = "Mocadorá";
+        mocadora.Coock = new Queue<int>();
+        mocadora.Coock.Enqueue(2);
+        AddRecipe(mocadora);
     }
 
     private void Update()
