@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     // variables para mantener durante el juego
     public int satisfacciónAcumulada = 1;
-    public int maxIndexRecipe = 5;
+    public int maxIndexRecipe = 5;  // Modificar cada día
     public int specialCharacterIndex = 0;
     public bool dia = true;
 

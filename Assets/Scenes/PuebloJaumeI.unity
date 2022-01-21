@@ -1251,8 +1251,8 @@ MonoBehaviour:
   - {fileID: 672934713}
   - {fileID: 570159064}
   m_Bounds:
-    m_Center: {x: -2.1150005, y: 1.3781025, z: 0}
-    m_Extent: {x: 2.2550004, y: 5.0731044, z: 0}
+    m_Center: {x: -2.0516825, y: 1.3966775, z: 0}
+    m_Extent: {x: 2.298203, y: 5.054532, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!95 &1228049208
@@ -1443,7 +1443,7 @@ SpriteRenderer:
   m_Size: {x: 3.18, y: 8.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1240521659 stripped

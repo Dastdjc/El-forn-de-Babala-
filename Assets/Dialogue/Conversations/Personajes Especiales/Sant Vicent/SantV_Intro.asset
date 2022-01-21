@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: SantV_Intro
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "\xA1Hola holota!<pause=0,5> \xA1Buenos d\xEDas por la gracia del se\xF1or!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Buenos d\xEDas!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "<size=20>Tss, mira la aureloa <color=#FE77A2>Dore</color>,<pause=0,5>
+      <size=36> \xA1es un \xE1ngel!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xBFS-<pause=0,5>e\xF1or es eso verdad?\xBFEs usted un \xE1ngel?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "M\xE1s que un \xE1ngel suelen decir que soy un SAN<pausa=0,2>turr\xF3n."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=5>...
+    Emotion: 4
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "<speed=36>\xBFBueno y qu\xC9 le trae a Babal\xE0?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "Mi nombre es San Vicent de Ferrer y en mi hospital me han dicho que aqu\xED
+      ten\xE9is buenos pasteles, pero lamentablemente ningun m\xE9dico..."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "S\xED... es una pena la verdad..."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "Pues hagamos un trato, si es verdad que vuestra cocina es tan buena como
+      dicen, \xA1me quedar\xE9 en el pueblo como buen m\xE9dico que soy!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "\xA1Dore es nuestra oportunidad!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Va-<pause=0,5>Vale! Dar\xE9 lo mejor de mi."
+    Emotion: 3

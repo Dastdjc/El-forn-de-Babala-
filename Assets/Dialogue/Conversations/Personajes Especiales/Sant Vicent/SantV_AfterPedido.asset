@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: SantV_AfterPedido
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1En nada est\xE1!"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: Estoy deseando probarlo,<pause=0,5> solo del de este sitio ya me parece
+      maravilloso.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: Entonces, si le gusta...
+    Emotion: 3
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "S\xED, como promet\xED  me quedar\xE9 aqu\xED para ayudaros."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Muchas gracias! Un m\xE9dico siempre viene bien."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: Jajaja, gracias chiquilla, la gente suele decir que mis manos son milagrosas.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: " <size= 20>Pues a ver si al final resulta que es un \xE1ngel de verdad..."
+    Emotion: 4

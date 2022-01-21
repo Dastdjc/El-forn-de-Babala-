@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: SantV_final
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "As\xED que...<pause=0,5> \xBFlo hemos conseguido, le ha gustado?"
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "S\xED, ha sido un plato exquisito, desde mi \xE9poca como sacerdote no
+      probaba algo igual."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: <speed=10>Entonces...
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "<speed=40> As\xED es, cumplir\xE9 con mi trato y me quedar\xE9 en este
+      hermoso pueblo."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "La gente suele decir que soy un poco fil\xE1ntropo, pero a mi solo me
+      gusta ayudar a la gente..."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "\xA1Muchas gracias se\xF1or m\xE9dico! \xA1Parece que Babal\xE0 vuelve
+      a florecer!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "Si te soy sincero incluso me alegro de haber propuesto este trato, voy
+      a venir todos los d\xEDas"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Esperemos que tambi\xE9n cumpla ese trato jajajaja."
+    Emotion: 1

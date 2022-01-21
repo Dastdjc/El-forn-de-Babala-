@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: SantV_Pedidos
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: No me gusta hacer el mono, pero sin duda me apetece una <color=#ffb0fb>mona</color>.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: 'Como buen valenciano, no puedo decir que no a unos<color=#ffb0fb>fartons
+      con horchata</color> '
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "\xA1<color=#ffb0fb>Farinada</color>! es un milagro que teng\xE1is esto
+      aqu\xED."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "Unos <color=#ffb0fb>bu\xF1uelos de calabaza</color>, me recuerdan a mi
+      \xE9poca en la escuela de la latinidad."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "No se por qu\xE9 la gente suele decirme que pruebe las <color=#ffb0fb>pelotas
+      de fraire</color>"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "\xA1<color=#ffb0fb>Flaons</color>! Avivan la flama de mi interior jajajaja."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "A los ni\xF1os de mi hospital les encanta la <color=#ffb0fb>coca de llanda</color>,
+      una por favor."
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "En mis descansos suelo pedir esto pero... \xA1que m\xE1s da, ponme unos
+      <color=#ffb0fb>pasteles de boniato</color>!"
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "Me encantan los colores de la <color=#ffb0fb>macaor\xE1</color>"
+    Emotion: 1
