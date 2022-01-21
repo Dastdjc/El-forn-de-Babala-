@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
 
     //selector de slot
     public GameObject selector;
+    public GameObject selector2;
 
     //variable usada para saber cuántos slots ocupados hay, slots != null
     private int c = 0;
@@ -33,6 +34,7 @@ public class Inventory : MonoBehaviour
     //ID se usará para saber en que slot del inventario estamos y posicionar el selector encima de éste
     private int ingrID;
     private int recetID;
+    private int comiID;
 
     //esta lista, dada en el Unity, solo se usa para "robar" la imagen del objeto correcto
     public List<Items> ingrImagesList;
@@ -111,70 +113,70 @@ public class Inventory : MonoBehaviour
 
        
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 1;
+        fartons.amount = 0;
         fartons.type = "Fartons";
         fartons.Coock = new Queue<int>();
         fartons.Coock.Enqueue(2);
         AddRecipe(fartons);
 
         basura = ScriptableObject.CreateInstance<Recipe>();
-        basura.amount = 1;
+        basura.amount = 0;
         basura.type = "Basura";
         basura.Coock = new Queue<int>();
         basura.Coock.Enqueue(2);
         AddRecipe(basura);
 
         bunyols = ScriptableObject.CreateInstance<Recipe>();
-        bunyols.amount = 1;
+        bunyols.amount = 0;
         bunyols.type = "Bunyols de calabaza";
         bunyols.Coock = new Queue<int>();
         bunyols.Coock.Enqueue(2);
         AddRecipe(bunyols);
 
         coca = ScriptableObject.CreateInstance<Recipe>();
-        coca.amount = 1;
+        coca.amount = 0;
         coca.type = "Coca de llanda";
         coca.Coock = new Queue<int>();
         coca.Coock.Enqueue(2);
         AddRecipe(coca);
 
         farinada = ScriptableObject.CreateInstance<Recipe>();
-        farinada.amount = 1;
+        farinada.amount = 0;
         farinada.type = "Farinada";
         farinada.Coock = new Queue<int>();
         farinada.Coock.Enqueue(2);
         AddRecipe(farinada);
 
         flaons = ScriptableObject.CreateInstance<Recipe>();
-        flaons.amount = 1;
+        flaons.amount = 0;
         flaons.type = "Flaons";
         flaons.Coock = new Queue<int>();
         flaons.Coock.Enqueue(2);
         AddRecipe(flaons);
 
         mocadora = ScriptableObject.CreateInstance<Recipe>();
-        mocadora.amount = 1;
+        mocadora.amount = 0;
         mocadora.type = "Mocadorà";
         mocadora.Coock = new Queue<int>();
         mocadora.Coock.Enqueue(2);
         AddRecipe(mocadora);
 
         mona = ScriptableObject.CreateInstance<Recipe>();
-        mona.amount = 1;
+        mona.amount = 0;
         mona.type = "Mona de Pascua";
         mona.Coock = new Queue<int>();
         mona.Coock.Enqueue(2);
         AddRecipe(mona);
 
         pasteles = ScriptableObject.CreateInstance<Recipe>();
-        pasteles.amount = 1;
+        pasteles.amount = 0;
         pasteles.type = "Pasteles de boniato";
         pasteles.Coock = new Queue<int>();
         pasteles.Coock.Enqueue(2);
         AddRecipe(pasteles);
 
         pilotes = ScriptableObject.CreateInstance<Recipe>();
-        pilotes.amount = 1;
+        pilotes.amount = 0;
         pilotes.type = "Pilotes de frare";
         pilotes.Coock = new Queue<int>();
         pilotes.Coock.Enqueue(2);
@@ -231,7 +233,11 @@ public class Inventory : MonoBehaviour
                 }*/
                // OpenCloseInventory();
             }
-
+            else if (inventoryType == 2 && recipeList.Count > 0)
+            {
+                MoveInRecetory();
+            }
+            //si estamos viendo el recetory
 
             //si el inventario está abierto puedes cambiar entre pestañas
             ChangeInventory();
@@ -247,6 +253,7 @@ public class Inventory : MonoBehaviour
             inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(1).gameObject.SetActive(false);
+            inventory.transform.GetChild(8).gameObject.SetActive(false);
             inventory.transform.GetChild(0).gameObject.SetActive(true);
             inventory.transform.GetChild(3).transform.GetChild(0).GetComponent<TMP_Text>().text = "RECETARIO";
             inventory.transform.GetChild(5).gameObject.SetActive(false);
@@ -284,6 +291,7 @@ public class Inventory : MonoBehaviour
             inventory.transform.GetChild(3).transform.GetChild(0).GetComponent<TMP_Text>().text = "INGREDENTARIO";
             inventory.transform.GetChild(6).gameObject.SetActive(false);
             inventory.transform.GetChild(5).gameObject.SetActive(true);
+            inventory.transform.GetChild(8).gameObject.SetActive(true);
 
             if (ingrList.Count == 0)
             {
@@ -295,6 +303,72 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(2).gameObject.SetActive(true);
                 inventory.transform.GetChild(4).gameObject.SetActive(true);
             }
+
+            //sonido cambio página
+            if (!inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(3).GetComponent<AudioSource>().Play();
+        }
+        else if (inventoryType == 0 && Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventoryType = 2;
+            inventory.transform.GetChild(7).gameObject.SetActive(true);
+            inventory.transform.GetChild(1).gameObject.SetActive(false);
+            inventory.transform.GetChild(3).gameObject.SetActive(false);
+            inventory.transform.GetChild(9).gameObject.SetActive(true);
+            inventory.transform.GetChild(5).gameObject.SetActive(false);
+            inventory.transform.GetChild(8).gameObject.SetActive(false);
+            inventory.transform.GetChild(10).gameObject.SetActive(true);
+            inventory.transform.GetChild(2).gameObject.SetActive(false);
+
+            if (recipeList.Count > 0)
+            {
+                inventory.transform.GetChild(12).gameObject.SetActive(true);
+                inventory.transform.GetChild(11).gameObject.SetActive(true);
+            }
+            else
+            {
+                inventory.transform.GetChild(12).gameObject.SetActive(false);
+                inventory.transform.GetChild(11).gameObject.SetActive(false);
+            }
+
+            //sonido cambio página
+            if (!inventory.transform.GetChild(9).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(9).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(9).GetComponent<AudioSource>().Play();
+        }
+        else if (inventoryType == 2 && Input.GetKeyDown(KeyCode.E))
+        {
+            inventoryType = 0;
+            inventory.transform.GetChild(1).gameObject.SetActive(true);
+            inventory.transform.GetChild(7).gameObject.SetActive(false);
+            inventory.transform.GetChild(3).gameObject.SetActive(true);
+            inventory.transform.GetChild(8).gameObject.SetActive(true);
+            inventory.transform.GetChild(5).gameObject.SetActive(true);
+            inventory.transform.GetChild(9).GetComponent<AudioSource>().enabled = false;
+            inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled = false;
+            inventory.transform.GetChild(9).gameObject.SetActive(false);
+            inventory.transform.GetChild(11).gameObject.SetActive(false);
+            inventory.transform.GetChild(10).gameObject.SetActive(false);
+            inventory.transform.GetChild(12).gameObject.SetActive(false);
+
+            if (ingrList.Count == 0)
+            {
+                inventory.transform.GetChild(2).gameObject.SetActive(false);
+                inventory.transform.GetChild(4).gameObject.SetActive(false);
+            }
+            else
+            {
+                inventory.transform.GetChild(2).gameObject.SetActive(true);
+                inventory.transform.GetChild(4).gameObject.SetActive(true);
+            }
+
 
             //sonido cambio página
             if (!inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled)
@@ -320,6 +394,7 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(1).gameObject.SetActive(true);
                 inventory.transform.GetChild(3).gameObject.SetActive(true);
                 inventory.transform.GetChild(5).gameObject.SetActive(true);
+                inventory.transform.GetChild(8).gameObject.SetActive(true);
 
                 if (ingrList.Count > 0)
                 {
@@ -329,7 +404,7 @@ public class Inventory : MonoBehaviour
 
             //último inventario abierto el de recetas
             }
-            else
+            else if (inventoryType == 1)
             {
                 inventory.transform.GetChild(0).gameObject.SetActive(true);
                 inventory.transform.GetChild(3).gameObject.SetActive(true);
@@ -342,35 +417,112 @@ public class Inventory : MonoBehaviour
                     inventory.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
                 }
             }
+            //último inventario abierto el de comida
+            else
+            {
+                inventory.transform.GetChild(7).gameObject.SetActive(true);
+                inventory.transform.GetChild(9).gameObject.SetActive(true);
+                inventory.transform.GetChild(10).gameObject.SetActive(true);
+
+                if (recipeList.Count > 0)
+                {
+                    inventory.transform.GetChild(11).gameObject.SetActive(true);
+                    inventory.transform.GetChild(12).gameObject.SetActive(true);
+                }
+            }
         }
         else
         {
             inventoryOpened = false;
             inventory.transform.GetChild(3).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(2).GetComponent<AudioSource>().enabled = false;
+            inventory.transform.GetChild(9).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(1).GetComponent<AudioSource>().enabled = false;
+            inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled = false;
             inventory.transform.GetChild(3).gameObject.SetActive(false);
+            inventory.transform.GetChild(9).gameObject.SetActive(false);
+            inventory.transform.GetChild(10).gameObject.SetActive(false);
 
-            if (inventoryType == 0 && ingrList.Count > 0 || inventoryType == 1 && recipeList.Count > 0)
+            if (ingrList.Count > 0 || recipeList.Count > 0)
             {
                 inventory.transform.GetChild(2).gameObject.SetActive(false);
                 inventory.transform.GetChild(4).gameObject.SetActive(false);
+                inventory.transform.GetChild(11).gameObject.SetActive(false);
+                inventory.transform.GetChild(12).gameObject.SetActive(false);
             }
 
             if (inventoryType == 0)
             {
-                //activamos los slots ocupados, el selector, el texto Inventario y el nombre del objeto seleccionado
                 inventory.transform.GetChild(1).gameObject.SetActive(false);
                 inventory.transform.GetChild(5).gameObject.SetActive(false);
-
-                //último inventario abierto el de recetas
+                inventory.transform.GetChild(8).gameObject.SetActive(false);
             }
-            else
+            else if (inventoryType == 1)
             {
                 inventory.transform.GetChild(0).gameObject.SetActive(false);
                 inventory.transform.GetChild(6).gameObject.SetActive(false);
             }
+            else
+            {
+                inventory.transform.GetChild(7).gameObject.SetActive(false);
+                inventory.transform.GetChild(5).gameObject.SetActive(false);
+            }
         }
+    }
+
+    //mover por el recetory (comidentario)
+    private void MoveInRecetory()
+    {
+        if (Input.GetKeyDown(KeyCode.D) && comiID < recipeList.Count - 1)
+        {
+            comiID++;
+
+            if (!inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(12).GetComponent<AudioSource>().Play();
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && comiID > 0)
+        {
+            comiID--;
+
+            if (!inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(12).GetComponent<AudioSource>().Play();
+        }
+        else if (Input.GetKeyDown(KeyCode.W) && comiID > 4)
+        {
+            comiID -= 5;
+
+            if (!inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(12).GetComponent<AudioSource>().Play();
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && recipeList.Count >= (comiID + 5) && (comiID + 5) != recipeList.Count)
+        {
+            comiID += 5;
+
+            if (!inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled)
+            {
+                inventory.transform.GetChild(12).GetComponent<AudioSource>().enabled = true;
+            }
+
+            inventory.transform.GetChild(12).GetComponent<AudioSource>().Play();
+        }
+
+        //mostramos el nombre del objeto en el que está el selector
+        inventory.transform.GetChild(11).transform.GetChild(0).GetComponent<TMP_Text>().text = recipeItemBySlotList[comiID].type;
+
+        //colocamos el selector en la casilla correcta
+        selector2.transform.position = inventory.transform.GetChild(7).transform.GetChild(comiID).transform.position;
     }
 
     //mover selector por el inventario
@@ -649,6 +801,7 @@ public class Inventory : MonoBehaviour
             if (recipeBySlotList[i] == null)
             {
                 inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).gameObject.SetActive(true);
+                inventory.transform.GetChild(7).transform.GetChild(i).gameObject.SetActive(true);
                 recipeBySlotList[i] = recipe;
                 recipeItemBySlotList[i] = recipe;
 
