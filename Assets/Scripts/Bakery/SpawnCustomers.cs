@@ -84,9 +84,8 @@ public class SpawnCustomers : MonoBehaviour
             while (i < 4)
             {
                 if (Customers[i] == null) i++;
-                if (!specialSpawned)
                     if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount-1).GetComponent<CustomerController>().tochingPlayer) break;
-                else
+ 
                     if (Customers[i] != null && Customers[i].transform.GetChild(Customers[i].transform.childCount - 1).GetComponent<SpecialCustomerController>().tochingPlayer) break;
             i++;
             }
