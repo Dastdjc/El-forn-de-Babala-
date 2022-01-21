@@ -19,6 +19,8 @@ public class SpecialCustomerController : MonoBehaviour
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
     public CharacterDialogueManager cdm;
+
+    public GameObject[] sprites;
     //static private CustomerController[] Instance = new CustomerController[4];
     //static public int MaxIndexRecipe = 5;
 
@@ -26,8 +28,6 @@ public class SpecialCustomerController : MonoBehaviour
     //State == 1 cuando pide algo y empieza a cansarse
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
 
-    public SpriteRenderer sr;
-    private Material outline;
     enum Recetas
     {
         Mona,
@@ -85,8 +85,6 @@ public class SpecialCustomerController : MonoBehaviour
         image = Mask.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
 
-        parent = transform.parent;
-        outline = sr.material;
 
         parent.GetComponent<Animator>().SetBool("Moving", true);
         parent.GetComponent<Animator>().SetBool("Moving", true);
@@ -95,15 +93,25 @@ public class SpecialCustomerController : MonoBehaviour
     {
         if (state == 1)
         {
+            if (tochingPlayer && !dm.inConversation)
+                SetThickness(0.005f);
+            else if (!tochingPlayer)
+                SetThickness(0f);
             if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
             {
+                SetThickness(0f);
                 Pedir();
             }
         }
         else if (state == 2)
         {
+            if (tochingPlayer && !dm.inConversation)
+                SetThickness(0.005f);
+            if (!tochingPlayer)
+                SetThickness(0f);
             if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dm.inConversation)
             {
+                SetThickness(0f);
                 SetSatisfaction(Inventory.Instance.GetRecipe());
                 if (Inventory.Instance.inventoryOpened)
                     Inventory.Instance.OpenCloseInventory();
@@ -111,8 +119,13 @@ public class SpecialCustomerController : MonoBehaviour
         }
         else if (state == 4) 
         {
+            if (tochingPlayer && !dm.inConversation)
+                SetThickness(0.005f);
+            if (!tochingPlayer)
+                SetThickness(0f);
             if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
             {
+                SetThickness(0f);
                 dm.conversation = cdm.final;
                 dm.NPC = transform;
                 dm.inConversation = true;
@@ -296,7 +309,6 @@ public class SpecialCustomerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        outline.SetFloat("Thickness",0.03f);
         /*if (state == 1)
         {
             switch (command)
@@ -346,10 +358,18 @@ public class SpecialCustomerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        outline.SetFloat("Thickness", 0);
         Talk(false);
         tochingPlayer = false;
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
     }
-
+    void SetThickness(float thick)
+    {
+        Material material;
+        foreach (GameObject sprite in sprites)
+        {
+            material = sprite.GetComponent<SpriteRenderer>().material;
+            material.SetFloat("Thickness", thick);
+        }
+        return;
+    }
 }

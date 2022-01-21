@@ -11,7 +11,11 @@ public class berries : MonoBehaviour
 
     private float startTime;
 
+
     private spawnerBerries spawn;
+
+    public Animator Azul;
+
 
     private void Awake()
     {
@@ -25,15 +29,15 @@ public class berries : MonoBehaviour
         spawn = spawner.GetComponent<spawnerBerries>();
     }
 
-    /*private void OnMouseDown()
+    private void OnMouseDown()
     {
-        Debug.Log("clicando");
-        dragOffset = transform.position - getPosMouse();
-        //transform.localScale = transform.localScale * 1.1f;
-    }*/
+        Azul.SetBool("Agarrar", true);
+
+    }
     private void OnMouseUp()
     {
-        //transform.localScale = transform.localScale * 0.9f;
+        Azul.SetBool("Agarrar", false);
+              
     }
     private void OnMouseDrag()
     {
@@ -53,7 +57,7 @@ public class berries : MonoBehaviour
     {
         float t = Time.time - startTime;
         
-        if (t > 3.5)
+        if (t > 4.5)
         {
             Destroy(gameObject);
             t = 0;

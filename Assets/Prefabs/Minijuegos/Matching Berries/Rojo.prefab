@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1096702560104018072}
   - component: {fileID: 8362960740015288314}
   - component: {fileID: 4501969744699380934}
-  - component: {fileID: 6016140161310925808}
   - component: {fileID: 9105939044371323577}
   - component: {fileID: 5646244949227307794}
+  - component: {fileID: 796229949707013400}
   m_Layer: 0
   m_Name: Rojo
   m_TagString: Rojo
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5776548905377821483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.44, y: 1.93, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,19 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.08364123}
   serializedVersion: 2
   m_Radius: 0.6101213
---- !u!114 &6016140161310925808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5776548905377821483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61dd3d77005913e4291c0a4374ad9a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 500
 --- !u!50 &9105939044371323577
 Rigidbody2D:
   serializedVersion: 4
@@ -155,3 +142,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &796229949707013400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776548905377821483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad71406568994484ea0ddf48d20b40bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 500
+  Roja: {fileID: 5646244949227307794}

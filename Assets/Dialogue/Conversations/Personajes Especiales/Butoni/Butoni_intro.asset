@@ -17,7 +17,7 @@ MonoBehaviour:
   lines:
   - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
     text: "<size=40><speed=25>H-<pause=0,2>Hola, \xBFest\xE1is abiertos?<speed=40>"
-    Emotion: 3
+    Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: Si, claro. Pasa, pasa.
     Emotion: 0
