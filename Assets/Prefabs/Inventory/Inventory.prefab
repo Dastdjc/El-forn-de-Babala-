@@ -3115,6 +3115,7 @@ MonoBehaviour:
   touchingCustomer: 0
   inventory: {fileID: 7913152445628031466}
   inventoryOpened: 0
+  recetory: {fileID: 0}
   selector: {fileID: 7913152445396598551}
   ingrImagesList:
   - {fileID: 11400000, guid: 14c749d71cf44334aba9103e38c0b329, type: 2}
@@ -3150,6 +3151,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18399d40262d1ec4c867ab0e2dfc370b, type: 2}
   - {fileID: 11400000, guid: 448ccf32a99348f4da1a688e96f43003, type: 2}
   ingrList: []
+  recipeList: []
 --- !u!1 &7913152445878140593
 GameObject:
   m_ObjectHideFlags: 0

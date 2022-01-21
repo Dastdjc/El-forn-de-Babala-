@@ -49,9 +49,11 @@ public class Inventory : MonoBehaviour
     //ésta para que se sepa que tipo de recta está en cada slot
     private List<Recipe> recipeBySlotList = new List<Recipe>();
 
+    //esta para saber en el inventario de recetas, que receta ocupa que sitio
+    private List<Recipe> recipeItemBySlotList = new List<Recipe>();
+
     //esta se usa para determinar si ya poseemos una receta del tipo que vamos a añadir y cuántos platos de esa receta poseemos
     public List<Recipe> recipeList = new List<Recipe>();
-
 
     
     private Items harina;
@@ -84,6 +86,12 @@ public class Inventory : MonoBehaviour
         {
             //establecemos a null toda la lista
             recipeBySlotList.Add(null);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            //establecemos a null toda la lista
+            recipeItemBySlotList.Add(null);
         }
     }
 
@@ -622,14 +630,14 @@ public class Inventory : MonoBehaviour
                     recipeList[i].amount += recipe.amount;
                     recipeList[i].Coock.Enqueue(recipe.Coock.Dequeue());
 
-                    //for (int p = 0; p < recipeBySlotList.Count; p++)
-                    //{
-                    //    if (recipeBySlotList[p].type == recipe.type)
-                    //    {
-                    //        inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
+                    for (int p = 0; p < recipeItemBySlotList.Count; p++)
+                    {
+                        if (recipeItemBySlotList[p].type == recipe.type)
+                        {
+                            inventory.transform.GetChild(7).transform.GetChild(p).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[i].amount.ToString();
                             return;
-                    //    }
-                    //}
+                        }
+                    }
                 }
             }
         }
@@ -642,6 +650,7 @@ public class Inventory : MonoBehaviour
             {
                 inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).gameObject.SetActive(true);
                 recipeBySlotList[i] = recipe;
+                recipeItemBySlotList[i] = recipe;
 
                 //buscamos la imagen asociada a la receta
                 for (int j = 0; j < recipeImagesList.Count; j++)
@@ -649,10 +658,12 @@ public class Inventory : MonoBehaviour
                     if (recipeImagesList[j].type == recipe.type)
                     {
                         recipeBySlotList[i].recipeImage = recipeImagesList[j].recipeImage;
+                        recipeItemBySlotList[i].recipeImage = recipeImagesList[j].recipeImage;
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
-                        ////activamos su cantidad, texto
-                        //inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[recipeList.Count - 1].amount.ToString();
+                        inventory.transform.GetChild(7).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
+                        //activamos su cantidad, texto
+                        inventory.transform.GetChild(7).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[recipeList.Count - 1].amount.ToString();
                         return;
                     }
                 }
