@@ -31,7 +31,7 @@ public class FoodBar : MonoBehaviour
         for (int i = 0; i < Result.Length; i++)
         {
             Result[i] = Instantiate(Example.transform.GetChild(1).gameObject);
-            Result[i].SetActive(false);
+            Result[i].SetActive(true);
             if (i != 0) Result[i].GetComponent<Image>().sprite = recipes[i - 1];
             else
             {
@@ -71,19 +71,12 @@ public class FoodBar : MonoBehaviour
             {
                 Numbers[Ingredients.Length].transform.SetParent(Result[1].transform);
                 Numbers[Ingredients.Length].transform.localPosition = new Vector3(150, 0, 0);
-                Numbers[Ingredients.Length].SetActive(false);
+                Numbers[Ingredients.Length].SetActive(true);
                 Numbers[i].transform.localScale = new Vector3(1, 1, 1);
             }
 
         }
         WhatIHaveRefresh();
-    }
-    public void SetBarVisibility(bool state)
-    {
-        for (int i = 0; i < Ingredients.Length; i++) { Ingredients[i].SetActive(state); }
-        for(int i = 0; i < Result.Length; i++) { Result[i].SetActive(state); }
-        Numbers[Ingredients.Length].SetActive(state);
-
     }
     public void WhatIHaveRefresh()
     {
