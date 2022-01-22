@@ -363,7 +363,7 @@ public class SpecialCustomerController : MonoBehaviour
             }
             state = 2;
         }*/
-        if (state == 2)
+        if (state == 2 && !dm.inConversation)
         {
             Talk(true);
             tochingPlayer = true;
