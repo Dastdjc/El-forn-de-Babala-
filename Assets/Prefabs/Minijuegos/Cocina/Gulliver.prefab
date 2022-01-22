@@ -457,13 +457,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatedText: {fileID: 0}
   voices:
-  - {fileID: 8300000, guid: 312ce2540f2667b4abc7a11cc7e5ab56, type: 3}
-  - {fileID: 8300000, guid: bab5a242c3eada04ba81ef1d8d7758d6, type: 3}
-  - {fileID: 8300000, guid: 4081f67f152a0f14b8ec47abd7effb68, type: 3}
-  - {fileID: 8300000, guid: 1a0e2f135b0b7664a93f9f6f6ece4ee0, type: 3}
+  - {fileID: 8300000, guid: 3706171e1a565774eae047fec8e373b1, type: 3}
+  - {fileID: 8300000, guid: 1b39005313882624daa49ea3ef3eb638, type: 3}
+  - {fileID: 8300000, guid: c399125416a145547b82e698d1886754, type: 3}
+  - {fileID: 8300000, guid: 266212f5a5baf2640a4f2e86a17e7eb4, type: 3}
+  - {fileID: 8300000, guid: 2f6625f32b1c93f419597ddb8a9f8074, type: 3}
   punctuations:
-  - {fileID: 8300000, guid: 9c02aa88927d03748a3fe8642de753c7, type: 3}
-  - {fileID: 8300000, guid: c9ec38f811b69db45aa9760bda9c40f2, type: 3}
+  - {fileID: 8300000, guid: 24a5f4877c0bf214696efe8fa0c7b78a, type: 3}
   voiceSource: {fileID: 4868660094889606200}
   punctuationSource: {fileID: 5795626147091681707}
   character: Gulliver
