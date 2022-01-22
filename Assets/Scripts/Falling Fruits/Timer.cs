@@ -67,7 +67,7 @@ public class Timer : MonoBehaviour
     void RecompensaAInventario()
     {
         // Aquí se hace referencia al INVENTARIO
-        Inventory Inventario = GameObject.Find("INVENTORY/Inventory").GetComponent<Inventory>();
+        Inventory Inventario = Inventory.Instance;
 
         minijuegoMovement ingredientes = player.GetComponent<minijuegoMovement>();
 

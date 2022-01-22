@@ -112,7 +112,7 @@ public class eventSystem : MonoBehaviour
         azucar = (int)(multiplicador * 3 * Random.Range(0.8f, 1f));
 
         // Añadir dentro del inventario
-        Inventory inventario = GameObject.Find("INVENTORY/Inventory").GetComponent<Inventory>();
+        Inventory inventario = Inventory.Instance;
 
         Items itemHarina = ScriptableObject.CreateInstance<Items>();
         itemHarina.amount = harina;

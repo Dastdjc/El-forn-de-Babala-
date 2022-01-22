@@ -85,7 +85,7 @@ public class SongManager : MonoBehaviour
 
     void RecompensaAInventario() 
     {
-        Inventory inventario = GameObject.Find("INVENTORY/Inventory").GetComponent<Inventory>();
+        Inventory inventario = Inventory.Instance;
 
         Items itemAgua = ScriptableObject.CreateInstance<Items>();
         itemAgua.amount = agua;

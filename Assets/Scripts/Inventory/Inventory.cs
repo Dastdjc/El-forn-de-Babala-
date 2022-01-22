@@ -78,7 +78,15 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Inventory.Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
 
         for (int i = 0; i < 21; i++)
         {
@@ -721,6 +729,7 @@ public class Inventory : MonoBehaviour
                     {
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = ingrImagesList[j].itemImage;
+                        inventory.transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().preserveAspect = true;
                         //activamos su cantidad, texto
                         inventory.transform.GetChild(1).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = ingrList[ingrList.Count - 1].amount.ToString();
                         return;
@@ -836,7 +845,9 @@ public class Inventory : MonoBehaviour
                         recipeItemBySlotList[i].recipeImage = recipeImagesList[j].recipeImage;
                         //activamos para el slot la imagen correcta dependiendo del ingrediente
                         inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
+                        inventory.transform.GetChild(0).transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().preserveAspect = true;
                         inventory.transform.GetChild(7).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = recipeImagesList[j].recipeImage;
+                        inventory.transform.GetChild(7).transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().preserveAspect = true;
                         //activamos su cantidad, texto
                         inventory.transform.GetChild(7).transform.GetChild(i).transform.GetChild(1).GetComponent<TMP_Text>().text = recipeList[recipeList.Count - 1].amount.ToString();
                         return;
@@ -943,6 +954,7 @@ public class Inventory : MonoBehaviour
                     if (ingrImagesList[j].type == itemBySlotList[anterior].type)
                     {
                         inventory.transform.GetChild(1).transform.GetChild(anterior).transform.GetChild(0).GetComponent<Image>().sprite = ingrImagesList[j].itemImage;
+                        inventory.transform.GetChild(1).transform.GetChild(anterior).transform.GetChild(0).GetComponent<Image>().preserveAspect = true;
                         break;
                     }
                 }

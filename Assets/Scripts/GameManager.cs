@@ -237,6 +237,7 @@ public class GameManager : MonoBehaviour
         DesbloquearEdificio(Edificios.Panaderia);
 
         // Musica de fondo
+        BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         BG_music.clip = dayMusic[numDia];
 
         // Encontrar referencias a objetos
