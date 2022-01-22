@@ -6443,7 +6443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: 73}
+  m_AnchoredPosition: {x: 39, y: 117}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898793750
@@ -6466,7 +6466,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cuando se est\xE9 cocinando, asegurate de sacarlo en el momento perfecto!\n"
+  m_text: "Cuando se est\xE9 cocinando, asegurate de sacarlo en el momento perfecto!\n(Si
+    no tienes suficientes ingredientes al cocinar cerar\xE1s basura)\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b93eb3cd8c6c8342952329afef4b6c3, type: 2}
   m_sharedMaterial: {fileID: 4753326429094194063, guid: 1b93eb3cd8c6c8342952329afef4b6c3, type: 2}
@@ -8788,6 +8789,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  edificiosNoche: []
   dayMusic: []
   fondoDia: {fileID: 0}
   fondoNoche: {fileID: 0}

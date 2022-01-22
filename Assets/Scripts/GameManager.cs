@@ -58,7 +58,10 @@ public class GameManager : MonoBehaviour
     private GameObject cuerdaHitBox;
     // Siguientes estados
 
+    private bool cuerdaCortada;
 
+    private Animator creditsRoll;
+    private Animator creditsBG;
 
     private void Awake()
     {
@@ -243,7 +246,7 @@ public class GameManager : MonoBehaviour
         if (numDia >= 4)
             DesbloquearEdificio(Edificios.Hospital);
         if (numDia >= 5)
-            DesbloquearEdificio(Edificios.Ayuntamiento);
+            SceneManager.LoadScene(9);
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -348,6 +351,7 @@ public class GameManager : MonoBehaviour
     {
         SpawnCustomers spawn = GameObject.Find("Spawner").GetComponent<SpawnCustomers>();
         spawn.SpawnigSpecial = false;
+        spawn.CustomersNumber = 4;
         if (spawned) // Si ya se ha entrado en la panadería
             customers.SetActive(true);
         else // Primera vez que se entra
@@ -390,12 +394,31 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = playerSpawnPositionInicioJuego;
 
         cuerdaHitBox = GameObject.Find("CintaFinal");
-        cuerdaHitBox.transform.GetChild(1).gameObject.SetActive(false);
+        cuerdaHitBox.transform.GetChild(0).gameObject.SetActive(false);
     }
     public void SetUpCortarCuerda() 
     {
         mifa.enabled = false;
-        cuerdaHitBox.transform.GetChild(1).gameObject.SetActive(true);
+        cuerdaHitBox.transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public void CuerdaCortada() 
+    {
+        if (!cuerdaCortada)
+        {
+            // Roll credits
+            BG_music.clip = dayMusic[dayMusic.Length - 1];
+            BG_music.Play();
+            cuerdaCortada = true;
+            Invoke("Creditos", 1f);
+        }
+    }
+    public void Creditos() 
+    {
+        creditsBG = GameObject.Find("CreditsBG").GetComponent<Animator>();
+        creditsBG.SetTrigger("fadeIn");
+        creditsRoll = GameObject.Find("Credits").GetComponent<Animator>();
+        creditsRoll.SetTrigger("credits");
     }
     public enum Edificios 
     { 

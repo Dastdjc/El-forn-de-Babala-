@@ -17,6 +17,7 @@ public class RopeCutter : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject);
                     confeti.Play();
+                    GameManager.Instance.CuerdaCortada();
                 }
             }
         }

@@ -13887,7 +13887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &455048248
 Transform:
   m_ObjectHideFlags: 0
@@ -15411,7 +15411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &559628189
 Transform:
   m_ObjectHideFlags: 0
@@ -18659,7 +18659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &820540362
 Transform:
   m_ObjectHideFlags: 0
@@ -31895,13 +31895,13 @@ MonoBehaviour:
   - {fileID: 1117588816}
   - {fileID: 248442989}
   edificiosNoche:
-  - {fileID: 0}
-  - {fileID: 1120187057}
-  - {fileID: 115118311}
-  - {fileID: 1765475478}
-  - {fileID: 278000092}
-  - {fileID: 2062509534}
-  - {fileID: 1277437292}
+  - {fileID: 1630339797}
+  - {fileID: 1870383545}
+  - {fileID: 1112011401}
+  - {fileID: 1985099618}
+  - {fileID: 322852801}
+  - {fileID: 84152468}
+  - {fileID: 1987351720}
   dayMusic:
   - {fileID: 8300000, guid: 2946ae19551aee048b444d98af806268, type: 3}
   - {fileID: 8300000, guid: 9323c54386759fb47ad300046e52e608, type: 3}
@@ -59648,7 +59648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1691398028
 Transform:
   m_ObjectHideFlags: 0

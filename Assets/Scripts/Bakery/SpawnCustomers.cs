@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnCustomers : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class SpawnCustomers : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     void Start()
     {
         if(CustomersNumber == -1)CustomersNumber = Random.Range(6, 10);
