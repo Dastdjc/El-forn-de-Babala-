@@ -52,9 +52,12 @@ public class BowlController : MonoBehaviour
             else if (HUDState == 3 && Input.GetKeyDown(KeyCode.E))//Pasar del inventario a la olla
             {
                 somethingInside = DeterminateFood();
-                gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
-                coockState = 0;
-                HUDState++;
+                if (somethingInside != -2)
+                {
+                    gameObject.GetComponent<Animator>().SetTrigger("Change");//Pasa a Amarillo
+                    coockState = 0;
+                    HUDState++;
+                }
             }
             else if (HUDState == 1 && Input.GetKeyDown(KeyCode.E))//Pasa de la olla al inventario
             {
@@ -132,6 +135,11 @@ public class BowlController : MonoBehaviour
                 HUDState++;
                 gameObject.GetComponent<FoodBar>().SetBarVisibility(false);
             }
+            if(HUDState == 0) 
+            {
+                if (somethingInside == -2) Texto.SetActive(true);
+                player.GetComponent<PlayerMovement>().enabled = true; 
+            }
         }
         if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y < 750)
         {
@@ -139,10 +147,7 @@ public class BowlController : MonoBehaviour
         }
         else if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y >= 750) 
         {
-            if (somethingInside == -2) Texto.SetActive(true);
             HUDState = 0;
-            player.GetComponent<PlayerMovement>().enabled = true;
-            //player.GetComponent<Animator>().enabled = true;
         }
     }
     private void PassToInv(int index)
@@ -173,13 +178,12 @@ public class BowlController : MonoBehaviour
         bool oneUnless = false;
         foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
-            oneUnless = true;
+            if(itm.amount > 0)oneUnless = true;
             int index = 0;
             string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
             while (names[index] != itm.type) { index++; }
             auxArray[index] = itm.amount;
         }
-
         foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
             int index = 0;
