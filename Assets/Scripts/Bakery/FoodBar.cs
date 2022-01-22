@@ -77,7 +77,6 @@ public class FoodBar : MonoBehaviour
 
         }
         WhatIHaveRefresh();
-        SetBarVisibility(true);
     }
     public void SetBarVisibility(bool state)
     {
