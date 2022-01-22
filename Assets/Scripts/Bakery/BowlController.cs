@@ -8,6 +8,7 @@ public class BowlController : MonoBehaviour
     static public int[][] IngPerRecipe;
     static public int selected = 0;
     public GameObject Texto;
+    public AudioClip[] audioResults;
     private bool touchingPlayer;
     private int HUDState;
     private int somethingInside = -2;
@@ -15,6 +16,7 @@ public class BowlController : MonoBehaviour
     private float timer;
     public GameObject player;
     public AudioSource bowlSound;
+    public AudioSource sourceResults;
     public AudioSource BGMusic;
     private bool startedCooking = false;
     void Start()
@@ -59,7 +61,12 @@ public class BowlController : MonoBehaviour
                 if (somethingInside != -2)
                 {
                     startedCooking = false;
-                    StartCoroutine(AudioFadeOut.FadeIn(BGMusic, 1f));
+                    // Sonido
+                    bowlSound.Stop();
+                    sourceResults.clip = audioResults[coockState];
+                    sourceResults.Play();
+                    StartCoroutine(AudioFadeOut.FadeIn(BGMusic, 2f));
+
                     gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
                     PassToInv(somethingInside);
                     somethingInside = -2;
