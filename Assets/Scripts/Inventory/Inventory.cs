@@ -1112,6 +1112,6 @@ public class Inventory : MonoBehaviour
 
     public Recipe GetRecipe() 
     {
-        return recipeBySlotList[recetID];
+        return recipeBySlotList[comiID];
     }
 }

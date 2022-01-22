@@ -104,12 +104,12 @@ public class eventSystem : MonoBehaviour
     private void RewardsToInventory() 
     {
         // Calcular recompensa
-        int multiplicador = puntuacion / 350;
-        harina = (int)(multiplicador * 4 * Random.Range(0.8f, 1f));
-        levadura = (int)(multiplicador * 1 * Random.Range(0.8f, 1f));
-        aceite = (int)(multiplicador * 2 * Random.Range(0.8f, 1f));
-        mantequilla = (int)(multiplicador * 1 * Random.Range(0.8f, 1f));
-        azucar = (int)(multiplicador * 3 * Random.Range(0.8f, 1f));
+        int multiplicador = puntuacion / 150;
+        harina = (int)(multiplicador * 8 * Random.Range(0.8f, 1f));
+        levadura = (int)(multiplicador * 3 * Random.Range(0.8f, 1f));
+        aceite = (int)(multiplicador * 5 * Random.Range(0.8f, 1f));
+        mantequilla = (int)(multiplicador * 3 * Random.Range(0.8f, 1f));
+        azucar = (int)(multiplicador * 5 * Random.Range(0.8f, 1f));
 
         // Añadir dentro del inventario
         Inventory inventario = Inventory.Instance;

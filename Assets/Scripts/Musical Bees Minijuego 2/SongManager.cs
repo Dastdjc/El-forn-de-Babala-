@@ -77,7 +77,7 @@ public class SongManager : MonoBehaviour
     {
         Debug.Log(score);
         float multiplicador = score / 1500;   // Max score = 9700
-        agua = (int)(multiplicador * 1 * UnityEngine.Random.Range(0.8f, 1f));
+        agua = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.8f, 1f));
         leche = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
         requeson = (int)(multiplicador * 3 * UnityEngine.Random.Range(0.8f, 1f));
         huevos = (int)(multiplicador * 4 * UnityEngine.Random.Range(0.8f, 1f));
