@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
     public GameObject customers;    // El gameObject Spawner donde están todos los clientes por atender
     public GameObject[] edificios;
+    public GameObject[] edificiosNoche;
     public AudioClip[] dayMusic;
     public GameObject fondoDia;
     public GameObject fondoNoche;
@@ -233,6 +234,16 @@ public class GameManager : MonoBehaviour
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
         DesbloquearEdificio(Edificios.Panaderia);
+        if (numDia >= 1)   
+            DesbloquearEdificio(Edificios.Gas);
+        if (numDia >= 2)
+            DesbloquearEdificio(Edificios.Tienda);
+        if (numDia >= 3)
+            DesbloquearEdificio(Edificios.Escuela);
+        if (numDia >= 4)
+            DesbloquearEdificio(Edificios.Hospital);
+        if (numDia >= 5)
+            DesbloquearEdificio(Edificios.Ayuntamiento);
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
@@ -366,6 +377,9 @@ public class GameManager : MonoBehaviour
     {
         edificios[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
         edificios[(int)indice].GetComponent<SpriteRenderer>().enabled = false;
+
+        edificiosNoche[(int)indice].transform.GetChild(0).gameObject.SetActive(true);
+        edificiosNoche[(int)indice].GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public void SetUpCinematicaFinal() 

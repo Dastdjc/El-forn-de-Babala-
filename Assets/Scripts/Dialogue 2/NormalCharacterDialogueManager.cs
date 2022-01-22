@@ -6,7 +6,7 @@ using UnityEngine;
 public class NormalCharacterDialogueManager : MonoBehaviour
 {
     public Transform player;
-    public Conversation conversation;
+    public Conversation[] conversation;
     public float detectionRange = 10;
     public DialogueManager dm;
     public GameObject[] sprites;
@@ -31,16 +31,15 @@ public class NormalCharacterDialogueManager : MonoBehaviour
                 SetThickness(0.005f);
             else
                 SetThickness(0f);
-
             
-           /* if (player.position.x > this.transform.position.x)
-                //transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
-            else //transform.localScale = new Vector3(1.5f, 1.5f, 1f);*/
+           if (player.position.x > this.transform.position.x)
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            else transform.localScale = new Vector3(1f, 1f, 1f);
 
             if (Input.GetKeyDown(KeyCode.E) && !dm.inConversation && !spokenTo)
             {
                 dm.NPC = transform;
-                dm.conversation = conversation;
+                dm.conversation = conversation[Random.Range(0, conversation.Length)];
                 dm.inConversation = true;
             }
         }
@@ -48,12 +47,15 @@ public class NormalCharacterDialogueManager : MonoBehaviour
         {
             SetThickness(0f);
         }
+    }
 
-        if (Vector2.Distance(player.position, transform.position) <= detectionRange)
-        {
-            closeEnough = true;
-        }
-        else closeEnough = false;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        closeEnough = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        closeEnough = false;
     }
     void SetThickness(float thick)
     {
