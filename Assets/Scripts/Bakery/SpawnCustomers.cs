@@ -101,7 +101,7 @@ public class SpawnCustomers : MonoBehaviour
         SpawnigSpecial = true;
         //bool allNull = true;
         //int i = 0;
-        CustomersNumber = 0;
+        //CustomersNumber = 0;
         //while (i < Customers.Length && allNull) { if (Customers[i] != null) allNull = false; i++; }
         //Debug.Log(transform.childCount);
         if (this.transform.childCount-1 == 0)   // Si ya no quedan más clientes
