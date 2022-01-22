@@ -885,7 +885,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 113071613
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 08e1adaef80e2f340be046e7c2cdab03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3279,7 +3279,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 721931635
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: deb9faf02194c614c966b7a95a8c859c, type: 3}
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
@@ -3483,6 +3483,7 @@ MonoBehaviour:
   maxIndexRecipe: 5
   specialCharacterIndex: 0
   dia: 0
+  numDia: 0
 --- !u!4 &1276339255
 Transform:
   m_ObjectHideFlags: 0
@@ -3863,7 +3864,7 @@ MonoBehaviour:
   player: {fileID: 1980098890}
   conversation: {fileID: 11400000, guid: 5a318e17fc238b24a8c30822f4296826, type: 2}
   dm: {fileID: 1140291188}
-  tutorialActivated: 1
+  tutorialActivated: 0
 --- !u!1 &1432928050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,7 +4315,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 113071613
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
@@ -15589,7 +15590,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 113071613
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: bdb77c05e42d3ef4f8cf4e8badaca623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

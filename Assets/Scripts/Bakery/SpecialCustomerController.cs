@@ -22,6 +22,7 @@ public class SpecialCustomerController : MonoBehaviour
     public CharacterDialogueManager cdm;
 
     public DialogueAudio characterAudio;
+    private SpawnCustomers spawner;
 
     public GameObject[] sprites;
     //static private CustomerController[] Instance = new CustomerController[4];
@@ -81,7 +82,7 @@ public class SpecialCustomerController : MonoBehaviour
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
         cdm = GetComponent<CharacterDialogueManager>();
-        command = (Recetas) Random.Range(0, GameManager.Instance.maxIndexRecipe);//(Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe); (Recetas)1
+        command = (Recetas) 1;//(Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe); (Recetas)1
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
@@ -91,6 +92,8 @@ public class SpecialCustomerController : MonoBehaviour
 
 
         animator.SetBool("Moving", true);
+
+        spawner = GameObject.Find("Spawner").GetComponent<SpawnCustomers>();
     }
     private void Update()
     {
@@ -253,6 +256,7 @@ public class SpecialCustomerController : MonoBehaviour
                     break;
                 case 4:
                     if (satisfaction == 0 || satisfaction == -3) 
+                        // Se va triste
                     {
                         if (!leaving)
                         {
@@ -261,12 +265,14 @@ public class SpecialCustomerController : MonoBehaviour
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                         }
                         if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; animator.SetBool("Moving", true);}
-                        else { Destroy(parent.transform.gameObject); GameManager.Instance.SumarSatisfacción(0); }
+                        else { spawner.SpawnigSpecial = false; 
+                            GameManager.Instance.SumarSatisfacción(0); Destroy(parent.transform.gameObject); }
                     }
                     break;
                 case 5:
                     if (!dm.inConversation)
                     {
+                        // Se va con satisfacción
                         if (!leaving)
                         {
                             leaving = true;

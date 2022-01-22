@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // SCRIPT PARA CADA PERSONAJE QUE VAYA A TENER DIALOGO
 public class MifaCharacterDialogueManager : MonoBehaviour
@@ -10,6 +10,10 @@ public class MifaCharacterDialogueManager : MonoBehaviour
     public float detectionRange = 10;
     public DialogueManager dm;
     public GameObject[] sprites;
+
+    public int sceneIndex;
+    public AudioSource BG_music;
+    public Animator transition;
 
     private bool closeEnough = false;
     private bool spokenTo = false;
@@ -81,8 +85,11 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.Tutorial);
         else if (conversationIndex == conversation.Length-1)
             GameManager.Instance.UpdateGameState(GameManager.GameState.CortarCuerda);
-        if (conversationIndex == 4)
+        if (conversationIndex == 4) // Acaba dialogo de noche
+        {
             GameManager.Instance.dia = true;
+            endCutscene();
+        }
         if (conversationIndex!= 2 && conversationIndex != 3)
             conversationIndex++;
     }
@@ -96,8 +103,27 @@ public class MifaCharacterDialogueManager : MonoBehaviour
         }
         return;
     }
-   /* void EliminarPulsaE() 
+    /* void EliminarPulsaE() 
+     {
+         pulsaE.SetActive(false);
+     }*/
+    void endCutscene()
     {
-        pulsaE.SetActive(false);
-    }*/
+        StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
+        ChangeScene(sceneIndex);
+    }
+    void ChangeScene(int index)
+    {
+        Debug.Log("Change");
+        Time.timeScale = 1;
+        StartCoroutine(LoadLevel(index));
+    }
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(levelIndex);
+    }
 }

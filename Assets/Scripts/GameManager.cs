@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     static private GameObject servicios;    // El gameObject SERVICIOS dónde están todos los servicios
     public GameObject customers;    // El gameObject Spawner donde están todos los clientes por atender
     public GameObject[] edificios;
+    public AudioClip[] dayMusic;
     public GameObject fondoDia;
     public GameObject fondoNoche;
     public GameObject luzDia;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public int maxIndexRecipe = 5;  // Modificar cada día
     public int specialCharacterIndex = 0;
     public bool dia = true;
+    public int numDia = 0; // Al llegar al 6 se cambia a la escena final
 
     // Booleanos para aparicion desde otra escena
     private bool fromBosque;
@@ -233,11 +235,9 @@ public class GameManager : MonoBehaviour
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
         DesbloquearEdificio(Edificios.Panaderia);
-       
 
-        //Animator panaderia_anim = edificios[(int)Edificios.Panaderia].GetComponent<Animator>();
-        //panaderia_anim.SetTrigger("panaderia2");
-
+        // Musica de fondo
+        BG_music.clip = dayMusic[numDia];
 
         // Encontrar referencias a objetos
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
@@ -275,6 +275,11 @@ public class GameManager : MonoBehaviour
             //wallToPanadería.SetActive(true); No hacer esto porque en la escena ya está puesto a true, y como cambiamos de escena se rompe (la referencia se pierde)
             // Poner nueva conversación a Mifa
             mifa.conversationIndex = 3;
+        }
+        if (!dia) 
+        {
+            wallToPanadería = GameObject.Find("WallToPanadería");
+            wallToPanadería.SetActive(false);
         }
         Debug.Log(specialCharacterIndex);
         if (!dia && specialCharacterIndex <= 1) 
@@ -331,6 +336,8 @@ public class GameManager : MonoBehaviour
     }
     void Panadería() 
     {
+        SpawnCustomers spawn = GameObject.Find("Spawner").GetComponent<SpawnCustomers>();
+        spawn.SpawnigSpecial = false;
         if (spawned) // Si ya se ha entrado en la panadería
             customers.SetActive(true);
         else // Primera vez que se entra
@@ -348,7 +355,6 @@ public class GameManager : MonoBehaviour
         satisfacciónAcumulada += suma;
         if (satisfacciónAcumulada >= 10)
         {
-            
             //satisfacciónAcumulada = 0;
             // Enviar señal para spawnear cliente especial
             //customers.GetComponent<SpawnCustomers>().CustomersNumber = 0;
