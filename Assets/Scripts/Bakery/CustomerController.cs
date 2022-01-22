@@ -235,7 +235,7 @@ public class CustomerController : MonoBehaviour
     }
     public void SetSatisfaction(Recipe food)// De momento solo puede estar perfecto o mal
     {
-        if (food.type != command.ToString() && (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
+        if (food.type != command.ToString() || (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
         else if (food.type == command.ToString() && food.Coock.Peek() == 1) { satisfaction = 2; }
         else if (food.type == command.ToString() && food.Coock.Peek() == 2) { satisfaction = 5; }
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;

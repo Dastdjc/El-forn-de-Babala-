@@ -134,12 +134,13 @@ public class BowlController : MonoBehaviour
             {
                 HUDState++;
                 gameObject.GetComponent<FoodBar>().SetBarVisibility(false);
+                player.GetComponent<PlayerMovement>().enabled = true;
             }
-            if(HUDState == 0) 
+            /*if(HUDState == 0) 
             {
                 if (somethingInside == -2) Texto.SetActive(true);
                 player.GetComponent<PlayerMovement>().enabled = true; 
-            }
+            }*/
         }
         if (HUDState == 4 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y < 750)
         {
@@ -176,6 +177,7 @@ public class BowlController : MonoBehaviour
          */
         int[] auxArray = new int[13];
         bool oneUnless = false;
+        //Solo determina la posicion en mi array auxiliar
         foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
         {
             if(itm.amount > 0)oneUnless = true;
@@ -184,14 +186,18 @@ public class BowlController : MonoBehaviour
             while (names[index] != itm.type) { index++; }
             auxArray[index] = itm.amount;
         }
-        foreach (Items itm in GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList)
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList.Count; i++)
         {
+            Items itm = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList[i];
             int index = 0;
             string[] names = { "Harina", "Levadura", "Leche", "Mantequilla", "Azúcar", "Huevos", "Aceite", "Agua", "Limón", "Requesón", "Almendra", "Boniato", "Calabaza" };
             while (names[index] != itm.type) { index++; }
-            if (itm.amount > 0 && itm.amount > IngPerRecipe[selected][index])
-                itm.amount -= IngPerRecipe[selected][index];
-            else itm.amount = 0;
+            if (itm.amount > 0 && itm.amount >= IngPerRecipe[selected][index])
+            {
+                /*itm.amount -= IngPerRecipe[selected][index];
+                Debug.Log(IngPerRecipe[selected][index]);*/
+                Inventory.Instance.SubstractIngrItem(itm, IngPerRecipe[selected][index]);
+            }
         }
         gameObject.GetComponent<FoodBar>().WhatIHaveRefresh();
         gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected);
