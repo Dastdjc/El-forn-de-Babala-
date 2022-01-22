@@ -26118,6 +26118,7 @@ MonoBehaviour:
   - {fileID: 1936802269}
   - {fileID: 1117588816}
   - {fileID: 248442989}
+  dayMusic: []
   fondoDia: {fileID: 559628188}
   fondoNoche: {fileID: 455048247}
   luzDia: {fileID: 128454928}
@@ -68022,6 +68023,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 990527391}
     m_Modifications:
+    - target: {fileID: 170827241, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950707905, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514871549748759602, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7913152445628031466, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
       propertyPath: m_Name
       value: Inventory

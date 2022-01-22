@@ -6,8 +6,10 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
+    //dontdestroy
     public static Inventory Instance;
-    //variables tocando mesa y tocando horno
+
+    //variables tocando mesa y tocando cliente
     public bool touchingTable;
     public bool touchingCustomer;
 
@@ -76,9 +78,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        //para que el inventario se mantenga entre escenas NO FUNCIONA
-        //DontDestroyOnLoad(this.gameObject);
+        Inventory.Instance = this;
 
         for (int i = 0; i < 21; i++)
         {
@@ -102,6 +102,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         touchingTable = false;
         inventoryOpened = false;
         inventoryType = 0;
@@ -247,7 +248,7 @@ public class Inventory : MonoBehaviour
             {
                 MoveInRecetory();
 
-                if (Input.GetKeyDown(KeyCode.F) && touchingTable && recipeItemBySlotList[comiID].amount > 0)
+                if (Input.GetKeyDown(KeyCode.F) && touchingCustomer && recipeItemBySlotList[comiID].amount > 0)
                 {
                     givenRecipe = TakeRecipeItemBySelector();
                     SubstractRecipeItem(givenRecipe, 1);
@@ -357,7 +358,7 @@ public class Inventory : MonoBehaviour
 
             inventory.transform.GetChild(9).GetComponent<AudioSource>().Play();
         }
-        else if (inventoryType == 2 && Input.GetKeyDown(KeyCode.E))
+        else if (inventoryType == 2 && Input.GetKeyDown(KeyCode.Tab))
         {
             inventoryType = 0;
             inventory.transform.GetChild(1).gameObject.SetActive(true);
