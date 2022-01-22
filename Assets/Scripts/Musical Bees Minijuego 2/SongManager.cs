@@ -145,7 +145,7 @@ public class SongManager : MonoBehaviour
         cant_leche.text = leche.ToString();
         cant_requeson.text = requeson.ToString();
         cant_huevos.text = huevos.ToString();
-        if (score >= 96)
+        if (score >= 9600)
            combo.text = "PERFECT SCORE: " + score.ToString();
         combo.text = "Max combo: " + score.ToString();
 

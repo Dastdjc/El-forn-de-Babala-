@@ -128,6 +128,7 @@ public class Timer : MonoBehaviour
         minijuego.hitbox.SetActive(true);
         minijuego.rb.bodyType = RigidbodyType2D.Dynamic;
         minijuego.BGmusic.mute = false;
+        Inventory.Instance.inMinigame = false;
     }
     void MostrarTutorial()
     {

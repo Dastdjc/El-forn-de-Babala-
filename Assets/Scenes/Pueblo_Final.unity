@@ -57256,6 +57256,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1845474887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4640289343430124938, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+  m_PrefabInstance: {fileID: 4640289343959389667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1845474888
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845474887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10874796, y: 0.8022458}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.13, y: 7.92}
+    newSize: {x: 3.18, y: 8.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.430318, y: 1.7041184}
+  m_EdgeRadius: 0
 --- !u!1 &1854242900
 GameObject:
   m_ObjectHideFlags: 0
@@ -70597,6 +70628,18 @@ PrefabInstance:
       propertyPath: animatedText
       value: 
       objectReference: {fileID: 1240521659}
+    - target: {fileID: 4883727699119280273, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.973072
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883727699119280273, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.23050165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883727699119280273, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -26.653
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
 --- !u!224 &4733429257825535653

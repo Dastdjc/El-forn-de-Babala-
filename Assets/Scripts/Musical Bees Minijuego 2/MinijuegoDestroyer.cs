@@ -18,7 +18,6 @@ public class MinijuegoDestroyer : MonoBehaviour
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
         anim_pantallaFinal.SetTrigger("desaparicion");
         Invoke("Salir", 1f);
-
     }
     public void DestroyFallingFruits()
     {
@@ -31,7 +30,6 @@ public class MinijuegoDestroyer : MonoBehaviour
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
         anim_pantallaFinal.SetTrigger("desaparicion");
         Invoke("Salir", 1f);
-
     }
 
     public void DestroyMatchingBerries()
@@ -45,10 +43,10 @@ public class MinijuegoDestroyer : MonoBehaviour
         Animator anim_pantallaFinal = pantallaFinal.GetComponent<Animator>();
         anim_pantallaFinal.SetTrigger("desaparicion");
         Invoke("Salir", 1f);
-
     }
     void Salir()
     {
+        Inventory.Instance.inMinigame = false;
         Destroy(minijuego.currentTask);
         //Destroy(minijuego);
         minijuego.hitbox.SetActive(true);

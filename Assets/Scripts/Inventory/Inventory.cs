@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -75,6 +76,10 @@ public class Inventory : MonoBehaviour
     private Recipe pasteles;
     private Recipe pilotes;
 
+    // Variables para control de poder abrir el inventario
+    private GameObject player;
+    private DialogueManager dm;
+    public bool inMinigame;
 
     private void Awake()
     {
@@ -106,6 +111,8 @@ public class Inventory : MonoBehaviour
             recipeItemBySlotList.Add(null);
         }
     }
+   
+    
 
     // Start is called before the first frame update
     void Start()
@@ -199,21 +206,29 @@ public class Inventory : MonoBehaviour
         pilotes.Coock = new Queue<int>();
         pilotes.Coock.Enqueue(2);
         AddRecipe(pilotes);
+
+        player = GameObject.Find("Dore_player");
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
     private void Update()
     {
-
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
-            //sonido abrir inventario
-            if (!inventory.GetComponent<AudioSource>().enabled)
+            if (dm == null) // Comprobar si se ha destruido el objeto para volver a asignarlo
+                dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+            if (!dm.inConversation && !inMinigame)
             {
-                inventory.GetComponent<AudioSource>().enabled = true;
-            }
-            inventory.GetComponent<AudioSource>().Play();
+                //sonido abrir inventario
+                if (!inventory.GetComponent<AudioSource>().enabled)
+                {
+                    inventory.GetComponent<AudioSource>().enabled = true;
+                }
+                inventory.GetComponent<AudioSource>().Play();
 
-            OpenCloseInventory();
+                OpenCloseInventory();
+            }
         }
 
         //si el inventario está abierto y hay mínimo un item
@@ -491,6 +506,10 @@ public class Inventory : MonoBehaviour
                 inventory.transform.GetChild(5).gameObject.SetActive(false);
             }
         }
+        // Activar/Desactivar jugador
+        if (player == null)
+            player = GameObject.Find("Dore_player");
+        player.SetActive(!inventoryOpened);
     }
 
     //mover por el recetory (comidentario)

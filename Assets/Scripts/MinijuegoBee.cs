@@ -47,6 +47,7 @@ public class MinijuegoBee : MonoBehaviour
                 StartCoroutine(AudioFadeOut.FadeOut(BGmusic, 1f));
                 currentTask = Instantiate(task, camara.transform);
                 rb.bodyType = RigidbodyType2D.Static;
+                Inventory.Instance.inMinigame = true;
             }
         }
 

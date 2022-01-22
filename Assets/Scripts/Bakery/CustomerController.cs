@@ -348,4 +348,18 @@ public class CustomerController : MonoBehaviour
         }
         return;
     }
+    private void OnEnable()
+    {
+        if (state != 0)
+        {
+            parent.GetComponent<Animator>().SetBool("waitting", true);
+        }
+            gmo = GameObject.FindGameObjectWithTag("dialogo");
+            if (gmo != null)
+            {
+                dmcm = gmo.GetComponent<DialogueManagerCM>();
+            }
+
+
+    }
 }

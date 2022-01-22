@@ -70,13 +70,16 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             SetThickness(0f);
         }
 
-        if (Vector2.Distance(player.position, transform.position) <= detectionRange)
-        {
-            closeEnough = true;
-        }
-        else closeEnough = false;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        closeEnough = true;
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        closeEnough = false;
+    }
     void nextConversation() 
     {
         if (conversationIndex == 0) // Acabado dialogo inicial
