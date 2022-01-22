@@ -275,13 +275,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatedText: {fileID: 0}
   voices:
-  - {fileID: 8300000, guid: 312ce2540f2667b4abc7a11cc7e5ab56, type: 3}
-  - {fileID: 8300000, guid: bab5a242c3eada04ba81ef1d8d7758d6, type: 3}
-  - {fileID: 8300000, guid: 4081f67f152a0f14b8ec47abd7effb68, type: 3}
-  - {fileID: 8300000, guid: 1a0e2f135b0b7664a93f9f6f6ece4ee0, type: 3}
+  - {fileID: 8300000, guid: 5431c6f564b8c81408cfda459ef52471, type: 3}
+  - {fileID: 8300000, guid: 577b0d2244086e040acff6a298dc1ae5, type: 3}
+  - {fileID: 8300000, guid: 37ab9aa434142fc45aec7dfdc3d734b4, type: 3}
+  - {fileID: 8300000, guid: aaf17b7de0225d542afd6a8bc9736593, type: 3}
   punctuations:
-  - {fileID: 8300000, guid: 9c02aa88927d03748a3fe8642de753c7, type: 3}
-  - {fileID: 8300000, guid: c9ec38f811b69db45aa9760bda9c40f2, type: 3}
+  - {fileID: 8300000, guid: d8ef08d17324050459c0072704a424f5, type: 3}
+  - {fileID: 8300000, guid: c560d260f4b0f9e4091c696b0f65d17a, type: 3}
   voiceSource: {fileID: 4868660094889606200}
   punctuationSource: {fileID: 5795626147091681707}
   character: SanVicent
