@@ -23,7 +23,7 @@ public class BowlController : MonoBehaviour
     {
         setIngrRecp();
         gameObject.GetComponent<FoodBar>().Initiate();
-        gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected],selected);
+        gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected);
         Texto.GetComponent<TextMeshPro>().text = "Pulsa E para poner ingredientes";
         Texto.SetActive(false);
         //gameObject.GetComponent<FoodBar>().Example.gameObject.SetActive(true);
@@ -125,7 +125,7 @@ public class BowlController : MonoBehaviour
         else if (HUDState == 2 && gameObject.GetComponent<FoodBar>().Example.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y <= 400) 
         {
             HUDState++;
-            gameObject.GetComponent<FoodBar>().SetBarVisibility(true);
+            gameObject.GetComponent<FoodBar>().SetNumbers(IngPerRecipe[selected], selected);
         }
 
         if (touchingPlayer && Input.GetKeyDown(KeyCode.Escape))
@@ -133,7 +133,6 @@ public class BowlController : MonoBehaviour
             if (HUDState == 3) 
             {
                 HUDState++;
-                gameObject.GetComponent<FoodBar>().SetBarVisibility(false);
                 player.GetComponent<PlayerMovement>().enabled = true;
             }
             /*if(HUDState == 0) 
@@ -194,8 +193,6 @@ public class BowlController : MonoBehaviour
             while (names[index] != itm.type) { index++; }
             if (itm.amount > 0 && itm.amount >= IngPerRecipe[selected][index])
             {
-                /*itm.amount -= IngPerRecipe[selected][index];
-                Debug.Log(IngPerRecipe[selected][index]);*/
                 Inventory.Instance.SubstractIngrItem(itm, IngPerRecipe[selected][index]);
             }
         }
