@@ -16,11 +16,11 @@ MonoBehaviour:
   speakerRight: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
   lines:
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Perfecto.<pause=0,5> Pues entonces marchando.
+    text: Perfecto.<pause=0,5> Marchando.
     Emotion: 0
   - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
     text: "Oye noia, me acabo de fijar que tene\xEDs un taller en el pueblo,<pause=0,5>
-      \xBFpero nada mas?"
+      \xBFpero nada m\xE1s?"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: No, la verdad...<pause=0,3> Se fueron todos hace un tiempo.
@@ -37,7 +37,7 @@ MonoBehaviour:
       Era lo mejor."
     Emotion: 1
   - character: {fileID: 11400000, guid: 99f5f019f303a8f4ba6a57ea2bb16217, type: 2}
-    text: Ya veo.<pause=0,5> Asi de espabilada has salido jaja.
+    text: "Ya veo.<pause=0,5> As\xED de espabilada has salido jaja."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: <speed=10>N-no se crea usted,<speed=40> soy muy normal.

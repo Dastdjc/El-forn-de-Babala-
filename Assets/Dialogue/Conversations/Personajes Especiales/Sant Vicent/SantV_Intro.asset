@@ -29,27 +29,33 @@ MonoBehaviour:
     text: "\xBFS-<pause=0,5>e\xF1or es eso verdad?\xBFEs usted un \xE1ngel?"
     Emotion: 0
   - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
-    text: "M\xE1s que un \xE1ngel suelen decir que soy un SAN<pausa=0,2>turr\xF3n."
+    text: "M\xE1s que un \xE1ngel suelen decir que soy un SAN<pause=0,2>turr\xF3n."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: <speed=5>...
     Emotion: 4
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "<speed=36>\xBFBueno y qu\xC9 le trae a Babal\xE0?"
+    text: "<speed=36>\xBFBueno y qu\xE9 le trae a <color=#8d6cd9>Babal\xE0</color>?"
     Emotion: 0
   - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
-    text: "Mi nombre es San Vicent de Ferrer y en mi hospital me han dicho que aqu\xED
-      ten\xE9is buenos pasteles, pero lamentablemente ningun m\xE9dico..."
+    text: Mi nombre es San Vicent de Ferrer.
+    Emotion: 1
+  - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
+    text: "En mi hospital dicen que aqu\xED ten\xE9is buenos pasteles, pero lamentablemente
+      ningun m\xE9dico..."
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "S\xED... es una pena la verdad..."
+    text: "S\xED... Es una pena la verdad..."
     Emotion: 0
   - character: {fileID: 11400000, guid: 4c7fef03567b61542a7b2b5dd006b782, type: 2}
-    text: "Pues hagamos un trato, si es verdad que vuestra cocina es tan buena como
-      dicen, \xA1me quedar\xE9 en el pueblo como buen m\xE9dico que soy!"
+    text: 'Pues hagamos un trato... '
     Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Si es verdad que vuestra cocina es tan buena como dicen, \xA1Me quedar\xE9
+      en el pueblo como buen m\xE9dico que soy!"
+    Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "\xA1Dore es nuestra oportunidad!"
+    text: "\xA1<color=#FE77A2>Dore</color>, es nuestra oportunidad!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xA1Va-<pause=0,5>Vale! Dar\xE9 lo mejor de mi."

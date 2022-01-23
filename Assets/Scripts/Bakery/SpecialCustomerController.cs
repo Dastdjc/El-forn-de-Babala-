@@ -112,11 +112,16 @@ public class SpecialCustomerController : MonoBehaviour
         else if (state == 2)
         {
             if (tochingPlayer && !dm.inConversation)
+            {
                 SetThickness(0.005f);
+                Talk(true);
+            }
+            
             if (!tochingPlayer)
                 SetThickness(0f);
             if (tochingPlayer && Input.GetKeyDown(KeyCode.F) && !dm.inConversation)
             {
+                Talk(false);
                 SetThickness(0f);
                 SetSatisfaction(Inventory.Instance.GetRecipe());
                 if (Inventory.Instance.inventoryOpened)
@@ -195,62 +200,6 @@ public class SpecialCustomerController : MonoBehaviour
                     dm.conversation = conversationInstace;
                     dm.NPC = transform;
                     dm.inConversation = true;
-                    /*switch (satisfaction)
-                    {
-                        case 0:
-                            //Se va a su casa enfadado
-                            //se va por tiempo
-                            if (conversando)
-                            {
-                                dm.index = Random.Range(0, 6);
-                                dm.NPC = transform;
-                                dm.conversation ;
-                                dm.inConversation = true;
-                                conversando = false;
-                            }
-                            GameManager.Instance.SumarSatisfacción(0);
-                            break;
-                        case -3:
-                            //pedido malo
-                            //te has equivocado de ingredientes o es otro plato
-                            if (conversando)
-                            {
-                                dmcm.index = Random.Range(0, 5);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = malo;
-                                dmcm.inConversation = true;
-                                conversando = false;
-                            }
-                            GameManager.Instance.SumarSatisfacción(-3);
-                            break;
-                        case 2:
-                            //pedido medio
-                            //el plato correcto pero no está en el punto del horno
-                            if (conversando)
-                            {
-                                dmcm.index = Random.Range(0, 5);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = medio;
-                                dmcm.inConversation = true;
-                                conversando = false;
-                            }
-                            GameManager.Instance.SumarSatisfacción(2);
-                            break;
-                        case 5:
-                            //pedido bueno
-                            //todo perfecto
-                            if (conversando)
-                            {
-                                dmcm.index = Random.Range(0, 6);
-                                dmcm.NPC = transform;
-                                dmcm.conversation = bueno;
-                                dmcm.inConversation = true;
-                                conversando = false;
-                            }
-                            GameManager.Instance.SumarSatisfacción(5);
-                            break;
-                    }
-                    */
                     walk = 18;
                     state++;
                     break;
@@ -260,6 +209,7 @@ public class SpecialCustomerController : MonoBehaviour
                     {
                         if (!leaving)
                         {
+                            Talk(false);
                             leaving = true;
                             animator.SetBool("Moving", true);
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);

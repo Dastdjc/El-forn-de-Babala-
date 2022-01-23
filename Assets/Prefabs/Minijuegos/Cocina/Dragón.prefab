@@ -773,6 +773,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 2.9700003
       objectReference: {fileID: 0}
+    - target: {fileID: 6708525838215047959, guid: df031cc681124f848887a3d98c74da78, type: 3}
+      propertyPath: m_Size.x
+      value: 7.8871737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708525838215047959, guid: df031cc681124f848887a3d98c74da78, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.9656987
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708525838215047959, guid: df031cc681124f848887a3d98c74da78, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.02000001
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3013306840788382661, guid: df031cc681124f848887a3d98c74da78, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df031cc681124f848887a3d98c74da78, type: 3}

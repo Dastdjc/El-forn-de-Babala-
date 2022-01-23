@@ -7156,7 +7156,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -7587,7 +7587,7 @@ MonoBehaviour:
   m_Color: {r: 0.44716978, g: 1, b: 0.90948373, a: 1}
   m_Intensity: 1.35
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000051be726f
   m_LightCookieSprite: {fileID: 21300000, guid: 02b7aacd89eba894f98655c9ff38a92a, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -12871,8 +12871,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 113071613
-  m_SortingLayer: -2
+  m_SortingLayerID: 1869790801
+  m_SortingLayer: -1
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 0582f19fd578c66448f12af6adbda13e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13206,7 +13206,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -13851,7 +13851,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -15231,7 +15231,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -16082,7 +16082,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -17426,7 +17426,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9875602, b: 0.78679246, a: 1}
   m_Intensity: 0.9
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1dbfd55bd060000000051be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -17496,7 +17496,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -18367,7 +18367,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -18733,7 +18733,7 @@ MonoBehaviour:
   m_Color: {r: 0.44716978, g: 1, b: 0.90948373, a: 1}
   m_Intensity: 1.35
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000fd55bd06
+  m_ApplyToSortingLayers: 00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 21300000, guid: 02b7aacd89eba894f98655c9ff38a92a, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -18798,7 +18798,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -28901,7 +28901,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -29292,7 +29292,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -30293,7 +30293,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -30593,7 +30593,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -30995,7 +30995,7 @@ MonoBehaviour:
   m_Color: {r: 0.44716978, g: 1, b: 0.90948373, a: 1}
   m_Intensity: 0.54
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 73cd072bfd55bd06
+  m_ApplyToSortingLayers: 73cd072bfd55bd0651be726f
   m_LightCookieSprite: {fileID: 21300000, guid: 120b65c678ec2e143816629def74d31b, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -31297,7 +31297,7 @@ MonoBehaviour:
   m_Color: {r: 0.44716978, g: 1, b: 0.90948373, a: 1}
   m_Intensity: 0.93
   m_LightVolumeOpacity: 0.108
-  m_ApplyToSortingLayers: 73cd072bfd55bd06
+  m_ApplyToSortingLayers: 73cd072bfd55bd0651be726f
   m_LightCookieSprite: {fileID: 21300000, guid: 120b65c678ec2e143816629def74d31b, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -31886,7 +31886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48675e4a044b2864288aa0f71d5849eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 3
   customers: {fileID: 0}
   edificios:
   - {fileID: 469065319}
@@ -37285,7 +37285,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -49726,7 +49726,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -50091,7 +50091,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9875602, b: 0.78679246, a: 1}
   m_Intensity: 0.9
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1dbfd55bd060000000051be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -51411,7 +51411,7 @@ MonoBehaviour:
   m_Color: {r: 0.44716978, g: 1, b: 0.90948373, a: 1}
   m_Intensity: 1.35
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000fd55bd06
+  m_ApplyToSortingLayers: 00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 21300000, guid: 120b65c678ec2e143816629def74d31b, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -52137,7 +52137,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9875602, b: 0.78679246, a: 1}
   m_Intensity: 0.89
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1dbfd55bd060000000051be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -59607,9 +59607,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.553
+  m_FalloffIntensity: 0.614
   m_Color: {r: 0.57924527, g: 0.9757764, b: 1, a: 1}
-  m_Intensity: 1.46
+  m_Intensity: 2.3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: fd55bd060000000051be726f
   m_LightCookieSprite: {fileID: 0}
@@ -59627,7 +59627,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 45.38
+  m_ShapeLightFalloffSize: 49.34
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 155.9629, y: -2.3678627, z: 0}
@@ -60123,7 +60123,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9875602, b: 0.78679246, a: 1}
   m_Intensity: 0.9
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1dbfd55bd060000000051be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -60677,7 +60677,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 113071613
   m_SortingLayer: -2
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d65eaa95de528874f8670af0e2512e54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -61523,7 +61523,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -61771,7 +61771,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9875602, b: 0.78679246, a: 1}
   m_Intensity: 0.9
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1dbfd55bd060000000051be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -62076,7 +62076,7 @@ MonoBehaviour:
   m_Color: {r: 0.44716978, g: 1, b: 0.90948373, a: 1}
   m_Intensity: 1.35
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000051be726f
   m_LightCookieSprite: {fileID: 21300000, guid: 02b7aacd89eba894f98655c9ff38a92a, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 3
@@ -68164,7 +68164,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.9236805, b: 0.6264151, a: 1}
   m_Intensity: 0.71
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: b767a1db00000000fd55bd06
+  m_ApplyToSortingLayers: b767a1db00000000fd55bd0651be726f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -69493,7 +69493,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -69620,7 +69620,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
@@ -75121,7 +75121,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.471
   m_Pitch: 1
   Loop: 0
@@ -75800,11 +75800,11 @@ PrefabInstance:
     - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: conversation.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 76731f85deb3d8747b271b5bdcf7d9b9, type: 2}
+      objectReference: {fileID: 11400000, guid: a49d669d97b3bc842b4bd902518c2b96, type: 2}
     - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: conversation.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 76731f85deb3d8747b271b5bdcf7d9b9, type: 2}
+      objectReference: {fileID: 11400000, guid: ea8bce2b08cc05b4292ac746b1fec7ad, type: 2}
     - target: {fileID: 4640289343430124937, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: m_RootOrder
       value: 1
