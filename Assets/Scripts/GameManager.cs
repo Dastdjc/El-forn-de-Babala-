@@ -97,10 +97,11 @@ public class GameManager : MonoBehaviour
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
         // Mifa
-        mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+        //mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
 
         if (SceneManager.GetActiveScene().name == "Pueblo_Final")
         {
+            mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
             panaderia_cam = GameObject.Find("Cam_Anim_panadería").GetComponent<CinemachineVirtualCamera>();
 
             wallToPanadería = GameObject.Find("WallToPanadería");
