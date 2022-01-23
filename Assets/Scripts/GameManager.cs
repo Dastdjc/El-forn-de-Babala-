@@ -212,6 +212,10 @@ public class GameManager : MonoBehaviour
         {
             Pueblo();
         }
+        if (scene.name == "CinematicaFinal")
+        {
+            UpdateGameState(GameState.CinematicaFinal);
+        }
         else if (scene.name == "MarcParallax_Dash") 
         {
             Debug.Log("EnBosque");
@@ -412,6 +416,8 @@ public class GameManager : MonoBehaviour
 
     public void SetUpCinematicaFinal() 
     {
+        BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
+        wallToPanadería = GameObject.Find("WallToPanadería");
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
         mifa.conversationIndex = mifa.conversation.Length-1;
         wallToPanadería.SetActive(false);
