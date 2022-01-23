@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
         if (playing && !finished)
         {
             float t = Time.time - startTime;
-            Debug.Log(t);
+            
 
             string seconds = (t % 60).ToString("f2");
             if (seconds == "30,00")
