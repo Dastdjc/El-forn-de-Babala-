@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviour
         if (numDia >= 4)
             DesbloquearEdificio(Edificios.Hospital);
         if (numDia >= 5)
-            DesbloquearEdificio(Edificios.Hospital);
+            DesbloquearEdificio(Edificios.Cine);
         if (numDia >= 6)
             SceneManager.LoadScene(9);
 

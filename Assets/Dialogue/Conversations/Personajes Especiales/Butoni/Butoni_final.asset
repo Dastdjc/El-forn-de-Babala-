@@ -22,7 +22,7 @@ MonoBehaviour:
     text: "\xA1Si la verdad! \xA1Estaba muy bueno!"
     Emotion: 1
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Dore, no hace falta que te lo diga, \xBFno?"
+    text: "<color=#FE77A2>Dore</color>, no hace falta que te lo diga, \xBFno?"
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "S\xED, s\xED. De hecho ya tengo planeado como convencerla."
@@ -41,7 +41,7 @@ MonoBehaviour:
     text: "P-pero es que no s\xE9 nada de llevar un negocio..."
     Emotion: 3
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Yo tampoco sab\xEDa y m\xEDrame ahora. Te ayudar\xE9 a todo lo que necesitas."
+    text: "Yo tampoco sab\xEDa y m\xEDrame ahora. Te ayudar\xE9 con todo lo que necesites."
     Emotion: 1
   - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
     text: "B-Bueno no s\xE9 \xBFY si decepciono a todos con las pel\xEDculas que
@@ -52,8 +52,8 @@ MonoBehaviour:
       bien.
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Adem\xE1s aqu\xED conseguir\xE1s m\xE1s amigos. En Babal\xE0 todos nos
-      entendemos."
+    text: "Adem\xE1s aqu\xED conseguir\xE1s m\xE1s amigos. En <color=#8d6cd9>Babal\xE0</color>
+      todos nos entendemos."
     Emotion: 0
   - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
     text: "La verdad es que ahora mismo no estoy haciendo nada y me gustar\xEDa hacer
@@ -63,8 +63,8 @@ MonoBehaviour:
     text: Pues entonces venga. No hay mejor oportunidad que esta.
     Emotion: 0
   - character: {fileID: 11400000, guid: d7b2c749fec2f0e469db25f6a0fe282c, type: 2}
-    text: "Si, \xA1lo he decidido! Ma\xF1ana vendr\xE9 aqu\xED y comenzar\xE9 con
-      el cine!"
+    text: "S\xED, \xA1lo he decidido! Ma\xF1ana vendr\xE9 aqu\xED y comenzar\xE9
+      con el cine!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xA1Perfecto! Te ayudar\xE9 a buscar un sitio. "
