@@ -403,6 +403,8 @@ public class GameManager : MonoBehaviour
             customers.GetComponent<SpawnCustomers>().SpawnSpecial(specialCharacterIndex);
             return;
         }
+        else if (satisfacciónAcumulada <= 0)
+            satisfacciónAcumulada = 1;
     }
 
     public void DesbloquearEdificio(Edificios indice) 
