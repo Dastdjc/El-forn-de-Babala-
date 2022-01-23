@@ -84,7 +84,8 @@ public class GameManager : MonoBehaviour
 
         // Crear un singleton de todos los edifcios, de forma que al cambiar de escena no se destruyan
         servicios = GameObject.Find("SERVICIOS");
-        DontDestroyOnLoad(servicios);
+        if (servicios != null)
+            DontDestroyOnLoad(servicios);
 
         // referencia al jugador y sus spawns
         player = GameObject.Find("Dore_player");
@@ -98,11 +99,13 @@ public class GameManager : MonoBehaviour
         // Mifa
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
 
-        panaderia_cam = GameObject.Find("Cam_Anim_panadería").GetComponent<CinemachineVirtualCamera>();
+        if (SceneManager.GetActiveScene().name == "Pueblo_Final")
+        {
+            panaderia_cam = GameObject.Find("Cam_Anim_panadería").GetComponent<CinemachineVirtualCamera>();
 
-        wallToPanadería = GameObject.Find("WallToPanadería");
-        wallToPanadería.SetActive(false);
-
+            wallToPanadería = GameObject.Find("WallToPanadería");
+            wallToPanadería.SetActive(false);
+        }
         // wallToTown is gotten in the Bosque function (when it loads)
 
         // Booleanos
