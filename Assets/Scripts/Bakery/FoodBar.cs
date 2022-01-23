@@ -98,10 +98,12 @@ public class FoodBar : MonoBehaviour
             if (Ingredients[i].activeSelf)
             {
                 if (WhatIHave[i] < WhatINeed[i])
-                    Numbers[i].GetComponent<TextMeshProUGUI>().color = new Color(1, 0, 0); // Red
+                    Numbers[i].GetComponent<TextMeshProUGUI>().text = IngrNames[i] + "\n<color=#ff0000>" + WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString() + "</color>";
                 else
+                {
                     Numbers[i].GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1); // White
-                Numbers[i].GetComponent<TextMeshProUGUI>().text = IngrNames[i] + '\n' + WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
+                    Numbers[i].GetComponent<TextMeshProUGUI>().text = IngrNames[i] + '\n' + WhatIHave[i].ToString() + "/" + WhatINeed[i].ToString();
+                }
                 AreActive++;
                 //-------------------------------//
                 // Posición ingredientes        //
