@@ -245,16 +245,30 @@ public class GameManager : MonoBehaviour
         // Activar edificios y mostrar la panadería
         servicios.SetActive(true);
         DesbloquearEdificio(Edificios.Panaderia);
-        if (numDia >= 1)   
+        if (numDia >= 1)
+        {
             DesbloquearEdificio(Edificios.Gas);
+            maxIndexRecipe = 6;
+        }
         if (numDia >= 2)
+        {
             DesbloquearEdificio(Edificios.Tienda);
+            maxIndexRecipe = 7;
+        }
         if (numDia >= 3)
+        {
             DesbloquearEdificio(Edificios.Escuela);
+            maxIndexRecipe = 8;
+        }
         if (numDia >= 4)
+        {
             DesbloquearEdificio(Edificios.Hospital);
+            maxIndexRecipe = 9;
+        }
         if (numDia >= 5)
+        {
             DesbloquearEdificio(Edificios.Cine);
+        }
         if (numDia >= 6)
             SceneManager.LoadScene(9);
 

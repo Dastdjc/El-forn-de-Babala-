@@ -194,6 +194,8 @@ public class Inventory : MonoBehaviour
         mona.type = "Mona de Pascua";
         mona.Coock = new Queue<int>();
         mona.Coock.Enqueue(2);
+        mona.Coock.Enqueue(2);
+        mona.Coock.Enqueue(2);
         AddRecipe(mona);
 
         pasteles = ScriptableObject.CreateInstance<Recipe>();
