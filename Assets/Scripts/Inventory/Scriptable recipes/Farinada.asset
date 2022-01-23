@@ -12,26 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9478f8cebb4edc409c0ca584b95ab1c, type: 3}
   m_Name: Farinada
   m_EditorClassIdentifier: 
-  recipeType:
-  - Mona de Pascua
-  - Fartons
-  - Bunyols de calabaza
-  - Pilotes de frare
-  - Farinada
-  - Flaons
-  - Coca de llanda
-  - Pasteles de boniato
-  - "Mocador\xE0"
-  - Basura
   type: Farinada
   amount: 1
-  recipeImage: {fileID: 21300000, guid: 80aa10ac257607c488bacc111f60fcdb, type: 3}
-  ingredintsList:
-  - {fileID: 11400000, guid: 2a42ec55549e6c74480fd98ff17426e9, type: 2}
-  - {fileID: 11400000, guid: 1910ca8637e1dbe4cb27e94e3173752a, type: 2}
-  - {fileID: 11400000, guid: a55917beee1ffa647a85efbdc678481e, type: 2}
-  - {fileID: 11400000, guid: f0acf8dec8874d844999e6d8b3668bc6, type: 2}
-  - {fileID: 11400000, guid: 14c749d71cf44334aba9103e38c0b329, type: 2}
-  - {fileID: 11400000, guid: 2a6c7a39e718ec04f87fcaab21558092, type: 2}
-  - {fileID: 11400000, guid: 8f4845dd4e0227b419ec82f3593bc883, type: 2}
-  - {fileID: 11400000, guid: 4c3a400987889da45b14aeebe394eff9, type: 2}
+  recipeImage: {fileID: 21300000, guid: fded317d0b535044da233cd153ada6fa, type: 3}

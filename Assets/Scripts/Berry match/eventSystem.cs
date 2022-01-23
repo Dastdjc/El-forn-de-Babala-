@@ -106,9 +106,9 @@ public class eventSystem : MonoBehaviour
         // Calcular recompensa
         int multiplicador = puntuacion / 150;
         harina = (int)(multiplicador * 8 * Random.Range(0.8f, 1f));
-        levadura = (int)(multiplicador * 3 * Random.Range(0.8f, 1f));
+        levadura = (int)(multiplicador * 4 * Random.Range(0.8f, 1f));
         aceite = (int)(multiplicador * 5 * Random.Range(0.8f, 1f));
-        mantequilla = (int)(multiplicador * 3 * Random.Range(0.8f, 1f));
+        mantequilla = (int)(multiplicador * 4 * Random.Range(0.8f, 1f));
         azucar = (int)(multiplicador * 5 * Random.Range(0.8f, 1f));
 
         // Añadir dentro del inventario

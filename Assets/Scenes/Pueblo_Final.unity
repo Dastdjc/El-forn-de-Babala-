@@ -47701,15 +47701,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211320092}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.82, y: -23.2, z: 1090.4749}
+  m_LocalRotation: {x: -0, y: -0, z: -0.008111826, w: 0.9999671}
+  m_LocalPosition: {x: 7.8200073, y: -23.2, z: 1090.4749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1985009430}
   - {fileID: 601752248}
   m_Father: {fileID: 734962438}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.93}
 --- !u!212 &1211320094
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47768,7 +47768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211320092}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3307b248377acb344ae1fcefc48cd4e5, type: 3}
   m_Name: 
@@ -47789,7 +47789,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211320092}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -76049,7 +76049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171071734608315540, guid: 06cb2a1cbe326c24dad42f07c8320f46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 167.13177
+      value: 169.63177
       objectReference: {fileID: 0}
     - target: {fileID: 5171071734608315540, guid: 06cb2a1cbe326c24dad42f07c8320f46, type: 3}
       propertyPath: m_LocalRotation.w

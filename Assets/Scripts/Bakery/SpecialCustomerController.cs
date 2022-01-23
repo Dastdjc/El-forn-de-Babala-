@@ -82,7 +82,7 @@ public class SpecialCustomerController : MonoBehaviour
         //A medida que avanze y se desbloqueen más recetas el juego ,
         // el segundo número del Range tendrá que ir aumentando
         cdm = GetComponent<CharacterDialogueManager>();
-        command = (Recetas) 1;//(Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe); (Recetas)1
+        command = (Recetas)Random.Range(0, GameManager.Instance.maxIndexRecipe);//(Recetas)cdm.recipeNumber;//Random.Range(0, GameManager.Instance.maxIndexRecipe); (Recetas)1
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);

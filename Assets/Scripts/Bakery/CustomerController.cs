@@ -82,7 +82,7 @@ public class CustomerController : MonoBehaviour
         // el segundo número del Range tendrá que ir aumentando
 
         //command = (Recetas)Random.Range(0, GameManager.Instance.maxIndexRecipe);
-        command = (Recetas)1; //Random.Range(0, GameManager.Instance.maxIndexRecipe);
+        command = (Recetas)Random.Range(0, GameManager.Instance.maxIndexRecipe); //Random.Range(0, GameManager.Instance.maxIndexRecipe);
         //Inicializa sus graficos y los vuelve invisibles
         PrintCommand();
         Talk(false);
