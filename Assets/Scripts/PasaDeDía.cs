@@ -10,6 +10,7 @@ public class PasaDeDía : MonoBehaviour
     public AudioSource BG_music;
     public Animator transition;
     public TextMeshProUGUI text;
+    private bool clicked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,13 @@ public class PasaDeDía : MonoBehaviour
     
     public void endCutscene()
     {
-        text.text = "Día: " + ++GameManager.Instance.numDia;
-        StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
-        ChangeScene(sceneIndex);
+        if (!clicked)
+        {
+            clicked = true;
+            text.text = "Día: " + ++GameManager.Instance.numDia;
+            StartCoroutine(AudioFadeOut.FadeOut(BG_music, 1f));
+            ChangeScene(sceneIndex);
+        }
     }
     public void ChangeScene(int index)
     {

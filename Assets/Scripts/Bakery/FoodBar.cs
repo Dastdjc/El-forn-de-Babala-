@@ -80,7 +80,7 @@ public class FoodBar : MonoBehaviour
     }
     public void WhatIHaveRefresh()
     {
-        WhatIHave = new int[14];
+        WhatIHave = new int[13];
         for(int i = 0; i < GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList.Count; i++)
         {
             Items itm = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().ingrList[i];

@@ -71,7 +71,7 @@ public class BowlController : MonoBehaviour
                     StartCoroutine(AudioFadeOut.FadeIn(BGMusic, 2f));
 
                     gameObject.GetComponent<Animator>().SetTrigger("ToIdle");
-                    PassToInv(somethingInside);
+                    PassToInv(somethingInside, coockState);
                     somethingInside = -2;
                     coockState = -1;
                 }
@@ -150,13 +150,14 @@ public class BowlController : MonoBehaviour
             HUDState = 0;
         }
     }
-    private void PassToInv(int index)
+    private void PassToInv(int index, int state)
     {
         string[] names = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà" };
         Recipe aux = ScriptableObject.CreateInstance<Recipe>();
         aux.amount = 1;
         aux.Coock = new Queue<int>();
-        aux.Coock.Enqueue(coockState);
+        aux.Coock.Enqueue(state);
+        Debug.Log("Enqueing n: " + state);
         if (index != -1)aux.type = names[index];
         else aux.type = "Basura";
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddRecipe(aux);

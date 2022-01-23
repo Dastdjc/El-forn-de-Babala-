@@ -128,8 +128,42 @@ public class Inventory : MonoBehaviour
         harina.amount = 5;
         harina.type = "Harina";
         AddIngrItem(harina);
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Levadura";
+        AddIngrItem(harina);
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Azúcar";
+        AddIngrItem(harina);
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Agua";
+        AddIngrItem(harina);
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Huevos";
+        AddIngrItem(harina);
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Aceite";
+        AddIngrItem(harina);
+        AddIngrItem(harina); 
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Calabaza";
+        AddIngrItem(harina);
+        AddIngrItem(harina); 
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Leche";
+        AddIngrItem(harina);
+        harina = ScriptableObject.CreateInstance<Items>();
+        harina.amount = 5;
+        harina.type = "Limón";
+        AddIngrItem(harina);
 
-       
+
         fartons = ScriptableObject.CreateInstance<Recipe>();
         fartons.amount = 0;
         fartons.type = "Fartons";
@@ -193,9 +227,9 @@ public class Inventory : MonoBehaviour
         mona.amount = 3;
         mona.type = "Mona de Pascua";
         mona.Coock = new Queue<int>();
-        mona.Coock.Enqueue(2);
-        mona.Coock.Enqueue(2);
-        mona.Coock.Enqueue(2);
+        mona.Coock.Enqueue(1);
+        mona.Coock.Enqueue(1);
+        mona.Coock.Enqueue(1);
         AddRecipe(mona);
 
         pasteles = ScriptableObject.CreateInstance<Recipe>();

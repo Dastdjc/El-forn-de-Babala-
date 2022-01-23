@@ -32,6 +32,7 @@ public class CustomerController : MonoBehaviour
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
 
     public GameObject[] sprites;
+    string[] nombreRecetas = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca", "Pasteles de boniato", "Mocadorà"};
     enum Recetas
     {
         Mona = 0,
@@ -141,7 +142,7 @@ public class CustomerController : MonoBehaviour
                 //Espera a que le des su comida
                 //case 1
                 case 2:
-                    timer += 0.001f;
+                    timer += Time.deltaTime * 0.03f;
                     
                     Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
                     image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
@@ -235,9 +236,9 @@ public class CustomerController : MonoBehaviour
     }
     public void SetSatisfaction(Recipe food)// De momento solo puede estar perfecto o mal
     {
-        if (food.type != command.ToString() || (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
-        else if (food.type == command.ToString() && food.Coock.Peek() == 1) { satisfaction = 2; }
-        else if (food.type == command.ToString() && food.Coock.Peek() == 2) { satisfaction = 5; }
+        if (food.type != nombreRecetas[(int)command] || (food.Coock.Peek() == 3 || food.Coock.Peek() == 0)) { satisfaction = -3; }
+        else if (food.type == nombreRecetas[(int)command] && food.Coock.Peek() == 1) { satisfaction = 2; }
+        else if (food.type == nombreRecetas[(int)command] && food.Coock.Peek() == 2) { satisfaction = 5; }
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().touchingCustomer = false;
         conversando = true;
         food.Coock.Dequeue();
