@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     {
         //TextPro.text = conversation.lines[0].text;
         TextPro.onDialogueFinish.AddListener(canSkip);
-        dialogueBox.SetActive(false);
+        dialogueBox.SetActive(true);
     }
 
     // Update is called once per frame

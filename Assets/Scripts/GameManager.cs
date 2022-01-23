@@ -246,19 +246,31 @@ public class GameManager : MonoBehaviour
         if (numDia >= 4)
             DesbloquearEdificio(Edificios.Hospital);
         if (numDia >= 5)
+            DesbloquearEdificio(Edificios.Hospital);
+        if (numDia >= 6)
             SceneManager.LoadScene(9);
 
         // Musica de fondo
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
-        BG_music.clip = dayMusic[numDia];
+        BG_music.clip = dayMusic[Mathf.Clamp(numDia, 0, 5)];
 
         // Encontrar referencias a objetos
         mifa = GameObject.Find("mifa").GetComponent<MifaCharacterDialogueManager>();
+
+
+        // Eliminar los servicios que no sean reales
+        foreach (GameObject servicio in GameObject.FindGameObjectsWithTag("servicios")) 
+        {
+            if (servicio != servicios)
+                Destroy(servicio);
+        }
+
         // Desactivar el hitbox que note deja pasar al bosque
         GameObject.Find("InitialCollider").SetActive(false);
 
         // Play BG music
         BG_music = GameObject.Find("BG_Music").GetComponent<AudioSource>();
+        if(dia)
         BG_music.Play();
 
         // Update Spawn position
@@ -298,6 +310,10 @@ public class GameManager : MonoBehaviour
         if (!dia && specialCharacterIndex <= 1) 
         {
             mifa.conversationIndex = 4;
+        }
+        if (!dia && specialCharacterIndex >= 2)
+        {
+            mifa.conversationIndex = 5;
         }
         /*if (!dia) 
         {
@@ -349,11 +365,15 @@ public class GameManager : MonoBehaviour
     }
     void Panadería() 
     {
-        SpawnCustomers spawn = GameObject.Find("Spawner").GetComponent<SpawnCustomers>();
-        spawn.SpawnigSpecial = false;
-        spawn.CustomersNumber = 4;
+
         if (spawned) // Si ya se ha entrado en la panadería
+        {
             customers.SetActive(true);
+            SpawnCustomers spawn = customers.GetComponent<SpawnCustomers>();
+
+            spawn.SpawnigSpecial = false;
+            spawn.CustomersNumber = 4;
+        }
         else // Primera vez que se entra
         {
             Time.timeScale = 1;

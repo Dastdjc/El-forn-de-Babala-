@@ -16,11 +16,12 @@ public class DialogueAudio : MonoBehaviour
     private DialogueManager dm;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //villager = GetComponent<VillagerScript>();
 
         dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        animatedText = GameObject.Find("TMP_Animated (1)").GetComponent<TMP_Animated>();
         animatedText.onTextReveal.AddListener((newChar) => ReproduceSound(newChar));
     }
 

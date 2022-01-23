@@ -88,7 +88,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.Tutorial);
         else if (conversationIndex == conversation.Length-1)
             GameManager.Instance.UpdateGameState(GameManager.GameState.CortarCuerda);
-        if (conversationIndex == 4) // Acaba dialogo de noche
+        if (conversationIndex == 4 || conversationIndex == 5) // Acaba dialogo de noche
         {
             GameManager.Instance.dia = true;
             endCutscene();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // SCRIPT PARA CADA PERSONAJE QUE VAYA A TENER DIALOGO
 public class NormalCharacterDialogueManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class NormalCharacterDialogueManager : MonoBehaviour
     public float detectionRange = 10;
     public DialogueManager dm;
     public GameObject[] sprites;
+    public DialogueAudio audioDialogue;
 
     private bool closeEnough = false;
     private bool spokenTo = false;
@@ -51,6 +53,9 @@ public class NormalCharacterDialogueManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        player = GameObject.Find("Dore_player").transform;
+        audioDialogue.Start();
         closeEnough = true;
     }
     private void OnTriggerExit2D(Collider2D collision)

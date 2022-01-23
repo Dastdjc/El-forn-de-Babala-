@@ -131,10 +131,13 @@ public class Inventory : MonoBehaviour
 
        
         fartons = ScriptableObject.CreateInstance<Recipe>();
-        fartons.amount = 0;
+        fartons.amount = 50;
         fartons.type = "Fartons";
         fartons.Coock = new Queue<int>();
-        fartons.Coock.Enqueue(2);
+        for (int i = 0; i < 50; i++)
+        {
+            fartons.Coock.Enqueue(2);
+        }
         AddRecipe(fartons);
 
         basura = ScriptableObject.CreateInstance<Recipe>();
@@ -179,12 +182,12 @@ public class Inventory : MonoBehaviour
         mocadora.Coock.Enqueue(2);
         AddRecipe(mocadora);
 
-        mona = ScriptableObject.CreateInstance<Recipe>();
+        /*mona = ScriptableObject.CreateInstance<Recipe>();
         mona.amount = 0;
         mona.type = "Mona de Pascua";
         mona.Coock = new Queue<int>();
         mona.Coock.Enqueue(2);
-        AddRecipe(mona);
+        AddRecipe(mona);*/
 
         mona = ScriptableObject.CreateInstance<Recipe>();
         mona.amount = 3;

@@ -7106,6 +7106,7 @@ MonoBehaviour:
   dm: {fileID: 1383090384}
   sprites:
   - {fileID: 5867791552464292883}
+  audioDialogue: {fileID: 0}
 --- !u!1 &323590269
 GameObject:
   m_ObjectHideFlags: 0
@@ -13155,6 +13156,7 @@ MonoBehaviour:
   - {fileID: 1574736439}
   - {fileID: 1574736438}
   - {fileID: 1574736437}
+  audioDialogue: {fileID: 2103087979}
 --- !u!1 &429397001
 GameObject:
   m_ObjectHideFlags: 0
@@ -13550,7 +13552,7 @@ GameObject:
   - component: {fileID: 440418043}
   m_Layer: 0
   m_Name: SERVICIOS
-  m_TagString: Untagged
+  m_TagString: servicios
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48231,6 +48233,7 @@ MonoBehaviour:
   - {fileID: 2016805460}
   - {fileID: 2016805459}
   - {fileID: 2016805458}
+  audioDialogue: {fileID: 686094139}
 --- !u!1 &1233549045
 GameObject:
   m_ObjectHideFlags: 0
@@ -48295,6 +48298,7 @@ MonoBehaviour:
   - {fileID: 237118992}
   - {fileID: 237118991}
   - {fileID: 237118990}
+  audioDialogue: {fileID: 1417315131}
 --- !u!212 &1233549048
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -75288,6 +75292,7 @@ MonoBehaviour:
   dm: {fileID: 1383090384}
   sprites:
   - {fileID: 776351437}
+  audioDialogue: {fileID: 500794569}
 --- !u!1 &2132539694
 GameObject:
   m_ObjectHideFlags: 0
@@ -76267,6 +76272,7 @@ MonoBehaviour:
   - {fileID: 1256226882}
   - {fileID: 1256226881}
   - {fileID: 1256226880}
+  audioDialogue: {fileID: 1911183077}
 --- !u!95 &5867791552242354404
 Animator:
   serializedVersion: 3
@@ -76427,6 +76433,7 @@ MonoBehaviour:
   - {fileID: 431472641}
   - {fileID: 431472640}
   - {fileID: 431472639}
+  audioDialogue: {fileID: 322999707}
 --- !u!61 &5867791552464292885
 BoxCollider2D:
   m_ObjectHideFlags: 0

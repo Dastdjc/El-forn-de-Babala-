@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
+  m_Name: MifaPueblo_segundaNoche
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "<size=45>\xA1Otro d\xEDa genial! "
+    Emotion: 1
+  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
+    text: "Cada vez me siento mejor<speed=10>...<speed=40><pause = 1> \xA1Y me encanta
+      que lo hagamos juntas!"
+    Emotion: 4
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "A mi tambi\xE9n Dore, en nada tendremos el pueblo rebosando de vida otra
+      vez."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Ahora, a descansar, que ma\xF1ana se vendr\xE1 alguien jeje."
+    Emotion: 0
+  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
+    text: "Otra vez el c\xF3digo vavava diselo a pitarcus: BB"
+    Emotion: 5
