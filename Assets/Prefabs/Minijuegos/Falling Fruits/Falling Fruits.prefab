@@ -2293,7 +2293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463271242804a0548a72800d67a02040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedInterpolate: 0.008
+  speedInterpolate: 0.6
   particulasBien: {fileID: 1500378020736912, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
   particulasAturdir: {fileID: 1248395426657969815, guid: dfb4bba143e6e6b408b118768685ef4f, type: 3}
   calabaza: 0
