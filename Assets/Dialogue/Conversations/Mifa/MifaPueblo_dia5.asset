@@ -10,22 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ff156c294243e2419505a00a06451aa, type: 3}
-  m_Name: MifaPueblo_segundaNoche
+  m_Name: MifaPueblo_dia5
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 0}
   speakerRight: {fileID: 0}
   lines:
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "<size=45>\xA1Otro d\xEDa genial! "
-    Emotion: 1
-  - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Cada vez me siento mejor<speed=10>...<speed=40><pause = 1> \xA1Y me encanta
-      que lo hagamos juntas!"
-    Emotion: 4
-  - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "A mi tambi\xE9n Dore, en nada tendremos el pueblo rebosando de vida otra
-      vez."
+    text: "La butoni est\xE1 llevando el cie...<pause=0,5> \xA1De cine!"
     Emotion: 0
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Ahora, a descansar, que ma\xF1ana se mudar\xE1 alguien a Babal\xE0."
+    text: "Puedes hablar con ella si vas en direcci\xF3n del <color=#30d979>bosque</color>."
     Emotion: 0

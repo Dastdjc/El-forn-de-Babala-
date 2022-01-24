@@ -167,7 +167,7 @@ public class SpecialCustomerController : MonoBehaviour
                 case 2:
                     if (!dm.inConversation)
                     {
-                        timer += 0.001f;
+                        timer += Time.deltaTime * 0.03f;
 
                         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
                         image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);

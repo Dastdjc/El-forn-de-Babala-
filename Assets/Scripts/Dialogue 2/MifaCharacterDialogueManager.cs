@@ -93,7 +93,7 @@ public class MifaCharacterDialogueManager : MonoBehaviour
             GameManager.Instance.dia = true;
             endCutscene();
         }
-        if (conversationIndex!= 2 && conversationIndex != 3)
+        if (conversationIndex!= 2 && conversationIndex != 3 && !(conversationIndex >=6 && conversationIndex <= 10))
             conversationIndex++;
     }
 

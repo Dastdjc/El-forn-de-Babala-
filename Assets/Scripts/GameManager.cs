@@ -337,6 +337,16 @@ public class GameManager : MonoBehaviour
         {
             mifa.conversationIndex = 5;
         }
+        if (dia && numDia == 1)
+            mifa.conversationIndex = 6;
+        if (dia && numDia == 2)
+            mifa.conversationIndex = 7;
+        if (dia && numDia == 3)
+            mifa.conversationIndex = 8;
+        if (dia && numDia == 4)
+            mifa.conversationIndex = 9;
+        if (dia && numDia == 5)
+            mifa.conversationIndex = 10;
         /*if (!dia) 
         {
             fondoDia.SetActive(false);

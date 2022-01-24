@@ -75795,7 +75795,7 @@ PrefabInstance:
       objectReference: {fileID: 1127097274}
     - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: conversation.Array.size
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: conversation.Array.data[5]
@@ -75803,6 +75803,26 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a49d669d97b3bc842b4bd902518c2b96, type: 2}
     - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
       propertyPath: conversation.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: dc67bebbc22a0e94a89800180cdd1a2c, type: 2}
+    - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: conversation.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: e9d1a5dfd861baf4fa5a87f7fc0c9ac9, type: 2}
+    - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: conversation.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 273a0ae2aebfa8341bf9b41c3656eecd, type: 2}
+    - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: conversation.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: d65f94e50ed7a5e43abf53c3f9462d0a, type: 2}
+    - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: conversation.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8213f366422865c40be65806838f5e8c, type: 2}
+    - target: {fileID: 4640289343430124936, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
+      propertyPath: conversation.Array.data[11]
       value: 
       objectReference: {fileID: 11400000, guid: ea8bce2b08cc05b4292ac746b1fec7ad, type: 2}
     - target: {fileID: 4640289343430124937, guid: 1a13367b7f7d54241a12176d30e10ea0, type: 3}
