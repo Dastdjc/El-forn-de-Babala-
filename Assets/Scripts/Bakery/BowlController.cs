@@ -157,8 +157,7 @@ public class BowlController : MonoBehaviour
         aux.amount = 1;
         aux.Coock = new Queue<int>();
         aux.Coock.Enqueue(state);
-        Debug.Log("Enqueing n: " + state);
-        if (index != -1)aux.type = names[index];
+        if (index != -1 && state != 3 && state != 0)aux.type = names[index];
         else aux.type = "Basura";
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddRecipe(aux);
     }

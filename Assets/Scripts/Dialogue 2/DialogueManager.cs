@@ -87,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         nextDialogue = false;
         dialogueCamera.Priority = 1;
         conversationIndex = 0;
+        TextPro.text = "";
         onConversationFinish.Invoke();
     }
     void showDialogue() {

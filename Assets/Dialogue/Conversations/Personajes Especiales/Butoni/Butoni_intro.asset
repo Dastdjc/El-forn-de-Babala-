@@ -38,10 +38,10 @@ MonoBehaviour:
     text: Me recuerda bastante a alguien.
     Emotion: 0
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "\xBFSi? <pause=0,2>\xBFA qui\xE9n?"
+    text: "\xBFS\xED? <pause=0,2>\xBFA qui\xE9n?"
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Pues a quien va a ser,<pause=0,2><size=45> \xA1a t\xED!"
+    text: "Pues a qui\xE9n va a ser,<pause=0,2><size=45> \xA1a t\xED!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "\xBFA m\xED?"
@@ -50,7 +50,7 @@ MonoBehaviour:
     text: "La primera vez que nos conocimos s\xED.<pause=0,2> Eras igual de vergonzosa."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "Pero,<pause=0,2> \xBFno tanto no?"
+    text: "Pero,<pause=0,2> \xBFno tanto, no?"
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: Tartamudeabas mas que esa cliente. Eras muy divertida.
@@ -68,7 +68,7 @@ MonoBehaviour:
     text: "<size=15><speed=50>T\xFA tambi\xE9n me parecistes mona."
     Emotion: 3
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Ay Dore, \xA1muchisimas gracias!"
+    text: "Ay <color=#FE77A2>Dore</color>, \xA1muchisimas gracias!"
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
     text: "Bueno,<pause=0,5> \xBFya ha elegido lo que quiere?"

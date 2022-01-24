@@ -23,7 +23,8 @@ MonoBehaviour:
     text: "<speed=35>Buenos d\xEDas...<speed=40>"
     Emotion: 2
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: Mifa, creo que ha entrado otro de esos clientes especiales.
+    text: <color=#FF805D>Mifa</color>, creo que ha entrado otro de esos clientes
+      especiales.
     Emotion: 0
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "S\xED, eso parece. <pause=0,2> Habr\xE1 que convencerle para que se quede."
@@ -39,11 +40,11 @@ MonoBehaviour:
     text: "<speed=4>Ya,<speed=40> pero no s\xE9 ni como lo hice. Fue pura suerte... "
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
-    text: "Bueno pues a ver si la suerte te acompa\xF1a otra vez.<pause=1> Estoy
+    text: "Bueno, pues a ver si la suerte te acompa\xF1a otra vez.<pause=1> Estoy
       segura que s\xED."
     Emotion: 1
   - character: {fileID: 11400000, guid: d0f85944cb56228489c853350641715e, type: 2}
-    text: "No s\xE9 Mifa..."
+    text: "No s\xE9, <color=#FF805D>Mifa</color>..."
     Emotion: 4
   - character: {fileID: 11400000, guid: 5480c8e52bb74f541a91de3d42a131ae, type: 2}
     text: "Yo solo te digo que si me hubieras hablado como le hablaste a Tombatossals
