@@ -20,7 +20,10 @@ public class CharacterDialogueManager : MonoBehaviour
     private Conversation conversationInstace;
     private SpriteRenderer sr;
     private Material material;
-
+    private void OnEnable()
+    {
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+    }
     private void Start()
     {
 

@@ -145,10 +145,15 @@ public class SpecialCustomerController : MonoBehaviour
             }
         }
     }
-    
+    private void OnEnable()
+    {
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        characterAudio.animatedText = GameObject.Find("TMP_Animated (1)").GetComponent<TMP_Animated>();
+    }
     void FixedUpdate()
     {
-        if(Time.timeScale == 1)
+        
+        if (Time.timeScale == 1)
         {
             //if(Instance[0] == this)Debug.Log(state);
             switch (state)
@@ -165,6 +170,7 @@ public class SpecialCustomerController : MonoBehaviour
                 //Espera a que le des su comida
                 //case 1
                 case 2:
+                    
                     if (!dm.inConversation)
                     {
                         timer += Time.deltaTime * 0.03f;
@@ -215,7 +221,7 @@ public class SpecialCustomerController : MonoBehaviour
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                         }
                         if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; animator.SetBool("Moving", true);}
-                        else { spawner.SpawnigSpecial = false; 
+                        else { spawner.SpawnigSpecial = false; spawner.CustomersNumber = 4;
                             GameManager.Instance.SumarSatisfacción(0); Destroy(parent.transform.gameObject); }
                     }
                     break;

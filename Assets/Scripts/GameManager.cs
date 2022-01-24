@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     // clientes
     private bool spawned = false;
+    private int ultimoDiaPanadería = -1;
 
     // Cortar la cuerda final
     private GameObject cuerdaHitBox;
@@ -403,8 +404,11 @@ public class GameManager : MonoBehaviour
             customers.SetActive(true);
             SpawnCustomers spawn = customers.GetComponent<SpawnCustomers>();
 
-            spawn.SpawnigSpecial = false;
-            spawn.CustomersNumber = 4;
+            if (ultimoDiaPanadería != numDia)
+            {
+                spawn.SpawnigSpecial = false;
+                spawn.CustomersNumber = 4;
+            }
         }
         else // Primera vez que se entra
         {
@@ -414,6 +418,7 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = new Vector3(-80, -2, 0);
         fromPanadería = true;
         spawned = true;
+        ultimoDiaPanadería = numDia;
     }
 
     public void SumarSatisfacción(int suma) // O resta si es negativo 
@@ -423,7 +428,8 @@ public class GameManager : MonoBehaviour
         {
             //satisfacciónAcumulada = 0;
             // Enviar señal para spawnear cliente especial
-            //customers.GetComponent<SpawnCustomers>().CustomersNumber = 0;
+            customers.GetComponent<SpawnCustomers>().CustomersNumber = 0;
+            customers.GetComponent<SpawnCustomers>().SpawnigSpecial = true;
             customers.GetComponent<SpawnCustomers>().SpawnSpecial(specialCharacterIndex);
             return;
         }

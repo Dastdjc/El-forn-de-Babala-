@@ -3248,6 +3248,10 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6366606474461706261, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
+      propertyPath: ingrImagesList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: a55917beee1ffa647a85efbdc678481e, type: 2}
     - target: {fileID: 6453212027572273026, guid: 5e56d9af1e2fdc24fb55021597658d6e, type: 3}
       propertyPath: m_Type
       value: 1
