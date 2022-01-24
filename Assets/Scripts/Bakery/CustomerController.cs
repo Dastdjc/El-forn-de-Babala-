@@ -32,7 +32,7 @@ public class CustomerController : MonoBehaviour
     //State == 2 cuando se le ha acabado la paciencia o le has dado lo que quería y se va
 
     public GameObject[] sprites;
-    string[] nombreRecetas = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca", "Pasteles de boniato", "Mocadorà"};
+    string[] nombreRecetas = { "Mona de Pascua", "Fartons", "Farinada", "Bunyols de calabaza", "Pilotes de frare", "Flaons", "Coca de llanda", "Pasteles de boniato", "Mocadorà"};
     enum Recetas
     {
         Mona = 0,
