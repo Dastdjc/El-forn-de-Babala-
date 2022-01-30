@@ -134,7 +134,7 @@ public class SpecialCustomerController : MonoBehaviour
                 SetThickness(0.005f);
             if (!tochingPlayer)
                 SetThickness(0f);
-            if (tochingPlayer && Input.GetKeyDown(KeyCode.E))
+            if (tochingPlayer && Input.GetKeyDown(KeyCode.E) && !dm.inConversation)
             {
                 SetThickness(0f);
                 dm.conversation = cdm.final;
@@ -144,15 +144,7 @@ public class SpecialCustomerController : MonoBehaviour
                 
             }
         }
-    }
-    private void OnEnable()
-    {
-        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        characterAudio.animatedText = GameObject.Find("TMP_Animated (1)").GetComponent<TMP_Animated>();
-    }
-    void FixedUpdate()
-    {
-        
+
         if (Time.timeScale == 1)
         {
             //if(Instance[0] == this)Debug.Log(state);
@@ -160,8 +152,10 @@ public class SpecialCustomerController : MonoBehaviour
             {
                 //Anda a su sitio
                 case 0:
-                    if (walk > 0) { parent.transform.position += new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                    else { state++; animator.SetBool("Moving", false);
+                    if (walk > 0) { parent.transform.position += new Vector3(0.05f, 0, 0); walk -= 0.05f; }
+                    else
+                    {
+                        state++; animator.SetBool("Moving", false);
                         //parent.GetComponent<Animator>().SetBool("waitting",true); 
                     }
                     break;
@@ -170,10 +164,10 @@ public class SpecialCustomerController : MonoBehaviour
                 //Espera a que le des su comida
                 //case 1
                 case 2:
-                    
+
                     if (!dm.inConversation)
                     {
-                        timer += Time.deltaTime * 0.03f;
+                        timer += Time.deltaTime * 0.01f;
 
                         Mask.localScale = new Vector3(timer / TimeWaiting, 0.2f, 1);
                         image.color = new Color(timer / TimeWaiting, 1 - timer / TimeWaiting, 0);
@@ -184,10 +178,10 @@ public class SpecialCustomerController : MonoBehaviour
                         }
                     }
                     break;
-                
+
                 case 3:
                     Conversation conversationInstace = ScriptableObject.CreateInstance("Conversation") as Conversation;
-                    switch (satisfaction) 
+                    switch (satisfaction)
                     {
                         case 0:
                             conversationInstace.lines.Add(cdm.reacciones.lines[0]);
@@ -202,7 +196,7 @@ public class SpecialCustomerController : MonoBehaviour
                             conversationInstace.lines.Add(cdm.reacciones.lines[3]);
                             break;
                     }
-                    
+
                     dm.conversation = conversationInstace;
                     dm.NPC = transform;
                     dm.inConversation = true;
@@ -210,8 +204,8 @@ public class SpecialCustomerController : MonoBehaviour
                     state++;
                     break;
                 case 4:
-                    if (satisfaction == 0 || satisfaction == -3) 
-                        // Se va triste
+                    if (satisfaction == 0 || satisfaction == -3)
+                    // Se va triste
                     {
                         if (!leaving)
                         {
@@ -220,9 +214,12 @@ public class SpecialCustomerController : MonoBehaviour
                             animator.SetBool("Moving", true);
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                         }
-                        if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; animator.SetBool("Moving", true);}
-                        else { spawner.SpawnigSpecial = false; spawner.CustomersNumber = 4;
-                            GameManager.Instance.SumarSatisfacción(0); Destroy(parent.transform.gameObject); }
+                        if (walk > 0) { parent.transform.position -= new Vector3(0.05f, 0, 0); walk -= 0.05f; animator.SetBool("Moving", true); }
+                        else
+                        {
+                            spawner.SpawnigSpecial = false; spawner.CustomersNumber = 4;
+                            GameManager.Instance.SumarSatisfacción(0); Destroy(parent.transform.gameObject);
+                        }
                     }
                     break;
                 case 5:
@@ -235,23 +232,30 @@ public class SpecialCustomerController : MonoBehaviour
                             animator.SetBool("Moving", true);
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
                         }
-                        if (walk > 0) { parent.transform.position -= new Vector3(0.1f, 0, 0); walk -= 0.1f; }
-                        else { 
+                        if (walk > 0) { parent.transform.position -= new Vector3(0.05f, 0, 0); walk -= 0.05f; }
+                        else
+                        {
                             GameManager.Instance.SumarSatisfacción(0);
                             if (satisfaction > 0)
                             {
                                 spawner.CustomersNumber = 0;
                                 GameManager.Instance.specialCharacterIndex++;
                             }
-                            
+
                             Destroy(parent.transform.gameObject);
-                        } 
+                        }
                         GameManager.Instance.dia = false;
                     }
                     break;
             }
         }
     }
+    private void OnEnable()
+    {
+        dm = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        characterAudio.animatedText = GameObject.Find("TMP_Animated (1)").GetComponent<TMP_Animated>();
+    }
+   
     public void PrintCommand()
     {
         gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = command.ToString();
