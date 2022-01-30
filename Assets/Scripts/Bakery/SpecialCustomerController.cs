@@ -20,7 +20,7 @@ public class SpecialCustomerController : MonoBehaviour
     public bool tochingPlayer = false;
     public bool ImSpecial = false;
     public CharacterDialogueManager cdm;
-
+    public float walkSpeed = 0.1f;
     public DialogueAudio characterAudio;
     private SpawnCustomers spawner;
 
@@ -144,7 +144,10 @@ public class SpecialCustomerController : MonoBehaviour
                 
             }
         }
+    }
 
+    private void FixedUpdate()
+    {
         if (Time.timeScale == 1)
         {
             //if(Instance[0] == this)Debug.Log(state);
@@ -152,7 +155,7 @@ public class SpecialCustomerController : MonoBehaviour
             {
                 //Anda a su sitio
                 case 0:
-                    if (walk > 0) { parent.transform.position += new Vector3(0.05f, 0, 0); walk -= 0.05f; }
+                    if (walk > 0) { parent.transform.position += new Vector3(walkSpeed, 0, 0); walk -= walkSpeed; }
                     else
                     {
                         state++; animator.SetBool("Moving", false);
@@ -213,8 +216,9 @@ public class SpecialCustomerController : MonoBehaviour
                             leaving = true;
                             animator.SetBool("Moving", true);
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
+                            SpawnCustomers.specialSpawned = false;
                         }
-                        if (walk > 0) { parent.transform.position -= new Vector3(0.05f, 0, 0); walk -= 0.05f; animator.SetBool("Moving", true); }
+                        if (walk > 0) { parent.transform.position -= new Vector3(walkSpeed, 0, 0); walk -= walkSpeed; animator.SetBool("Moving", true); }
                         else
                         {
                             spawner.SpawnigSpecial = false; spawner.CustomersNumber = 4;
@@ -231,8 +235,9 @@ public class SpecialCustomerController : MonoBehaviour
                             leaving = true;
                             animator.SetBool("Moving", true);
                             parent.transform.localScale = new Vector3(-parent.transform.localScale.x, parent.transform.localScale.y, 1f);
+                            SpawnCustomers.specialSpawned = false;
                         }
-                        if (walk > 0) { parent.transform.position -= new Vector3(0.05f, 0, 0); walk -= 0.05f; }
+                        if (walk > 0) { parent.transform.position -= new Vector3(walkSpeed, 0, 0); walk -= walkSpeed; }
                         else
                         {
                             GameManager.Instance.SumarSatisfacción(0);
@@ -244,6 +249,7 @@ public class SpecialCustomerController : MonoBehaviour
 
                             Destroy(parent.transform.gameObject);
                         }
+                        SpawnCustomers.specialSpawned = false;
                         GameManager.Instance.dia = false;
                     }
                     break;

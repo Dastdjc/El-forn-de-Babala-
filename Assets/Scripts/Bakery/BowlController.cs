@@ -68,6 +68,7 @@ public class BowlController : MonoBehaviour
                     bowlSound.Stop();
                     sourceResults.clip = audioResults[coockState];
                     sourceResults.Play();
+                    if (!SpawnCustomers.specialSpawned)
                     StartCoroutine(AudioFadeOut.FadeIn(BGMusic, 2f));
 
                     gameObject.GetComponent<Animator>().SetTrigger("ToIdle");

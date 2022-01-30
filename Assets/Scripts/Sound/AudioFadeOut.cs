@@ -24,7 +24,7 @@ public static class AudioFadeOut
         audioSource.Play();
         float startVolume = 0.1f;
         audioSource.volume = startVolume;
-        while (audioSource.volume < 0.9)
+        while (audioSource.volume < lastVol)
         {
             audioSource.volume += 1 * Time.deltaTime / FadeTime;
 
